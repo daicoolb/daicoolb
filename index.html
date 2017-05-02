@@ -27,11 +27,12 @@ css: ['index.css', 'sidebar-popular-repo.css']
                 {% for post in paginator.posts %}
                 <li class="post-list-item">
                     <h2 class="post-list-title">
-                        <a class="hvr-underline-from-center" href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
-                    </h2>
+                    <a class="hvr-underline-from-center" href="{{ site.url }}{{ post.url }}">{{ post.title }}
                     <p class="post-list-meta">
-                        <span class="octicon octicon-calendar"></span> {{ post.date | date: "%Y/%m/%d" }}
+                    <span class="octicon octicon-calendar"></span> {{ post.date | date: "%Y/%m/%d" }}
                     </p>
+                    </a>
+                    </h2>
                 </li>
                 {% endfor %}
             </ol>
