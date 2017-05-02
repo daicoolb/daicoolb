@@ -1,5 +1,9 @@
 /** Only for index.html **/
 
+.post-list-title {
+    font-size: 20px;
+}
+
 .site-header{
     color: #fff;
     background: #4183c4;
