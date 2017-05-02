@@ -52,7 +52,7 @@ paginate_path: 'page:num'
 # Navigation
 navs:
   -
-    href: /daicoolb/
+    href: /
     label: Home
 
   -

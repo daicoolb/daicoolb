@@ -5,8 +5,8 @@
     <description>This is personnel website of Beili</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 02 May 2017 15:06:12 +0800</pubDate>
-    <lastBuildDate>Tue, 02 May 2017 15:06:12 +0800</lastBuildDate>
+    <pubDate>Tue, 02 May 2017 15:19:47 +0800</pubDate>
+    <lastBuildDate>Tue, 02 May 2017 15:19:47 +0800</lastBuildDate>
     <generator>Jekyll v3.4.3</generator>
     
       <item>
