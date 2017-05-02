@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon Icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.png">
+
+    <title>Spring SpEL</title>
+    <meta name="description"
+          content="Quick note after learning Spring SpEL. Code Demo">
+
+    <link rel="canonical" href="http://localhost:4000/spring/2016/02/26/Spring-SpEL.html">
+    <link rel="alternate" type="application/rss+xml" title="I am Chuan !" href="http://localhost:4000/feed.xml">
+
+    <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- Third-Party CSS -->
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bower_components/octicons/octicons/octicons.css">
+    <link rel="stylesheet" href="/bower_components/hover/css/hover-min.css">
+    <link rel="stylesheet" href="/bower_components/primer-markdown/dist/user-content.min.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
+
+    <!-- My CSS -->
+    <link rel="stylesheet" href="/assets/css/common.css">
+
+    <!-- CSS set in page -->
+    
+
+    <!-- CSS set in layout -->
+    
+    <link rel="stylesheet" href="/assets/css/sidebar-post-nav.css">
+    
+
+    <script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+</head>
+
+
+    <body>
+
+    <header class="site-header">
+    <div class="container">
+        <a id="site-header-brand" href="/" title="DONGChuan">
+            <span class="octicon octicon-mark-github"></span> DONGChuan
+        </a>
+        <nav class="site-header-nav" role="navigation">
+            
+            <a href="/"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Home">
+                Home
+            </a>
+            
+            <a href="/open-source"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Open-Source">
+                Open-Source
+            </a>
+            
+            <a href="/blog"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Blog">
+                Blog
+            </a>
+            
+            <a href="/bookmark"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Bookmark">
+                Bookmark
+            </a>
+            
+            <a href="/about"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="About">
+                About
+            </a>
+            
+        </nav>
+    </div>
+</header>
+
+
+        <div class="content">
+            <section class="jumbotron geopattern" data-pattern-id="Spring SpEL">
+    <div class="container">
+        <div id="jumbotron-meta-info">
+            <h1>Spring SpEL</h1>
+            <span class="meta-info">
+                
+                
+                <span class="octicon octicon-calendar"></span> 2016/02/26
+                
+            </span>
+        </div>
+    </div>
+</section>
+<script>
+    $(document).ready(function(){
+
+        $('.geopattern').each(function(){
+            $(this).geopattern($(this).data('pattern-id'));
+        });
+
+    });
+</script>
+<article class="post container" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <div class="row">
+
+        
+        <div class="col-md-8 markdown-body">
+
+            <p>Quick note after learning Spring SpEL. <a href="https://github.com/DONGChuan/SpEL-Demo">Code Demo</a></p>
+
+<p>Spring Expression Language (SpEL), like OGNL, is a powerful expression language that supports querying and manipulating an object graph at runtime.</p>
+
+<p>To use SpEL, we need <strong>org.springframework.spring-expression</strong> jar.</p>
+
+<h2 id="hello-world">Hello World</h2>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">ExpressionParser</span> <span class="n">parser</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SpelExpressionParser</span><span class="o">();</span>
+<span class="n">Expression</span> <span class="n">expression</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="na">parseExpression</span><span class="o">(</span><span class="s">"('Hello' + 'World').concat(#end)"</span><span class="o">);</span>
+
+<span class="c1">// Create a context</span>
+<span class="n">EvaluationContext</span> <span class="n">context</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StandardEvaluationContext</span><span class="o">();</span>
+<span class="n">context</span><span class="o">.</span><span class="na">setVariable</span><span class="o">(</span><span class="s">"end"</span><span class="o">,</span> <span class="s">"!"</span><span class="o">);</span> <span class="c1">// Set variable end with value !</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">expression</span><span class="o">.</span><span class="na">getValue</span><span class="o">(</span><span class="n">context</span><span class="o">));</span> <span class="c1">// HelloWorld!</span>
+
+<span class="c1">// Create another context</span>
+<span class="n">EvaluationContext</span> <span class="n">anotherContext</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StandardEvaluationContext</span><span class="o">();</span>
+<span class="n">context</span><span class="o">.</span><span class="na">setVariable</span><span class="o">(</span><span class="s">"end"</span><span class="o">,</span> <span class="s">"yoyo"</span><span class="o">);</span> <span class="c1">// // Set variable end with value yoyo</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">expression</span><span class="o">.</span><span class="na">getValue</span><span class="o">(</span><span class="n">anotherContext</span><span class="o">));</span> <span class="c1">// HelloWorldyoyo</span></code></pre></figure>
+
+<p>The interface <code>EvaluationContext</code> is used as a context for the expression. The out-of-the-box implementation, StandardEvaluationContext, uses reflection to manipulate the object.</p>
+
+<h2 id="literal-expression">Literal expression</h2>
+
+<p>The types of literal expressions supported are strings, dates, numeric values (int, real, and hex), boolean and null. <strong>Strings are delimited by single quotes</strong>. To put a single quote itself in a string use two single quote characters.</p>
+
+<p>We firstly define a class to test:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SpELLiteral</span> <span class="o">{</span>
+
+	<span class="kd">private</span> <span class="kt">int</span> <span class="n">count</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="n">String</span> <span class="n">message</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="kt">float</span> <span class="n">frequency</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="kt">float</span> <span class="n">capacity</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="n">String</span> <span class="n">name1</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="n">String</span> <span class="n">name2</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="kt">boolean</span> <span class="n">enabled</span><span class="o">;</span>
+
+	<span class="c1">// Setters and getters</span>
+<span class="o">}</span></code></pre></figure>
+
+<p>In conf-spel.xml, we use <code>#{expression}</code> to indicate a SpEL. :</p>
+
+<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">"spELLiteral"</span> <span class="na">class=</span><span class="s">"com.dong.demo.SpELLiteral"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"count"</span> <span class="na">value=</span><span class="s">"#{5}"</span><span class="nt">/&gt;</span>
+	<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"message"</span> <span class="na">value=</span><span class="s">"The value is #{5}"</span><span class="nt">/&gt;</span>
+	<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"frequency"</span> <span class="na">value=</span><span class="s">"#{89.7}"</span><span class="nt">/&gt;</span>
+	<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"capacity"</span> <span class="na">value=</span><span class="s">"#{1e4}"</span><span class="nt">/&gt;</span>
+	<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"name1"</span> <span class="na">value=</span><span class="s">"#{'Chuck'}"</span><span class="nt">/&gt;</span>
+	<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"name2"</span> <span class="na">value=</span><span class="s">'#{"Chuck"}'</span><span class="nt">/&gt;</span>
+	<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"enabled"</span> <span class="na">value=</span><span class="s">"#{false}"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/bean&gt;</span></code></pre></figure>
+
+<p>To test:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">ApplicationContext</span> <span class="n">ctx</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ClassPathXmlApplicationContext</span><span class="o">(</span><span class="s">"conf-spel.xml"</span><span class="o">);</span>
+
+<span class="n">SpELLiteral</span> <span class="n">spelLiteral</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="na">getBean</span><span class="o">(</span><span class="s">"spELLiteral"</span><span class="o">,</span> <span class="n">SpELLiteral</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">spelLiteral</span><span class="o">.</span><span class="na">getCount</span><span class="o">());</span>     <span class="c1">// 5</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">spelLiteral</span><span class="o">.</span><span class="na">getMessage</span><span class="o">());</span>   <span class="c1">// The value is 5</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">spelLiteral</span><span class="o">.</span><span class="na">getFrequency</span><span class="o">());</span> <span class="c1">// 89.7</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">spelLiteral</span><span class="o">.</span><span class="na">getCapacity</span><span class="o">());</span>  <span class="c1">// 10000.0</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">spelLiteral</span><span class="o">.</span><span class="na">getName1</span><span class="o">());</span>     <span class="c1">// Chuck</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">spelLiteral</span><span class="o">.</span><span class="na">getName2</span><span class="o">());</span>     <span class="c1">// Chuck</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">spelLiteral</span><span class="o">.</span><span class="na">isEnabled</span><span class="o">());</span>    <span class="c1">// false</span></code></pre></figure>
+
+<h2 id="variable">Variable</h2>
+
+<p>Like above hello world example. We could use variable by <code>setVariable()</code> function of <code>EvaluationContext</code> which means context for expression. <strong>Variables can be referenced in the expression using the syntax <code>#variableName</code></strong>.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">ExpressionParser</span> <span class="n">parser</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SpelExpressionParser</span><span class="o">();</span>
+<span class="n">Expression</span> <span class="n">expression</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="na">parseExpression</span><span class="o">(</span><span class="s">"Name = #newName"</span><span class="o">);</span>
+<span class="n">EvaluationContext</span> <span class="n">context</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StandardEvaluationContext</span><span class="o">();</span>
+<span class="n">context</span><span class="o">.</span><span class="na">setVariable</span><span class="o">(</span><span class="s">"newName"</span><span class="o">,</span> <span class="s">"dongchuan"</span><span class="o">);</span> <span class="c1">// Set variable newName with value dongchuan</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">expression</span><span class="o">.</span><span class="na">getValue</span><span class="o">(</span><span class="n">context</span><span class="o">));</span> <span class="c1">// Name = dongchuan</span></code></pre></figure>
+
+<h2 id="xml-based-expression">Xml-based Expression</h2>
+
+<p>**SpEL could reference the value of another bean by <code>#{beanID}</code> or <code>#{@beanID}</code>##. And as it’s an expression, we could add some other operations in it:</p>
+
+<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="c">&lt;!-- Creat a string with value ' World!'--&gt;</span>
+<span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">"world"</span> <span class="na">class=</span><span class="s">"java.lang.String"</span> <span class="nt">&gt;</span>
+	<span class="nt">&lt;constructor-arg</span> <span class="na">value=</span><span class="s">"#{' World!'}"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/bean&gt;</span>
+
+<span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">"hello1"</span> <span class="na">class=</span><span class="s">"java.lang.String"</span> <span class="nt">&gt;</span>
+	<span class="nt">&lt;constructor-arg</span> <span class="na">value=</span><span class="s">"#{'Hello'}#{world}"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/bean&gt;</span>
+<span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">"hello2"</span> <span class="na">class=</span><span class="s">"java.lang.String"</span> <span class="nt">&gt;</span>
+	<span class="nt">&lt;constructor-arg</span> <span class="na">value=</span><span class="s">"#{'Hello' + world}"</span> <span class="nt">/&gt;</span>
+	<span class="c">&lt;!-- But the following nested expression not supported --&gt;</span>
+	<span class="c">&lt;!-- constructor-arg value="#{'Hello'#{world}}" /--&gt;</span>
+<span class="nt">&lt;/bean&gt;</span>
+<span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">"hello3"</span> <span class="na">class=</span><span class="s">"java.lang.String"</span> <span class="nt">&gt;</span>
+	<span class="nt">&lt;constructor-arg</span> <span class="na">value=</span><span class="s">"#{'Hello' + @world}"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/bean&gt;</span></code></pre></figure>
+
+<h2 id="annotation-based-expression">Annotation-based Expression</h2>
+
+<p>The <code>@Value</code> annotation can be placed on fields, methods and method/constructor parameters to specify a default value. So we could use SpEL to reference other beans to set default value.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">AnnoExpression</span> <span class="o">{</span>
+
+	<span class="nd">@Value</span><span class="o">(</span><span class="s">"#{'Hello ' + world}"</span><span class="o">)</span>
+	<span class="kd">private</span> <span class="n">String</span> <span class="n">value</span><span class="o">;</span>
+
+	<span class="c1">// We could also put @Value on setXxx() method. They have the same result</span>
+	<span class="c1">// Setters and Getters</span>
+
+<span class="o">}</span></code></pre></figure>
+
+<p>Configuration file conf-spel.xml:</p>
+
+<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="c">&lt;!-- To support annotation --&gt;</span>
+<span class="nt">&lt;context:annotation-config/&gt;</span>
+
+<span class="c">&lt;!-- Creat a string with value ' World!'--&gt;</span>
+<span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">"world"</span> <span class="na">class=</span><span class="s">"java.lang.String"</span> <span class="nt">&gt;</span>
+	<span class="nt">&lt;constructor-arg</span> <span class="na">value=</span><span class="s">"#{' World!'}"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/bean&gt;</span>
+
+<span class="c">&lt;!-- Value set by annotation --&gt;</span>
+<span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">"helloBean1"</span> <span class="na">class=</span><span class="s">"com.dong.demo.AnnoExpression"</span><span class="nt">/&gt;</span>
+<span class="c">&lt;!-- Override annotation value --&gt;</span>
+<span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">"helloBean2"</span> <span class="na">class=</span><span class="s">"com.dong.demo.AnnoExpression"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"value"</span> <span class="na">value=</span><span class="s">"helloBean2"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/bean&gt;</span></code></pre></figure>
+
+<p>To test:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">ApplicationContext</span> <span class="n">ctx</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ClassPathXmlApplicationContext</span><span class="o">(</span><span class="s">"conf-spel.xml"</span><span class="o">);</span>
+
+<span class="n">AnnoExpression</span> <span class="n">helloBean1</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="na">getBean</span><span class="o">(</span><span class="s">"helloBean1"</span><span class="o">,</span> <span class="n">AnnoExpression</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+<span class="n">AnnoExpression</span> <span class="n">helloBean2</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="na">getBean</span><span class="o">(</span><span class="s">"helloBean2"</span><span class="o">,</span> <span class="n">AnnoExpression</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"helloBean1 : "</span> <span class="o">+</span> <span class="n">helloBean1</span><span class="o">.</span><span class="na">getValue</span><span class="o">());</span> <span class="c1">// helloBean1 : Hello World!</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"helloBean2 : "</span> <span class="o">+</span> <span class="n">helloBean2</span><span class="o">.</span><span class="na">getValue</span><span class="o">());</span> <span class="c1">// helloBean2 : helloBean2</span></code></pre></figure>
+
+<h2 id="function-or-constant-in-expressions">Function or constant in expressions</h2>
+
+<p>To invoke static function/constant in expression, we must know its class firstly by <code>T(packagePath)</code>. Then call its function <code>T(packagePath).Staticfunction()</code>. In fact, <strong>the <code>T</code> operator is used to tell SpEL to deal with String inside <code>T{}</code> as class type</strong>.</p>
+
+<blockquote>
+  <p>T() references to types within java.lang do not need to be fully qualified, but all other type references must be.</p>
+</blockquote>
+
+<p><strong>To invoke class function, it’s the same as java language.</strong> If we already have an instance in SpEL, for example <code>#{'HelloWorld'}</code>, here as a <code>String</code> instance ,we could call all the string class function directly like this <code>#{'HelloWorld'.function()}</code></p>
+
+<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">"spELClass"</span> <span class="na">class=</span><span class="s">"com.dong.demo.SpELClass"</span><span class="nt">&gt;</span>
+	<span class="c">&lt;!-- Invoke class function --&gt;</span>
+    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"classFunction"</span> <span class="na">value=</span><span class="s">"#{'HelloWorld'.substring(2, 5)}"</span><span class="nt">/&gt;</span>
+	<span class="c">&lt;!-- Invoke constant --&gt;</span>
+    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"pi"</span> <span class="na">value=</span><span class="s">"#{T(java.lang.Math).PI}"</span><span class="nt">/&gt;</span>
+    <span class="c">&lt;!-- Invoke static function --&gt;</span>
+    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"randomNumber"</span> <span class="na">value=</span><span class="s">"#{T(java.lang.Math).random()}"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/bean&gt;</span></code></pre></figure>
+
+<h2 id="constructor-in-expressions">Constructor in expressions</h2>
+
+<p>We could use <code>new</code> key word directly in SpEL, if class is not in <code>java.lang</code>, we need to specify the full package name:</p>
+
+<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">"spELClass"</span> <span class="na">class=</span><span class="s">"com.dong.demo.SpELConstructor"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"testA"</span> <span class="na">value=</span><span class="s">"#{new String('HelloWorld').substring(2, 5)}"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"testB"</span> <span class="na">value=</span><span class="s">"#{new com.dong.demo.test('HelloWorld').doSomething()}"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/bean&gt;</span></code></pre></figure>
+
+<h2 id="mathematical-operators">Mathematical operators</h2>
+
+<ul>
+  <li>Addition operator can be used on both numbers and strings.</li>
+  <li>Subtraction, multiplication and division can be used only on numbers.</li>
+  <li>Other mathematical operators supported are modulus (%) and exponential power (^).</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">"counter"</span> <span class="na">class=</span><span class="s">"com.dong.demo.SpELCounter"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"total"</span> <span class="na">value=</span><span class="s">"#{100}"</span><span class="nt">/&gt;</span>
+	<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"count"</span> <span class="na">value=</span><span class="s">"#{10}"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/bean&gt;</span>
+
+<span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">"spELMath"</span> <span class="na">class=</span><span class="s">"com.dong.demo.SpELMath"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"addition"</span> <span class="na">value=</span><span class="s">"#{counter.total + 42}"</span><span class="nt">/&gt;</span>
+	<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"multiplication"</span> <span class="na">value=</span><span class="s">"#{2 * T(java.lang.Math).PI * counter.total}"</span><span class="nt">/&gt;</span>
+	<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"division"</span> <span class="na">value=</span><span class="s">"#{counter.total / counter.count}"</span><span class="nt">/&gt;</span>
+	<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"complementation"</span> <span class="na">value=</span><span class="s">"#{counter.total % counter.count}"</span><span class="nt">/&gt;</span>
+	<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"involution"</span> <span class="na">value=</span><span class="s">"#{T(java.lang.Math).PI * counter.total ^ 2}"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/bean&gt;</span></code></pre></figure>
+
+<h2 id="relational-operators">Relational operators</h2>
+
+<p>There are two formats <strong>symbolic</strong> and <strong>textual</strong>. Textual format is suggested because it could avoid problems where the symbols used have special meaning for the document type in which the expression is embedded (eg. in XML).</p>
+
+<ul>
+  <li>lt (&lt;)</li>
+  <li>gt (&gt;)</li>
+  <li>le (&lt;=)</li>
+  <li>ge (&gt;=)</li>
+  <li>eq (==)</li>
+  <li>ne (!=)</li>
+</ul>
+
+<h2 id="logic-operators">Logic operators</h2>
+
+<ul>
+  <li>or</li>
+  <li>and</li>
+  <li>not (!)</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">String</span> <span class="n">expression</span> <span class="o">=</span> <span class="s">"isMember('Tom') and !isMember('Jean')"</span><span class="o">;</span></code></pre></figure>
+
+<h2 id="elvis-operator">Elvis Operator</h2>
+
+<p>The Elvis operator is a shortening of the ternary operator syntax. It could avoid repeating a variable twice.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">name</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">?</span> <span class="n">name</span> <span class="o">:</span> <span class="s">"someValue"</span></code></pre></figure>
+
+<p>Same as:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">name</span> <span class="o">?</span> <span class="o">:</span> <span class="s">"someValue"</span></code></pre></figure>
+
+<h2 id="safe-navigation-operator">Safe Navigation operator</h2>
+
+<p>Sometimes, we need to verify that an object is not null before accessing methods or properties of the object. The safe navigation operator will simply <strong>return null instead of throwing an exception</strong>.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">parser</span><span class="o">.</span><span class="na">parseExpression</span><span class="o">(</span><span class="s">"#person?.name"</span><span class="o">).</span><span class="na">getValue</span><span class="o">();</span> <span class="c1">// Return null</span>
+<span class="n">parser</span><span class="o">.</span><span class="na">parseExpression</span><span class="o">(</span><span class="s">"#person.name"</span><span class="o">).</span><span class="na">getValue</span><span class="o">();</span> <span class="c1">// Throw NullPointerException</span></code></pre></figure>
+
+<h2 id="collection-selection">Collection Selection</h2>
+
+<p><code>collection.?[condition_expression]</code> will <strong>filter collection and return a new collection containing a subset of the original elements match conditions</strong>.</p>
+
+<p>The following example selects from list <code>cities</code> all the cities which has more than 100000 populations:</p>
+
+<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="c">&lt;!-- Create a list of beans --&gt;</span>
+<span class="nt">&lt;util:list</span> <span class="na">id=</span><span class="s">"cities"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;bean</span> <span class="na">class=</span><span class="s">"com.dong.demo.SpELCity"</span> <span class="na">p:name=</span><span class="s">"Chicago"</span> <span class="na">p:state=</span><span class="s">"IL"</span> <span class="na">p:population=</span><span class="s">"2853114"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;bean</span> <span class="na">class=</span><span class="s">"com.dong.demo.SpELCity"</span> <span class="na">p:name=</span><span class="s">"Atlanta"</span> <span class="na">p:state=</span><span class="s">"GA"</span> <span class="na">p:population=</span><span class="s">"537958"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;bean</span> <span class="na">class=</span><span class="s">"com.dong.demo.SpELCity"</span> <span class="na">p:name=</span><span class="s">"Dallas"</span> <span class="na">p:state=</span><span class="s">"TX"</span> <span class="na">p:population=</span><span class="s">"1279910"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;bean</span> <span class="na">class=</span><span class="s">"com.dong.demo.SpELCity"</span> <span class="na">p:name=</span><span class="s">"Houston"</span> <span class="na">p:state=</span><span class="s">"TX"</span> <span class="na">p:population=</span><span class="s">"2242193"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;bean</span> <span class="na">class=</span><span class="s">"com.dong.demo.SpELCity"</span> <span class="na">p:name=</span><span class="s">"Odessa"</span> <span class="na">p:state=</span><span class="s">"TX"</span> <span class="na">p:population=</span><span class="s">"90943"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;bean</span> <span class="na">class=</span><span class="s">"com.dong.demo.SpELCity"</span> <span class="na">p:name=</span><span class="s">"El Paso"</span> <span class="na">p:state=</span><span class="s">"TX"</span> <span class="na">p:population=</span><span class="s">"613190"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;bean</span> <span class="na">class=</span><span class="s">"com.dong.demo.SpELCity"</span> <span class="na">p:name=</span><span class="s">"Jal"</span> <span class="na">p:state=</span><span class="s">"NM"</span> <span class="na">p:population=</span><span class="s">"1996"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;bean</span> <span class="na">class=</span><span class="s">"com.dong.demo.SpELCity"</span> <span class="na">p:name=</span><span class="s">"Las Cruces"</span> <span class="na">p:state=</span><span class="s">"NM"</span> <span class="na">p:population=</span><span class="s">"91865"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/util:list&gt;</span>
+
+<span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">"spELCityList"</span> <span class="na">class=</span><span class="s">"com.dong.demo.SpELCityList"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"bigCities"</span> <span class="na">value=</span><span class="s">"#{cities.?[population gt 100000]}"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/bean&gt;</span></code></pre></figure>
+
+<h2 id="collection-projection">Collection Projection</h2>
+
+<p><code>collection.!condition_expression]</code> will <strong>create a new collection containing a subset which is the value of condition_expression</strong>.</p>
+
+<p>The following example creates a new collection. Each of its item is a string combination of <code>name</code> and <code>state</code> from list <code>cities</code>:</p>
+
+<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="c">&lt;!-- Same list as above example --&gt;</span>
+
+<span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">"spELCityList"</span> <span class="na">class=</span><span class="s">"com.dong.demo.SpELCityList"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"cityNames2"</span> <span class="na">value=</span><span class="s">"#{cities.![name + ', ' + state]}"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/bean&gt;</span></code></pre></figure>
+
+<h2 id="expression-templating">Expression templating</h2>
+
+<p>Expression templates allow a mixing of literal text with one or more evaluation blocks. Each evaluation block is delimited with <code>#{ }</code>.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// Persion is a class has two properties name and height</span>
+<span class="n">Person</span> <span class="n">p1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Persion</span><span class="o">(</span><span class="s">"DONG"</span><span class="o">,</span> <span class="mi">180</span><span class="o">);</span>
+<span class="n">Person</span> <span class="n">p1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Persion</span><span class="o">(</span><span class="s">"Chuan"</span><span class="o">,</span> <span class="mi">190</span><span class="o">);</span>
+
+<span class="n">Expression</span> <span class="n">expr</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="na">parseExpression</span><span class="o">(</span><span class="err">'</span><span class="n">my</span> <span class="n">name</span> <span class="n">is</span> <span class="err">#</span><span class="o">{</span><span class="n">name</span><span class="o">},</span> <span class="n">my</span> <span class="n">height</span> <span class="n">is</span> <span class="err">#</span><span class="o">{</span><span class="n">height</span><span class="o">}</span><span class="err">'</span><span class="o">,</span> <span class="k">new</span> <span class="n">TemplateParserContext</span><span class="o">());</span>
+
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">expr</span><span class="o">.</span><span class="na">getValue</span><span class="o">(</span><span class="n">p1</span><span class="o">));</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">expr</span><span class="o">.</span><span class="na">getValue</span><span class="o">(</span><span class="n">p2</span><span class="o">));</span></code></pre></figure>
+
+<h2 id="ref">Ref</h2>
+
+<ul>
+  <li><a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/expressions.html">SpEL reference</a></li>
+  <li><a href="http://www.jikexueyuan.com/course/1670.html">Spring 表达式语言</a></li>
+</ul>
+
+
+            <!-- Comments -->
+            
+<div class="comments">
+    <div id="disqus_thread"></div>
+    <script>
+        /**
+         * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+         */
+        /*
+         var disqus_config = function () {
+         this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+         this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+         };
+         */
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+
+            s.src = '//httpdongchuangithubio.disqus.com/embed.js';
+
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+
+
+        </div>
+
+        <div class="col-md-4">
+            <h3>Post Directory</h3>
+<div id="post-directory-module">
+<section class="post-directory">
+    <!-- Links that trigger the jumping -->
+    <!-- Added by javascript below -->
+    <dl></dl>
+</section>
+</div>
+
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        $( "article h2" ).each(function( index ) {
+            $(".post-directory dl").append("<dt><a class=\"jumper\" hre=#" +
+                    $(this).attr("id")
+                    + ">"
+                    + $(this).text()
+                    + "</a></dt>");
+
+            var children = $(this).nextUntil("h2", "h3")
+
+            children.each(function( index ) {
+                $(".post-directory dl").append("<dd><a class=\"jumper\" hre=#" +
+                        $(this).attr("id")
+                        + ">"
+                        + "&nbsp;&nbsp;- " + $(this).text()
+                        + "</a></dd>");
+            });
+        });
+
+        var fixmeTop = $('#post-directory-module').offset().top - 100;       // get initial position of the element
+
+        $(window).scroll(function() {                  // assign scroll event listener
+
+            var currentScroll = $(window).scrollTop(); // get current position
+
+            if (currentScroll >= fixmeTop) {           // apply position: fixed if you
+                $('#post-directory-module').css({      // scroll to that element or below it
+                    top: '100px',
+                    position: 'fixed',
+                    width: 'inherit'
+                });
+            } else {                                   // apply position: static
+                $('#post-directory-module').css({      // if you scroll above it
+                    position: 'inherit',
+                    width: 'inherit'
+                });
+            }
+
+        });
+
+        $("a.jumper").on("click", function( e ) {
+
+            e.preventDefault();
+
+            $("body, html").animate({
+                scrollTop: ($( $(this).attr('hre') ).offset().top - 100)
+            }, 600);
+
+        });
+    });
+
+</script>
+        </div>
+        
+
+    </div>
+
+</article>
+
+        </div>
+
+    <footer class="container">
+
+    <div class="site-footer">
+
+        <div class="copyright pull-left">
+            <!-- 请不要更改这一行 方便其他人知道模板的来源 谢谢 -->
+            <!-- Please keep this line to let others know where this theme comes from. Thank you :D -->
+            Power by <a href="https://github.com/DONGChuan/Yummy-Jekyll">Yummy Jekyll</a>
+        </div>
+
+        <a href="https://github.com/DONGChuan" target="_blank" aria-label="view source code">
+            <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+        </a>
+
+        <div class="pull-right">
+            <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+        </div>
+
+    </div>
+
+    <!-- Third-Party JS -->
+    <script type="text/javascript" src="/bower_components/geopattern/js/geopattern.min.js"></script>
+
+    <!-- My JS -->
+    <script type="text/javascript" src="/assets/js/script.js"></script>
+
+    
+
+    
+    <!-- Google Analytics -->
+    <div style="display:none">
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-72165600-1', 'auto');
+            ga('send', 'pageview');
+
+        </script>
+    </div>
+    
+
+</footer>
+
+
+    </body>
+
+</html>

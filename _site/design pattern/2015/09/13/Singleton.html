@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon Icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.png">
+
+    <title>Singleton Pattern</title>
+    <meta name="description"
+          content="Singleton">
+
+    <link rel="canonical" href="http://localhost:4000/design%20pattern/2015/09/13/Singleton.html">
+    <link rel="alternate" type="application/rss+xml" title="I am Chuan !" href="http://localhost:4000/feed.xml">
+
+    <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- Third-Party CSS -->
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bower_components/octicons/octicons/octicons.css">
+    <link rel="stylesheet" href="/bower_components/hover/css/hover-min.css">
+    <link rel="stylesheet" href="/bower_components/primer-markdown/dist/user-content.min.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
+
+    <!-- My CSS -->
+    <link rel="stylesheet" href="/assets/css/common.css">
+
+    <!-- CSS set in page -->
+    
+
+    <!-- CSS set in layout -->
+    
+    <link rel="stylesheet" href="/assets/css/sidebar-post-nav.css">
+    
+
+    <script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+</head>
+
+
+    <body>
+
+    <header class="site-header">
+    <div class="container">
+        <a id="site-header-brand" href="/" title="DONGChuan">
+            <span class="octicon octicon-mark-github"></span> DONGChuan
+        </a>
+        <nav class="site-header-nav" role="navigation">
+            
+            <a href="/"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Home">
+                Home
+            </a>
+            
+            <a href="/open-source"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Open-Source">
+                Open-Source
+            </a>
+            
+            <a href="/blog"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Blog">
+                Blog
+            </a>
+            
+            <a href="/bookmark"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Bookmark">
+                Bookmark
+            </a>
+            
+            <a href="/about"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="About">
+                About
+            </a>
+            
+        </nav>
+    </div>
+</header>
+
+
+        <div class="content">
+            <section class="jumbotron geopattern" data-pattern-id="Singleton Pattern">
+    <div class="container">
+        <div id="jumbotron-meta-info">
+            <h1>Singleton Pattern</h1>
+            <span class="meta-info">
+                
+                
+                <span class="octicon octicon-calendar"></span> 2015/09/13
+                
+            </span>
+        </div>
+    </div>
+</section>
+<script>
+    $(document).ready(function(){
+
+        $('.geopattern').each(function(){
+            $(this).geopattern($(this).data('pattern-id'));
+        });
+
+    });
+</script>
+<article class="post container" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <div class="row">
+
+        
+        <div class="col-md-8 markdown-body">
+
+            <h2 id="singleton">Singleton</h2>
+
+<p>It ensures <strong>only one instance for a class</strong>. More detail, it involves one class which is responsible to instantiate itself, to make sure it creates only one instance and, in the same time, it provides a global point of access to that instance.</p>
+
+<h2 id="different-implementations">Different implementations</h2>
+
+<p>There are different implementations for singleton to solve different problems. They have some common points</p>
+
+<blockquote>
+  <p>Constructor must be private. To ensure that only itself could instantiates itself :P
+A static method which should be a global point of access to get the instance</p>
+</blockquote>
+
+<h3 id="basic">Basic</h3>
+
+<p>The following is the simplest way:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Singleton</span> <span class="o">{</span>  
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="n">instance</span><span class="o">;</span>
+
+    <span class="kd">private</span> <span class="nf">Singleton</span> <span class="o">(){}</span>
+ 
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="nf">getInstance</span><span class="o">()</span> <span class="o">{</span> 
+	    <span class="k">if</span> <span class="o">(</span><span class="n">instance</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>         <span class="c1">// 1</span>
+	        <span class="n">instance</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Singleton</span><span class="o">();</span> <span class="c1">// 2</span>
+	    <span class="o">}</span> 
+	    <span class="k">return</span> <span class="n">instance</span><span class="o">;</span>                <span class="c1">// 3</span>
+    <span class="o">}</span> 
+<span class="o">}</span> </code></pre></figure>
+
+<p>It ensures that only creates a Singleton object. Its constructor is <strong>private</strong>, <code>getInstance ()</code> method creates only one object. <strong>But it is only suitable for single-threaded programs</strong>.</p>
+
+<p>So for multi-thread, ‘synchronized’ key word must be added on <code>getInstance()</code>. If no this key word, <code>getInstance()</code> may return two different instances.</p>
+
+<p>Now let’s suppose two threads concurrently call the <code>getInstance()</code> method in the following order:</p>
+
+<ol>
+  <li>Thread 1 calls <code>getInstance()</code> method and finds instance at // 1 is null.</li>
+  <li>Thread 1 enters <code>if</code> block, but in the implementation of the code line // 2 Thread 2 is preempted.</li>
+  <li>Thread 2 calls <code>getInstance()</code> method and finds instance at // 1 is null.</li>
+  <li>Thread 2 enters <code>if</code> block and creates a new Singleton object.</li>
+  <li>Thread 2 returns reference of instance at // 3.</li>
+  <li>Thread 2 is preempted by Thread 1.</li>
+  <li>Thread 1 starts where it left off and executes // 2, which lead to creation of another instance.</li>
+  <li>Thread 1 returns reference of another instance at // 3.</li>
+</ol>
+
+<p>So <code>getInstance()</code> method creates two different instances. By synchronizing the ‘getInstance()’ method so that in the mean time, only one thread is allowed to execute code. Let’s see the next implementation.</p>
+
+<h3 id="thread-safe">Thread safe</h3>
+
+<p>Now with <code>synchronized</code> key word for thread safety:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Singleton</span> <span class="o">{</span> 
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="n">instance</span><span class="o">;</span>  
+
+    <span class="kd">private</span> <span class="nf">Singleton</span> <span class="o">(){}</span>  
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">synchronized</span> <span class="n">Singleton</span> <span class="nf">getInstance</span><span class="o">()</span> <span class="o">{</span>  
+	    <span class="k">if</span> <span class="o">(</span><span class="n">instance</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>  
+	        <span class="n">instance</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Singleton</span><span class="o">();</span>  
+	    <span class="o">}</span>  
+	    <span class="k">return</span> <span class="n">instance</span><span class="o">;</span>  
+    <span class="o">}</span>  
+<span class="o">}</span> </code></pre></figure>
+
+<p>But we should only use this way when <code>getInstance()</code> is not invoked too many times. Because <code>synchronized</code> consumes a lot of resources.</p>
+
+<h3 id="eager-initialization">Eager initialization</h3>
+
+<p>It will <strong>create an instance when load a class but before it is used by any thread</strong>. So it means, no need to synchronize the <code>getInstance()</code> method, meaning all threads will see the same instance and no (expensive) locking is required. But this implementation will always creates an instance. So it is suggested to use when you are 100% sure an instance will be needed. If not, waste resource for sure.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Singleton</span> <span class="o">{</span> 
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="n">instance</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Singleton</span><span class="o">();</span>  
+
+    <span class="kd">private</span> <span class="nf">Singleton</span> <span class="o">(){}</span>  
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="nf">getInstance</span><span class="o">()</span> <span class="o">{</span>  
+    	<span class="k">return</span> <span class="n">instance</span><span class="o">;</span>  
+    <span class="o">}</span>  
+<span class="o">}</span> </code></pre></figure>
+
+<blockquote>
+  <p>You could also add <code>final</code> keyword on instance which means that the instance cannot be redefined, ensuring that one and only one instance ever exists.</p>
+</blockquote>
+
+<h3 id="double-checked-locking">Double-checked locking</h3>
+
+<p>Let’s see firstly:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="nf">getInstance</span><span class="o">()</span>
+<span class="o">{</span>
+	<span class="k">if</span> <span class="o">(</span><span class="n">instance</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+	    <span class="kd">synchronized</span><span class="o">(</span><span class="n">Singleton</span><span class="o">.</span><span class="na">class</span><span class="o">)</span> <span class="o">{</span>
+	      <span class="n">instance</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Singleton</span><span class="o">();</span> <span class="c1">// 1</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+
+	<span class="k">return</span> <span class="n">instance</span><span class="o">;</span>
+<span class="o">}</span></code></pre></figure>
+
+<p>I think this is reasonable, because we only need to do synchronized at // 1. But it has the same thread problem when two threads concurrently call the <code>getInstance()</code> method. They do the null checking before synchronized. So let’s add another check after <code>synchronized</code>:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="nf">getInstance</span><span class="o">()</span>
+<span class="o">{</span>
+ 	<span class="k">if</span> <span class="o">(</span><span class="n">instance</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+		<span class="kd">synchronized</span><span class="o">(</span><span class="n">Singleton</span><span class="o">.</span><span class="na">class</span><span class="o">)</span> <span class="o">{</span>
+	     	<span class="k">if</span> <span class="o">(</span><span class="n">instance</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> 
+	        	<span class="n">instance</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Singleton</span><span class="o">();</span> 
+   		<span class="o">}</span>
+  	<span class="o">}</span>
+
+  	<span class="k">return</span> <span class="n">instance</span><span class="o">;</span>
+<span class="o">}</span></code></pre></figure>
+
+<p>So it’s why it is called <strong>Double-checked locking</strong>. What’s more, in this way, if the first instance is checked not null, synchronized will be skipped which saves resources. But due to <strong>Java platform memory model</strong> problems. It’s not that stable, please check * <a href="http://www.ibm.com/developerworks/library/j-dcl/">Double-checked locking and the Singleton pattern</a> for more details about this discussion.</p>
+
+<p>Here <code>volatile</code> is suggested to use for jdk &gt; 1.5 for memory problems. Check <a href="http://www.javamex.com/tutorials/synchronization_volatile.shtml">here</a> for more details about this key word.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Singleton</span> <span class="o">{</span> 
+
+    <span class="kd">private</span> <span class="kd">volatile</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="n">singleton</span><span class="o">;</span> 
+
+    <span class="kd">private</span> <span class="nf">Singleton</span> <span class="o">(){}</span> 
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="nf">getSingleton</span><span class="o">()</span> <span class="o">{</span>  
+	    <span class="k">if</span> <span class="o">(</span><span class="n">singleton</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>  
+	        <span class="kd">synchronized</span> <span class="o">(</span><span class="n">Singleton</span><span class="o">.</span><span class="na">class</span><span class="o">)</span> <span class="o">{</span>  
+	        <span class="k">if</span> <span class="o">(</span><span class="n">singleton</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>  
+	            <span class="n">singleton</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Singleton</span><span class="o">();</span>  
+	        <span class="o">}</span>  
+	        <span class="o">}</span>  
+	    <span class="o">}</span>  
+	    <span class="k">return</span> <span class="n">singleton</span><span class="o">;</span>  
+    <span class="o">}</span>  
+<span class="o">}</span> </code></pre></figure>
+
+<h3 id="lazy-initialization-holder-class">Lazy initialization holder class</h3>
+
+<p>To achieve thread-safe simply, we can use static initializer. For example, like <strong>Eager initialization</strong>. But in this way, it will initialize the object when load class, regardless of whether you need it or not.</p>
+
+<p>So we want to load the class without initializing this object. One possible way is to use the class-level internal class, in this class to create an object instance. As a result, it will not create this instance until this class is used, so we have lazy loading and thread-safe in the mean time.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Singleton</span> <span class="o">{</span>
+    
+    <span class="kd">private</span> <span class="nf">Singleton</span><span class="o">(){}</span>
+    
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">SingletonHolder</span><span class="o">{</span>
+        <span class="kd">private</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="n">instance</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Singleton</span><span class="o">();</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="nf">getInstance</span><span class="o">(){</span>
+        <span class="k">return</span> <span class="n">SingletonHolder</span><span class="o">.</span><span class="na">instance</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></figure>
+
+<p>When <code>getInstance()</code> is invoked in the first time. It will load <code>SingletonHolder.instance</code> which leads <code>SingletonHolder</code> class to be initialized. When <code>SingletonHolder</code> is initialized, it will initialize its static field. As it’s a static field, so it will only be initialized one time and thread safe :D</p>
+
+<h3 id="enum">Enum</h3>
+
+<p>It is suggested by Josh Bloch, author of «Effective Java». Due to <code>enum</code>, It can not only avoid the multi-thread synchronization problem, but also automatically supports serialization mechanism and prevent deserialization recreate a new object, also for sure, absolutely prevent multiple instances!</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">enum</span> <span class="n">Singleton</span> <span class="o">{</span>
+
+    <span class="cm">/**
+     * Define an element which means an instance of Singleton
+     */</span>
+    <span class="n">uniqueInstance</span><span class="o">;</span>
+    
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">Singleton</span><span class="o">(){</span>
+        <span class="c1">//ToDo</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></figure>
+
+<p>Let’s see an example:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">enum</span> <span class="n">MySingleton</span> <span class="o">{</span>
+    <span class="n">INSTANCE</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nf">MySingleton</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Here"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></figure>
+
+<p>An <code>enum</code> type is a special type of <code>class</code> type. This enum declaration actually compiles to something like</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="nc">MySingleton</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">final</span> <span class="kd">static</span> <span class="n">MySingleton</span> <span class="n">INSTANCE</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MySingleton</span><span class="o">();</span> 
+<span class="o">}</span></code></pre></figure>
+
+<p>When your code first accesses INSTANCE, the class <code>MySingleton</code> will be loaded and initialized by the JVM. This process initializes the static field above once (lazily).</p>
+
+<p>Test it:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">MySingleton</span><span class="o">.</span><span class="na">INSTANCE</span><span class="o">);</span>
+<span class="o">}</span></code></pre></figure>
+
+<p>Output:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">Here</span>
+<span class="n">INSTANCE</span></code></pre></figure>
+
+<h2 id="ref">Ref</h2>
+
+<ul>
+  <li><a href="https://en.wikipedia.org/wiki/Singleton_pattern">Wiki</a></li>
+  <li><a href="http://www.ibm.com/developerworks/library/j-dcl/">Double-checked locking and the Singleton pattern</a></li>
+  <li><a href="http://www.javamex.com/tutorials/synchronization_volatile.shtml">Volatile</a></li>
+  <li><a href="http://www.cnblogs.com/java-my-life/archive/2012/03/31/2425631.html">单例模式</a></li>
+  <li><a href="http://stackoverflow.com/questions/26285520/implementing-singleton-with-an-enum-in-java">Stackover - Enum for singleton</a></li>
+</ul>
+
+
+
+            <!-- Comments -->
+            
+<div class="comments">
+    <div id="disqus_thread"></div>
+    <script>
+        /**
+         * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+         */
+        /*
+         var disqus_config = function () {
+         this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+         this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+         };
+         */
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+
+            s.src = '//httpdongchuangithubio.disqus.com/embed.js';
+
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+
+
+        </div>
+
+        <div class="col-md-4">
+            <h3>Post Directory</h3>
+<div id="post-directory-module">
+<section class="post-directory">
+    <!-- Links that trigger the jumping -->
+    <!-- Added by javascript below -->
+    <dl></dl>
+</section>
+</div>
+
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        $( "article h2" ).each(function( index ) {
+            $(".post-directory dl").append("<dt><a class=\"jumper\" hre=#" +
+                    $(this).attr("id")
+                    + ">"
+                    + $(this).text()
+                    + "</a></dt>");
+
+            var children = $(this).nextUntil("h2", "h3")
+
+            children.each(function( index ) {
+                $(".post-directory dl").append("<dd><a class=\"jumper\" hre=#" +
+                        $(this).attr("id")
+                        + ">"
+                        + "&nbsp;&nbsp;- " + $(this).text()
+                        + "</a></dd>");
+            });
+        });
+
+        var fixmeTop = $('#post-directory-module').offset().top - 100;       // get initial position of the element
+
+        $(window).scroll(function() {                  // assign scroll event listener
+
+            var currentScroll = $(window).scrollTop(); // get current position
+
+            if (currentScroll >= fixmeTop) {           // apply position: fixed if you
+                $('#post-directory-module').css({      // scroll to that element or below it
+                    top: '100px',
+                    position: 'fixed',
+                    width: 'inherit'
+                });
+            } else {                                   // apply position: static
+                $('#post-directory-module').css({      // if you scroll above it
+                    position: 'inherit',
+                    width: 'inherit'
+                });
+            }
+
+        });
+
+        $("a.jumper").on("click", function( e ) {
+
+            e.preventDefault();
+
+            $("body, html").animate({
+                scrollTop: ($( $(this).attr('hre') ).offset().top - 100)
+            }, 600);
+
+        });
+    });
+
+</script>
+        </div>
+        
+
+    </div>
+
+</article>
+
+        </div>
+
+    <footer class="container">
+
+    <div class="site-footer">
+
+        <div class="copyright pull-left">
+            <!-- 请不要更改这一行 方便其他人知道模板的来源 谢谢 -->
+            <!-- Please keep this line to let others know where this theme comes from. Thank you :D -->
+            Power by <a href="https://github.com/DONGChuan/Yummy-Jekyll">Yummy Jekyll</a>
+        </div>
+
+        <a href="https://github.com/DONGChuan" target="_blank" aria-label="view source code">
+            <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+        </a>
+
+        <div class="pull-right">
+            <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+        </div>
+
+    </div>
+
+    <!-- Third-Party JS -->
+    <script type="text/javascript" src="/bower_components/geopattern/js/geopattern.min.js"></script>
+
+    <!-- My JS -->
+    <script type="text/javascript" src="/assets/js/script.js"></script>
+
+    
+
+    
+    <!-- Google Analytics -->
+    <div style="display:none">
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-72165600-1', 'auto');
+            ga('send', 'pageview');
+
+        </script>
+    </div>
+    
+
+</footer>
+
+
+    </body>
+
+</html>

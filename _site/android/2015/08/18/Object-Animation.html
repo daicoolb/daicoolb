@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon Icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.png">
+
+    <title>Android Object Animator</title>
+    <meta name="description"
+          content="Object Animator">
+
+    <link rel="canonical" href="http://localhost:4000/android/2015/08/18/Object-Animation.html">
+    <link rel="alternate" type="application/rss+xml" title="I am Chuan !" href="http://localhost:4000/feed.xml">
+
+    <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- Third-Party CSS -->
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bower_components/octicons/octicons/octicons.css">
+    <link rel="stylesheet" href="/bower_components/hover/css/hover-min.css">
+    <link rel="stylesheet" href="/bower_components/primer-markdown/dist/user-content.min.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
+
+    <!-- My CSS -->
+    <link rel="stylesheet" href="/assets/css/common.css">
+
+    <!-- CSS set in page -->
+    
+
+    <!-- CSS set in layout -->
+    
+    <link rel="stylesheet" href="/assets/css/sidebar-post-nav.css">
+    
+
+    <script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+</head>
+
+
+    <body>
+
+    <header class="site-header">
+    <div class="container">
+        <a id="site-header-brand" href="/" title="DONGChuan">
+            <span class="octicon octicon-mark-github"></span> DONGChuan
+        </a>
+        <nav class="site-header-nav" role="navigation">
+            
+            <a href="/"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Home">
+                Home
+            </a>
+            
+            <a href="/open-source"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Open-Source">
+                Open-Source
+            </a>
+            
+            <a href="/blog"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Blog">
+                Blog
+            </a>
+            
+            <a href="/bookmark"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Bookmark">
+                Bookmark
+            </a>
+            
+            <a href="/about"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="About">
+                About
+            </a>
+            
+        </nav>
+    </div>
+</header>
+
+
+        <div class="content">
+            <section class="jumbotron geopattern" data-pattern-id="Android Object Animator">
+    <div class="container">
+        <div id="jumbotron-meta-info">
+            <h1>Android Object Animator</h1>
+            <span class="meta-info">
+                
+                
+                <span class="octicon octicon-calendar"></span> 2015/08/18
+                
+            </span>
+        </div>
+    </div>
+</section>
+<script>
+    $(document).ready(function(){
+
+        $('.geopattern').each(function(){
+            $(this).geopattern($(this).data('pattern-id'));
+        });
+
+    });
+</script>
+<article class="post container" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <div class="row">
+
+        
+        <div class="col-md-8 markdown-body">
+
+            <h2 id="object-animator">Object Animator</h2>
+
+<h3 id="why-use-animator-instead-of-animation">Why use Animator instead of Animation?</h3>
+
+<p>Animator is for <strong>Interactive animation</strong>. In general, we use animation like this:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">TranslateAnimation</span> <span class="n">animation</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TranslateAnimation</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">200</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span> <span class="c1">// Change x from 0 to 200 </span>
+<span class="n">animation</span><span class="o">.</span><span class="na">setDuration</span><span class="o">(</span><span class="mi">1000</span><span class="o">);</span> 
+<span class="n">animation</span><span class="o">.</span><span class="na">setFillAfter</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span> <span class="c1">// View will stay in the position where animation finished. Not return back </span>
+<span class="n">imageView</span><span class="o">.</span><span class="na">startAnimation</span><span class="o">(</span><span class="n">animation</span><span class="o">);</span></code></pre></figure>
+
+<p>But here if we add an onClick listener. We will find, clicking on the new location where the view is located currently doesn’t work! But clicking on the previous location works?!</p>
+
+<p>It is because Animation only <strong>redraws</strong> UI. But the response location won’t change. So it’s not fit with interactive animation.</p>
+
+<p>So to make better interactive animation, we have now two animators after 3.0:</p>
+
+<h4 id="valueanimator">ValueAnimator</h4>
+
+<p>It provides a simple timing engine for running animations which calculate animated values and set them on target objects. <strong>ValueAnimator itself does not act on any of properties nor provide any animation</strong>. It is just a single timing pulse that all animations use (We could also use it for other things). It runs in a custom handler to ensure that property changes happen on the UI thread.</p>
+
+<p>By default, ValueAnimator uses non-linear time interpolation, via the AccelerateDecelerateInterpolator class, which accelerates into and decelerates out of an animation. This behavior can be changed by calling setInterpolator(TimeInterpolator).</p>
+
+<h4 id="objectanimator">ObjectAnimator</h4>
+
+<p>To animate a property of target object. <strong>It needs Get/Set functions for this property</strong>. More details, this subclass of ValueAnimator provides support for animating properties on target objects. The constructors of this class take parameters to define the target object that will be animated as well as the name of the property that will be animated. Appropriate set/get functions are then determined internally and the animation will call these functions as necessary to animate the property.</p>
+
+<h3 id="how-to-use-objectanimator">How to use ObjectAnimator</h3>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">ImageView</span> <span class="n">im</span> <span class="o">=</span> <span class="o">(</span><span class="n">ImageView</span><span class="o">)</span> <span class="n">findViewById</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">iamge</span><span class="o">);</span>
+
+<span class="c1">// First parameter is the view to be animated. Second parameter is the name of property</span>
+<span class="n">ObjectAnimator</span><span class="o">.</span><span class="na">ofFloat</span><span class="o">(</span><span class="n">im</span><span class="o">,</span> <span class="s">"translationX"</span><span class="o">,</span> <span class="mi">0</span><span class="n">F</span><span class="o">,</span> <span class="mi">200</span><span class="n">F</span><span class="o">).</span><span class="na">setDuration</span><span class="o">(</span><span class="mi">1000</span><span class="o">).</span><span class="na">start</span><span class="o">();</span> 
+<span class="n">ObjectAnimator</span><span class="o">.</span><span class="na">ofFloat</span><span class="o">(</span><span class="n">im</span><span class="o">,</span> <span class="s">"translationY"</span><span class="o">,</span> <span class="mi">0</span><span class="n">f</span><span class="o">,</span> <span class="mi">200</span><span class="n">f</span><span class="o">).</span><span class="na">setDuration</span><span class="o">(</span><span class="mi">1000</span><span class="o">).</span><span class="na">start</span><span class="o">();</span>
+
+<span class="n">ObjectAnimator</span><span class="o">.</span><span class="na">ofFloat</span><span class="o">(</span><span class="n">im</span><span class="o">,</span> <span class="s">"X"</span><span class="o">,</span> <span class="mi">0</span><span class="n">f</span><span class="o">,</span> <span class="mi">200</span><span class="n">f</span><span class="o">).</span><span class="na">setDuration</span><span class="o">(</span><span class="mi">1000</span><span class="o">).</span><span class="na">start</span><span class="o">();</span> 
+<span class="n">ObjectAnimator</span><span class="o">.</span><span class="na">ofFloat</span><span class="o">(</span><span class="n">im</span><span class="o">,</span> <span class="s">"Y"</span><span class="o">,</span> <span class="mi">0</span><span class="n">f</span><span class="o">,</span> <span class="mi">200</span><span class="n">f</span><span class="o">).</span><span class="na">setDuration</span><span class="o">(</span><span class="mi">1000</span><span class="o">).</span><span class="na">start</span><span class="o">();</span>
+
+<span class="n">ObjectAnimator</span><span class="o">.</span><span class="na">ofFloat</span><span class="o">(</span><span class="n">im</span><span class="o">,</span> <span class="s">"rotation"</span><span class="o">,</span> <span class="mi">0</span><span class="n">f</span><span class="o">,</span> <span class="mi">360</span><span class="n">f</span><span class="o">).</span><span class="na">setDuration</span><span class="o">(</span><span class="mi">1000</span><span class="o">).</span><span class="na">start</span><span class="o">();</span></code></pre></figure>
+
+<p>But we will see here, <strong>all actions run in the mean time beacasue start() is asynchronous</strong>. So here we could use PropertyValuesHolder and AnimatorSet to control animators to run.</p>
+
+<h3 id="propertyvaluesholder">PropertyValuesHolder</h3>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">PropertyValuesHolder</span> <span class="n">p1</span> <span class="o">=</span> <span class="n">PropertyValuesHolder</span><span class="o">.</span><span class="na">ofFloat</span><span class="o">(</span><span class="s">"translationX"</span><span class="o">,</span> <span class="mi">0</span><span class="n">F</span><span class="o">,</span> <span class="mi">200</span><span class="n">F</span><span class="o">);</span> 
+<span class="n">PropertyValuesHolder</span> <span class="n">p2</span> <span class="o">=</span> <span class="n">PropertyValuesHolder</span><span class="o">.</span><span class="na">ofFloat</span><span class="o">(</span><span class="s">"translationY"</span><span class="o">,</span> <span class="mi">0</span><span class="n">F</span><span class="o">,</span> <span class="mi">200</span><span class="n">F</span><span class="o">);</span> 
+<span class="n">PropertyValuesHolder</span> <span class="n">p3</span> <span class="o">=</span> <span class="n">PropertyValuesHolder</span><span class="o">.</span><span class="na">ofFloat</span><span class="o">(</span><span class="s">"rotation"</span><span class="o">,</span> <span class="mi">0</span><span class="n">F</span><span class="o">,</span> <span class="mi">360</span><span class="n">F</span><span class="o">);</span> 
+
+<span class="c1">// Run all the property values together </span>
+<span class="n">ObjectAnimator</span><span class="o">.</span><span class="na">ofPropertyValuesHolder</span><span class="o">(</span><span class="n">im</span><span class="o">,</span> <span class="n">p1</span><span class="o">,</span> <span class="n">p2</span><span class="o">,</span> <span class="n">p3</span><span class="o">).</span><span class="na">setDuration</span><span class="o">(</span><span class="mi">1000</span><span class="o">).</span><span class="na">start</span><span class="o">();</span></code></pre></figure>
+
+<h3 id="animatorset">AnimatorSet</h3>
+
+<p>AnimatorSet is more powful:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">AnimatorSet</span> <span class="n">set</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AnimatorSet</span><span class="o">();</span> 
+<span class="n">Animator</span> <span class="n">animator1</span> <span class="o">=</span> <span class="n">ObjectAnimator</span><span class="o">.</span><span class="na">ofFloat</span><span class="o">(</span><span class="n">im</span><span class="o">,</span> <span class="s">"translationX"</span><span class="o">,</span> <span class="mi">0</span><span class="n">F</span><span class="o">,</span> <span class="mi">200</span><span class="n">F</span><span class="o">);</span> 
+<span class="n">Animator</span> <span class="n">animator2</span> <span class="o">=</span> <span class="n">ObjectAnimator</span><span class="o">.</span><span class="na">ofFloat</span><span class="o">(</span><span class="n">im</span><span class="o">,</span> <span class="s">"translationY"</span><span class="o">,</span> <span class="mi">0</span><span class="n">f</span><span class="o">,</span> <span class="mi">200</span><span class="n">f</span><span class="o">);</span> 
+<span class="n">Animator</span> <span class="n">animator3</span> <span class="o">=</span> <span class="n">ObjectAnimator</span><span class="o">.</span><span class="na">ofFloat</span><span class="o">(</span><span class="n">im</span><span class="o">,</span> <span class="s">"rotation"</span><span class="o">,</span> <span class="mi">0</span><span class="n">f</span><span class="o">,</span> <span class="mi">360</span><span class="n">f</span><span class="o">);</span>
+
+<span class="c1">// Run actions together</span>
+<span class="n">set</span><span class="o">.</span><span class="na">playTogether</span><span class="o">(</span><span class="n">animator1</span><span class="o">,</span> <span class="n">animator2</span><span class="o">,</span> <span class="n">animator3</span><span class="o">).</span><span class="na">setDuration</span><span class="o">(</span><span class="mi">1000</span><span class="o">).</span><span class="na">start</span><span class="o">();</span>
+
+<span class="c1">// Run actions one by one</span>
+<span class="n">set</span><span class="o">.</span><span class="na">playSequentially</span><span class="o">(</span><span class="n">animator1</span><span class="o">,</span><span class="n">animator2</span><span class="o">,</span><span class="n">animator3</span><span class="o">).</span><span class="na">setDuration</span><span class="o">(</span><span class="mi">1000</span><span class="o">).</span><span class="na">start</span><span class="o">();</span>
+
+<span class="c1">// Run 2 with 3 together</span>
+<span class="n">set</span><span class="o">.</span><span class="na">play</span><span class="o">(</span><span class="n">animator2</span><span class="o">).</span><span class="na">with</span><span class="o">(</span><span class="n">animator3</span><span class="o">).</span><span class="na">setDuration</span><span class="o">(</span><span class="mi">1000</span><span class="o">).</span><span class="na">start</span><span class="o">();</span>
+
+<span class="c1">// Run 1 after 3</span>
+<span class="n">set</span><span class="o">.</span><span class="na">play</span><span class="o">(</span><span class="n">animator1</span><span class="o">).</span><span class="na">after</span><span class="o">(</span><span class="n">animator3</span><span class="o">).</span><span class="na">setDuration</span><span class="o">(</span><span class="mi">1000</span><span class="o">).</span><span class="na">start</span><span class="o">();</span></code></pre></figure>
+
+<h3 id="set-listener">Set Listener</h3>
+
+<p>Two ways:</p>
+
+<ol>
+  <li><code>new Animator.AnimatorListener()</code> - need to override all the functions</li>
+  <li><code>new AnimatorListenerAdapter()</code> - only need to override the functions we want</li>
+</ol>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">ObjectAnimator</span> <span class="n">animator</span> <span class="o">=</span> <span class="n">ObjectAnimator</span><span class="o">.</span><span class="na">ofFloat</span><span class="o">(</span><span class="n">view</span><span class="o">,</span> <span class="s">"alpha"</span><span class="o">,</span> <span class="mi">0</span><span class="n">F</span><span class="o">,</span> <span class="mi">1</span><span class="n">F</span><span class="o">);</span> 
+<span class="n">animator</span><span class="o">.</span><span class="na">setDuration</span><span class="o">(</span><span class="mi">1000</span><span class="o">);</span> 
+<span class="n">animator</span><span class="o">.</span><span class="na">addListener</span><span class="o">(</span><span class="k">new</span> <span class="n">AnimatorListenerAdapter</span><span class="o">()</span> <span class="o">{</span> 
+	<span class="nd">@Override</span> 
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onAnimationEnd</span><span class="o">(</span><span class="n">Animator</span> <span class="n">animation</span><span class="o">)</span> <span class="o">{</span> 
+		<span class="kd">super</span><span class="o">.</span><span class="na">onAnimationEnd</span><span class="o">(</span><span class="n">animation</span><span class="o">);</span> 
+		<span class="n">Toast</span><span class="o">.</span><span class="na">makeText</span><span class="o">(</span><span class="n">MainActivity</span><span class="o">.</span><span class="na">this</span><span class="o">,</span> <span class="s">"end"</span><span class="o">,</span> <span class="n">Toast</span><span class="o">.</span><span class="na">LENGTH_SHORT</span><span class="o">).</span><span class="na">show</span><span class="o">();</span> 
+	<span class="o">}</span>
+	<span class="c1">// Override other functions if we need</span>
+<span class="o">});</span> 
+
+<span class="c1">// Override all four functions</span>
+<span class="cm">/*
+animator.addListener(new Animator.AnimatorListener() { 
+	@Override 
+	public void onAnimationStart(Animator animator) {}
+
+	@Override
+	public void onAnimationEnd(Animator animator) {}
+
+	@Override
+	public void onAnimationCancel(Animator animator) {}
+
+	@Override
+	public void onAnimationRepeat(Animator animator) {}
+});
+*/</span>
+
+<span class="n">animator</span><span class="o">.</span><span class="na">start</span><span class="o">();</span></code></pre></figure>
+
+<h3 id="how-to-use-valueanimator">How to use ValueAnimator</h3>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// Animator calulates from 0 to 100 in 5 seconds </span>
+<span class="n">ValueAnimator</span> <span class="n">animator</span> <span class="o">=</span> <span class="n">ValueAnimator</span><span class="o">.</span><span class="na">ofInt</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">100</span><span class="o">);</span> 
+<span class="n">animator</span><span class="o">.</span><span class="na">setDuration</span><span class="o">(</span><span class="mi">5000</span><span class="o">);</span> 
+
+<span class="c1">// Listne to every animation frame </span>
+<span class="n">animator</span><span class="o">.</span><span class="na">addUpdateListener</span><span class="o">(</span><span class="k">new</span> <span class="n">ValueAnimator</span><span class="o">.</span><span class="na">AnimatorUpdateListener</span><span class="o">()</span> <span class="o">{</span> 
+	<span class="nd">@Override</span> 
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onAnimationUpdate</span><span class="o">(</span><span class="n">ValueAnimator</span> <span class="n">valueAnimator</span><span class="o">)</span> <span class="o">{</span> 
+		<span class="n">Integer</span> <span class="n">value</span> <span class="o">=</span> <span class="o">(</span><span class="n">Integer</span><span class="o">)</span> <span class="n">valueAnimator</span><span class="o">.</span><span class="na">getAnimatedValue</span><span class="o">();</span> 
+		<span class="n">button</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="s">""</span> <span class="o">+</span> <span class="n">value</span><span class="o">);</span>
+		<span class="c1">// Modify the objects that you want to animate with these calculated values</span>
+	<span class="o">}</span> 
+<span class="o">});</span>
+
+<span class="n">animator</span><span class="o">.</span><span class="na">start</span><span class="o">();</span></code></pre></figure>
+
+<h3 id="valueanimator-for-object">ValueAnimator for Object</h3>
+
+<p>With ValueAnimator.ofObject. ValueAnimator will calculate a time factor between 0 and 1 (animation current time / animation totle time). So we could use it to set specific property animation for each frame.</p>
+
+<p>The idea is that the float fraction determines the position at which to interpolate.</p>
+
+<ul>
+  <li>When fraction is 0.0 then evaluate should return the start value.</li>
+  <li>When fraction is 1.0 then it should return the end value.</li>
+  <li>For any number between 0.0 and 1.0, it should return an object that lies somewhere between the start value and the end value.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">ValueAnimator</span> <span class="n">animator</span> <span class="o">=</span> <span class="n">ValueAnimator</span><span class="o">.</span><span class="na">ofObject</span><span class="o">(</span><span class="k">new</span> <span class="n">TypeEvaluator</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;()</span> <span class="o">{</span> 
+	<span class="nd">@Override</span> 
+	<span class="kd">public</span> <span class="n">Object</span> <span class="nf">evaluate</span><span class="o">(</span><span class="kt">float</span> <span class="n">v</span><span class="o">,</span> <span class="n">Object</span> <span class="n">startValue</span><span class="o">,</span> <span class="n">Object</span> <span class="n">endValue</span><span class="o">)</span> <span class="o">{</span> 
+		<span class="c1">// ToDo return your object according to v (0.0 to 1.0)</span>
+<span class="o">});</span></code></pre></figure>
+
+
+            <!-- Comments -->
+            
+<div class="comments">
+    <div id="disqus_thread"></div>
+    <script>
+        /**
+         * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+         */
+        /*
+         var disqus_config = function () {
+         this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+         this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+         };
+         */
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+
+            s.src = '//httpdongchuangithubio.disqus.com/embed.js';
+
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+
+
+        </div>
+
+        <div class="col-md-4">
+            <h3>Post Directory</h3>
+<div id="post-directory-module">
+<section class="post-directory">
+    <!-- Links that trigger the jumping -->
+    <!-- Added by javascript below -->
+    <dl></dl>
+</section>
+</div>
+
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        $( "article h2" ).each(function( index ) {
+            $(".post-directory dl").append("<dt><a class=\"jumper\" hre=#" +
+                    $(this).attr("id")
+                    + ">"
+                    + $(this).text()
+                    + "</a></dt>");
+
+            var children = $(this).nextUntil("h2", "h3")
+
+            children.each(function( index ) {
+                $(".post-directory dl").append("<dd><a class=\"jumper\" hre=#" +
+                        $(this).attr("id")
+                        + ">"
+                        + "&nbsp;&nbsp;- " + $(this).text()
+                        + "</a></dd>");
+            });
+        });
+
+        var fixmeTop = $('#post-directory-module').offset().top - 100;       // get initial position of the element
+
+        $(window).scroll(function() {                  // assign scroll event listener
+
+            var currentScroll = $(window).scrollTop(); // get current position
+
+            if (currentScroll >= fixmeTop) {           // apply position: fixed if you
+                $('#post-directory-module').css({      // scroll to that element or below it
+                    top: '100px',
+                    position: 'fixed',
+                    width: 'inherit'
+                });
+            } else {                                   // apply position: static
+                $('#post-directory-module').css({      // if you scroll above it
+                    position: 'inherit',
+                    width: 'inherit'
+                });
+            }
+
+        });
+
+        $("a.jumper").on("click", function( e ) {
+
+            e.preventDefault();
+
+            $("body, html").animate({
+                scrollTop: ($( $(this).attr('hre') ).offset().top - 100)
+            }, 600);
+
+        });
+    });
+
+</script>
+        </div>
+        
+
+    </div>
+
+</article>
+
+        </div>
+
+    <footer class="container">
+
+    <div class="site-footer">
+
+        <div class="copyright pull-left">
+            <!-- 请不要更改这一行 方便其他人知道模板的来源 谢谢 -->
+            <!-- Please keep this line to let others know where this theme comes from. Thank you :D -->
+            Power by <a href="https://github.com/DONGChuan/Yummy-Jekyll">Yummy Jekyll</a>
+        </div>
+
+        <a href="https://github.com/DONGChuan" target="_blank" aria-label="view source code">
+            <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+        </a>
+
+        <div class="pull-right">
+            <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+        </div>
+
+    </div>
+
+    <!-- Third-Party JS -->
+    <script type="text/javascript" src="/bower_components/geopattern/js/geopattern.min.js"></script>
+
+    <!-- My JS -->
+    <script type="text/javascript" src="/assets/js/script.js"></script>
+
+    
+
+    
+    <!-- Google Analytics -->
+    <div style="display:none">
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-72165600-1', 'auto');
+            ga('send', 'pageview');
+
+        </script>
+    </div>
+    
+
+</footer>
+
+
+    </body>
+
+</html>

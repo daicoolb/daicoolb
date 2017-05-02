@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon Icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.png">
+
+    <title>Android GestureDetector</title>
+    <meta name="description"
+          content="Quick note about learning GestureDetector and ScaleGestureDetector.">
+
+    <link rel="canonical" href="http://localhost:4000/android/2016/05/27/Android-GestureDetector.html">
+    <link rel="alternate" type="application/rss+xml" title="I am Chuan !" href="http://localhost:4000/feed.xml">
+
+    <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- Third-Party CSS -->
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bower_components/octicons/octicons/octicons.css">
+    <link rel="stylesheet" href="/bower_components/hover/css/hover-min.css">
+    <link rel="stylesheet" href="/bower_components/primer-markdown/dist/user-content.min.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
+
+    <!-- My CSS -->
+    <link rel="stylesheet" href="/assets/css/common.css">
+
+    <!-- CSS set in page -->
+    
+
+    <!-- CSS set in layout -->
+    
+    <link rel="stylesheet" href="/assets/css/sidebar-post-nav.css">
+    
+
+    <script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+</head>
+
+
+    <body>
+
+    <header class="site-header">
+    <div class="container">
+        <a id="site-header-brand" href="/" title="DONGChuan">
+            <span class="octicon octicon-mark-github"></span> DONGChuan
+        </a>
+        <nav class="site-header-nav" role="navigation">
+            
+            <a href="/"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Home">
+                Home
+            </a>
+            
+            <a href="/open-source"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Open-Source">
+                Open-Source
+            </a>
+            
+            <a href="/blog"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Blog">
+                Blog
+            </a>
+            
+            <a href="/bookmark"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Bookmark">
+                Bookmark
+            </a>
+            
+            <a href="/about"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="About">
+                About
+            </a>
+            
+        </nav>
+    </div>
+</header>
+
+
+        <div class="content">
+            <section class="jumbotron geopattern" data-pattern-id="Android GestureDetector">
+    <div class="container">
+        <div id="jumbotron-meta-info">
+            <h1>Android GestureDetector</h1>
+            <span class="meta-info">
+                
+                
+                <span class="octicon octicon-calendar"></span> 2016/05/27
+                
+            </span>
+        </div>
+    </div>
+</section>
+<script>
+    $(document).ready(function(){
+
+        $('.geopattern').each(function(){
+            $(this).geopattern($(this).data('pattern-id'));
+        });
+
+    });
+</script>
+<article class="post container" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <div class="row">
+
+        
+        <div class="col-md-8 markdown-body">
+
+            <p>Quick note about learning <code>GestureDetector</code> and <code>ScaleGestureDetector</code>.</p>
+
+<h2 id="gesturedetector">GestureDetector</h2>
+
+<p>Android provides <code>GestureDetector</code> class for detecting common gestures.</p>
+
+<h3 id="steps">Steps</h3>
+
+<ol>
+  <li>Create an instance of <code>GestureDetector</code></li>
+  <li>Override View or Activity’s <code>onTouchEvent(MotionEvent event)</code> and pass event to <code>GestureDetector.onTouchEvent(event)</code>;</li>
+  <li>Implement <code>GestureDetector.OnGestureListener</code> callbacks for gestures.</li>
+  <li>Implement <code>GestureDetector.OnDoubleTapListener</code> callbacks for click gestures.</li>
+  <li>Or implement <code>GestureDetector.SimpleOnGestureListener</code> callbacks if process only a few gestures above.</li>
+</ol>
+
+<p><strong>Suggest to use <code>SimpleOnGestureListener</code> which only needs to implement the gestures we need</strong>.</p>
+
+<h3 id="gestures">Gestures</h3>
+
+<p>Check <a href="https://developer.android.com/reference/android/view/GestureDetector.SimpleOnGestureListener.html">SimpleOnGestureListener</a> Api page for the full list of gestures.</p>
+
+<p>The following table shows the gestures of both <code>OnGestureListener</code> and <code>OnDoubleTapListener</code>. The first six are from <code>OnGestureListener</code> and the last three are from <code>OnDoubleTapListener</code>. But <code>SimpleOnGestureListener</code> have all of them.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Gestures</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>onDown()</td>
+      <td style="text-align: left">Notified when a tap occurs with the down MotionEvent that triggered it.</td>
+    </tr>
+    <tr>
+      <td>onFling()</td>
+      <td style="text-align: left">Notified of a fling event when it occurs with the initial on down MotionEvent and the matching up MotionEvent.</td>
+    </tr>
+    <tr>
+      <td>onLongPress()</td>
+      <td style="text-align: left">Notified when a long press occurs with the initial on down MotionEvent that trigged it.</td>
+    </tr>
+    <tr>
+      <td>onScroll()</td>
+      <td style="text-align: left">Notified when a scroll occurs with the initial on down MotionEvent and the current move MotionEvent.</td>
+    </tr>
+    <tr>
+      <td>onShowPress()</td>
+      <td style="text-align: left">The user has performed a down MotionEvent and not performed a move or up yet.</td>
+    </tr>
+    <tr>
+      <td>onSingleTapUp()</td>
+      <td style="text-align: left">Notified when a tap occurs with the up MotionEvent that triggered it.</td>
+    </tr>
+    <tr>
+      <td>onDoubleTap()</td>
+      <td style="text-align: left">Notified when a double-tap occurs.</td>
+    </tr>
+    <tr>
+      <td>onDoubleTapEvent()</td>
+      <td style="text-align: left">Notified when an event within a double-tap gesture occurs, including the down, move, and up events.</td>
+    </tr>
+    <tr>
+      <td>onSingleTapConfirmed()</td>
+      <td style="text-align: left">Notified when a single-tap occurs. Unlike <code>onSingleTapUp()</code>, it will only be called after the detector is confident that the user’s first tap is not followed by a second tap leading to a double-tap gesture.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="example">Example</h3>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MainActivity</span> <span class="kd">extends</span> <span class="n">Activity</span> <span class="o">{</span> 
+    
+    <span class="kd">private</span> <span class="n">GestureDetectorCompat</span> <span class="n">mDetector</span><span class="o">;</span> 
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+        <span class="n">setContentView</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">activity_main</span><span class="o">);</span>
+
+        <span class="c1">// Create an instance of GestureDetector</span>
+        <span class="n">mDetector</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GestureDetectorCompat</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="k">new</span> <span class="n">MyGestureListener</span><span class="o">());</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span> 
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">onTouchEvent</span><span class="o">(</span><span class="n">MotionEvent</span> <span class="n">event</span><span class="o">){</span> 
+
+    	<span class="c1">// Pass event to GestureDetector.onTouchEvent(event)</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">mDetector</span><span class="o">.</span><span class="na">onTouchEvent</span><span class="o">(</span><span class="n">event</span><span class="o">);</span>
+        <span class="k">return</span> <span class="kd">super</span><span class="o">.</span><span class="na">onTouchEvent</span><span class="o">(</span><span class="n">event</span><span class="o">);</span>
+    <span class="o">}</span>
+    
+    <span class="kd">class</span> <span class="nc">MyGestureListener</span> <span class="kd">extends</span> <span class="n">GestureDetector</span><span class="o">.</span><span class="na">SimpleOnGestureListener</span> <span class="o">{</span>
+        <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">DEBUG_TAG</span> <span class="o">=</span> <span class="s">"Gestures"</span><span class="o">;</span> 
+        
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">onDown</span><span class="o">(</span><span class="n">MotionEvent</span> <span class="n">event</span><span class="o">)</span> <span class="o">{</span> 
+            <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="n">DEBUG_TAG</span><span class="o">,</span> <span class="s">"Down"</span><span class="o">);</span> 
+            <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">onFling</span><span class="o">(</span><span class="n">MotionEvent</span> <span class="n">event1</span><span class="o">,</span> <span class="n">MotionEvent</span> <span class="n">event2</span><span class="o">,</span> 
+                <span class="kt">float</span> <span class="n">velocityX</span><span class="o">,</span> <span class="kt">float</span> <span class="n">velocityY</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="n">DEBUG_TAG</span><span class="o">,</span> <span class="s">"Fling"</span><span class="o">);</span>
+            <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></figure>
+
+<h2 id="scalegesturedetector">ScaleGestureDetector</h2>
+
+<p>It detects scaling transformation gestures or called pinch gestures for scaling views. (Two fingers)</p>
+
+<h3 id="steps-1">Steps</h3>
+
+<ol>
+  <li>Create an instance of <code>ScaleGestureDetector</code></li>
+  <li>Override View or Activity’s <code>onTouchEvent(MotionEvent event)</code> and pass event to <code>ScaleGestureDetector.onTouchEvent(event)</code>;</li>
+  <li>Implement <code>ScaleGestureDetector.OnScaleGestureListener </code> callbacks for gestures.</li>
+  <li>Or implement <code>ScaleGestureDetector.SimpleOnScaleGestureListener()</code> callbacks if process only a few gestures above.</li>
+</ol>
+
+<h3 id="gestures-1">Gestures</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Gestures</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>onScaleBegin()</td>
+      <td style="text-align: left">Responds to the beginning of a scaling gesture.</td>
+    </tr>
+    <tr>
+      <td>onScale()</td>
+      <td style="text-align: left">Responds to scaling events for a gesture in progress.</td>
+    </tr>
+    <tr>
+      <td>onScaleEnd()</td>
+      <td style="text-align: left">Responds to the end of a scale gesture.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="example-1">Example</h3>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MainActivity</span> <span class="kd">extends</span> <span class="n">Activity</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="n">ImageView</span> <span class="n">imageView</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kt">float</span> <span class="n">scale</span> <span class="o">=</span> <span class="mi">1</span><span class="n">f</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">ScaleGestureDetector</span> <span class="n">detector</span><span class="o">;</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+        <span class="n">setContentView</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">activity_main</span><span class="o">);</span>
+
+        <span class="n">imageView</span><span class="o">=(</span><span class="n">ImageView</span><span class="o">)</span><span class="n">findViewById</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">imageView</span><span class="o">);</span>
+        <span class="n">detector</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ScaleGestureDetector</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="k">new</span> <span class="n">ScaleListener</span><span class="o">());</span>
+    <span class="o">}</span>
+
+	<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">onTouchEvent</span><span class="o">(</span><span class="n">MotionEvent</span> <span class="n">event</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">detector</span><span class="o">.</span><span class="na">onTouchEvent</span><span class="o">(</span><span class="n">event</span><span class="o">);</span>
+        <span class="k">return</span> <span class="kd">super</span><span class="o">.</span><span class="na">onTouchEvent</span><span class="o">(</span><span class="n">event</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kd">class</span> <span class="nc">ScaleListener</span> <span class="kd">extends</span> <span class="n">ScaleGestureDetector</span><span class="o">.</span><span class="na">SimpleOnScaleGestureListener</span> <span class="o">{</span>
+
+        <span class="kt">float</span> <span class="n">onScaleBegin</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="kt">float</span> <span class="n">onScaleEnd</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">onScaleBegin</span><span class="o">(</span><span class="n">ScaleGestureDetector</span> <span class="n">detector</span><span class="o">)</span> <span class="o">{</span>
+
+            <span class="n">Toast</span><span class="o">.</span><span class="na">makeText</span><span class="o">(</span><span class="n">getApplicationContext</span><span class="o">(),</span> <span class="s">"Scale Begin"</span> <span class="o">,</span><span class="n">Toast</span><span class="o">.</span><span class="na">LENGTH_SHORT</span><span class="o">).</span><span class="na">show</span><span class="o">();</span>
+            <span class="n">onScaleBegin</span> <span class="o">=</span> <span class="n">scale</span><span class="o">;</span>
+
+            <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">onScale</span><span class="o">(</span><span class="n">ScaleGestureDetector</span> <span class="n">detector</span><span class="o">)</span> <span class="o">{</span>
+
+            <span class="n">scale</span> <span class="o">*=</span> <span class="n">detector</span><span class="o">.</span><span class="na">getScaleFactor</span><span class="o">();</span>
+
+            <span class="n">imageView</span><span class="o">.</span><span class="na">setScaleX</span><span class="o">(</span><span class="n">scale</span><span class="o">);</span>
+            <span class="n">imageView</span><span class="o">.</span><span class="na">setScaleY</span><span class="o">(</span><span class="n">scale</span><span class="o">);</span>
+
+            <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onScaleEnd</span><span class="o">(</span><span class="n">ScaleGestureDetector</span> <span class="n">detector</span><span class="o">)</span> <span class="o">{</span>
+
+            <span class="n">Toast</span><span class="o">.</span><span class="na">makeText</span><span class="o">(</span><span class="n">getApplicationContext</span><span class="o">(),</span> <span class="s">"Scale Ended"</span><span class="o">,</span> <span class="n">Toast</span><span class="o">.</span><span class="na">LENGTH_SHORT</span><span class="o">).</span><span class="na">show</span><span class="o">();</span>
+
+            <span class="n">onScaleEnd</span> <span class="o">=</span> <span class="n">scale</span><span class="o">;</span>
+
+            <span class="k">if</span> <span class="o">(</span><span class="n">onScaleEnd</span> <span class="o">&gt;</span> <span class="n">onScaleBegin</span><span class="o">){</span>
+                <span class="n">Toast</span><span class="o">.</span><span class="na">makeText</span><span class="o">(</span><span class="n">getApplicationContext</span><span class="o">(),</span> <span class="s">"Scaled Up by a factor of "</span> <span class="o">+</span> <span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span> <span class="n">onScaleEnd</span> <span class="o">/</span> <span class="n">onScaleBegin</span> <span class="o">),</span> <span class="n">Toast</span><span class="o">.</span><span class="na">LENGTH_SHORT</span><span class="o">).</span><span class="na">show</span><span class="o">();</span>
+            <span class="o">}</span>
+
+            <span class="k">if</span> <span class="o">(</span><span class="n">onScaleEnd</span> <span class="o">&lt;</span> <span class="n">onScaleBegin</span><span class="o">){</span>
+                <span class="n">Toast</span><span class="o">.</span><span class="na">makeText</span><span class="o">(</span><span class="n">getApplicationContext</span><span class="o">(),</span> <span class="s">"Scaled Down by a factor of "</span> <span class="o">+</span> <span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span> <span class="n">onScaleBegin</span> <span class="o">/</span> <span class="n">onScaleEnd</span> <span class="o">),</span> <span class="n">Toast</span><span class="o">.</span><span class="na">LENGTH_SHORT</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+            <span class="o">}</span>
+
+            <span class="kd">super</span><span class="o">.</span><span class="na">onScaleEnd</span><span class="o">(</span><span class="n">detector</span><span class="o">);</span>
+        <span class="o">}</span>
+	<span class="o">}</span>
+<span class="o">}</span></code></pre></figure>
+
+<h2 id="ref">Ref</h2>
+
+<ul>
+  <li><a href="https://developer.android.com/training/gestures/index.html">Using Touch Gestures</a></li>
+  <li><a href="https://www.sitepoint.com/android-gestures-and-touch-mechanics/">Android Gestures and Touch Mechanics</a></li>
+</ul>
+
+
+            <!-- Comments -->
+            
+<div class="comments">
+    <div id="disqus_thread"></div>
+    <script>
+        /**
+         * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+         */
+        /*
+         var disqus_config = function () {
+         this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+         this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+         };
+         */
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+
+            s.src = '//httpdongchuangithubio.disqus.com/embed.js';
+
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+
+
+        </div>
+
+        <div class="col-md-4">
+            <h3>Post Directory</h3>
+<div id="post-directory-module">
+<section class="post-directory">
+    <!-- Links that trigger the jumping -->
+    <!-- Added by javascript below -->
+    <dl></dl>
+</section>
+</div>
+
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        $( "article h2" ).each(function( index ) {
+            $(".post-directory dl").append("<dt><a class=\"jumper\" hre=#" +
+                    $(this).attr("id")
+                    + ">"
+                    + $(this).text()
+                    + "</a></dt>");
+
+            var children = $(this).nextUntil("h2", "h3")
+
+            children.each(function( index ) {
+                $(".post-directory dl").append("<dd><a class=\"jumper\" hre=#" +
+                        $(this).attr("id")
+                        + ">"
+                        + "&nbsp;&nbsp;- " + $(this).text()
+                        + "</a></dd>");
+            });
+        });
+
+        var fixmeTop = $('#post-directory-module').offset().top - 100;       // get initial position of the element
+
+        $(window).scroll(function() {                  // assign scroll event listener
+
+            var currentScroll = $(window).scrollTop(); // get current position
+
+            if (currentScroll >= fixmeTop) {           // apply position: fixed if you
+                $('#post-directory-module').css({      // scroll to that element or below it
+                    top: '100px',
+                    position: 'fixed',
+                    width: 'inherit'
+                });
+            } else {                                   // apply position: static
+                $('#post-directory-module').css({      // if you scroll above it
+                    position: 'inherit',
+                    width: 'inherit'
+                });
+            }
+
+        });
+
+        $("a.jumper").on("click", function( e ) {
+
+            e.preventDefault();
+
+            $("body, html").animate({
+                scrollTop: ($( $(this).attr('hre') ).offset().top - 100)
+            }, 600);
+
+        });
+    });
+
+</script>
+        </div>
+        
+
+    </div>
+
+</article>
+
+        </div>
+
+    <footer class="container">
+
+    <div class="site-footer">
+
+        <div class="copyright pull-left">
+            <!-- 请不要更改这一行 方便其他人知道模板的来源 谢谢 -->
+            <!-- Please keep this line to let others know where this theme comes from. Thank you :D -->
+            Power by <a href="https://github.com/DONGChuan/Yummy-Jekyll">Yummy Jekyll</a>
+        </div>
+
+        <a href="https://github.com/DONGChuan" target="_blank" aria-label="view source code">
+            <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+        </a>
+
+        <div class="pull-right">
+            <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+        </div>
+
+    </div>
+
+    <!-- Third-Party JS -->
+    <script type="text/javascript" src="/bower_components/geopattern/js/geopattern.min.js"></script>
+
+    <!-- My JS -->
+    <script type="text/javascript" src="/assets/js/script.js"></script>
+
+    
+
+    
+    <!-- Google Analytics -->
+    <div style="display:none">
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-72165600-1', 'auto');
+            ga('send', 'pageview');
+
+        </script>
+    </div>
+    
+
+</footer>
+
+
+    </body>
+
+</html>

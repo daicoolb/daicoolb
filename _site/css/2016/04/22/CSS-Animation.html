@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon Icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.png">
+
+    <title>CSS Animation</title>
+    <meta name="description"
+          content="Quick note about CSS animation.">
+
+    <link rel="canonical" href="http://localhost:4000/css/2016/04/22/CSS-Animation.html">
+    <link rel="alternate" type="application/rss+xml" title="I am Chuan !" href="http://localhost:4000/feed.xml">
+
+    <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- Third-Party CSS -->
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bower_components/octicons/octicons/octicons.css">
+    <link rel="stylesheet" href="/bower_components/hover/css/hover-min.css">
+    <link rel="stylesheet" href="/bower_components/primer-markdown/dist/user-content.min.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
+
+    <!-- My CSS -->
+    <link rel="stylesheet" href="/assets/css/common.css">
+
+    <!-- CSS set in page -->
+    
+
+    <!-- CSS set in layout -->
+    
+    <link rel="stylesheet" href="/assets/css/sidebar-post-nav.css">
+    
+
+    <script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+</head>
+
+
+    <body>
+
+    <header class="site-header">
+    <div class="container">
+        <a id="site-header-brand" href="/" title="DONGChuan">
+            <span class="octicon octicon-mark-github"></span> DONGChuan
+        </a>
+        <nav class="site-header-nav" role="navigation">
+            
+            <a href="/"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Home">
+                Home
+            </a>
+            
+            <a href="/open-source"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Open-Source">
+                Open-Source
+            </a>
+            
+            <a href="/blog"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Blog">
+                Blog
+            </a>
+            
+            <a href="/bookmark"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Bookmark">
+                Bookmark
+            </a>
+            
+            <a href="/about"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="About">
+                About
+            </a>
+            
+        </nav>
+    </div>
+</header>
+
+
+        <div class="content">
+            <section class="jumbotron geopattern" data-pattern-id="CSS Animation">
+    <div class="container">
+        <div id="jumbotron-meta-info">
+            <h1>CSS Animation</h1>
+            <span class="meta-info">
+                
+                
+                <span class="octicon octicon-calendar"></span> 2016/04/22
+                
+            </span>
+        </div>
+    </div>
+</section>
+<script>
+    $(document).ready(function(){
+
+        $('.geopattern').each(function(){
+            $(this).geopattern($(this).data('pattern-id'));
+        });
+
+    });
+</script>
+<article class="post container" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <div class="row">
+
+        
+        <div class="col-md-8 markdown-body">
+
+            <p>Quick note about CSS animation.</p>
+
+<h2 id="css-animation">CSS Animation</h2>
+
+<p>CSS3 animation lets an element gradually change from one style to another.</p>
+
+<p>Two steps:</p>
+
+<ol>
+  <li>Use <code>@keyframes</code> to define an animation.</li>
+  <li>Set this animation on an element with animation properties</li>
+</ol>
+
+<p>We could set properties one-by-one or with following shorthand:</p>
+
+<figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">animation</span><span class="o">:</span> <span class="o">[</span><span class="nt">animation-name</span><span class="o">]</span> <span class="o">[</span><span class="nt">animation-duration</span><span class="o">]</span> <span class="o">[</span><span class="nt">animation-timing-function</span><span class="o">]</span> <span class="o">[</span><span class="nt">animation-delay</span><span class="o">]</span> <span class="o">[</span><span class="nt">animation-iteration-count</span><span class="o">]</span> <span class="o">[</span><span class="nt">animation-direction</span><span class="o">]</span> <span class="o">[</span><span class="nt">animation-fill-mode</span><span class="o">]</span> <span class="o">[</span><span class="nt">animation-play-state</span><span class="o">];</span></code></pre></figure>
+
+<h2 id="keyframes">@keyframes</h2>
+
+<p>It defines what the animation looks like at each stage of the animation timeline. It is composed of:</p>
+
+<ul>
+  <li>Name of the animation. For example, changeColor.</li>
+  <li>Stages: From 0% to 100% to represent the whole process of animation</li>
+  <li>CSS Properties: The CSS properties defined for each stage of the animation timeline.</li>
+</ul>
+
+<p>Following example creates an animation called <code>changeColor</code> and assign it to <code>div:hover</code>:</p>
+
+<figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="k">@keyframes</span> <span class="n">changeColor</span> <span class="p">{</span>
+	<span class="nt">0</span><span class="o">%</span> <span class="p">{</span>
+		<span class="nl">background</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="nt">60</span><span class="o">%</span> <span class="p">{</span>
+		<span class="nl">background</span><span class="p">:</span> <span class="no">blue</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="nt">100</span><span class="o">%</span><span class="p">{</span>
+	    <span class="nl">background</span><span class="p">:</span> <span class="no">green</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nt">div</span><span class="nd">:hover</span><span class="p">{</span>
+  <span class="nl">animation</span><span class="p">:</span> <span class="n">changeColor</span> <span class="m">5s</span> <span class="n">ease</span> <span class="m">.1s</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<blockquote>
+  <p>In above example, we could also use <code>from</code> to represent <code>0%</code> and <code>to</code> to represent <code>100%</code></p>
+</blockquote>
+
+<h2 id="animation-properties">Animation Properties</h2>
+
+<p>It has following properties:</p>
+
+<ol>
+  <li>animation-name</li>
+  <li>animation-duration</li>
+  <li>animation-timing-function</li>
+  <li>animation-delay</li>
+  <li>animation-iteration-count</li>
+  <li>animation-direction</li>
+  <li>animation-fill-mode</li>
+  <li>animation-play-state</li>
+</ol>
+
+<h3 id="animation-name">animation-name</h3>
+
+<p>The name of the animation, defined in the @keyframes.</p>
+
+<h3 id="animation-duration">animation-duration</h3>
+
+<p>The duration of the animation, in seconds (e.g., 5s) or milliseconds (e.g., 200ms).</p>
+
+<h3 id="animation-timing-function">animation-timing-function</h3>
+
+<p>The speed curve or pace of the animation:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Timing Function</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>linear</td>
+      <td>The animation has the same speed from start to end</td>
+    </tr>
+    <tr>
+      <td>ease</td>
+      <td><strong>Default value</strong>. The animation has a slow start, then fast, before it ends slowly.</td>
+    </tr>
+    <tr>
+      <td>ease-in</td>
+      <td>Start slowly and end fast.</td>
+    </tr>
+    <tr>
+      <td>ease-out</td>
+      <td>Start more quickly than linear ones and end slowly. The opposite of ease-in.</td>
+    </tr>
+    <tr>
+      <td>ease-in-out</td>
+      <td>Both a slow start and a slow end</td>
+    </tr>
+    <tr>
+      <td>initial</td>
+      <td>Sets this property to its default value. So <code>ease</code>.</td>
+    </tr>
+    <tr>
+      <td>inherit</td>
+      <td>Inherits this property from its parent element.</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>Check <a href="https://developers.google.com/web/fundamentals/design-and-ui/animations/the-basics-of-easing?hl=en">The basics of easing</a> for details.</p>
+</blockquote>
+
+<h3 id="animation-delay">animation-delay</h3>
+
+<p>It specifies when the animation will start. The value is defined in seconds (s) or milliseconds (mil).</p>
+
+<h3 id="animation-iteration-count">animation-iteration-count</h3>
+
+<p>It specifies the number of times that the animation will play. The possible values are:</p>
+
+<ul>
+  <li>a specific number of iterations (default is 1)</li>
+  <li><code>infinite</code> - repeats forever</li>
+  <li><code>initial</code></li>
+  <li><code>inherit</code></li>
+</ul>
+
+<h3 id="animation-direction">animation-direction</h3>
+
+<p>It specifies whether the animation should play forward, reverse, or in alternate cycles.</p>
+
+<ul>
+  <li>
+    <p><code>normal</code> - Default. On each cycle the animation resets to the beginning state (0%) and plays forward again (to 100%).</p>
+  </li>
+  <li>
+    <p><code>reverse</code> - On each cycle the animation resets to the end state (100%) and plays backwards (to 0%).</p>
+  </li>
+  <li>
+    <p><code>alternate</code> - On each odd cycle, the animation plays forward (0% to 100%). On each even cycle, the animation plays backwards (100% to 0%).</p>
+  </li>
+  <li>
+    <p><code>alternate-reverse</code> - On each odd cycle, the animation plays in reverse (100% to 0%). On each even cycle, the animation plays forward (0% or 100%).</p>
+  </li>
+</ul>
+
+<h3 id="animation-fill-mode">animation-fill-mode</h3>
+
+<p>It specifies if the animation styles are visible before or after the animation plays.</p>
+
+<ul>
+  <li>
+    <p><code>normal</code> - Default. The animation does not apply any styles to the element, before or after the animation.</p>
+  </li>
+  <li>
+    <p><code>forwards</code> - After the animation is finished, the styles defined in the final keyframe (100%) are retained by the element.</p>
+  </li>
+  <li>
+    <p><code>backwards</code> - Before the animation (during the animation delay), the styles of the initial keyframe (0%) are applied to the element.</p>
+  </li>
+  <li>
+    <p><code>both</code> - <code>forwards</code> with <code>backwards</code>.</p>
+  </li>
+</ul>
+
+<h3 id="animation-play-state">animation-play-state</h3>
+
+<p>Two values: <code>running</code> and <code>paused</code>.</p>
+
+<p>It specifies whether the animation is <code>playing</code> or <code>paused</code>. <strong>Resuming a paused animation starts the animation where it was left off. But if pause an animation, the element style will return back to its origin.</strong></p>
+
+<p>Example:</p>
+
+<figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">div</span><span class="nd">:hover</span> <span class="p">{</span>
+  <span class="nl">animation-play-state</span><span class="p">:</span> <span class="n">paused</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<h2 id="multiple-animations">Multiple Animations</h2>
+
+<p>Add multiple animations to a selector with comma:</p>
+
+<figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">div</span> <span class="p">{</span>
+	<span class="nl">animation</span><span class="p">:</span> <span class="n">animationA</span> <span class="m">2s</span><span class="p">,</span> <span class="n">animationB</span> <span class="m">2s</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<h2 id="refs">Refs</h2>
+
+<ul>
+  <li><a href="http://www.imooc.com/learn/33">Imooc 十天精通CSS3</a></li>
+  <li><a href="https://robots.thoughtbot.com/css-animation-for-beginners#animation-iteration-count">CSS Animation for Beginners</a></li>
+  <li><a href="http://www.w3schools.com/cssref/css3_pr_animation-timing-function.asp">CSS3 animation-timing-function Property</a></li>
+</ul>
+
+
+            <!-- Comments -->
+            
+<div class="comments">
+    <div id="disqus_thread"></div>
+    <script>
+        /**
+         * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+         */
+        /*
+         var disqus_config = function () {
+         this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+         this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+         };
+         */
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+
+            s.src = '//httpdongchuangithubio.disqus.com/embed.js';
+
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+
+
+        </div>
+
+        <div class="col-md-4">
+            <h3>Post Directory</h3>
+<div id="post-directory-module">
+<section class="post-directory">
+    <!-- Links that trigger the jumping -->
+    <!-- Added by javascript below -->
+    <dl></dl>
+</section>
+</div>
+
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        $( "article h2" ).each(function( index ) {
+            $(".post-directory dl").append("<dt><a class=\"jumper\" hre=#" +
+                    $(this).attr("id")
+                    + ">"
+                    + $(this).text()
+                    + "</a></dt>");
+
+            var children = $(this).nextUntil("h2", "h3")
+
+            children.each(function( index ) {
+                $(".post-directory dl").append("<dd><a class=\"jumper\" hre=#" +
+                        $(this).attr("id")
+                        + ">"
+                        + "&nbsp;&nbsp;- " + $(this).text()
+                        + "</a></dd>");
+            });
+        });
+
+        var fixmeTop = $('#post-directory-module').offset().top - 100;       // get initial position of the element
+
+        $(window).scroll(function() {                  // assign scroll event listener
+
+            var currentScroll = $(window).scrollTop(); // get current position
+
+            if (currentScroll >= fixmeTop) {           // apply position: fixed if you
+                $('#post-directory-module').css({      // scroll to that element or below it
+                    top: '100px',
+                    position: 'fixed',
+                    width: 'inherit'
+                });
+            } else {                                   // apply position: static
+                $('#post-directory-module').css({      // if you scroll above it
+                    position: 'inherit',
+                    width: 'inherit'
+                });
+            }
+
+        });
+
+        $("a.jumper").on("click", function( e ) {
+
+            e.preventDefault();
+
+            $("body, html").animate({
+                scrollTop: ($( $(this).attr('hre') ).offset().top - 100)
+            }, 600);
+
+        });
+    });
+
+</script>
+        </div>
+        
+
+    </div>
+
+</article>
+
+        </div>
+
+    <footer class="container">
+
+    <div class="site-footer">
+
+        <div class="copyright pull-left">
+            <!-- 请不要更改这一行 方便其他人知道模板的来源 谢谢 -->
+            <!-- Please keep this line to let others know where this theme comes from. Thank you :D -->
+            Power by <a href="https://github.com/DONGChuan/Yummy-Jekyll">Yummy Jekyll</a>
+        </div>
+
+        <a href="https://github.com/DONGChuan" target="_blank" aria-label="view source code">
+            <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+        </a>
+
+        <div class="pull-right">
+            <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+        </div>
+
+    </div>
+
+    <!-- Third-Party JS -->
+    <script type="text/javascript" src="/bower_components/geopattern/js/geopattern.min.js"></script>
+
+    <!-- My JS -->
+    <script type="text/javascript" src="/assets/js/script.js"></script>
+
+    
+
+    
+    <!-- Google Analytics -->
+    <div style="display:none">
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-72165600-1', 'auto');
+            ga('send', 'pageview');
+
+        </script>
+    </div>
+    
+
+</footer>
+
+
+    </body>
+
+</html>

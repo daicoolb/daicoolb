@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon Icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.png">
+
+    <title>IntentService 学习笔记</title>
+    <meta name="description"
+          content="IntentService 是用来处理异步 (asynchronous) 请求的 Service 的子类. 但是是通过创建一个独立的工作者线程 (worker thread) 来完成工作. 并且在完成工作后自动关闭服务.">
+
+    <link rel="canonical" href="http://localhost:4000/android/2016/06/14/Android-IntentService.html">
+    <link rel="alternate" type="application/rss+xml" title="I am Chuan !" href="http://localhost:4000/feed.xml">
+
+    <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- Third-Party CSS -->
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bower_components/octicons/octicons/octicons.css">
+    <link rel="stylesheet" href="/bower_components/hover/css/hover-min.css">
+    <link rel="stylesheet" href="/bower_components/primer-markdown/dist/user-content.min.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
+
+    <!-- My CSS -->
+    <link rel="stylesheet" href="/assets/css/common.css">
+
+    <!-- CSS set in page -->
+    
+
+    <!-- CSS set in layout -->
+    
+    <link rel="stylesheet" href="/assets/css/sidebar-post-nav.css">
+    
+
+    <script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+</head>
+
+
+    <body>
+
+    <header class="site-header">
+    <div class="container">
+        <a id="site-header-brand" href="/" title="DONGChuan">
+            <span class="octicon octicon-mark-github"></span> DONGChuan
+        </a>
+        <nav class="site-header-nav" role="navigation">
+            
+            <a href="/"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Home">
+                Home
+            </a>
+            
+            <a href="/open-source"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Open-Source">
+                Open-Source
+            </a>
+            
+            <a href="/blog"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Blog">
+                Blog
+            </a>
+            
+            <a href="/bookmark"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Bookmark">
+                Bookmark
+            </a>
+            
+            <a href="/about"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="About">
+                About
+            </a>
+            
+        </nav>
+    </div>
+</header>
+
+
+        <div class="content">
+            <section class="jumbotron geopattern" data-pattern-id="IntentService 学习笔记">
+    <div class="container">
+        <div id="jumbotron-meta-info">
+            <h1>IntentService 学习笔记</h1>
+            <span class="meta-info">
+                
+                
+                <span class="octicon octicon-calendar"></span> 2016/06/14
+                
+            </span>
+        </div>
+    </div>
+</section>
+<script>
+    $(document).ready(function(){
+
+        $('.geopattern').each(function(){
+            $(this).geopattern($(this).data('pattern-id'));
+        });
+
+    });
+</script>
+<article class="post container" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <div class="row">
+
+        
+        <div class="col-md-8 markdown-body">
+
+            <p><code>IntentService</code> 是用来处理异步 (asynchronous) 请求的 <code>Service</code> 的子类. 但是是通过创建一个独立的<a href="http://www.ibm.com/developerworks/library/j-jtp0730/">工作者线程 (worker thread)</a> 来完成工作. 并且在完成工作后自动关闭服务.</p>
+
+<h2 id="什么时候用">什么时候用?</h2>
+
+<p>通常的 <code>Service</code> 是用于无需 UI 的任务. 但是不能执行耗时任务. 不然的话需要创建额外的线程来执行任务. 所以就有了 IntentService. 它主要被用于处理耗时任务的服务, 自身内部会自动创建一个额外的线程来执行任务.</p>
+
+<h2 id="注意点">注意点</h2>
+
+<ul>
+  <li>所有的请求都是在同一个工作者线程中处理的.
+* 但是一次只能处理一个请求.</li>
+  <li>多次启动 <code>IntentService</code> 不会重新创建新的服务和新的线程， 只是把消息加入消息队列中等待执行.</li>
+  <li>可以是一个耗时任务. 由于异步, 它也不会阻断主线程. </li>
+  <li>不需要主动调用 stopSelf() 来结束服务. 在所有的 intent 被处理完后, 系统会自动关闭服务.</li>
+</ul>
+
+<h2 id="源码简析">源码简析</h2>
+
+<p><a href="https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/app/IntentService.java">源码地址</a></p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">IntentService</span> <span class="kd">extends</span> <span class="n">Service</span> <span class="o">{</span>
+
+  <span class="kd">private</span> <span class="kd">volatile</span> <span class="n">Looper</span> <span class="n">mServiceLooper</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="kd">volatile</span> <span class="n">ServiceHandler</span> <span class="n">mServiceHandler</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="n">String</span> <span class="n">mName</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="kt">boolean</span> <span class="n">mRedelivery</span><span class="o">;</span>
+
+  <span class="kd">private</span> <span class="kd">final</span> <span class="kd">class</span> <span class="nc">ServiceHandler</span> <span class="kd">extends</span> <span class="n">Handler</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="nf">ServiceHandler</span><span class="o">(</span><span class="n">Looper</span> <span class="n">looper</span><span class="o">)</span> <span class="o">{</span>
+      <span class="kd">super</span><span class="o">(</span><span class="n">looper</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">handleMessage</span><span class="o">(</span><span class="n">Message</span> <span class="n">msg</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">onHandleIntent</span><span class="o">((</span><span class="n">Intent</span><span class="o">)</span><span class="n">msg</span><span class="o">.</span><span class="na">obj</span><span class="o">);</span>
+      <span class="n">stopSelf</span><span class="o">(</span><span class="n">msg</span><span class="o">.</span><span class="na">arg1</span><span class="o">);</span> <span class="c1">// 执行完毕后自动关闭</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**
+  * 这里的 name 是用来给工作者线程命名的. 主要是用于 debug.
+  */</span>
+  <span class="kd">public</span> <span class="nf">IntentService</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">super</span><span class="o">();</span>
+    <span class="n">mName</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**
+  * Sets intent redelivery preferences. Usually called from the constructor
+  * with your preferred semantics.
+  *
+  * 如果为 true, onStartCommand(Intent, int, int) 会返回 Service#START_REDELIVER_INTENT. 
+  * 那么如果进程在 onHandleIntent() 返回值之前终结, 进程会重新启动. 
+  * 同时 intent 也会重新发送. 如果有许多个 intents 已经发送了. 那么只有最近的 intent 才回保证重新发送.
+  *
+  * 如果为 false (默认值t), onStartCommand(Intent, int, int) 将会返回
+  * Service#START_NOT_STICKY, 如果进程终结. Intent 也会终结.
+  */</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setIntentRedelivery</span><span class="o">(</span><span class="kt">boolean</span> <span class="n">enabled</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">mRedelivery</span> <span class="o">=</span> <span class="n">enabled</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">()</span> <span class="o">{</span>
+    <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">();</span>
+    <span class="c1">// 自己本身就建立了一个新的线程</span>
+    <span class="n">HandlerThread</span> <span class="n">thread</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HandlerThread</span><span class="o">(</span><span class="s">"IntentService["</span> <span class="o">+</span> <span class="n">mName</span> <span class="o">+</span> <span class="s">"]"</span><span class="o">);</span>
+    <span class="n">thread</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+    <span class="n">mServiceLooper</span> <span class="o">=</span> <span class="n">thread</span><span class="o">.</span><span class="na">getLooper</span><span class="o">();</span>
+    <span class="n">mServiceHandler</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ServiceHandler</span><span class="o">(</span><span class="n">mServiceLooper</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onStart</span><span class="o">(</span><span class="n">Intent</span> <span class="n">intent</span><span class="o">,</span> <span class="kt">int</span> <span class="n">startId</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">Message</span> <span class="n">msg</span> <span class="o">=</span> <span class="n">mServiceHandler</span><span class="o">.</span><span class="na">obtainMessage</span><span class="o">();</span>
+    <span class="n">msg</span><span class="o">.</span><span class="na">arg1</span> <span class="o">=</span> <span class="n">startId</span><span class="o">;</span>
+    <span class="n">msg</span><span class="o">.</span><span class="na">obj</span> <span class="o">=</span> <span class="n">intent</span><span class="o">;</span>
+    <span class="n">mServiceHandler</span><span class="o">.</span><span class="na">sendMessage</span><span class="o">(</span><span class="n">msg</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**
+   * 不要覆写这个方法. 而应该覆写 onHandleIntent(), onHandleIntent() 会在 IntentService 接收到请求时调用.
+   * 默认实现的 onStartCommand() 的目的是将intent插入到工作队列中
+   */</span>
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">int</span> <span class="nf">onStartCommand</span><span class="o">(</span><span class="n">Intent</span> <span class="n">intent</span><span class="o">,</span> <span class="kt">int</span> <span class="n">flags</span><span class="o">,</span> <span class="kt">int</span> <span class="n">startId</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">onStart</span><span class="o">(</span><span class="n">intent</span><span class="o">,</span> <span class="n">startId</span><span class="o">);</span>
+    <span class="k">return</span> <span class="n">mRedelivery</span> <span class="o">?</span> <span class="n">START_REDELIVER_INTENT</span> <span class="o">:</span> <span class="n">START_NOT_STICKY</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onDestroy</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">mServiceLooper</span><span class="o">.</span><span class="na">quit</span><span class="o">();</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**
+   * 除非你需要给你的 service 提供绑定. 不然不需要实现这个方法. 因为默认返回 null
+   */</span>
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="n">IBinder</span> <span class="nf">onBind</span><span class="o">(</span><span class="n">Intent</span> <span class="n">intent</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**
+   * 这个方法会在工作者线程中被调用. 同一时间只有一个 Intent 被执行. 
+   * 但是这个工作者线程是和其他的应用逻辑是独立的. 它只会用来处理 IntentService 的请求. 而不会干其他事. 
+   * 当所有请求执行完毕. IntentService 会自动关. 不需要再调用 stopSelf(). 
+   */</span>
+  <span class="nd">@WorkerThread</span>
+  <span class="kd">protected</span> <span class="kd">abstract</span> <span class="kt">void</span> <span class="nf">onHandleIntent</span><span class="o">(</span><span class="n">Intent</span> <span class="n">intent</span><span class="o">);</span>
+<span class="o">}</span></code></pre></figure>
+
+<h2 id="如何使用">如何使用</h2>
+
+<p>继承 <code>IntentService</code> 并实现 <code>onHandleIntent(Intent)</code> 方法. 然后就可以接收 <code>Intent </code>并启动一个工作者线程处理工作, 结束后自动关闭服务.</p>
+
+<p>它和 <code>Service</code> 一样. 通过 startService(Intent) 启动.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">IntentServiceSub</span> <span class="kd">extends</span> <span class="n">IntentService</span> <span class="o">{</span>    
+
+  <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">TAG</span> <span class="o">=</span> <span class="s">"IntentServiceSub"</span><span class="o">;</span>    
+
+  <span class="kd">public</span> <span class="nf">IntentServiceSub</span><span class="o">()</span> <span class="o">{</span>        
+    <span class="kd">super</span><span class="o">(</span><span class="s">"IntentServiceSub"</span><span class="o">);</span>        
+    <span class="n">Log</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="s">"=&gt;IntentServiceSub"</span><span class="o">);</span>    
+  <span class="o">}</span>    
+   
+  <span class="nd">@Override</span>    
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">()</span> <span class="o">{</span>        
+    <span class="n">Log</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="s">"=&gt;onCreate"</span><span class="o">);</span>        
+    <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">();</span>    
+  <span class="o">}</span>    
+  
+  <span class="nd">@Override</span>    
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onDestroy</span><span class="o">()</span> <span class="o">{</span>        
+    <span class="n">Log</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="s">"=&gt;onDestroy"</span><span class="o">);</span>        
+    <span class="kd">super</span><span class="o">.</span><span class="na">onDestroy</span><span class="o">();</span>   
+  <span class="o">}</span>    
+
+  <span class="nd">@Override</span>    
+  <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onHandleIntent</span><span class="o">(</span><span class="n">Intent</span> <span class="n">arg0</span><span class="o">)</span> <span class="o">{</span>        
+    <span class="n">Log</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="s">"IntentService 线程："</span><span class="o">+</span><span class="n">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">.</span><span class="na">getId</span><span class="o">());</span>
+    <span class="c1">// ToDo 这里添加服务的逻辑                   </span>
+  <span class="o">}</span>
+<span class="o">}</span></code></pre></figure>
+
+<h2 id="常见问题">常见问题</h2>
+
+<ol>
+  <li>
+    <p>为什么多次启动 <code>IntentService</code> 会顺序执行事件，停止服务后，后续的事件得不到执行？
+<code>IntentService</code> 中使用的 <code>Handler</code>, <code>Looper</code>, <code>MessageQueue</code> 机制把消息发送到相同的线程中去执行的, 所以<strong>多次启动 <code>IntentService</code> 不会重新创建新的服务和新的线程， 只是把消息加入消息队列中等待执行</strong>, 而如果服务停止, 会清除消息队列中的消息, 后续的事件得不到执行.</p>
+  </li>
+  <li>
+    <p>为什么不建议通过 <code>bindService()</code> 启动 <code>IntentService</code>？
+<code>IntentService</code> 源码中的 <code>onBind()</code> 默认返回 <code>null</code>. 不适合 <code>bindService()</code> 启动服务，如果你执意要 <code>bindService()</code> 来启动 <code>IntentService</code>, 可能因为你想通过 <code>Binder</code> 或 <code>Messenger</code> 使得 <code>IntentService</code> 和 <code>Activity</code> 可以通信, 这样那么 <code>onHandleIntent()</code> 不会被回调,相当于在你使用 <code>Service</code> 而不是 <code>IntentService</code>.</p>
+  </li>
+</ol>
+
+<h2 id="参考">参考</h2>
+
+<ul>
+  <li><a href="http://www.jianshu.com/p/edbd9e21542b">IntentService 示例与详解</a> - <a href="http://www.jianshu.com/users/9fd6d8c00868/latest_articles">[jacky123](http://www.jianshu.com/users/9fd6d8c00868)</a></li>
+  <li><a href="http://www.jianshu.com/p/6f97028a26f9">IntentService简介和使用</a> - <a href="http://www.jianshu.com/users/444dabff6bef">冯奕欢</a></li>
+  <li><a href="https://developer.android.com/reference/android/app/IntentService.html">IntentService API Doc</a></li>
+</ul>
+
+
+            <!-- Comments -->
+            
+<div class="comments">
+    <div id="disqus_thread"></div>
+    <script>
+        /**
+         * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+         */
+        /*
+         var disqus_config = function () {
+         this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+         this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+         };
+         */
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+
+            s.src = '//httpdongchuangithubio.disqus.com/embed.js';
+
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+
+
+        </div>
+
+        <div class="col-md-4">
+            <h3>Post Directory</h3>
+<div id="post-directory-module">
+<section class="post-directory">
+    <!-- Links that trigger the jumping -->
+    <!-- Added by javascript below -->
+    <dl></dl>
+</section>
+</div>
+
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        $( "article h2" ).each(function( index ) {
+            $(".post-directory dl").append("<dt><a class=\"jumper\" hre=#" +
+                    $(this).attr("id")
+                    + ">"
+                    + $(this).text()
+                    + "</a></dt>");
+
+            var children = $(this).nextUntil("h2", "h3")
+
+            children.each(function( index ) {
+                $(".post-directory dl").append("<dd><a class=\"jumper\" hre=#" +
+                        $(this).attr("id")
+                        + ">"
+                        + "&nbsp;&nbsp;- " + $(this).text()
+                        + "</a></dd>");
+            });
+        });
+
+        var fixmeTop = $('#post-directory-module').offset().top - 100;       // get initial position of the element
+
+        $(window).scroll(function() {                  // assign scroll event listener
+
+            var currentScroll = $(window).scrollTop(); // get current position
+
+            if (currentScroll >= fixmeTop) {           // apply position: fixed if you
+                $('#post-directory-module').css({      // scroll to that element or below it
+                    top: '100px',
+                    position: 'fixed',
+                    width: 'inherit'
+                });
+            } else {                                   // apply position: static
+                $('#post-directory-module').css({      // if you scroll above it
+                    position: 'inherit',
+                    width: 'inherit'
+                });
+            }
+
+        });
+
+        $("a.jumper").on("click", function( e ) {
+
+            e.preventDefault();
+
+            $("body, html").animate({
+                scrollTop: ($( $(this).attr('hre') ).offset().top - 100)
+            }, 600);
+
+        });
+    });
+
+</script>
+        </div>
+        
+
+    </div>
+
+</article>
+
+        </div>
+
+    <footer class="container">
+
+    <div class="site-footer">
+
+        <div class="copyright pull-left">
+            <!-- 请不要更改这一行 方便其他人知道模板的来源 谢谢 -->
+            <!-- Please keep this line to let others know where this theme comes from. Thank you :D -->
+            Power by <a href="https://github.com/DONGChuan/Yummy-Jekyll">Yummy Jekyll</a>
+        </div>
+
+        <a href="https://github.com/DONGChuan" target="_blank" aria-label="view source code">
+            <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+        </a>
+
+        <div class="pull-right">
+            <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+        </div>
+
+    </div>
+
+    <!-- Third-Party JS -->
+    <script type="text/javascript" src="/bower_components/geopattern/js/geopattern.min.js"></script>
+
+    <!-- My JS -->
+    <script type="text/javascript" src="/assets/js/script.js"></script>
+
+    
+
+    
+    <!-- Google Analytics -->
+    <div style="display:none">
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-72165600-1', 'auto');
+            ga('send', 'pageview');
+
+        </script>
+    </div>
+    
+
+</footer>
+
+
+    </body>
+
+</html>

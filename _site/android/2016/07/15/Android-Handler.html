@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon Icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.png">
+
+    <title>Handler 小结</title>
+    <meta name="description"
+          content="安卓的 UI 操作并不是线程安全的. 如果多个线程并发操作 UI 组件, 则可能导致线程安全问题. 为了解决这个问题, 安卓制定了一条简单的规则, 只允许 UI 线程也就是主线程修改 Activity 里的 UI 组件.">
+
+    <link rel="canonical" href="http://localhost:4000/android/2016/07/15/Android-Handler.html">
+    <link rel="alternate" type="application/rss+xml" title="I am Chuan !" href="http://localhost:4000/feed.xml">
+
+    <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- Third-Party CSS -->
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bower_components/octicons/octicons/octicons.css">
+    <link rel="stylesheet" href="/bower_components/hover/css/hover-min.css">
+    <link rel="stylesheet" href="/bower_components/primer-markdown/dist/user-content.min.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
+
+    <!-- My CSS -->
+    <link rel="stylesheet" href="/assets/css/common.css">
+
+    <!-- CSS set in page -->
+    
+
+    <!-- CSS set in layout -->
+    
+    <link rel="stylesheet" href="/assets/css/sidebar-post-nav.css">
+    
+
+    <script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+</head>
+
+
+    <body>
+
+    <header class="site-header">
+    <div class="container">
+        <a id="site-header-brand" href="/" title="DONGChuan">
+            <span class="octicon octicon-mark-github"></span> DONGChuan
+        </a>
+        <nav class="site-header-nav" role="navigation">
+            
+            <a href="/"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Home">
+                Home
+            </a>
+            
+            <a href="/open-source"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Open-Source">
+                Open-Source
+            </a>
+            
+            <a href="/blog"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Blog">
+                Blog
+            </a>
+            
+            <a href="/bookmark"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Bookmark">
+                Bookmark
+            </a>
+            
+            <a href="/about"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="About">
+                About
+            </a>
+            
+        </nav>
+    </div>
+</header>
+
+
+        <div class="content">
+            <section class="jumbotron geopattern" data-pattern-id="Handler 小结">
+    <div class="container">
+        <div id="jumbotron-meta-info">
+            <h1>Handler 小结</h1>
+            <span class="meta-info">
+                
+                
+                <span class="octicon octicon-calendar"></span> 2016/07/15
+                
+            </span>
+        </div>
+    </div>
+</section>
+<script>
+    $(document).ready(function(){
+
+        $('.geopattern').each(function(){
+            $(this).geopattern($(this).data('pattern-id'));
+        });
+
+    });
+</script>
+<article class="post container" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <div class="row">
+
+        
+        <div class="col-md-8 markdown-body">
+
+            <p>安卓的 UI 操作并不是线程安全的. 如果多个线程并发操作 UI 组件, 则可能导致线程安全问题. 为了解决这个问题, 安卓制定了一条简单的规则, 只允许 UI 线程也就是主线程修改 Activity 里的 UI 组件.</p>
+
+<p>当一个程序第一次启动时, 安卓会同时启动一条主线程, 主要负责处理与 UI 相关的事件, 如用户的按键事件, 屏幕绘图等. 由于只有主线程可以修改 UI 组件, 这样就导致新启动的线程无法动态改变 UI. <strong>Handler 的消息传递机制就可以让新启动的线程周期性的改变 UI</strong>.</p>
+
+<p>Handler 主要有 2 个作用:</p>
+
+<ul>
+  <li>在新启动的线程中发送消息</li>
+  <li>在主线程中获取处理消息</li>
+</ul>
+
+<h2 id="如何使用">如何使用</h2>
+
+<h3 id="创建一个-handler-实例">创建一个 Handler 实例</h3>
+
+<p>在主线程中创建 Handler 实例</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">Handler</span> <span class="n">handler</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Handler</span><span class="o">(){</span>
+	<span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">handleMessage</span><span class="o">(</span><span class="n">Message</span> <span class="n">msg</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">.</span><span class="na">handleMessage</span><span class="o">(</span><span class="n">msg</span><span class="o">);</span>
+        <span class="c1">// 处于主线程</span>
+        <span class="c1">// 可以在这里更新 UI</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></figure>
+
+<p>或者使用 <code>Handler.Callback()</code> 在处理消息之前加入一些前置的判断:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">Handler</span> <span class="n">handler</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Handler</span><span class="o">(</span><span class="k">new</span> <span class="n">Handler</span><span class="o">.</span><span class="na">Callback</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">handleMessage</span><span class="o">(</span><span class="n">Message</span> <span class="n">msg</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// 截获消息 返回值 true 代表消息被截获, 不再向下执行</span>
+        <span class="n">eturn</span> <span class="kc">false</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">})</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">handleMessage</span><span class="o">(</span><span class="n">Message</span> <span class="n">msg</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">.</span><span class="na">handleMessage</span><span class="o">(</span><span class="n">msg</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">};</span></code></pre></figure>
+
+<h3 id="发送消息">发送消息</h3>
+
+<p>在<strong>新的线程</strong>中发送消息, <strong>发送的消息都会进入 Handler 的 <code>handleMessage()</code> 方法中</strong>, 即是发送到主线程.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">//第一种 </span>
+<span class="n">Message</span> <span class="n">message</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Message</span><span class="o">();</span>
+<span class="c1">//...arg1,arg2,what,obj相关赋值</span>
+<span class="n">handler</span><span class="o">.</span><span class="na">sendMessage</span><span class="o">(</span><span class="n">message</span><span class="o">);</span>
+
+<span class="c1">//第二种 复用msg</span>
+<span class="n">Message</span> <span class="n">message</span> <span class="o">=</span> <span class="n">handler</span><span class="o">.</span><span class="na">obtainMessage</span><span class="o">();</span>
+<span class="c1">//...arg1,arg2,what,obj相关赋值</span>
+<span class="n">message</span><span class="o">.</span><span class="na">sendToTarget</span><span class="o">();</span>
+
+<span class="c1">//第三种 直接发送</span>
+<span class="n">handler</span><span class="o">.</span><span class="na">sendEmptyMessage</span><span class="o">();</span>
+
+<span class="c1">//第四种 延迟发送</span>
+<span class="n">handler</span><span class="o">.</span><span class="na">sendMessageDelayed</span><span class="o">();</span>
+
+<span class="c1">//第五种 指定时间</span>
+<span class="n">handler</span><span class="o">.</span><span class="na">sendMessageAtTime</span><span class="o">();</span>
+
+<span class="c1">//第六种 插入到队列前侧</span>
+<span class="n">handler</span><span class="o">.</span><span class="na">sendMessageAtFrontOfQueue</span><span class="o">();</span></code></pre></figure>
+
+<h2 id="深入了解工作原理">深入了解工作原理</h2>
+
+<p>Handler 一共有四个组件</p>
+
+<ul>
+  <li><strong>Message</strong>: 是 Handler 接收和处理的消息对象</li>
+  <li><strong>Looper</strong>: 每个线程只能有一个 Looper. 它的 loop 方法负责读取 MessageQueue 中的消息, 读到消息之后就把消息交给发送该消息的 Handler 进行处理.</li>
+  <li><strong>MessageQueue</strong>: 消息队列. 它采用先进先出的方式来管理 Message. 程序创建 Looper 对象时, 会在它的构造器中创建 MessageQueue 对象.</li>
+  <li><strong>Handler</strong>: 就是之前描述的发送消息和处理消息.</li>
+</ul>
+
+<h3 id="流程图">流程图</h3>
+
+<p>当新启动的线程发送消息时, 消息会发送到与之关联的 MessageQueue, 而 Handler 会不断地从 MessageQueue 中获取并处理消息. 这将导致 Handler 类中处理消息的方法被回调. 这个方法处于主线程, 从而更新 UI.</p>
+
+<p><img src="http://DONGChuan.github.io/assets/images/handler-process.png" alt="handler流程图.png" /></p>
+
+<p>既然 MessageQueue 是被 Looper 创建的, 那我们需不需要手动创建这个 Looper 对象呢?</p>
+
+<p>答案是不一定. 如果在主线程中, 系统已经初始化了一个 Looper 对象, 因为程序直接创建 Handler 即可. 如果是我们自己启动的子线程, 需要在子线程中创建 Handler 的话, 就需要再手动创建一个 Looper 对象. 创建 Looper 对象调用它的 prepare() 方法即可. 该方法保证每个线程最多只有一个 Looper 对象. 接下来调用 loop() 方法启动即可. 该方法会使用一个死循环不断取出 MessageQueue 中的消息.</p>
+
+
+            <!-- Comments -->
+            
+<div class="comments">
+    <div id="disqus_thread"></div>
+    <script>
+        /**
+         * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+         */
+        /*
+         var disqus_config = function () {
+         this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+         this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+         };
+         */
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+
+            s.src = '//httpdongchuangithubio.disqus.com/embed.js';
+
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+
+
+        </div>
+
+        <div class="col-md-4">
+            <h3>Post Directory</h3>
+<div id="post-directory-module">
+<section class="post-directory">
+    <!-- Links that trigger the jumping -->
+    <!-- Added by javascript below -->
+    <dl></dl>
+</section>
+</div>
+
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        $( "article h2" ).each(function( index ) {
+            $(".post-directory dl").append("<dt><a class=\"jumper\" hre=#" +
+                    $(this).attr("id")
+                    + ">"
+                    + $(this).text()
+                    + "</a></dt>");
+
+            var children = $(this).nextUntil("h2", "h3")
+
+            children.each(function( index ) {
+                $(".post-directory dl").append("<dd><a class=\"jumper\" hre=#" +
+                        $(this).attr("id")
+                        + ">"
+                        + "&nbsp;&nbsp;- " + $(this).text()
+                        + "</a></dd>");
+            });
+        });
+
+        var fixmeTop = $('#post-directory-module').offset().top - 100;       // get initial position of the element
+
+        $(window).scroll(function() {                  // assign scroll event listener
+
+            var currentScroll = $(window).scrollTop(); // get current position
+
+            if (currentScroll >= fixmeTop) {           // apply position: fixed if you
+                $('#post-directory-module').css({      // scroll to that element or below it
+                    top: '100px',
+                    position: 'fixed',
+                    width: 'inherit'
+                });
+            } else {                                   // apply position: static
+                $('#post-directory-module').css({      // if you scroll above it
+                    position: 'inherit',
+                    width: 'inherit'
+                });
+            }
+
+        });
+
+        $("a.jumper").on("click", function( e ) {
+
+            e.preventDefault();
+
+            $("body, html").animate({
+                scrollTop: ($( $(this).attr('hre') ).offset().top - 100)
+            }, 600);
+
+        });
+    });
+
+</script>
+        </div>
+        
+
+    </div>
+
+</article>
+
+        </div>
+
+    <footer class="container">
+
+    <div class="site-footer">
+
+        <div class="copyright pull-left">
+            <!-- 请不要更改这一行 方便其他人知道模板的来源 谢谢 -->
+            <!-- Please keep this line to let others know where this theme comes from. Thank you :D -->
+            Power by <a href="https://github.com/DONGChuan/Yummy-Jekyll">Yummy Jekyll</a>
+        </div>
+
+        <a href="https://github.com/DONGChuan" target="_blank" aria-label="view source code">
+            <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+        </a>
+
+        <div class="pull-right">
+            <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+        </div>
+
+    </div>
+
+    <!-- Third-Party JS -->
+    <script type="text/javascript" src="/bower_components/geopattern/js/geopattern.min.js"></script>
+
+    <!-- My JS -->
+    <script type="text/javascript" src="/assets/js/script.js"></script>
+
+    
+
+    
+    <!-- Google Analytics -->
+    <div style="display:none">
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-72165600-1', 'auto');
+            ga('send', 'pageview');
+
+        </script>
+    </div>
+    
+
+</footer>
+
+
+    </body>
+
+</html>

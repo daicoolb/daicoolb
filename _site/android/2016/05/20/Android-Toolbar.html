@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon Icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.png">
+
+    <title>Android Toolbar</title>
+    <meta name="description"
+          content="Quick note about learning Training : Adding the App Bar">
+
+    <link rel="canonical" href="http://localhost:4000/android/2016/05/20/Android-Toolbar.html">
+    <link rel="alternate" type="application/rss+xml" title="I am Chuan !" href="http://localhost:4000/feed.xml">
+
+    <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- Third-Party CSS -->
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bower_components/octicons/octicons/octicons.css">
+    <link rel="stylesheet" href="/bower_components/hover/css/hover-min.css">
+    <link rel="stylesheet" href="/bower_components/primer-markdown/dist/user-content.min.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
+
+    <!-- My CSS -->
+    <link rel="stylesheet" href="/assets/css/common.css">
+
+    <!-- CSS set in page -->
+    
+
+    <!-- CSS set in layout -->
+    
+    <link rel="stylesheet" href="/assets/css/sidebar-post-nav.css">
+    
+
+    <script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+</head>
+
+
+    <body>
+
+    <header class="site-header">
+    <div class="container">
+        <a id="site-header-brand" href="/" title="DONGChuan">
+            <span class="octicon octicon-mark-github"></span> DONGChuan
+        </a>
+        <nav class="site-header-nav" role="navigation">
+            
+            <a href="/"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Home">
+                Home
+            </a>
+            
+            <a href="/open-source"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Open-Source">
+                Open-Source
+            </a>
+            
+            <a href="/blog"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Blog">
+                Blog
+            </a>
+            
+            <a href="/bookmark"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Bookmark">
+                Bookmark
+            </a>
+            
+            <a href="/about"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="About">
+                About
+            </a>
+            
+        </nav>
+    </div>
+</header>
+
+
+        <div class="content">
+            <section class="jumbotron geopattern" data-pattern-id="Android Toolbar">
+    <div class="container">
+        <div id="jumbotron-meta-info">
+            <h1>Android Toolbar</h1>
+            <span class="meta-info">
+                
+                
+                <span class="octicon octicon-calendar"></span> 2016/05/20
+                
+            </span>
+        </div>
+    </div>
+</section>
+<script>
+    $(document).ready(function(){
+
+        $('.geopattern').each(function(){
+            $(this).geopattern($(this).data('pattern-id'));
+        });
+
+    });
+</script>
+<article class="post container" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <div class="row">
+
+        
+        <div class="col-md-8 markdown-body">
+
+            <p>Quick note about learning <a href="https://developer.android.com/training/appbar/index.html">Training : Adding the App Bar</a></p>
+
+<p>Android introduces a new Toolbar widget. It is a generalization of the Action Bar pattern that gives us much more control and flexibility. ActionBar now is considered a special kind of Toolbar.</p>
+
+<p>Using a Toolbar as an replacement to ActionBar:</p>
+
+<ol>
+  <li>Greater control to customize its appearance.</li>
+  <li>Fully support to lower android os devices via AppCompact support lib.</li>
+  <li>Continue to use the ActionBar features such as menus, selections, etc.</li>
+  <li>Use a standalone Toolbar, put it where ever we want in app.</li>
+</ol>
+
+<h2 id="add-toolbar">Add Toolbar</h2>
+
+<p>To Add Toolbar:</p>
+
+<ol>
+  <li>Have <a href="https://developer.android.com/topic/libraries/support-library/features.html#v7-appcompat">v7 appcompat support library</a></li>
+  <li>Activity to extend <code>AppCompatActivity</code></li>
+  <li>Update theme to be without actionbar</li>
+  <li>Apply theme to every activity</li>
+  <li>Define toolbar in activity layout</li>
+  <li>Update <code>onCreate()</code> to have this toolbar</li>
+</ol>
+
+<h4 id="extend-appcompatactivity">Extend <code>AppCompatActivity</code></h4>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyActivity</span> <span class="kd">extends</span> <span class="n">AppCompatActivity</span> <span class="o">{</span>
+    <span class="c1">// ...</span>
+<span class="o">}</span></code></pre></figure>
+
+<h4 id="update-theme">Update theme</h4>
+
+<p>Update theme to NoActionBar to prevent the app from using the native ActionBar class to provide toolbar.</p>
+
+<p>In <code>res/values/styles.xml</code>:</p>
+
+<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="c">&lt;!-- Theme for activity --&gt;</span>
+<span class="nt">&lt;style</span> <span class="na">name=</span><span class="s">"AppTheme.NoActionBar"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;item</span> <span class="na">name=</span><span class="s">"windowActionBar"</span><span class="nt">&gt;</span>false<span class="nt">&lt;/item&gt;</span>
+    <span class="nt">&lt;item</span> <span class="na">name=</span><span class="s">"windowNoTitle"</span><span class="nt">&gt;</span>true<span class="nt">&lt;/item&gt;</span>
+<span class="nt">&lt;/style&gt;</span>
+
+<span class="c">&lt;!-- Theme for toolbar --&gt;</span>
+<span class="nt">&lt;style</span> <span class="na">name=</span><span class="s">"AppTheme.AppBarOverlay"</span> <span class="na">parent=</span><span class="s">"ThemeOverlay.AppCompat.Dark.ActionBar"</span> <span class="nt">/&gt;</span>
+
+<span class="c">&lt;!-- Theme for toolbar popup menu --&gt;</span>
+<span class="nt">&lt;style</span> <span class="na">name=</span><span class="s">"AppTheme.PopupOverlay"</span> <span class="na">parent=</span><span class="s">"ThemeOverlay.AppCompat.Light"</span> <span class="nt">/&gt;</span></code></pre></figure>
+
+<h4 id="update-androidmanifestxml">Update <code>AndroidManifest.xml</code></h4>
+
+<p>Make sure all <code>&lt;activity&gt;</code> has the AppTheme.<code>NoActionBar</code> theme</p>
+
+<figure class="highlight"><pre><code class="language-xml" data-lang="xml">android:theme="@style/AppTheme.NoActionBar"</code></pre></figure>
+
+<h4 id="update-activity-layout">Update activity layout</h4>
+
+<ul>
+  <li><code>android:theme</code> sets theme for the whole toolbar.</li>
+  <li><code>app:popupTheme</code> sets theme for the toolbar overflow menu.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;android.support.v7.widget.Toolbar</span>
+   <span class="na">android:id=</span><span class="s">"@+id/my_toolbar"</span>
+   <span class="na">android:layout_width=</span><span class="s">"match_parent"</span>
+   <span class="na">android:layout_height=</span><span class="s">"?attr/actionBarSize"</span>
+   <span class="na">android:background=</span><span class="s">"?attr/colorPrimary"</span>
+   <span class="na">android:elevation=</span><span class="s">"4dp"</span>
+   <span class="na">android:theme=</span><span class="s">"@style/ThemeOverlay.AppCompat.ActionBar"</span>
+   <span class="na">app:popupTheme=</span><span class="s">"@style/ThemeOverlay.AppCompat.Light"</span><span class="nt">/&gt;</span> </code></pre></figure>
+
+<blockquote>
+  <p>Elevation 4dp is recommanded by <a href="https://www.google.com/design/spec/what-is-material/elevation-shadows.html#elevation-shadows-shadows">Material Design specification</a></p>
+</blockquote>
+
+<h4 id="update-oncreate">Update <code>onCreate()</code></h4>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="nd">@Override</span>
+<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+    <span class="n">setContentView</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">activity_my</span><span class="o">);</span>
+
+    <span class="n">Toolbar</span> <span class="n">myToolbar</span> <span class="o">=</span> <span class="o">(</span><span class="n">Toolbar</span><span class="o">)</span> <span class="n">findViewById</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">my_toolbar</span><span class="o">);</span>
+    <span class="n">setSupportActionBar</span><span class="o">(</span><span class="n">myToolbar</span><span class="o">);</span>
+<span class="o">}</span> </code></pre></figure>
+
+<h2 id="add-action-buttons">Add Action Buttons</h2>
+
+<p>To add action buttons:</p>
+
+<ol>
+  <li>Update menu layout xml in <code>res/menu/</code> to have this button</li>
+  <li>Update <code>onOptionsItemSelected()</code> to add listener</li>
+</ol>
+
+<h4 id="update-menu-layout-xml">Update menu layout xml</h4>
+
+<p>Button will appear directly in toolbar or in overflow menu according to:</p>
+
+<ul>
+  <li><code>app:showAsAction="ifRoom"</code> - button will be displayed on toolbar if there is enough room in the toolbar; if not, it will be in overflow menu.</li>
+  <li><code>app:showAsAction="never"</code> - Only in the overflow menu.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;menu</span> <span class="na">xmlns:android=</span><span class="s">"http://schemas.android.com/apk/res/android"</span>
+    <span class="na">xmlns:app=</span><span class="s">"http://schemas.android.com/apk/res-auto"</span>
+    <span class="na">xmlns:tools=</span><span class="s">"http://schemas.android.com/tools"</span>
+    <span class="na">tools:context=</span><span class="s">"com.example.chuandong.myapplication.MainActivity"</span><span class="nt">&gt;</span>
+
+    <span class="c">&lt;!-- in toolbar if there is room --&gt;</span>
+    <span class="nt">&lt;item</span>
+        <span class="na">android:id=</span><span class="s">"@+id/item_a"</span>
+        <span class="na">android:icon=</span><span class="s">"@mipmap/ic_launcher"</span>
+        <span class="na">android:title=</span><span class="s">"@string/action_settings"</span>
+        <span class="na">app:showAsAction=</span><span class="s">"ifRoom"</span><span class="nt">/&gt;</span>
+
+    <span class="c">&lt;!-- in overflow menu --&gt;</span>
+    <span class="nt">&lt;item</span>
+        <span class="na">android:id=</span><span class="s">"@+id/item_b"</span>
+        <span class="na">android:orderInCategory=</span><span class="s">"100"</span>
+        <span class="na">android:title=</span><span class="s">"@string/action_settings"</span>
+        <span class="na">app:showAsAction=</span><span class="s">"never"</span> <span class="nt">/&gt;</span>
+
+<span class="nt">&lt;/menu&gt;</span></code></pre></figure>
+
+<h4 id="update-onoptionsitemselected-to-add-listener">Update <code>onOptionsItemSelected()</code> to add Listener</h4>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">onOptionsItemSelected</span><span class="o">(</span><span class="n">MenuItem</span> <span class="n">item</span><span class="o">)</span> <span class="o">{</span>
+
+    <span class="k">switch</span> <span class="o">(</span><span class="n">item</span><span class="o">.</span><span class="na">getItemId</span><span class="o">())</span> <span class="o">{</span>
+        <span class="k">case</span> <span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">item_a</span><span class="o">:</span>
+            <span class="c1">// ToDo</span>
+            <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+
+        <span class="k">case</span> <span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">item_b</span><span class="o">:</span>
+            <span class="c1">// ToDo</span>
+            <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+
+        <span class="k">default</span><span class="o">:</span>
+            <span class="c1">// ToDo</span>
+            <span class="k">return</span> <span class="kd">super</span><span class="o">.</span><span class="na">onOptionsItemSelected</span><span class="o">(</span><span class="n">item</span><span class="o">);</span>
+
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></figure>
+
+<h3 id="adding-an-up-action">Adding an Up Action</h3>
+
+<p>Up button in toolbar is for all activities (except the main one) to <strong>navigate to the parent activity</strong>.</p>
+
+<p>Two steps:</p>
+
+<ol>
+  <li>Declare a Parent Activity</li>
+  <li>Enable the Up button for an activity</li>
+</ol>
+
+<h4 id="declare-a-parent-activity">Declare a Parent Activity</h4>
+
+<p>In <code>AndroidManifest.xml</code>:</p>
+
+<ul>
+  <li>For higher than Android 4.1 (API level 16), using <code>android:parentActivityName</code>.</li>
+  <li>For older version, using <code>&lt;meta-data&gt;</code> name-value pair, where name is <code>android.support.PARENT_ACTIVITY</code> with value the name of the parent activity.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;application</span> <span class="err">...</span> <span class="nt">&gt;</span>
+    ...
+
+    <span class="c">&lt;!-- The main/home activity (it has no parent activity) --&gt;</span>
+    <span class="nt">&lt;activity</span>
+        <span class="na">android:name=</span><span class="s">"com.example.myfirstapp.MainActivity"</span> <span class="err">...</span><span class="nt">&gt;</span>
+        ...
+    <span class="nt">&lt;/activity&gt;</span>
+
+    <span class="c">&lt;!-- A child of the main activity --&gt;</span>
+    <span class="nt">&lt;activity</span>
+        <span class="na">android:name=</span><span class="s">"com.example.myfirstapp.MyChildActivity"</span>
+        <span class="na">android:label=</span><span class="s">"@string/title_activity_child"</span>
+        <span class="na">android:parentActivityName=</span><span class="s">"com.example.myfirstapp.MainActivity"</span> <span class="nt">&gt;</span>
+
+        <span class="c">&lt;!-- Parent activity meta-data to support 4.0 and lower --&gt;</span>
+        <span class="nt">&lt;meta-data</span>
+            <span class="na">android:name=</span><span class="s">"android.support.PARENT_ACTIVITY"</span>
+            <span class="na">android:value=</span><span class="s">"com.example.myfirstapp.MainActivity"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/activity&gt;</span>
+<span class="nt">&lt;/application&gt;</span></code></pre></figure>
+
+<h4 id="enable-up-button">Enable Up button</h4>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="nd">@Override</span>
+<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+    <span class="n">setContentView</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">activity_my</span><span class="o">);</span>
+
+    <span class="n">Toolbar</span> <span class="n">myToolbar</span> <span class="o">=</span> <span class="o">(</span><span class="n">Toolbar</span><span class="o">)</span> <span class="n">findViewById</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">my_toolbar</span><span class="o">);</span>
+    <span class="n">setSupportActionBar</span><span class="o">(</span><span class="n">myToolbar</span><span class="o">);</span>
+
+    <span class="c1">// Get a support ActionBar corresponding to this toolbar</span>
+    <span class="n">ActionBar</span> <span class="n">actionbar</span> <span class="o">=</span> <span class="n">getSupportActionBar</span><span class="o">();</span>
+
+    <span class="c1">// Enable the Up button</span>
+    <span class="n">actionbar</span><span class="o">.</span><span class="na">setDisplayHomeAsUpEnabled</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+<span class="o">}</span> </code></pre></figure>
+
+<h2 id="action-views">Action Views</h2>
+
+<p>It is an action providing rich functionality. For example, a search action view allows the user to type their search text in toolbar, without having to change activities or fragments.</p>
+
+<ol>
+  <li>Add <code>&lt;item&gt;</code> in toolbar menu resource</li>
+  <li>Update <code>onCreateOptionsMenu()</code> to add event listener</li>
+</ol>
+
+<h4 id="update-toolbar-menu-resource">Update toolbar menu resource</h4>
+
+<p>To add an action view, create an <code>&lt;item&gt;</code> element in the toolbar’s menu resource. Then add one of the following two attributes to the element:</p>
+
+<ul>
+  <li><code>actionViewClass</code> - The class of a widget that implements the action.</li>
+  <li><code>actionLayout</code> - A layout resource describing the action’s components.</li>
+</ul>
+
+<p>Set <code>showAsAction</code> to either <code>ifRoom|collapseActionView</code> or <code>never|collapseActionView</code>.</p>
+
+<p>The <code>collapseActionView</code> indicates how to display the widget when the user is not interacting with it: If the widget is on toolbar, the app should display the widget as an icon. If the widget is in the overflow menu, the app should display the widget as a menu item. When the user interacts with the action view, it expands to fill toolbar.</p>
+
+<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;item</span> <span class="na">android:id=</span><span class="s">"@+id/action_search"</span>
+     <span class="na">android:title=</span><span class="s">"@string/action_search"</span>
+     <span class="na">android:icon=</span><span class="s">"@drawable/ic_search"</span>
+     <span class="na">app:showAsAction=</span><span class="s">"ifRoom|collapseActionView"</span>
+     <span class="na">app:actionViewClass=</span><span class="s">"android.support.v7.widget.SearchView"</span> <span class="nt">/&gt;</span></code></pre></figure>
+
+<h4 id="update-oncreateoptionsmenu">Update <code>onCreateOptionsMenu()</code></h4>
+
+<p>Update <code>onCreateOptionsMenu()</code> in activity to add event listener</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">onCreateOptionsMenu</span><span class="o">(</span><span class="n">Menu</span> <span class="n">menu</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">getMenuInflater</span><span class="o">().</span><span class="na">inflate</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">menu</span><span class="o">.</span><span class="na">main_activity_actions</span><span class="o">,</span> <span class="n">menu</span><span class="o">);</span>
+
+    <span class="n">MenuItem</span> <span class="n">searchItem</span> <span class="o">=</span> <span class="n">menu</span><span class="o">.</span><span class="na">findItem</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">action_search</span><span class="o">);</span>
+    <span class="n">SearchView</span> <span class="n">searchView</span> <span class="o">=</span>
+            <span class="o">(</span><span class="n">SearchView</span><span class="o">)</span> <span class="n">MenuItemCompat</span><span class="o">.</span><span class="na">getActionView</span><span class="o">(</span><span class="n">searchItem</span><span class="o">);</span>
+
+    <span class="c1">// Configure the search info and add any event listeners...</span>
+
+    <span class="k">return</span> <span class="kd">super</span><span class="o">.</span><span class="na">onCreateOptionsMenu</span><span class="o">(</span><span class="n">menu</span><span class="o">);</span>
+<span class="o">}</span></code></pre></figure>
+
+<h4 id="listener-to-action-view-collapseexpanded">Listener to action view collapse/expanded</h4>
+
+<p>If we want to do something when action view collapses/expands:</p>
+
+<ol>
+  <li>Define and override <code>OnActionExpandListener</code></li>
+  <li>Add this listener to action view item</li>
+</ol>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">onCreateOptionsMenu</span><span class="o">(</span><span class="n">Menu</span> <span class="n">menu</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">getMenuInflater</span><span class="o">().</span><span class="na">inflate</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">menu</span><span class="o">.</span><span class="na">options</span><span class="o">,</span> <span class="n">menu</span><span class="o">);</span>
+    <span class="c1">// ...</span>
+
+    <span class="c1">// Define the listener</span>
+    <span class="n">OnActionExpandListener</span> <span class="n">expandListener</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OnActionExpandListener</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">onMenuItemActionCollapse</span><span class="o">(</span><span class="n">MenuItem</span> <span class="n">item</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// Do something when action item collapses</span>
+            <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>  <span class="c1">// Return true to collapse action view</span>
+        <span class="o">}</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">onMenuItemActionExpand</span><span class="o">(</span><span class="n">MenuItem</span> <span class="n">item</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// Do something when expanded</span>
+            <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>  <span class="c1">// Return true to expand action view</span>
+        <span class="o">}</span>
+    <span class="o">};</span>
+
+    <span class="c1">// Get the MenuItem for the action item</span>
+    <span class="n">MenuItem</span> <span class="n">actionMenuItem</span> <span class="o">=</span> <span class="n">menu</span><span class="o">.</span><span class="na">findItem</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">myActionItem</span><span class="o">);</span>
+
+    <span class="c1">// Assign the listener to that action item</span>
+    <span class="n">MenuItemCompat</span><span class="o">.</span><span class="na">setOnActionExpandListener</span><span class="o">(</span><span class="n">actionMenuItem</span><span class="o">,</span> <span class="n">expandListener</span><span class="o">);</span>
+
+    <span class="c1">// Any other things you have to do when creating the options menu…</span>
+
+    <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+<span class="o">}</span></code></pre></figure>
+
+<h2 id="action-providers">Action Providers</h2>
+
+<p>It is an action with its own customized layout. When user clicks it, the action provider controls the action’s behavior in any way we want. For example, the action provider might respond to a click by displaying a menu.</p>
+
+<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;item</span> <span class="na">android:id=</span><span class="s">"@+id/action_share"</span>
+    <span class="na">android:title=</span><span class="s">"@string/share"</span>
+    <span class="na">app:showAsAction=</span><span class="s">"ifRoom"</span>
+    <span class="na">app:actionProviderClass=</span><span class="s">"android.support.v7.widget.ShareActionProvider"</span><span class="nt">/&gt;</span></code></pre></figure>
+
+<p>To create a custom action provider, see <a href="https://developer.android.com/reference/android/support/v4/view/ActionProvider.html">here</a>.</p>
+
+<p>To configure a ShareActionProvider, see <a href="https://developer.android.com/reference/android/support/v7/widget/ShareActionProvider.html">here</a>.</p>
+
+<h2 id="ref">Ref</h2>
+
+<ul>
+  <li><a href="http://stackoverflow.com/questions/27665018/what-is-the-difference-between-action-bar-and-newly-introduced-toolbar">What is the difference between Action Bar and newly introduced Toolbar?</a></li>
+</ul>
+
+
+            <!-- Comments -->
+            
+<div class="comments">
+    <div id="disqus_thread"></div>
+    <script>
+        /**
+         * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+         */
+        /*
+         var disqus_config = function () {
+         this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+         this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+         };
+         */
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+
+            s.src = '//httpdongchuangithubio.disqus.com/embed.js';
+
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+
+
+        </div>
+
+        <div class="col-md-4">
+            <h3>Post Directory</h3>
+<div id="post-directory-module">
+<section class="post-directory">
+    <!-- Links that trigger the jumping -->
+    <!-- Added by javascript below -->
+    <dl></dl>
+</section>
+</div>
+
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        $( "article h2" ).each(function( index ) {
+            $(".post-directory dl").append("<dt><a class=\"jumper\" hre=#" +
+                    $(this).attr("id")
+                    + ">"
+                    + $(this).text()
+                    + "</a></dt>");
+
+            var children = $(this).nextUntil("h2", "h3")
+
+            children.each(function( index ) {
+                $(".post-directory dl").append("<dd><a class=\"jumper\" hre=#" +
+                        $(this).attr("id")
+                        + ">"
+                        + "&nbsp;&nbsp;- " + $(this).text()
+                        + "</a></dd>");
+            });
+        });
+
+        var fixmeTop = $('#post-directory-module').offset().top - 100;       // get initial position of the element
+
+        $(window).scroll(function() {                  // assign scroll event listener
+
+            var currentScroll = $(window).scrollTop(); // get current position
+
+            if (currentScroll >= fixmeTop) {           // apply position: fixed if you
+                $('#post-directory-module').css({      // scroll to that element or below it
+                    top: '100px',
+                    position: 'fixed',
+                    width: 'inherit'
+                });
+            } else {                                   // apply position: static
+                $('#post-directory-module').css({      // if you scroll above it
+                    position: 'inherit',
+                    width: 'inherit'
+                });
+            }
+
+        });
+
+        $("a.jumper").on("click", function( e ) {
+
+            e.preventDefault();
+
+            $("body, html").animate({
+                scrollTop: ($( $(this).attr('hre') ).offset().top - 100)
+            }, 600);
+
+        });
+    });
+
+</script>
+        </div>
+        
+
+    </div>
+
+</article>
+
+        </div>
+
+    <footer class="container">
+
+    <div class="site-footer">
+
+        <div class="copyright pull-left">
+            <!-- 请不要更改这一行 方便其他人知道模板的来源 谢谢 -->
+            <!-- Please keep this line to let others know where this theme comes from. Thank you :D -->
+            Power by <a href="https://github.com/DONGChuan/Yummy-Jekyll">Yummy Jekyll</a>
+        </div>
+
+        <a href="https://github.com/DONGChuan" target="_blank" aria-label="view source code">
+            <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+        </a>
+
+        <div class="pull-right">
+            <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+        </div>
+
+    </div>
+
+    <!-- Third-Party JS -->
+    <script type="text/javascript" src="/bower_components/geopattern/js/geopattern.min.js"></script>
+
+    <!-- My JS -->
+    <script type="text/javascript" src="/assets/js/script.js"></script>
+
+    
+
+    
+    <!-- Google Analytics -->
+    <div style="display:none">
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-72165600-1', 'auto');
+            ga('send', 'pageview');
+
+        </script>
+    </div>
+    
+
+</footer>
+
+
+    </body>
+
+</html>

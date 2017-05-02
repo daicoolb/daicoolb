@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon Icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.png">
+
+    <title>MySQL Index</title>
+    <meta name="description"
+          content="Quick note about MySQL Index.">
+
+    <link rel="canonical" href="http://localhost:4000/mysql/2016/04/20/MySQL-Index.html">
+    <link rel="alternate" type="application/rss+xml" title="I am Chuan !" href="http://localhost:4000/feed.xml">
+
+    <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- Third-Party CSS -->
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bower_components/octicons/octicons/octicons.css">
+    <link rel="stylesheet" href="/bower_components/hover/css/hover-min.css">
+    <link rel="stylesheet" href="/bower_components/primer-markdown/dist/user-content.min.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
+
+    <!-- My CSS -->
+    <link rel="stylesheet" href="/assets/css/common.css">
+
+    <!-- CSS set in page -->
+    
+
+    <!-- CSS set in layout -->
+    
+    <link rel="stylesheet" href="/assets/css/sidebar-post-nav.css">
+    
+
+    <script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+</head>
+
+
+    <body>
+
+    <header class="site-header">
+    <div class="container">
+        <a id="site-header-brand" href="/" title="DONGChuan">
+            <span class="octicon octicon-mark-github"></span> DONGChuan
+        </a>
+        <nav class="site-header-nav" role="navigation">
+            
+            <a href="/"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Home">
+                Home
+            </a>
+            
+            <a href="/open-source"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Open-Source">
+                Open-Source
+            </a>
+            
+            <a href="/blog"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Blog">
+                Blog
+            </a>
+            
+            <a href="/bookmark"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Bookmark">
+                Bookmark
+            </a>
+            
+            <a href="/about"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="About">
+                About
+            </a>
+            
+        </nav>
+    </div>
+</header>
+
+
+        <div class="content">
+            <section class="jumbotron geopattern" data-pattern-id="MySQL Index">
+    <div class="container">
+        <div id="jumbotron-meta-info">
+            <h1>MySQL Index</h1>
+            <span class="meta-info">
+                
+                
+                <span class="octicon octicon-calendar"></span> 2016/04/20
+                
+            </span>
+        </div>
+    </div>
+</section>
+<script>
+    $(document).ready(function(){
+
+        $('.geopattern').each(function(){
+            $(this).geopattern($(this).data('pattern-id'));
+        });
+
+    });
+</script>
+<article class="post container" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <div class="row">
+
+        
+        <div class="col-md-8 markdown-body">
+
+            <p>Quick note about MySQL Index.</p>
+
+<h2 id="why-index">Why Index</h2>
+
+<p>Indexes are used to <strong>find rows with specific column values quickly</strong>. Without an index, MySQL must begin with the first row 
+and then read through the entire table to find the relevant rows. The larger the table, the more this costs. If the table 
+has an index for the columns in question, MySQL can quickly determine the position to seek to in the middle of the data file 
+without having to look at all the data. This is much faster than reading every row sequentially.</p>
+
+<p>Most MySQL indexes are stored in <a href="http://dev.mysql.com/doc/refman/5.7/en/glossary.html#glos_b_tree">B-trees</a>. But indexes on spatial data types use R-trees;</p>
+
+<h2 id="index-type">Index Type</h2>
+
+<ol>
+  <li><code>INDEX</code>. Duplicate values or composites are allowed.</li>
+  <li><code>Composite Index</code>. <code>INDEX</code> with multiple-column.</li>
+  <li><code>UNIQUE INDEX</code>. Duplicate values or composites are not allowed.</li>
+  <li><code>PRIMARY KEY</code>. Special unique index. Only one in each table.</li>
+</ol>
+
+<h3 id="composite-index">Composite Index</h3>
+
+<p>Composite Index is multiple-column index. For example:</p>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">tb_name</span> <span class="k">ADD</span> <span class="k">INDEX</span> <span class="n">name_city_age</span> <span class="p">(</span><span class="n">name</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="n">city</span><span class="p">,</span> <span class="n">age</span><span class="p">);</span> </code></pre></figure>
+
+<p>This composite index, in fact, is equivalent to the following three indexes:</p>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">INDEX</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">city</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span> 
+<span class="k">INDEX</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">city</span><span class="p">)</span>
+<span class="k">INDEX</span> <span class="p">(</span><span class="n">name</span><span class="p">)</span> </code></pre></figure>
+
+<p>But <strong>NO</strong> indexes like:</p>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">INDEX</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span> 
+<span class="k">INDEX</span> <span class="p">(</span><span class="n">city</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span> </code></pre></figure>
+
+<p>Because of <strong>leftmost prefix</strong>. It could simply be considered as composite from left. So the following 
+select will benefit from this composite index:</p>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">tb_name</span> <span class="n">WHREE</span> <span class="n">name</span><span class="o">=</span><span class="nv">"admin"</span> <span class="k">AND</span> <span class="n">city</span><span class="o">=</span><span class="nv">"Paris"</span> 
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">tb_name</span> <span class="n">WHREE</span> <span class="n">name</span><span class="o">=</span><span class="nv">"admin"</span> </code></pre></figure>
+
+<p>The following will not use it：</p>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">tb_name</span> <span class="n">WHREE</span> <span class="n">age</span><span class="o">=</span><span class="mi">20</span> <span class="k">AND</span> <span class="n">city</span><span class="o">=</span><span class="nv">"Paris"</span> 
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">tb_name</span> <span class="n">WHREE</span> <span class="n">city</span><span class="o">=</span><span class="nv">"Paris"</span> </code></pre></figure>
+
+<h3 id="unique-index">Unique Index</h3>
+
+<p>A unique index enforces the constraint that we cannot have two equal values in that column. 
+When unique with composite index, no two equal composites are allowed.</p>
+
+<p>For example:</p>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">table1</span> <span class="p">(</span><span class="n">foo</span> <span class="n">INT</span><span class="p">,</span> <span class="n">bar</span> <span class="n">INT</span><span class="p">);</span>
+
+<span class="k">CREATE</span> <span class="k">UNIQUE</span> <span class="k">INDEX</span> <span class="n">ux_table1_foo</span> <span class="k">ON</span> <span class="n">table1</span><span class="p">(</span><span class="n">foo</span><span class="p">);</span>  <span class="c1">-- Create unique index on foo.</span>
+
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">table1</span> <span class="p">(</span><span class="n">foo</span><span class="p">,</span> <span class="n">bar</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span> <span class="c1">-- OK</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">table1</span> <span class="p">(</span><span class="n">foo</span><span class="p">,</span> <span class="n">bar</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span> <span class="c1">-- OK</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">table1</span> <span class="p">(</span><span class="n">foo</span><span class="p">,</span> <span class="n">bar</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span> <span class="c1">-- OK</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">table1</span> <span class="p">(</span><span class="n">foo</span><span class="p">,</span> <span class="n">bar</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span> <span class="c1">-- Fails! Duplicate entry '1' for key 'ux_table1_foo'</span></code></pre></figure>
+
+<p>The last insert fails because it violates the unique index on column foo when it tries to insert the value 1 
+into this column for a second time.</p>
+
+<blockquote>
+  <p>In MySQL, <code>UNIQUE</code> constraint allows multiple NULLs.</p>
+</blockquote>
+
+<h3 id="primary-key">PRIMARY KEY</h3>
+
+<p><code>PRIMARY KEY</code> is a special situation of <code>UNIQUE</code></p>
+
+<p>But some points different:</p>
+
+<ul>
+  <li><code>PRIMARY KEY</code> implies NOT NULL, but unique index can be nullable.</li>
+  <li>There can be only one <code>PRIMARY KEY</code>, but there can be multiple unique indexes.</li>
+  <li>If there is no clustered index defined then <code>PRIMARY KEY</code> will be the clustered index.</li>
+</ul>
+
+<h2 id="create-index">Create Index</h2>
+
+<p>Three ways to create index</p>
+
+<ol>
+  <li>CREATE TABLE</li>
+  <li>ALTER TABLE</li>
+  <li>CREATE INDEX (<strong>Not allowed to create <code>PRIMARY KEY</code></strong>)</li>
+</ol>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">tb_name</span><span class="p">(</span>  
+  <span class="p">...</span>
+  <span class="k">INDEX</span> <span class="n">indexName</span> <span class="p">(</span><span class="n">column_list</span><span class="p">),</span>
+  <span class="k">UNIQUE</span> <span class="k">INDEX</span> <span class="n">index_name</span> <span class="p">(</span><span class="n">column_list</span><span class="p">),</span>
+  <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">(</span><span class="n">ID</span><span class="p">)</span> 
+<span class="p">);</span> 
+
+<span class="k">ALTER</span> <span class="k">TABLE</span> <span class="k">table_name</span> <span class="k">ADD</span> <span class="k">INDEX</span> <span class="n">index_name</span> <span class="p">(</span><span class="n">column_list</span><span class="p">);</span>
+<span class="k">ALTER</span> <span class="k">TABLE</span> <span class="k">table_name</span> <span class="k">ADD</span> <span class="k">UNIQUE</span> <span class="k">INDEX</span> <span class="n">index_name</span> <span class="p">(</span><span class="n">column_list</span><span class="p">);</span>
+<span class="k">ALTER</span> <span class="k">TABLE</span> <span class="k">table_name</span> <span class="k">ADD</span> <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="n">column_list</span><span class="p">);</span>
+
+<span class="k">CREATE</span> <span class="k">INDEX</span> <span class="n">index_name</span> <span class="k">ON</span> <span class="k">table_name</span> <span class="p">(</span><span class="n">column_list</span><span class="p">);</span>
+<span class="k">CREATE</span> <span class="k">UNIQUE</span> <span class="k">INDEX</span> <span class="n">index_name</span> <span class="k">ON</span> <span class="k">table_name</span> <span class="p">(</span><span class="n">column_list</span><span class="p">);</span></code></pre></figure>
+
+<h2 id="delete-index">Delete Index</h2>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">DROP</span> <span class="k">INDEX</span> <span class="n">index_name</span> <span class="k">ON</span> <span class="n">talbe_name</span>
+<span class="k">ALTER</span> <span class="k">TABLE</span> <span class="k">table_name</span> <span class="k">DROP</span> <span class="k">INDEX</span> <span class="n">index_name</span>
+
+<span class="o">#</span> <span class="k">To</span> <span class="k">delete</span> <span class="k">primary</span> <span class="k">key</span><span class="p">,</span> <span class="k">as</span> <span class="n">it</span> <span class="n">iss</span> <span class="k">unique</span> <span class="k">in</span> <span class="k">each</span> <span class="k">table</span><span class="p">,</span> <span class="k">no</span> <span class="n">need</span> <span class="k">to</span> <span class="n">indicate</span> <span class="k">index</span> <span class="n">name</span>
+<span class="k">ALTER</span> <span class="k">TABLE</span> <span class="k">table_name</span> <span class="k">DROP</span> <span class="k">PRIMARY</span> <span class="k">KEY</span></code></pre></figure>
+
+<p>Delete a column from a table, index will also be influenced. For composite index, if one column inside the index is 
+removed, the composite index will also remove it from its compostes. What’s more, if all columns from this index are
+removed, the composite index will be removed entirely.</p>
+
+<h2 id="show-index">Show index</h2>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">show</span> <span class="k">index</span> <span class="k">from</span> <span class="n">tb_name</span><span class="p">;</span>
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="k">show</span> <span class="n">keys</span> <span class="k">from</span> <span class="n">tb_name</span><span class="p">;</span></code></pre></figure>
+
+<h2 id="disadvantage">Disadvantage</h2>
+
+<p>Adding index increases query speed. But:</p>
+
+<ul>
+  <li>It decreases also speed to update, insert or delete.</li>
+  <li>Mysql comsumes more resources to maintain indexes</li>
+  <li>Indxes files occupy more spaces on disk</li>
+</ul>
+
+<p>So we need to know how to choose columns to set index and also optimize queries.</p>
+
+<h2 id="how-to-choose-columns-for-index">How to choose columns for index</h2>
+
+<h6 id="consider-about-columns-as-conditions-in-queries-frequently-called">Consider about columns as conditions in queries frequently called.</h6>
+
+<h6 id="consider-about-columns-in-where-and-join">Consider about columns in <code>WHERE</code> and <code>JOIN</code>.</h6>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">t</span><span class="p">.</span><span class="n">Name</span> 
+<span class="k">FROM</span> <span class="n">table1</span> <span class="n">t</span> 
+<span class="k">LEFT</span> <span class="k">JOIN</span> <span class="n">table2</span> <span class="n">m</span>
+<span class="k">ON</span> <span class="n">t</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">m</span><span class="p">.</span><span class="n">username</span> 
+<span class="k">WHERE</span> <span class="n">m</span><span class="p">.</span><span class="n">age</span><span class="o">=</span><span class="mi">20</span> <span class="k">AND</span> <span class="n">m</span><span class="p">.</span><span class="n">city</span><span class="o">=</span><span class="s1">'Paris'</span> </code></pre></figure>
+
+<p>So we could consider about setting index for age, city in <code>WHERE</code> or username in <code>JOIN</code>. <strong>Only one index can be used per SELECT/statement in the query</strong></p>
+
+<p>Index works with these operators &lt;,&lt;=,=,&gt;,&gt;=,between,in and like (Only for expression not beginning with% or _).</p>
+
+<h6 id="not-suggest-columns-which-will-be-updated-inserted-or-deleted-too-frequently">Not suggest columns which will be updated, inserted or deleted too frequently.</h6>
+
+<h6 id="better-to-choose-columns-with-big-cardinality-so-different-values-it-is-easy-to-distinguish-birthday-with-differentdates-it-means-nothing-set-index-on-gendar-to-distinguish-gendar-with-only-m-or-f-because-always-half-will-be-left">Better to choose columns with big cardinality, so different values. It is easy to distinguish birthday with differentdates. It means nothing set index on gendar to distinguish gendar with only ‘M’ or ‘F’. Because always half will be left.</h6>
+
+<p>We could compte <strong>Index Selectivity</strong> to help us to choose.</p>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">Index</span> <span class="n">Selectivity</span> <span class="o">=</span>  <span class="k">Cardinality</span> <span class="o">/</span> <span class="k">Rows</span> <span class="k">of</span> <span class="k">table</span></code></pre></figure>
+
+<p>The higher the index selectivity value the more suggested to choose.</p>
+
+<h6 id="in-composite-index-consider-about-leftmost-column-with-big-index-selectivity-should-be-on-left">In composite index, consider about leftmost, column with big index selectivity should be on left.</h6>
+
+<h6 id="consider-table-with-many-records-for-example-2000-records">Consider table with many records, for example, 2000 records.</h6>
+
+<h6 id="consider-short-index-to-reduce-size-of-index-sometimes-we-dont-need-to-index-on-the-entire-field-we-could-set-a-prefix-length-for-exampe-a-column-is-char200-if-in-the-first-10-characters-most-records-are-uniquewe-could-use-short-index">Consider <strong>short index</strong> to reduce size of index. Sometimes we don’t need to index on the entire field, we could set a prefix length. For exampe, a column is CHAR(200), if in the first 10 characters, most records are unique.We could use short index:</h6>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">tb_name</span> <span class="k">ADD</span> <span class="k">INDEX</span> <span class="n">index_name</span> <span class="p">(</span><span class="n">long_string</span><span class="p">(</span><span class="mi">10</span><span class="p">));</span> </code></pre></figure>
+
+<p>So mysql only indexes according to first 10 characters which involves less disk I/O, comsumes less index spaces, so may increase query speed.</p>
+
+<h2 id="do-not">Do not!</h2>
+
+<ul>
+  <li>
+    <p>Index does not work with &lt;&gt;,not in, !=.</p>
+  </li>
+  <li>
+    <p>Do not calculate on columns, it will make index invalid.</p>
+  </li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">users</span> <span class="k">where</span> <span class="k">YEAR</span><span class="p">(</span><span class="n">adddate</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2007</span><span class="p">;</span>
+
+<span class="n">Better</span> <span class="n">change</span> <span class="k">to</span> <span class="k">like</span> <span class="n">this</span><span class="p">:</span>
+
+<span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">users</span> <span class="k">where</span> <span class="n">adddate</span> <span class="o">&lt;</span> <span class="s1">'2007-01-01'</span><span class="p">;</span></code></pre></figure>
+
+<ul>
+  <li>Avoid to use <code>NULL</code> as default value for indexed column.</li>
+</ul>
+
+<h2 id="refs">Refs</h2>
+
+<ul>
+  <li><a href="http://stackoverflow.com/questions/1823685/when-should-i-use-a-composite-index">Stackoverflow - Composite index</a></li>
+  <li><a href="http://stackoverflow.com/questions/487314/primary-key-or-unique-index">Stackoverflow - Primary key or Unique index?</a></li>
+  <li><a href="https://segmentfault.com/a/1190000003072424">MYSQL-索引</a></li>
+  <li><a href="http://dev.mysql.com/doc/refman/5.7/en/mysql-indexes.html">How MySQL Uses Indexes</a></li>
+</ul>
+
+
+            <!-- Comments -->
+            
+<div class="comments">
+    <div id="disqus_thread"></div>
+    <script>
+        /**
+         * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+         */
+        /*
+         var disqus_config = function () {
+         this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+         this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+         };
+         */
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+
+            s.src = '//httpdongchuangithubio.disqus.com/embed.js';
+
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+
+
+        </div>
+
+        <div class="col-md-4">
+            <h3>Post Directory</h3>
+<div id="post-directory-module">
+<section class="post-directory">
+    <!-- Links that trigger the jumping -->
+    <!-- Added by javascript below -->
+    <dl></dl>
+</section>
+</div>
+
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        $( "article h2" ).each(function( index ) {
+            $(".post-directory dl").append("<dt><a class=\"jumper\" hre=#" +
+                    $(this).attr("id")
+                    + ">"
+                    + $(this).text()
+                    + "</a></dt>");
+
+            var children = $(this).nextUntil("h2", "h3")
+
+            children.each(function( index ) {
+                $(".post-directory dl").append("<dd><a class=\"jumper\" hre=#" +
+                        $(this).attr("id")
+                        + ">"
+                        + "&nbsp;&nbsp;- " + $(this).text()
+                        + "</a></dd>");
+            });
+        });
+
+        var fixmeTop = $('#post-directory-module').offset().top - 100;       // get initial position of the element
+
+        $(window).scroll(function() {                  // assign scroll event listener
+
+            var currentScroll = $(window).scrollTop(); // get current position
+
+            if (currentScroll >= fixmeTop) {           // apply position: fixed if you
+                $('#post-directory-module').css({      // scroll to that element or below it
+                    top: '100px',
+                    position: 'fixed',
+                    width: 'inherit'
+                });
+            } else {                                   // apply position: static
+                $('#post-directory-module').css({      // if you scroll above it
+                    position: 'inherit',
+                    width: 'inherit'
+                });
+            }
+
+        });
+
+        $("a.jumper").on("click", function( e ) {
+
+            e.preventDefault();
+
+            $("body, html").animate({
+                scrollTop: ($( $(this).attr('hre') ).offset().top - 100)
+            }, 600);
+
+        });
+    });
+
+</script>
+        </div>
+        
+
+    </div>
+
+</article>
+
+        </div>
+
+    <footer class="container">
+
+    <div class="site-footer">
+
+        <div class="copyright pull-left">
+            <!-- 请不要更改这一行 方便其他人知道模板的来源 谢谢 -->
+            <!-- Please keep this line to let others know where this theme comes from. Thank you :D -->
+            Power by <a href="https://github.com/DONGChuan/Yummy-Jekyll">Yummy Jekyll</a>
+        </div>
+
+        <a href="https://github.com/DONGChuan" target="_blank" aria-label="view source code">
+            <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+        </a>
+
+        <div class="pull-right">
+            <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+        </div>
+
+    </div>
+
+    <!-- Third-Party JS -->
+    <script type="text/javascript" src="/bower_components/geopattern/js/geopattern.min.js"></script>
+
+    <!-- My JS -->
+    <script type="text/javascript" src="/assets/js/script.js"></script>
+
+    
+
+    
+    <!-- Google Analytics -->
+    <div style="display:none">
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-72165600-1', 'auto');
+            ga('send', 'pageview');
+
+        </script>
+    </div>
+    
+
+</footer>
+
+
+    </body>
+
+</html>

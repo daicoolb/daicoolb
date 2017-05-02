@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon Icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.png">
+
+    <title>SpringMVC RequestMapping</title>
+    <meta name="description"
+          content="Quick note about request mapping annotations in SpringMVC controller">
+
+    <link rel="canonical" href="http://localhost:4000/springmvc/2016/04/13/SpringMVC-RequestMapping.html">
+    <link rel="alternate" type="application/rss+xml" title="I am Chuan !" href="http://localhost:4000/feed.xml">
+
+    <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- Third-Party CSS -->
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bower_components/octicons/octicons/octicons.css">
+    <link rel="stylesheet" href="/bower_components/hover/css/hover-min.css">
+    <link rel="stylesheet" href="/bower_components/primer-markdown/dist/user-content.min.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
+
+    <!-- My CSS -->
+    <link rel="stylesheet" href="/assets/css/common.css">
+
+    <!-- CSS set in page -->
+    
+
+    <!-- CSS set in layout -->
+    
+    <link rel="stylesheet" href="/assets/css/sidebar-post-nav.css">
+    
+
+    <script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+</head>
+
+
+    <body>
+
+    <header class="site-header">
+    <div class="container">
+        <a id="site-header-brand" href="/" title="DONGChuan">
+            <span class="octicon octicon-mark-github"></span> DONGChuan
+        </a>
+        <nav class="site-header-nav" role="navigation">
+            
+            <a href="/"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Home">
+                Home
+            </a>
+            
+            <a href="/open-source"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Open-Source">
+                Open-Source
+            </a>
+            
+            <a href="/blog"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Blog">
+                Blog
+            </a>
+            
+            <a href="/bookmark"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Bookmark">
+                Bookmark
+            </a>
+            
+            <a href="/about"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="About">
+                About
+            </a>
+            
+        </nav>
+    </div>
+</header>
+
+
+        <div class="content">
+            <section class="jumbotron geopattern" data-pattern-id="SpringMVC RequestMapping">
+    <div class="container">
+        <div id="jumbotron-meta-info">
+            <h1>SpringMVC RequestMapping</h1>
+            <span class="meta-info">
+                
+                
+                <span class="octicon octicon-calendar"></span> 2016/04/13
+                
+            </span>
+        </div>
+    </div>
+</section>
+<script>
+    $(document).ready(function(){
+
+        $('.geopattern').each(function(){
+            $(this).geopattern($(this).data('pattern-id'));
+        });
+
+    });
+</script>
+<article class="post container" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <div class="row">
+
+        
+        <div class="col-md-8 markdown-body">
+
+            <p>Quick note about request mapping annotations in SpringMVC controller</p>
+
+<h2 id="requestmapping">@RequestMapping</h2>
+
+<p>Annotation for <strong>mapping web requests onto specific handler classes and/or handler methods</strong>. It means <code>DispatcherServlet</code> intercepts the request, then it switches request to the corresponding method determined by @RequestMapping.</p>
+
+<ol>
+  <li><code>@RequestMapping("path")</code> on class means all handling methods on this controller are relative to the given path.</li>
+  <li><code>@RequestMapping("path")</code> on method means mapping requests which match given path to this method</li>
+</ol>
+
+<h3 id="properties">Properties</h3>
+
+<ul>
+  <li>
+    <p><code>value</code> indicates url to map. If no other properties, we could use its simplified form <code>@RequestMapping("path")</code>.</p>
+  </li>
+  <li>
+    <p><code>method</code> indicates HTTP methods. It will support all methods if not specified .</p>
+  </li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">method</span> <span class="o">=</span> <span class="n">RquestMethod</span><span class="o">.</span><span class="na">GET</span>
+<span class="n">method</span> <span class="o">=</span> <span class="o">{</span><span class="n">RquestMethod</span><span class="o">.</span><span class="na">GET</span><span class="o">,</span> <span class="n">RquestMethod</span><span class="o">.</span><span class="na">POST</span><span class="o">}</span></code></pre></figure>
+
+<ul>
+  <li><code>consumes</code> indicates Content-Type of the mapped request. A request will be mapped only when its Content-Type matches it.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">consumes</span> <span class="o">=</span> <span class="s">"application/json"</span>
+<span class="n">consumes</span> <span class="o">=</span> <span class="o">{</span><span class="s">"application/json"</span><span class="o">,</span> <span class="s">"text/html"</span><span class="o">}</span></code></pre></figure>
+
+<ul>
+  <li><code>produces</code> indicates the producible media types of the mapped request, <strong>a request will be mapped only when Accept matches it</strong>.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">produces</span> <span class="o">=</span> <span class="s">"application/json"</span>
+<span class="n">produces</span> <span class="o">=</span> <span class="o">{</span><span class="s">"application/json"</span><span class="o">,</span> <span class="s">"charset=UTF-8"</span><span class="o">}</span></code></pre></figure>
+
+<ul>
+  <li><code>headers</code> indicates only the requests having these headers can be mapped.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">headers</span> <span class="o">=</span> <span class="s">"content-type=text/*"</span></code></pre></figure>
+
+<ul>
+  <li><code>params</code> indicates only the requests having these parameters can be mapped. We could also add <code>!=</code> pr <code>==</code> to add conditions.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// myParam exists and its value is myValue</span>
+<span class="n">params</span><span class="o">=</span><span class="s">"myParam = myValue"</span> 
+
+<span class="c1">// myParamA exists and its value is myValueA. // myParamB exists and its value is not myValueB</span>
+<span class="n">params</span> <span class="o">=</span> <span class="o">{</span><span class="s">"myParamA = myValueA"</span><span class="o">,</span> <span class="s">"myParamB ！= myValueB"</span><span class="o">}</span>
+
+<span class="c1">// myParamA exists</span>
+<span class="n">params</span> <span class="o">=</span> <span class="s">"myParamA"</span> 
+
+<span class="c1">// myParamA exists and myParamB does not exits</span>
+<span class="n">params</span> <span class="o">=</span> <span class="o">{</span><span class="s">"myParamA"</span><span class="o">,</span> <span class="s">"!myParamB"</span><span class="o">}</span> </code></pre></figure>
+
+<h3 id="example">Example</h3>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="nd">@Controller</span>
+<span class="nd">@RequestMapping</span><span class="o">(</span><span class="s">"/users"</span><span class="o">)</span> 
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestController</span> <span class="o">{</span>
+	
+    <span class="c1">// Handler all /users GET request</span>
+    <span class="nd">@RequestMapping</span><span class="o">(</span><span class="n">method</span> <span class="o">=</span> <span class="n">RequestMethod</span><span class="o">.</span><span class="na">GET</span><span class="o">)</span> 
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">functionA</span><span class="o">()</span> <span class="o">{</span>
+        <span class="o">...</span>
+    <span class="o">}</span>
+
+    <span class="c1">// Handler all /users/new POST request</span>
+    <span class="nd">@RequestMapping</span><span class="o">(</span><span class="n">value</span><span class="o">=</span><span class="s">"/new"</span><span class="o">,</span> <span class="n">method</span> <span class="o">=</span> <span class="n">RequestMethod</span><span class="o">.</span><span class="na">POST</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">functionC</span><span class="o">()</span> <span class="o">{</span>
+        <span class="o">...</span>
+    <span class="o">}</span>
+
+<span class="o">}</span></code></pre></figure>
+
+<h3 id="ant-style-path-patterns-to-indicate-map-url">Ant-style path patterns to indicate map url.</h3>
+
+<ul>
+  <li><code>/user/*/login</code>  matches /user/aaa/login</li>
+  <li><code>/user/**/login</code> matches /user/login or /user/aaa/login or /user/aaa/bbb/login</li>
+  <li><code>/user/login??</code>  matches /user/loginAA or /user/loginBB</li>
+  <li><code>/user/{userId}</code> matches /user/123 or /user/342  (using <code>@PathVariable</code> to indicate userID)</li>
+</ul>
+
+<h2 id="pathvariable">@PathVariable</h2>
+
+<p><strong>It can be used on a method argument to bind it to the value of a URI template variable</strong>. The argument can be of any simple type such as int, long, Date, etc. Spring automatically converts to the appropriate type or throws a <code>TypeMismatchException</code> if it fails to do.</p>
+
+<blockquote>
+  <p>If we do not specify the url placeholder name like <code>@PathVariable('name')</code>, we must keep method parameter name  same as url placeholder.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="nd">@Controller</span>
+<span class="nd">@RequestMapping</span><span class="o">(</span><span class="s">"/users"</span><span class="o">)</span> 
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestController</span> <span class="o">{</span>
+
+    <span class="c1">// Handler all /users/{id} GET request</span>
+    <span class="nd">@RequestMapping</span><span class="o">(</span><span class="n">value</span><span class="o">=</span><span class="s">"/{id}"</span><span class="o">,</span> <span class="n">method</span> <span class="o">=</span> <span class="n">RequestMethod</span><span class="o">.</span><span class="na">GET</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">functionA</span><span class="o">(</span><span class="nd">@PathVariable</span> <span class="kt">int</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>
+        <span class="o">...</span>
+    <span class="o">}</span>
+
+    <span class="c1">// Or if you want another parameter name</span>
+    <span class="c1">//@RequestMapping(value="/{id}", method = RequestMethod.GET)</span>
+    <span class="c1">//public void functionB(@PathVariable("id") int anotherName) {</span>
+    <span class="c1">//	// ToDo</span>
+    <span class="c1">//}</span>
+<span class="o">}</span></code></pre></figure>
+
+<p>A more complex example:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="nd">@Controller</span>
+<span class="nd">@RequestMapping</span><span class="o">(</span><span class="s">"/users/{userId}"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestController</span> <span class="o">{</span>
+
+  	<span class="nd">@RequestMapping</span><span class="o">(</span><span class="s">"/book/{bookId}"</span><span class="o">)</span>
+  	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">test</span><span class="o">(</span><span class="nd">@PathVariable</span> <span class="n">String</span> <span class="n">userId</span><span class="o">,</span> <span class="nd">@PathVariable</span> <span class="n">String</span> <span class="n">bookId</span><span class="o">)</span> <span class="o">{</span>
+        <span class="o">...</span>
+  	<span class="o">}</span>
+
+<span class="o">}</span></code></pre></figure>
+
+<h2 id="requestparam">@RequestParam</h2>
+
+<p>It is used to <strong>bind request parameters to a method parameter in the controller</strong>. Do not mix it with <code>@PathVariable</code> which is used to obtain placeholders from the uri only.</p>
+
+<p>As usual, we do it like this <code>request.getParameter("name")</code>, now with annotation:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="nd">@RequestMapping</span><span class="o">(</span><span class="n">value</span><span class="o">=</span><span class="s">"/user/{userId}/books"</span><span class="o">,</span> <span class="n">method</span> <span class="o">=</span> <span class="n">RequestMethod</span><span class="o">.</span><span class="na">GET</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">test</span><span class="o">(</span>
+	<span class="nd">@PathVariable</span><span class="o">(</span><span class="s">"userId"</span><span class="o">)</span> <span class="kt">int</span> <span class="n">user</span><span class="o">,</span>
+    <span class="nd">@RequestParam</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">"date"</span><span class="o">,</span> <span class="n">required</span> <span class="o">=</span> <span class="kc">false</span><span class="o">)</span> <span class="n">Date</span> <span class="n">dateOrNull</span><span class="o">)</span> <span class="o">{</span>
+  	    <span class="o">...</span>
+  	<span class="o">}</span>
+<span class="o">}</span></code></pre></figure>
+
+<p>It has three properties:</p>
+
+<ol>
+  <li><code>value</code> is the key to get value from request</li>
+  <li><code>required</code> is to indicate whether request must have this parameter. By default is true.</li>
+  <li><code>defaultValue</code> is to set default value when parameter in request does not exist.</li>
+</ol>
+
+<blockquote>
+  <p>Same as <code>@PathVariable('name')</code>. If we do not specify <code>value</code>. We must need to keep method parameter name the same as key.</p>
+</blockquote>
+
+<h2 id="cookievalue">@CookieValue</h2>
+
+<p>Same as <code>@RequestParam</code> but bind cookie values to a method parameter. It also has three properties <code>value</code>, <code>required</code> and <code>defaultValue</code> which are also the same</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="nd">@RequestMapping</span><span class="o">(</span><span class="n">value</span><span class="o">=</span><span class="s">"/user"</span><span class="o">,</span> <span class="n">method</span> <span class="o">=</span> <span class="n">RequestMethod</span><span class="o">.</span><span class="na">GET</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">test</span><span class="o">(</span><span class="nd">@CookieValue</span><span class="o">(</span><span class="s">"foo"</span><span class="o">)</span> <span class="n">String</span> <span class="n">valueFromCookie</span><span class="o">)</span> <span class="o">{</span>
+  	<span class="o">...</span>
+<span class="o">}</span></code></pre></figure>
+
+<h2 id="requestbody-and-responsebody">@RequestBody and @ResponseBody</h2>
+
+<p>Check another note <a href="http://dongchuan.github.io/articles/2016/04/SpringMVC-Http-Message-Converters.html">SpringMVC-Http-Message-Converters</a></p>
+
+<h2 id="ref">Ref</h2>
+
+<ul>
+  <li><a href="http://jiuye.jikexueyuan.com/play?id=2239&amp;class_id=36">极客学院-常用注解类</a></li>
+  <li><a href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/bind/annotation/RequestMapping.html">Annotation Type RequestMapping</a></li>
+</ul>
+
+
+            <!-- Comments -->
+            
+<div class="comments">
+    <div id="disqus_thread"></div>
+    <script>
+        /**
+         * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+         */
+        /*
+         var disqus_config = function () {
+         this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+         this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+         };
+         */
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+
+            s.src = '//httpdongchuangithubio.disqus.com/embed.js';
+
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+
+
+        </div>
+
+        <div class="col-md-4">
+            <h3>Post Directory</h3>
+<div id="post-directory-module">
+<section class="post-directory">
+    <!-- Links that trigger the jumping -->
+    <!-- Added by javascript below -->
+    <dl></dl>
+</section>
+</div>
+
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        $( "article h2" ).each(function( index ) {
+            $(".post-directory dl").append("<dt><a class=\"jumper\" hre=#" +
+                    $(this).attr("id")
+                    + ">"
+                    + $(this).text()
+                    + "</a></dt>");
+
+            var children = $(this).nextUntil("h2", "h3")
+
+            children.each(function( index ) {
+                $(".post-directory dl").append("<dd><a class=\"jumper\" hre=#" +
+                        $(this).attr("id")
+                        + ">"
+                        + "&nbsp;&nbsp;- " + $(this).text()
+                        + "</a></dd>");
+            });
+        });
+
+        var fixmeTop = $('#post-directory-module').offset().top - 100;       // get initial position of the element
+
+        $(window).scroll(function() {                  // assign scroll event listener
+
+            var currentScroll = $(window).scrollTop(); // get current position
+
+            if (currentScroll >= fixmeTop) {           // apply position: fixed if you
+                $('#post-directory-module').css({      // scroll to that element or below it
+                    top: '100px',
+                    position: 'fixed',
+                    width: 'inherit'
+                });
+            } else {                                   // apply position: static
+                $('#post-directory-module').css({      // if you scroll above it
+                    position: 'inherit',
+                    width: 'inherit'
+                });
+            }
+
+        });
+
+        $("a.jumper").on("click", function( e ) {
+
+            e.preventDefault();
+
+            $("body, html").animate({
+                scrollTop: ($( $(this).attr('hre') ).offset().top - 100)
+            }, 600);
+
+        });
+    });
+
+</script>
+        </div>
+        
+
+    </div>
+
+</article>
+
+        </div>
+
+    <footer class="container">
+
+    <div class="site-footer">
+
+        <div class="copyright pull-left">
+            <!-- 请不要更改这一行 方便其他人知道模板的来源 谢谢 -->
+            <!-- Please keep this line to let others know where this theme comes from. Thank you :D -->
+            Power by <a href="https://github.com/DONGChuan/Yummy-Jekyll">Yummy Jekyll</a>
+        </div>
+
+        <a href="https://github.com/DONGChuan" target="_blank" aria-label="view source code">
+            <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+        </a>
+
+        <div class="pull-right">
+            <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+        </div>
+
+    </div>
+
+    <!-- Third-Party JS -->
+    <script type="text/javascript" src="/bower_components/geopattern/js/geopattern.min.js"></script>
+
+    <!-- My JS -->
+    <script type="text/javascript" src="/assets/js/script.js"></script>
+
+    
+
+    
+    <!-- Google Analytics -->
+    <div style="display:none">
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-72165600-1', 'auto');
+            ga('send', 'pageview');
+
+        </script>
+    </div>
+    
+
+</footer>
+
+
+    </body>
+
+</html>
