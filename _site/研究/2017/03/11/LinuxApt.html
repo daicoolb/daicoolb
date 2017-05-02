@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon Icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="http://localhost:4000/assets/images/favicon.png">
+
+    <title>Linux Apt</title>
+    <meta name="description"
+          content="  the difference between apt-get update and apt-get upgradelink  apt-get update updates the list of available packages and their versions, but it does not in...">
+
+    <link rel="canonical" href="http://localhost:4000/%E7%A0%94%E7%A9%B6/2017/03/11/LinuxApt.html">
+    <link rel="alternate" type="application/rss+xml" title="I am Beili !" href="http://localhost:4000/feed.xml">
+
+    <script type="text/javascript" src="http://localhost:4000/bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- Third-Party CSS -->
+    <link rel="stylesheet" href="http://localhost:4000/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/bower_components/octicons/octicons/octicons.css">
+    <link rel="stylesheet" href="http://localhost:4000/bower_components/hover/css/hover-min.css">
+    <link rel="stylesheet" href="http://localhost:4000/bower_components/primer-markdown/dist/user-content.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/syntax.css">
+
+    <!-- My CSS -->
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/common.css">
+
+    <!-- CSS set in page -->
+    
+
+    <!-- CSS set in layout -->
+    
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sidebar-post-nav.css">
+    
+
+    <script type="text/javascript" src="http://localhost:4000/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+</head>
+
+
+    <body>
+
+    <header class="site-header">
+    <div class="container">
+        <a id="site-header-brand" href="/" title="Beili">
+            <span class="octicon octicon-mark-github"></span> Beili
+        </a>
+        <nav class="site-header-nav" role="navigation">
+            
+            <a href="/daicoolb/"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Home">
+                Home
+            </a>
+            
+            <a href="/daicoolb/open-source"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Open-Source">
+                Open-Source
+            </a>
+            
+            <a href="/daicoolb/blog"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Blog">
+                Blog
+            </a>
+            
+            <a href="/daicoolb/bookmark"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Bookmark">
+                Bookmark
+            </a>
+            
+            <a href="/daicoolb/about"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="About">
+                About
+            </a>
+            
+        </nav>
+    </div>
+</header>
+
+
+        <div class="content">
+            <link rel="stylesheet" href="http://localhost:4000/assets/css/sidebar-post-nav.css" />
+<section class="jumbotron geopattern" data-pattern-id="Linux Apt">
+    <div class="container">
+        <div id="jumbotron-meta-info">
+            <h1>Linux Apt</h1>
+            <span class="meta-info">
+                
+                
+                <span class="octicon octicon-calendar"></span> 2017/03/11
+                
+            </span>
+        </div>
+    </div>
+</section>
+<script>
+    $(document).ready(function(){
+
+        $('.geopattern').each(function(){
+            $(this).geopattern($(this).data('pattern-id'));
+        });
+
+    });
+</script>
+<article class="post container" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <div class="row">
+
+        
+        <div class="col-md-8 markdown-body">
+
+            <ul>
+  <li>the difference between apt-get update and apt-get upgrade
+<a href="http://askubuntu.com/questions/94102/what-is-the-difference-between-apt-get-update-and-upgrade">link</a></li>
+  <li><em>apt-get update</em> updates the list of available packages and their versions, but it does not install or upgrade any packages.</li>
+  <li>
+    <p><em>apt-get upgrade</em> actually installs newer versions of the packages you have. After updating the lists, the package manager knows about available updates for the software you have installed. This is why you first want to update.</p>
+  </li>
+  <li>Linux install java jdk <a href="http://stackoverflow.com/questions/14788345/how-to-install-jdk-on-ubuntu-linux">link</a>
+    <ul>
+      <li>sudo apt-get install openjdk-7-jdk</li>
+      <li>apt-cache search jdk</li>
+      <li>export JAVA_HOME=/usr/lib/jvm/java-7-openjdk</li>
+      <li>export PATH=$PATH:/usr/lib/jvm/java-7-openjdk/bin</li>
+      <li>javac -version</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="what-is-apt-get">What is apt-get?</h3>
+<blockquote>
+  <p>The apt-get utility is a powerful and free package management command line program, that is used to work with Ubuntu’s APT (Advanced Packaging Tool) library to perform installation of new software packages, removing existing software packages, upgrading of existing software packages and even used to upgrading the entire operating system.</p>
+</blockquote>
+
+<h3 id="what-is-apt-cache">What is apt-cache</h3>
+<blockquote>
+  <p>The apt-cache command line tool is used for searching apt software package cache. In simple words, this tool is used to search software packages, collects information of packages and also used to search for what available packages are ready for installation on Debian or Ubuntu based systems.</p>
+</blockquote>
+
+<h3 id="how-do-i-list-all-available-packages">How Do I List All Available Packages?</h3>
+<blockquote>
+  <p>To list all the available packages, type the following command.</p>
+  <ul>
+    <li>apt-cache pkgnames</li>
+  </ul>
+</blockquote>
+
+<h3 id="how-do-i-find-out-package-name-and-description-of-software">How Do I Find Out Package Name and Description of Software?</h3>
+<blockquote>
+  <p>To find out the package name and with it description before installing, use the ‘search‘ flag. Using “search” with apt-cache will display a list of matched packages with short description. Let’s say you would like to find out description of package ‘vsftpd‘, then command would be</p>
+  <ul>
+    <li>apt-cache search vsftpd</li>
+  </ul>
+</blockquote>
+
+<h3 id="how-do-i-check-package-information">How Do I Check Package Information?</h3>
+<blockquote>
+  <p>For example, if you would like to check information of package along with it short description say (version number, check sums, size, installed size, category etc). Use ‘show‘ sub command as shown below.</p>
+  <ul>
+    <li>apt-cache show netcat</li>
+  </ul>
+</blockquote>
+
+<h3 id="how-do-i-check-dependencies-for-specific-packages">How Do I Check Dependencies for Specific Packages?</h3>
+<blockquote>
+  <p>Use the ‘showpkg‘ sub command to check the dependencies for particular software packages. whether those dependencies packages are installed or not. For example, use the ‘showpkg‘ command along with package-name.</p>
+  <ul>
+    <li>apt-cache showpkg vsftpd</li>
+  </ul>
+</blockquote>
+
+<h3 id="how-do-i-check-statistics-of-cache">How Do I Check statistics of Cache</h3>
+<blockquote>
+  <p>The ‘stats‘ sub command will display overall statistics about the cache. For example, the following command will display Total package names is the number of packages have found in the cache.</p>
+  <ul>
+    <li>apt-cache stats</li>
+  </ul>
+</blockquote>
+
+<h3 id="how-do-i-remove-packages-without-configuration">How Do I Remove Packages Without Configuration?</h3>
+<blockquote>
+  <p>To un-install software packages without removing their configuration files (for later re-use the same configuration). Use the ‘remove‘ command as shown.</p>
+  <ul>
+    <li>sudo apt-get remove vsftpd</li>
+  </ul>
+</blockquote>
+
+<h3 id="how-do-i-completely-remove-packages">How Do I Completely Remove Packages?</h3>
+<blockquote>
+  <p>To remove software packages including their configuration files, use the ‘purge‘ sub command as shown below</p>
+  <ul>
+    <li>sudo apt-get purge vsftpd
+Alternatively, you can combine both the commands together as shown below.</li>
+    <li>sudo apt-get remove –purge vsftpd</li>
+  </ul>
+</blockquote>
+
+<h3 id="how-i-can-clean-up-disk-space">How I Can Clean Up Disk Space</h3>
+<blockquote>
+  <p>The ‘clean‘ command is used to free up the disk space by cleaning retrieved (downloaded) .deb files (packages) from the local repository.</p>
+  <ul>
+    <li>sudo apt-get clean</li>
+  </ul>
+</blockquote>
+
+<h3 id="how-do-i-download-only-source-code-of-package">How Do I Download Only Source Code of Package</h3>
+<blockquote>
+  <p>To download only source code of particular package, use the option ‘–download-only source‘ with ‘package-name’ as shown.</p>
+  <ul>
+    <li>sudo apt-get –download-only source vsftpd</li>
+  </ul>
+</blockquote>
+
+<h3 id="how-can-i-download-and-unpack-a-package">How Can I Download and Unpack a Package</h3>
+<blockquote>
+  <p>To download and unpack source code of a package to a specific directory, type the following command.</p>
+  <ul>
+    <li>sudo apt-get source vsftpd</li>
+  </ul>
+</blockquote>
+
+<h3 id="how-can-i-download-unpack-and-compile-a-package">How Can I Download, Unpack and Compile a Package</h3>
+<blockquote>
+  <p>You can also download, unpack and compile the source code at the same time, using option ‘–compile‘ as shown below.</p>
+  <ul>
+    <li>sudo apt-get –compile source goaccess</li>
+  </ul>
+</blockquote>
+
+<h3 id="how-do-i-download-a-package-without-installing">How Do I Download a Package Without Installing</h3>
+<blockquote>
+  <p>Using ‘download‘ option, you can download any given package without installing it. For example, the following command will only download ‘nethogs‘ package to current working directory</p>
+  <ul>
+    <li>sudo apt-get download nethogs</li>
+  </ul>
+</blockquote>
+
+<h3 id="how-do-i-check-change-log-of-package">How Do I Check Change Log of Package?</h3>
+<blockquote>
+  <p>The ‘changelog‘ flag downloads a package change-log and shows the package version that is installed.</p>
+  <ul>
+    <li>sudo apt-get changelog vsftpd</li>
+  </ul>
+</blockquote>
+
+<h3 id="how-do-i-check-broken-dependencies">How Do I Check Broken Dependencies?</h3>
+<blockquote>
+  <p>The ‘check‘ command is a diagnostic tool. It used to update package cache and checks for broken dependencies.</p>
+  <ul>
+    <li>sudo apt-get check</li>
+  </ul>
+</blockquote>
+
+<h3 id="how-do-i-search-and-build-dependencies">How Do I Search and Build Dependencies?</h3>
+<blockquote>
+  <p>This ‘build-dep‘ command searches the local repositories in the system and install the build dependencies for package. If the package does not exists in the local repository it will return an error code.</p>
+  <ul>
+    <li>sudo apt-get build-dep netcat</li>
+  </ul>
+</blockquote>
+
+<h3 id="how-i-can-auto-clean-apt-get-cache">How I Can Auto clean Apt-Get Cache?</h3>
+<blockquote>
+  <p>The ‘autoclean‘ command deletes all .deb files from /var/cache/apt/archives to free-up significant volume of disk space.</p>
+  <ul>
+    <li>sudo apt-get autoclean</li>
+  </ul>
+</blockquote>
+
+<h3 id="how-i-can-auto-remove-installed-packages">How I Can Auto remove Installed Packages?</h3>
+<blockquote>
+  <p>The ‘autoremove‘ sub command is used to auto remove packages that were certainly installed to satisfy dependencies for other packages and but they were now no longer required. For example, the following command will remove an installed package with its dependencies.</p>
+  <ul>
+    <li>sudo apt-get autoremove vsftpd</li>
+  </ul>
+</blockquote>
+
+
+            <!-- Comments -->
+            
+<div class="comments">
+    <div id="disqus_thread"></div>
+    <script>
+        /**
+         * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+         */
+        /*
+         var disqus_config = function () {
+         this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+         this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+         };
+         */
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+
+            s.src = '//httpdongchuangithubio.disqus.com/embed.js';
+
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+
+
+        </div>
+
+        <div class="col-md-4">
+            <h3>Post Directory</h3>
+<div id="post-directory-module">
+<section class="post-directory">
+    <!-- Links that trigger the jumping -->
+    <!-- Added by javascript below -->
+    <dl></dl>
+</section>
+</div>
+
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        $( "article h2" ).each(function( index ) {
+            $(".post-directory dl").append("<dt><a class=\"jumper\" hre=#" +
+                    $(this).attr("id")
+                    + ">"
+                    + $(this).text()
+                    + "</a></dt>");
+
+            var children = $(this).nextUntil("h2", "h3")
+
+            children.each(function( index ) {
+                $(".post-directory dl").append("<dd><a class=\"jumper\" hre=#" +
+                        $(this).attr("id")
+                        + ">"
+                        + "&nbsp;&nbsp;- " + $(this).text()
+                        + "</a></dd>");
+            });
+        });
+
+        var fixmeTop = $('#post-directory-module').offset().top - 100;       // get initial position of the element
+
+        $(window).scroll(function() {                  // assign scroll event listener
+
+            var currentScroll = $(window).scrollTop(); // get current position
+
+            if (currentScroll >= fixmeTop) {           // apply position: fixed if you
+                $('#post-directory-module').css({      // scroll to that element or below it
+                    top: '100px',
+                    position: 'fixed',
+                    width: 'inherit'
+                });
+            } else {                                   // apply position: static
+                $('#post-directory-module').css({      // if you scroll above it
+                    position: 'inherit',
+                    width: 'inherit'
+                });
+            }
+
+        });
+
+        $("a.jumper").on("click", function( e ) {
+
+            e.preventDefault();
+
+            $("body, html").animate({
+                scrollTop: ($( $(this).attr('hre') ).offset().top - 100)
+            }, 600);
+
+        });
+    });
+
+</script>
+        </div>
+        
+
+    </div>
+
+</article>
+
+        </div>
+
+    <footer class="container">
+
+    <div class="site-footer">
+
+        <div class="copyright pull-left">
+            <!-- 请不要更改这一行 方便其他人知道模板的来源 谢谢 -->
+            <!-- Please keep this line to let others know where this theme comes from. Thank you :D -->
+            Power by <a href="https://github.com/DONGChuan/Yummy-Jekyll">Yummy Jekyll</a>
+        </div>
+
+        <a href="https://github.com/daicoolb" target="_blank" aria-label="view source code">
+            <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+        </a>
+
+        <div class="pull-right">
+            <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+        </div>
+
+    </div>
+
+    <!-- Third-Party JS -->
+    <script type="text/javascript" src="http://localhost:4000/bower_components/geopattern/js/geopattern.min.js"></script>
+
+    <!-- My JS -->
+    <script type="text/javascript" src="http://localhost:4000/assets/js/script.js"></script>
+
+    
+
+    
+    <!-- Google Analytics -->
+    <div style="display:none">
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-72165600-1', 'auto');
+            ga('send', 'pageview');
+
+        </script>
+    </div>
+    
+
+</footer>
+
+
+    </body>
+
+</html>
