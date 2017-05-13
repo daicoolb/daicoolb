@@ -1,38 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>I am Beili !</title>
+    <title>Maybe not Good But Studious !</title>
     <description>This is personnel website of Beili</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 02 May 2017 22:24:14 +0800</pubDate>
-    <lastBuildDate>Tue, 02 May 2017 22:24:14 +0800</lastBuildDate>
+    <pubDate>Sun, 14 May 2017 01:04:39 +0800</pubDate>
+    <lastBuildDate>Sun, 14 May 2017 01:04:39 +0800</lastBuildDate>
     <generator>Jekyll v3.4.3</generator>
-    
-      <item>
-        <title>SJTU第29周</title>
-        <description>&lt;ul&gt;
-  &lt;li&gt;we are drowning in information and straining for knowledge&lt;/li&gt;
-  &lt;li&gt;SML=Matrix + Optimization + Algorithm + Statistics&lt;/li&gt;
-  &lt;li&gt;本周需要完成 Lenskit的模型学习 示例测试 基本算法&lt;/li&gt;
-  &lt;li&gt;在图书馆查阅了最近的论文，发现了几篇不错的paper(清华和交大ＣＳ到底还是老牌子)&lt;/li&gt;
-  &lt;li&gt;在亚马逊上面又增添了几本书，有时间多看看吧&lt;/li&gt;
-  &lt;li&gt;实验室组织团体活动，不大想看到老王，就没有去了，感觉我们实验室快倒闭了……&lt;/li&gt;
-  &lt;li&gt;最近投的几个公司的实习都被拒了，感觉自己在这个方面的确积累还不够，还要努力&lt;/li&gt;
-  &lt;li&gt;利用放假时间看完了«解忧杂货店»,小说文笔其实一般，但揭示了当代人内心的缺失&lt;/li&gt;
-  &lt;li&gt;最近一个礼拜背单词都是断断续续的，偷懒心思突出，又要花时间弥补回来，好烦…&lt;/li&gt;
-  &lt;li&gt;放假去了衡山路，漫步在老租界的四周，安静平和，鲜有年轻人在这闲逛，多半是老外,在这居住的人都是些什么人呢？旧时的上海达官显贵?反正现在看起来肯定是有钱人&lt;/li&gt;
-  &lt;li&gt;最近迷恋上了«奇葩说»,看起来非常舒服，非常舒畅,已经追了好几集了&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        <pubDate>Sun, 30 Apr 2017 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/%E7%94%9F%E6%B4%BB/2017/04/30/29week.html</link>
-        <guid isPermaLink="true">http://localhost:4000/%E7%94%9F%E6%B4%BB/2017/04/30/29week.html</guid>
-        
-        
-        <category>生活</category>
-        
-      </item>
     
       <item>
         <title>CCF Paper</title>
@@ -419,418 +394,6 @@
       </item>
     
       <item>
-        <title>SJTU 第28周</title>
-        <description>&lt;blockquote&gt;
-  &lt;p&gt;这一周我看了一些关于目标函数的基础知识:范数 矩阵求导 梯度下降 冷启动问题&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;批量梯度下降
-    &lt;ul&gt;
-      &lt;li&gt;每次迭代对所有的样本进行计算（全局最优，耗时）&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;随机梯度下降
-    &lt;ul&gt;
-      &lt;li&gt;单词迭代只计算一个样本（可能不是全局最优）&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;矩阵的特征值 特征向量 （只针对方阵）&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;矩阵的奇异值分解 （提取矩阵的主要信息，左奇异值，特征值，右奇异值）&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;L0范数是指向量中非0的元素的个数&lt;/li&gt;
-  &lt;li&gt;L1范数是指向量中各个元素绝对值之和，也有个美称叫“稀疏规则算子”（Lasso regularization）&lt;/li&gt;
-  &lt;li&gt;L1范数和L0范数可以实现稀疏，L1因具有比L0更好的优化求解特性而被广泛应用。&lt;/li&gt;
-  &lt;li&gt;参数稀疏有什么好处呢  特征选择(Feature Selection) 可解释性(Interpretability)&lt;/li&gt;
-  &lt;li&gt;L2 范数，在回归里面，有人把有它的回归叫“岭回归”（Ridge Regression），有人也叫它“权值衰减weight decay”&lt;/li&gt;
-  &lt;li&gt;L2范数是指向量各元素的平方和然后求平方根&lt;/li&gt;
-  &lt;li&gt;L2范数的好处是什么呢？这里也扯上两点
-    &lt;ul&gt;
-      &lt;li&gt;从学习理论的角度来说，L2范数可以防止过拟合，提升模型的泛化能力&lt;/li&gt;
-      &lt;li&gt;从优化或者数值计算的角度来说，L2范数有助于处理 condition number不好的情况下矩阵求逆很困难的问题&lt;/li&gt;
-      &lt;li&gt;对condition number来个一句话总结：conditionnumber是一个矩阵（或者它所描述的线性系统）的稳定性或者敏感度的度量，如果一个矩阵的condition number在1附近，那么它就是well-conditioned的，如果远大于1，那么它就是ill-conditioned的，如果一个系统是ill-conditioned的，它的输出结果就不要太相信了&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-</description>
-        <pubDate>Sat, 22 Apr 2017 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/%E7%94%9F%E6%B4%BB/2017/04/22/28week.html</link>
-        <guid isPermaLink="true">http://localhost:4000/%E7%94%9F%E6%B4%BB/2017/04/22/28week.html</guid>
-        
-        
-        <category>生活</category>
-        
-      </item>
-    
-      <item>
-        <title>SJTU 第27周</title>
-        <description>&lt;ul&gt;
-  &lt;li&gt;实验室汇报(说真的我都不知道我在说什么?好没意思)&lt;/li&gt;
-  &lt;li&gt;CSDI(能说什么呢,混的理直气壮呀)&lt;/li&gt;
-  &lt;li&gt;算法 作业(交啦吧)&lt;/li&gt;
-  &lt;li&gt;ADS  论文准备(准备了一下幕后资料)&lt;/li&gt;
-  &lt;li&gt;SL 翻译 出现重大生产事故！！！翻译错地方了！！！&lt;/li&gt;
-  &lt;li&gt;ADS CSDI paper 4个小时&lt;/li&gt;
-  &lt;li&gt;英语单词 一个半小时&lt;/li&gt;
-  &lt;li&gt;ADS 论文 2个小时&lt;/li&gt;
-  &lt;li&gt;茅台项目 2个小时&lt;/li&gt;
-  &lt;li&gt;OH,my god. 我到底做了什么呢?&lt;/li&gt;
-  &lt;li&gt;刷完啦«人民的名义» «飘扬过海来看你» «奇葩说»&lt;/li&gt;
-  &lt;li&gt;突然发现自己依然活在过去的圈子里,为什么就是不能跳出来呢?&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;你喜欢什么，想要一种什么样的生活，想要和一个什么样的人组建一个家庭，可能一时想不清楚.那就先做一些虽然你不喜欢但是可以维持生计的事情，如果当你能把这件事情做到极致可是你发现自己依然不开心，依然不喜欢这份工作，这时你再毅然地放弃这份工作，义反顾地去追求你喜欢的,这个时候可能你找到了自己喜欢的也可能还没有找到，但是你有了资本和时间去 尝试 坚持 再出发&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;昨天看到一种寻找人生方向的方法:取一张白纸,在中心将自己内心想要的东西写出来,一定要毫不犹豫,因为她是存在于你脑海最美好的东西,它让你安详,让你平和.接着,重复,不断重复,直到自己不再犹豫为止.可我不敢试,因为我害怕面对.我怕我知道了结果,我的人生再也没有其他的可能,我怕我一下就看到了人生的尽头.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;为什么人生会有十字路口呢?因为你想不一样的生活,你想活的精彩,你想拥有更多的选择,你想在你进入生命的尽头时,能淡定地对自己说:值了.&lt;/p&gt;
-&lt;/blockquote&gt;
-</description>
-        <pubDate>Sun, 16 Apr 2017 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/%E7%94%9F%E6%B4%BB/2017/04/16/27week.html</link>
-        <guid isPermaLink="true">http://localhost:4000/%E7%94%9F%E6%B4%BB/2017/04/16/27week.html</guid>
-        
-        
-        <category>生活</category>
-        
-      </item>
-    
-      <item>
-        <title>SJTU 第26周</title>
-        <description>&lt;ul&gt;
-  &lt;li&gt;这一周比较放松自己,放假后遗症,也许是.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;英语的单词貌似是背诵了不少,但自我感觉质量没有多少提升,没有用起来,我实在是有点懒惰,总是以为自己以后有时间可以看,从来没有为了一件事情,认真付出过多少努力.我总是在尝试新的事物或者徘徊在过去的选择和泥潭里,为什么不换个角度去思考问题?&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;老王现在同意我进入数据挖掘的领域,但是我对老王还是有些不满.作为一个大学老师,如此不把学生当回事,着实有些不妥.有些混日子的嫌疑,平日里一心只想着自己那一亩三分地,不去反思自己做事方法,也从来不和其他老师进行交流学习,给我们开会也太过一意孤行,这样既打击学生积极性,也影响师生关系,挺无奈的.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;最近我在想到底要不要出国读个PHD或者是Master,如果出国的话,少说三年,多则5年,爸妈到时候头发也都白了.可是如果不出国,国内的生活空间又不适合我,自己也很难在短时间将爸妈接到一线城市生活.爸妈三十年来在外打工,很不容易,我必须让他们的老年生活安逸舒适.至于自己的婚姻问题,最近五年都不适合去谈,一是不成熟,二是不自信,三是害怕,这个还是等我工作以后再说吧.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;晚安,弄完,早点休息吧,至少你可以改变现在的自己.&lt;/p&gt;
-&lt;/blockquote&gt;
-</description>
-        <pubDate>Sun, 09 Apr 2017 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/%E7%94%9F%E6%B4%BB/2017/04/09/26week.html</link>
-        <guid isPermaLink="true">http://localhost:4000/%E7%94%9F%E6%B4%BB/2017/04/09/26week.html</guid>
-        
-        
-        <category>生活</category>
-        
-      </item>
-    
-      <item>
-        <title>SJTU 第25周</title>
-        <description>&lt;p&gt;本周清明放假,去了一次黄山,路上遇到了很多有趣的人
-当然我是翘课出去玩的,不仅去了黄山,黟县,歙县,最后还去了一趟婺源
-整体感觉非常棒&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;p&gt;第一天去黄山,大雾,小雨,到啦山上居然还有雾淞,虽然没能去西海大峡谷和天都峰,但是能看到那么美丽的风景,感觉230大洋的门票也很值啦,以后有机会一定要带爸妈去黄山逛逛;&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;p&gt;第二天,住在宏村,清和月旅社,遇到啦广州辞职的妹子,成都潇洒的大哥,福建出走的小妹,北京话多的大姐,还有清和月的雷鸣和雷电,住在宏村感觉很舒服.晚上,我们一群人围在火炉旁彻夜聊天,谈对这个社会的满意程度,对未来的看法,聊的很深,也很投机,感觉很好;&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;p&gt;第三天,一群人现场订啦一辆车,去歙县逛啦一圈,杨产,深渡,小桥,石潭,徽州古城,虽然时间不多,但是对徽州民居,对皖南的历史文化有了一种新的认识:徽商真的很厉害,我们的历史有很多可以挖掘的地方；&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;p&gt;第四天,去啦婺源,遇到啦老同学,玩的也就那样吧,感觉婺源还是得看时间过去,要不去了也没有什么好玩的,不过遇到老同学是真的特别开心,读研和工作的人基本都是在一个很小的圈子里生活,我们的世界是在越变越小,而不是越变越大;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;周一 订票黄山 婺源
-英语作业
-RS 论文
-统计学习论文翻译 ADS0329&lt;/p&gt;
-</description>
-        <pubDate>Sun, 02 Apr 2017 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/%E7%94%9F%E6%B4%BB/2017/04/02/25week.html</link>
-        <guid isPermaLink="true">http://localhost:4000/%E7%94%9F%E6%B4%BB/2017/04/02/25week.html</guid>
-        
-        
-        <category>生活</category>
-        
-      </item>
-    
-      <item>
-        <title>SJTU 第24周</title>
-        <description>&lt;p&gt;A goal is a dream with a deadline&lt;/p&gt;
-
-&lt;p&gt;为了方便大家从理论到实践，从入门到精通，循序渐进系统地理解和掌握推荐系统相关知识。特做了个读物清单。大家可以按此表阅读，也欢迎提出意见和指出未标明的经典文献以丰富各学科需求（为避免初学者疲于奔命，每个方向只推荐几篇经典文献）。&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;中文综述(了解概念-入门篇)
-a) 个性化推荐系统的研究进展
-b) 个性化推荐系统评价方法综述&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;英文综述(了解概念-进阶篇)
-    &lt;ul&gt;
-      &lt;li&gt;a) 2004ACMTois-Evaluating collaborative filtering recommender systems&lt;/li&gt;
-      &lt;li&gt;b) 2004ACMTois -Introduction to Recommender Systems - Algorithms and evaluation&lt;/li&gt;
-      &lt;li&gt;c) 2005IEEEtkde Toward the next generation of recommender systems - A survey of the state-of-the-art and possible extensions&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;动手能力(实践算法-入门篇)
-    &lt;ul&gt;
-      &lt;li&gt;a) 2004ACMtois Item-based top-N recommendation algorithms(协同过滤)&lt;/li&gt;
-      &lt;li&gt;b) 2007PRE Bipartite network projection and personal recommendation(网络结构)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;动手能力(实践算法-进阶篇)
-    &lt;ul&gt;
-      &lt;li&gt;a) 2010PNAS-Solving the apparent diversity-accuracy dilemma of recommender systems (物质扩散和热传导)&lt;/li&gt;
-      &lt;li&gt;b) 2009NJP Accurate and diverse recommendations via eliminating redundant correlations (多步物质扩散)&lt;/li&gt;
-      &lt;li&gt;c) 2008EPL Effect of initial configuration on network-based Recommendation (初始资源分配问题)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;推荐系统扩展应用(进阶篇)
-    &lt;ul&gt;
-      &lt;li&gt;a) 2009EPJB Predicting missing links via local information(相似性度量方法)&lt;/li&gt;
-      &lt;li&gt;b) 2010theis-Evaluating Collaborative Filtering over time(基于时间效应的博士论文)&lt;/li&gt;
-      &lt;li&gt;c) 2009PA Personalized recommendation via integrated diffusion on user-item-tag tripartite graphs (基于标签的三部分图方法)&lt;/li&gt;
-      &lt;li&gt;d) 2004LNCS Trust-aware collaborative filtering for recommender systems（基于信任机制）&lt;/li&gt;
-      &lt;li&gt;e) 1997CA-Fab_content-based, collaborative recommendation(基于文本信息)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;推荐结果的解释(进阶篇)
-    &lt;ul&gt;
-      &lt;li&gt;a) 2000CSCW-Explaining Collaborative Filtering Recommendations&lt;/li&gt;
-      &lt;li&gt;b) 2011PRE-Information filtering via biased heat conduction&lt;/li&gt;
-      &lt;li&gt;c) 2011PRE- Information filtering via preferential diffusion&lt;/li&gt;
-      &lt;li&gt;d) 2010EPL Link Prediction in weighted networks - The role of weak ties&lt;/li&gt;
-      &lt;li&gt;e) 2010EPL-Solving the cold-start problem in recommender systems with social tags&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;推荐系统综合篇(专著、大型综述、博士论文)
-    &lt;ul&gt;
-      &lt;li&gt;a) 2005Ziegler-thesis-Towards Decentralized Recommender Systems
-b) 2010Recommender Systems Handbook&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;茅台调研：（大数据产业链）&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;生产，出入库，专卖店&lt;/li&gt;
-  &lt;li&gt;地图——查询热点图（按地域进行划分），实时显示系统&lt;/li&gt;
-  &lt;li&gt;软件层次感——成功率，失败率，具体原因，打假预判功能（对于异常查询手机）&lt;/li&gt;
-  &lt;li&gt;精准投放——对于销售点进行广告投入，实质性的分析结果（图形化显示）&lt;/li&gt;
-  &lt;li&gt;对于数据的未来价值进行实质性挖掘，算法模型做加法，茅台决策做减法&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;模型，数据处理，价值挖掘&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;后台数据&lt;/li&gt;
-  &lt;li&gt;生产15万&lt;/li&gt;
-  &lt;li&gt;出库 1万&lt;/li&gt;
-  &lt;li&gt;中转 1万（7.8个中转库全国）&lt;/li&gt;
-  &lt;li&gt;查询终端 200万次（总计2015年7月份开始收集）&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;销售数据 （茅台决策并没有进行实际运用）&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;供应链数据采集（需求）&lt;/li&gt;
-  &lt;li&gt;酒的信息（规格，品牌，浓度，绑定信息）&lt;/li&gt;
-  &lt;li&gt;出库信息（RFID 与非RFID的信息，例如条码）&lt;/li&gt;
-  &lt;li&gt;手机查询信息（造价信息 造价渠道 批量复制 瓶盖复用）&lt;/li&gt;
-  &lt;li&gt;信息收集的侧重点 （脏数据）&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;CSDI 论文阅读（对于transactional的内存问题）&lt;/p&gt;
-
-&lt;p&gt;准备去婺源和黄山看看,希望能让自己的心情继续平静下去&lt;/p&gt;
-</description>
-        <pubDate>Sun, 26 Mar 2017 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/%E7%94%9F%E6%B4%BB/2017/03/26/24week.html</link>
-        <guid isPermaLink="true">http://localhost:4000/%E7%94%9F%E6%B4%BB/2017/03/26/24week.html</guid>
-        
-        
-        <category>生活</category>
-        
-      </item>
-    
-      <item>
-        <title>SJTU 第23周</title>
-        <description>&lt;h3 id=&quot;本周的工作&quot;&gt;本周的工作&lt;/h3&gt;
-&lt;p&gt;CSDI ADS EAP 作业
-雅思英语考试内容确定
-KDD 数据处理
-BPR 模型论文（对于隐式反馈数据个性化排名的优化）&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;优点一 ，利用原有的矩阵变成了含有正负反馈和missing value的矩阵&lt;/li&gt;
-  &lt;li&gt;对于现有的模型可以进行优化处理，是前人没有做过的工作
-跑步 背单词（单词不能局限于背上面，得结合阅读和写作，才能融会贯通）&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;本周心得&quot;&gt;本周心得&lt;/h3&gt;
-&lt;p&gt;早上起来的早了些，但是晚上还是会睡的比较晚。
-最近也总喜欢将精力投到比较分散的点上去，导致学习效果很差，&lt;strong&gt;拳头只有攥紧了，打出去才有力量，如果你只会拿着手指头戳那些不痛不痒的东西，到头来反而把手给废了。&lt;/strong&gt;
-我的编程功底很薄弱，英语写作和表达能力也不强，但这是可以通过积累和练习来提升的，不能操之过急。对，今年的主要目标是论文，但是不能因为论文就把代码和英语疏忽了，也不能因为后者而耽误了论文的进度。
-24岁，它是一个很关键的时间点，来不得半点马虎，如果你想今后活的好一些，爸妈的晚年过的舒服些，那这会得多吃点苦。&lt;strong&gt;如果在奋斗的年纪选择了安逸，那你只能舍弃你的余生来弥补终生的遗憾&lt;/strong&gt;
-对待同学、老师和工作，也应更成熟些，生活，本没有对错之分，当你选择了其中一种之后，就会有自己的好恶，但不能因为自己的好恶就随意践踏他人的工作，亦或是评头论足，只有尊重才能让我们和睦共处，也能让自己豁达快乐。&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;如果明天就是你生命的终点，那么请珍惜今天的太阳和夜晚，至少你有一天的时间来料理余生&lt;/p&gt;
-&lt;/blockquote&gt;
-</description>
-        <pubDate>Sun, 19 Mar 2017 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/%E7%94%9F%E6%B4%BB/2017/03/19/23week.html</link>
-        <guid isPermaLink="true">http://localhost:4000/%E7%94%9F%E6%B4%BB/2017/03/19/23week.html</guid>
-        
-        
-        <category>生活</category>
-        
-      </item>
-    
-      <item>
-        <title>SJTU 第22周</title>
-        <description>&lt;blockquote&gt;
-  &lt;p&gt;摘自知乎网友 Plum小姐(还是女士比较好！！！)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h4 id=&quot;不要和时间作对&quot;&gt;不要和时间作对&lt;/h4&gt;
-
-&lt;p&gt;我们每个人都会经历这样的阶段。在找到人生的使命感和真正的天赋所长之前，大家都是主要靠蛮力保持自己走在既有轨道上，即使能感受到这条轨道并不通向自己人生最终的归属。甚至越是行事规范的人，越容易把自己捆绑的厉害，更久地处在无意识行走状态中，也就是&lt;strong&gt;“很用力”&lt;/strong&gt;的阶段。在这个阶段里，你通常会把时间当做你的敌人。对时间采取敌对态度的行为表现为：&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;拼命把时间安排满&lt;/strong&gt;，不给时间也就是自己的生命，太多喘息的机会。因为还没有准备好停下来，复盘，然后迎接新生。&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;看似忙碌&lt;/strong&gt;，但其实未必下定决心在任何一件事情上做长久的持续的时间投入。因为还不清楚，值得自己在其中沉浸，享受时间自然流淌的事情是什么。&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;对已经度过的时间不满意&lt;/strong&gt;，还不能体会到时间花在最本质和最重要的生命意义上时带来的无比踏实和安心的感觉。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;但是，当你清晰地感受到什么是你全心全意想做的事和成为的人的时候，你就会走出那个“很用力”地与时间作对的阶段。这是一个分水岭，自此以后你就不会再觉得又忙又累但没有意义，只会觉得时间从来没有这样宝贵过，每一分每一秒都在生动地创造，并欣然接受时间流逝所塑造的一切。&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;摘自 Thomas Paine ‘Common Sense’&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h4 id=&quot;牛逼的人生没有创业过所以这种感觉我不懂别看你也是&quot;&gt;牛逼的人生（没有创业过，所以这种感觉我不懂，别看，你也是）&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;I do not choose to be a common person.
-    &lt;ul&gt;
-      &lt;li&gt;我不选择做一名普通人&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;It is my right to be uncommon—if I can.
-    &lt;ul&gt;
-      &lt;li&gt;我就是我，我选择成为最好的自己&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;I seek opportunity—not security.
-    &lt;ul&gt;
-      &lt;li&gt;我寻找机会，而非安稳&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;I do not wish to be a kept citizen, humbled and dulled by having the state look after me.
-    &lt;ul&gt;
-      &lt;li&gt;我不想成为温室的花朵，麻木不仁地接受社会的照顾&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;I want to take the calculated risk,to dream and to build,to fail and to succeed.
-    &lt;ul&gt;
-      &lt;li&gt;我想有意识地冒险，去梦想去创造，去失败去成功&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;I refuse to barter incentive for a dole;
-    &lt;ul&gt;
-      &lt;li&gt;我拒绝施舍，我选择自立自强&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;I prefer the challenges of life to the guaranteed existence;
-    &lt;ul&gt;
-      &lt;li&gt;我宁愿选择充满挑战的人生，绝不万无一失地活着&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;the thrill of fulfillment to the stale calm of Utopia.
-    &lt;ul&gt;
-      &lt;li&gt;与其无所事事地幻想，不如激动得酣畅伶俐&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;I will not trade my freedom for beneficence nor my dignity for a handout.
-    &lt;ul&gt;
-      &lt;li&gt;我不会拿我的自由换取恩惠，也不会拿我的崇高换取救济&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;I will never cower before any master nor bend to any threat.
-    &lt;ul&gt;
-      &lt;li&gt;我决不再任何权威面前发抖，也绝不为任何恐吓所屈服&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;It is my heritage to stand erect, proud, and unafraid;
-    &lt;ul&gt;
-      &lt;li&gt;我的天性是挺胸直立，骄傲，且无所畏惧&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;to think and act for myself;
-    &lt;ul&gt;
-      &lt;li&gt;我要自由的思考和行动&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;to enjoy the benefit of my creations;
-    &lt;ul&gt;
-      &lt;li&gt;我要纵情于我的创造的价值&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;and to face the world boldly
-    &lt;ul&gt;
-      &lt;li&gt;我要光荣的面对世界&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;and say:“This, with God’s help, I have done.”
-    &lt;ul&gt;
-      &lt;li&gt;我要呐喊：“在上苍的庇佑下，我，做到了！”&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;ALL this is what it means to be an Enterpreneur&lt;/strong&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;strong&gt;而这一切意味着我是一个真正的开拓者&lt;/strong&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;本周主要学习内容&quot;&gt;本周主要学习内容&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;Lenskit&amp;amp;LibRec的下载使用，安装/基于Linux和Windows&lt;/li&gt;
-  &lt;li&gt;《如何高效学习》&lt;/li&gt;
-  &lt;li&gt;英语HW、算法HW、CSDI、ADS&lt;/li&gt;
-  &lt;li&gt;煮粥+馒头+老干妈&lt;/li&gt;
-  &lt;li&gt;学AWK&lt;/li&gt;
-  &lt;li&gt;安装Torch，深度学习的框架(Lua语言)&lt;/li&gt;
-  &lt;li&gt;注册牛客网，01翻转问题&lt;/li&gt;
-  &lt;li&gt;pandas学习&lt;/li&gt;
-  &lt;li&gt;尝试KDD2017问题分析，脚本分析，数据分析&lt;/li&gt;
-  &lt;li&gt;数据挖掘、推荐系统（重点）论文和数据集资料收集&lt;/li&gt;
-  &lt;li&gt;统计学习课程资料收集，R语言环境安装&lt;/li&gt;
-  &lt;li&gt;博客更新&lt;/li&gt;
-  &lt;li&gt;图书馆：李图 &amp;gt; 新图 &amp;gt; 包图&lt;/li&gt;
-  &lt;li&gt;快乐学习比什么都重要：在理想与激情的年纪，为什么不选择自己喜欢又能坚持的呢？&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        <pubDate>Mon, 13 Mar 2017 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/%E7%94%9F%E6%B4%BB/2017/03/13/22week.html</link>
-        <guid isPermaLink="true">http://localhost:4000/%E7%94%9F%E6%B4%BB/2017/03/13/22week.html</guid>
-        
-        
-        <category>生活</category>
-        
-      </item>
-    
-      <item>
         <title>Learning Method</title>
         <description>&lt;h4 id=&quot;这是第一尝试整体学习的思维我只粗略的看了40页尝试总结一下&quot;&gt;这是第一尝试“整体学习”的思维，我只粗略的看了40页，尝试总结一下。&lt;/h4&gt;
 &lt;blockquote&gt;
@@ -930,6 +493,703 @@ BPR 模型论文（对于隐式反馈数据个性化排名的优化）&lt;/p&gt;
         
         
         <category>研究</category>
+        
+      </item>
+    
+      <item>
+        <title>Linux Apt</title>
+        <description>&lt;ul&gt;
+  &lt;li&gt;the difference between apt-get update and apt-get upgrade
+&lt;a href=&quot;http://askubuntu.com/questions/94102/what-is-the-difference-between-apt-get-update-and-upgrade&quot;&gt;link&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;apt-get update&lt;/em&gt; updates the list of available packages and their versions, but it does not install or upgrade any packages.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;em&gt;apt-get upgrade&lt;/em&gt; actually installs newer versions of the packages you have. After updating the lists, the package manager knows about available updates for the software you have installed. This is why you first want to update.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Linux install java jdk &lt;a href=&quot;http://stackoverflow.com/questions/14788345/how-to-install-jdk-on-ubuntu-linux&quot;&gt;link&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;sudo apt-get install openjdk-7-jdk&lt;/li&gt;
+      &lt;li&gt;apt-cache search jdk&lt;/li&gt;
+      &lt;li&gt;export JAVA_HOME=/usr/lib/jvm/java-7-openjdk&lt;/li&gt;
+      &lt;li&gt;export PATH=$PATH:/usr/lib/jvm/java-7-openjdk/bin&lt;/li&gt;
+      &lt;li&gt;javac -version&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;what-is-apt-get&quot;&gt;What is apt-get?&lt;/h3&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;The apt-get utility is a powerful and free package management command line program, that is used to work with Ubuntu’s APT (Advanced Packaging Tool) library to perform installation of new software packages, removing existing software packages, upgrading of existing software packages and even used to upgrading the entire operating system.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;what-is-apt-cache&quot;&gt;What is apt-cache&lt;/h3&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;The apt-cache command line tool is used for searching apt software package cache. In simple words, this tool is used to search software packages, collects information of packages and also used to search for what available packages are ready for installation on Debian or Ubuntu based systems.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;how-do-i-list-all-available-packages&quot;&gt;How Do I List All Available Packages?&lt;/h3&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;To list all the available packages, type the following command.&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;apt-cache pkgnames&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;how-do-i-find-out-package-name-and-description-of-software&quot;&gt;How Do I Find Out Package Name and Description of Software?&lt;/h3&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;To find out the package name and with it description before installing, use the ‘search‘ flag. Using “search” with apt-cache will display a list of matched packages with short description. Let’s say you would like to find out description of package ‘vsftpd‘, then command would be&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;apt-cache search vsftpd&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;how-do-i-check-package-information&quot;&gt;How Do I Check Package Information?&lt;/h3&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;For example, if you would like to check information of package along with it short description say (version number, check sums, size, installed size, category etc). Use ‘show‘ sub command as shown below.&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;apt-cache show netcat&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;how-do-i-check-dependencies-for-specific-packages&quot;&gt;How Do I Check Dependencies for Specific Packages?&lt;/h3&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Use the ‘showpkg‘ sub command to check the dependencies for particular software packages. whether those dependencies packages are installed or not. For example, use the ‘showpkg‘ command along with package-name.&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;apt-cache showpkg vsftpd&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;how-do-i-check-statistics-of-cache&quot;&gt;How Do I Check statistics of Cache&lt;/h3&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;The ‘stats‘ sub command will display overall statistics about the cache. For example, the following command will display Total package names is the number of packages have found in the cache.&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;apt-cache stats&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;how-do-i-remove-packages-without-configuration&quot;&gt;How Do I Remove Packages Without Configuration?&lt;/h3&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;To un-install software packages without removing their configuration files (for later re-use the same configuration). Use the ‘remove‘ command as shown.&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;sudo apt-get remove vsftpd&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;how-do-i-completely-remove-packages&quot;&gt;How Do I Completely Remove Packages?&lt;/h3&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;To remove software packages including their configuration files, use the ‘purge‘ sub command as shown below&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;sudo apt-get purge vsftpd
+Alternatively, you can combine both the commands together as shown below.&lt;/li&gt;
+    &lt;li&gt;sudo apt-get remove –purge vsftpd&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;how-i-can-clean-up-disk-space&quot;&gt;How I Can Clean Up Disk Space&lt;/h3&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;The ‘clean‘ command is used to free up the disk space by cleaning retrieved (downloaded) .deb files (packages) from the local repository.&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;sudo apt-get clean&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;how-do-i-download-only-source-code-of-package&quot;&gt;How Do I Download Only Source Code of Package&lt;/h3&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;To download only source code of particular package, use the option ‘–download-only source‘ with ‘package-name’ as shown.&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;sudo apt-get –download-only source vsftpd&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;how-can-i-download-and-unpack-a-package&quot;&gt;How Can I Download and Unpack a Package&lt;/h3&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;To download and unpack source code of a package to a specific directory, type the following command.&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;sudo apt-get source vsftpd&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;how-can-i-download-unpack-and-compile-a-package&quot;&gt;How Can I Download, Unpack and Compile a Package&lt;/h3&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;You can also download, unpack and compile the source code at the same time, using option ‘–compile‘ as shown below.&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;sudo apt-get –compile source goaccess&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;how-do-i-download-a-package-without-installing&quot;&gt;How Do I Download a Package Without Installing&lt;/h3&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Using ‘download‘ option, you can download any given package without installing it. For example, the following command will only download ‘nethogs‘ package to current working directory&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;sudo apt-get download nethogs&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;how-do-i-check-change-log-of-package&quot;&gt;How Do I Check Change Log of Package?&lt;/h3&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;The ‘changelog‘ flag downloads a package change-log and shows the package version that is installed.&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;sudo apt-get changelog vsftpd&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;how-do-i-check-broken-dependencies&quot;&gt;How Do I Check Broken Dependencies?&lt;/h3&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;The ‘check‘ command is a diagnostic tool. It used to update package cache and checks for broken dependencies.&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;sudo apt-get check&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;how-do-i-search-and-build-dependencies&quot;&gt;How Do I Search and Build Dependencies?&lt;/h3&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;This ‘build-dep‘ command searches the local repositories in the system and install the build dependencies for package. If the package does not exists in the local repository it will return an error code.&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;sudo apt-get build-dep netcat&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;how-i-can-auto-clean-apt-get-cache&quot;&gt;How I Can Auto clean Apt-Get Cache?&lt;/h3&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;The ‘autoclean‘ command deletes all .deb files from /var/cache/apt/archives to free-up significant volume of disk space.&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;sudo apt-get autoclean&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;how-i-can-auto-remove-installed-packages&quot;&gt;How I Can Auto remove Installed Packages?&lt;/h3&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;The ‘autoremove‘ sub command is used to auto remove packages that were certainly installed to satisfy dependencies for other packages and but they were now no longer required. For example, the following command will remove an installed package with its dependencies.&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;sudo apt-get autoremove vsftpd&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+</description>
+        <pubDate>Sat, 11 Mar 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/%E7%A0%94%E7%A9%B6/2017/03/11/LinuxApt.html</link>
+        <guid isPermaLink="true">http://localhost:4000/%E7%A0%94%E7%A9%B6/2017/03/11/LinuxApt.html</guid>
+        
+        <category>Linux</category>
+        
+        
+        <category>研究</category>
+        
+      </item>
+    
+      <item>
+        <title>读者摘录</title>
+        <description>&lt;ul&gt;
+  &lt;li&gt;这是从读者做的摘录，感觉挺好的。&lt;/li&gt;
+  &lt;li&gt;有时间我会多做一些，让自己内心重归平静与祥和。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;真诚是什么意思？你仔细看看动物，一只猫，一只狗，一只鸟都行，你一定会看到，它们都一个个那样自然，没有一种动物发窘，它们不会手足无措，它们不想奉承你，吸引你，它们不做戏。它们显露的是本来面貌，就像草木山石，日月星辰，你懂么？　　－－赫尔曼·塞黑《荒原狼》&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;现在再也不存在什么乡间小镇了，现在一切地方都可以瞬间与其他地方取得联系，孤独的感觉只能从这个地方到那个地方的途中才能被体会到．　－－卡尔维诺《如果在冬夜，一个旅人》&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;想睡个好觉，不要上闹钟那种。 —— 奥巴马&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;我们的幸福往往不是来自我们强大的地方，而是来自我们的微弱之处得到了弥补。 —— 幸福何出来&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;即使是你最心爱的人，心中都会有一片你无法到达的森林。 —— 村上春树&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;我没觉得自己长的丑，都是别人说的。 —— 黄渤&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;也许在阅读的过程中，内心平静，也就远离了现实与纷争，不必纠结、挣扎，就那么静静的坐着就好。—— Beili&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        <pubDate>Mon, 06 Mar 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/%E8%AE%B0%E5%BD%95/2017/03/06/RecordFromDuzhe.html</link>
+        <guid isPermaLink="true">http://localhost:4000/%E8%AE%B0%E5%BD%95/2017/03/06/RecordFromDuzhe.html</guid>
+        
+        
+        <category>记录</category>
+        
+      </item>
+    
+      <item>
+        <title>PaperWriting Tips</title>
+        <description>&lt;h3 id=&quot;summary-the-typical-structure-of-a-research-paper-in-icdm&quot;&gt;Summary the typical structure of a Research paper in ICDM.&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;All this from Pro. Xindong Wu&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Title
+    &lt;ul&gt;
+      &lt;li&gt;The longer a paper title, the lower its acceptace chance&lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;Less posibility for being increntmal work&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;blockquote&gt;
+          &lt;p&gt;catchy and indicative of your research contribution&lt;/p&gt;
+        &lt;/blockquote&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Abstract&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;blockquote&gt;
+          &lt;p&gt;A summary of the research problem , your claim and the evidence .&lt;/p&gt;
+        &lt;/blockquote&gt;
+      &lt;/li&gt;
+      &lt;li&gt;What do you want to talk about in this paper ?&lt;/li&gt;
+      &lt;li&gt;Is there any challenge in your research domain ?&lt;/li&gt;
+      &lt;li&gt;What’s your contribution with your methods in the challenge ?&lt;/li&gt;
+      &lt;li&gt;Please show the evaluation of your methods (such as ‘the state-of-the-art’)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Introduction&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;blockquote&gt;
+          &lt;p&gt;&lt;strong&gt;Motivation&lt;/strong&gt;,a re-statement of the abstract in formation, &lt;strong&gt;significance&lt;/strong&gt;,an outline of the rest of the paper&lt;/p&gt;
+        &lt;/blockquote&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Related Work
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;A crtical review&lt;/strong&gt; on the rival approaches that  supports the motivation&lt;/li&gt;
+      &lt;li&gt;How to differentiate existing work with your own &lt;strong&gt;creative contributions&lt;/strong&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Problem statement and algorithm design
+    &lt;ul&gt;
+      &lt;li&gt;Explain your ideas in detail , with examples&lt;/li&gt;
+      &lt;li&gt;Highlight your contributions&lt;/li&gt;
+      &lt;li&gt;Do &lt;em&gt;Not&lt;/em&gt; simply put your algorithms in pseudo code&lt;/li&gt;
+      &lt;li&gt;Show your novelty&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Evaluation
+    &lt;ul&gt;
+      &lt;li&gt;Evidence to support the claim of your research contribution&lt;/li&gt;
+      &lt;li&gt;Unless you can provide proofs for a theoretical paper on theorems, experimental results are always expected&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Conclusion&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;blockquote&gt;
+          &lt;p&gt;A summary of the research contribution , a discussion on its significance, and a mention of future work&lt;/p&gt;
+        &lt;/blockquote&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;References&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;blockquote&gt;
+          &lt;p&gt;List and &lt;em&gt;cite&lt;/em&gt; related work&lt;/p&gt;
+        &lt;/blockquote&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Know your enemy: Check who are on the program committee or editorial board, and cite their relevant work with due credit.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;summary-of-take-home-messages&quot;&gt;Summary of Take-Home Messages&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;ul&gt;
+    &lt;li&gt;It is not enough to design yet another techinque or system without convincing evaluation&lt;/li&gt;
+    &lt;li&gt;You should avoid claiming too many dimensions, but one or two in-depth evidence&lt;/li&gt;
+    &lt;li&gt;Choose a promising topic&lt;/li&gt;
+    &lt;li&gt;Are the experimental results consistent and conclusive ?&lt;/li&gt;
+    &lt;li&gt;A good introduction with a good motivation is half of your success !&lt;/li&gt;
+    &lt;li&gt;Reading and citing relevant papers from the premier forums is a must&lt;/li&gt;
+    &lt;li&gt;Be accommodating and persistent in journal submissions&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+</description>
+        <pubDate>Fri, 24 Feb 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/%E7%A0%94%E7%A9%B6/2017/02/24/PaperWriting.html</link>
+        <guid isPermaLink="true">http://localhost:4000/%E7%A0%94%E7%A9%B6/2017/02/24/PaperWriting.html</guid>
+        
+        <category>Note</category>
+        
+        
+        <category>研究</category>
+        
+      </item>
+    
+      <item>
+        <title>Sophisticated Feeling</title>
+        <description>&lt;h3 id=&quot;beiliwhat-did-you-do-these-days&quot;&gt;Beili,What did you do these days?&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;First aggregate papers in Recommender Systems
+    &lt;ul&gt;
+      &lt;li&gt;ICDM&lt;/li&gt;
+      &lt;li&gt;Recsys&lt;/li&gt;
+      &lt;li&gt;KDD&lt;/li&gt;
+      &lt;li&gt;PAKDD&lt;/li&gt;
+      &lt;li&gt;WSDM&lt;/li&gt;
+      &lt;li&gt;SIAM&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Then Read some papers in terms of survey in RS&lt;/li&gt;
+  &lt;li&gt;Focus on the LSA(LSI) PLSA(PLSI) LDA MF(SVD SVD++)&lt;/li&gt;
+  &lt;li&gt;Communicate with different pepole in RS(senior fellow apprentice and Yue)&lt;/li&gt;
+  &lt;li&gt;Too many trivial things to do&lt;/li&gt;
+  &lt;li&gt;Think it doesn’t matter too much&lt;/li&gt;
+  &lt;li&gt;Attempt to cook congee&lt;/li&gt;
+  &lt;li&gt;……&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;beili-what-can-you-derive-from-your-previous-work&quot;&gt;Beili, What can you derive from your previous work?&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;I am not attensive and persistent&lt;/li&gt;
+  &lt;li&gt;What I see from the past is noly the scare of the past and future&lt;/li&gt;
+  &lt;li&gt;I want to do sth to change the situation but without concrete step&lt;/li&gt;
+  &lt;li&gt;Sleep too late so that inducing getting up late awfully&lt;/li&gt;
+  &lt;li&gt;Pay close attention to the environment rather than my defficiency&lt;/li&gt;
+  &lt;li&gt;……&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;beili-what-do-you-want-to-do-now-&quot;&gt;Beili, What do you want to do now ?&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Time&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Deadline&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;List&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;02.22&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;04.30&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;IELTS&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;02.22&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;06.05&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ICDM&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;02.22&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;03.28&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;CSDI&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;02.22&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;04.24&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ADS&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;For many students , they are optimistic about their career and life but vice versa to me . I am so frustrated that I cannot obtain the ability to clearly express my thoughts . From my sentence to sentence , you can perceive my limp and poverty in English . For all this ,I also have the confidence to strive for my future and prepare to promte my written English and spoken English step by step which may need endeavour in peacetime .&lt;/p&gt;
+
+&lt;p&gt;Yes. half-hearted is my middle name which stems me to conquer dilemma day by day nonetheless the present and future is gripped in my hand only if I want to make change by nuts and bolts.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 22 Feb 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/%E7%A0%94%E7%A9%B6/2017/02/22/Feeling.html</link>
+        <guid isPermaLink="true">http://localhost:4000/%E7%A0%94%E7%A9%B6/2017/02/22/Feeling.html</guid>
+        
+        <category>Note</category>
+        
+        
+        <category>研究</category>
+        
+      </item>
+    
+      <item>
+        <title>2017年阅读书单</title>
+        <description>
+</description>
+        <pubDate>Wed, 22 Feb 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/%E8%AF%BB%E4%B9%A6/2017/02/22/Book-List-2017.html</link>
+        <guid isPermaLink="true">http://localhost:4000/%E8%AF%BB%E4%B9%A6/2017/02/22/Book-List-2017.html</guid>
+        
+        
+        <category>读书</category>
+        
+      </item>
+    
+      <item>
+        <title>Advice For Graduate Students</title>
+        <description>&lt;h3 id=&quot;some-modest-advice-for-graduate-students&quot;&gt;&lt;a href=&quot;http://stearnslab.yale.edu/some-modest-advice-graduate-students&quot;&gt;Some Modest Advice for Graduate Students&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;by Stephen C. Stearns&lt;/p&gt;
+
+&lt;h3 id=&quot;always-prepare-for-the-worst&quot;&gt;&lt;strong&gt;Always Prepare for the Worst.&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;p&gt;Some of the greatest catastrophes in graduate education could have been avoided by a little intelligent foresight. Be cynical. Assume that your proposed research might not work, and that one of your faculty advisers might become unsupportive - or even hostile. Plan for alternatives.&lt;/p&gt;
+
+&lt;h3 id=&quot;nobody-cares-about-you&quot;&gt;&lt;strong&gt;Nobody cares about you.&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;p&gt;In fact, some professors care about you and some don’t. Most probably do, but all are busy, which means in practice they cannot care about you because they don’t have the time. You are on your own, and you had better get used to it. This has a lot of implications. Here are two important ones:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;You had better decide early on that you are in charge of your program. The degree you get is yours to create. Your major professor can advise you and protect you to a certain extent from bureaucratic and financial demons, but he should not tell you what to do. That is up to you. If you need advice, ask for it: that’s his job.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;If you want to pick somebody’s brains, you’ll have to go to him or her, because they won’t be coming to you.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;you-must-know-why-your-work-is-important&quot;&gt;&lt;strong&gt;You Must Know Why Your Work is Important.&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;p&gt;When you first arrive, read and think widely and exhaustively for a year. Assume that everything you read is bullshit until the author manages to convince you that it isn’t. If you do not understand something, don’t feel bad - it’s not your fault, it’s the author’s. He didn’t write clearly enough.&lt;/p&gt;
+
+&lt;p&gt;If some authority figure tells you that you aren’t accomplishing anything because you aren’t taking courses and you aren’t gathering data, tell him what you’re up to. If he persists, tell him to bug off, because you know what you’re doing, dammit.&lt;/p&gt;
+
+&lt;p&gt;This is a hard stage to get through because you will feel guilty about not getting going on your own research. You will continually be asking yourself, “What am I doing here?” Be patient. This stage is critical to your personal development and to maintaining the flow of new ideas into science. Here you decide what constitutes an important problem. You must arrive at this decision independently for two reasons. First, if someone hands you a problem, you won’t feel that it is yours, you won’t have that possessiveness that makes you want to work on it, defend it, fight for it, and make it come out beautifully. Secondly, your PhD work will shape your future. It is your choice of a field in which to carry out a life’s work. It is also important to the dynamic of science that your entry be well thought out. This is one point where you can start a whole new area of research. Remember, what sense does it make to start gathering data if you don’t know - and I mean really know - why you’re doing it?&lt;/p&gt;
+
+&lt;h3 id=&quot;psychological-problems-are-the-biggest-barrier&quot;&gt;&lt;strong&gt;Psychological Problems are the Biggest Barrier.&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;p&gt;You must establish a firm psychological stance early in your graduate career to keep from being buffeted by the many demands that will be made on your time. If you don’t watch out, the pressures of course work, teaching, language requirements and who knows what else will push you around like a large, docile molecule in Brownian motion. Here are a few things to watch out for:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;The initiation-rite nature of the PhD and its power to convince you that your value as a person is being judged. No matter how hard you try, you won’t be able to avoid this one. No one does. It stems from the open-ended nature of the thesis problem. You have to decide what a “good” thesis is. A thesis can always be made better, which gets you into an infinite regress of possible improvements.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Recognize that you cannot produce a “perfect” thesis. There are going to be flaws in it, as there are in everything. Settle down to make it as good as you can within the limits of time, money, energy, encouragement and thought at your disposal.&lt;/p&gt;
+
+&lt;p&gt;You can alleviate this problem by jumping all the explicit hurdles early in the game. Get all of your course requirements and examinations out of the way as soon as possible. Not only do you thereby clear the decks for your thesis, but you also convince yourself, by successfully jumping each hurdle, that you probably are good enough after all.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Nothing elicits dominant behavior like subservient behavior. Expect and demand to be treated like a colleague. The paper requirements are the explicit hurdle you will have to jump, but the implicit hurdle is attaining the status of a colleague. Act like one and you’ll be treated like one.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Graduate school is only one of the tools that you have at hand for shaping your own development. Be prepared to quit for awhile if something better comes up. There are three good reasons to do this.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;First, a real opportunity could arise that is more productive and challenging than anything you could do in graduate school and that involves a long enough block of time to justify dropping out. Examples include field work in Africa on a project not directly related to your PhD work, a contract for software development, an opportunity to work as an aide in the nation’s capital in the formulation of science policy, or an internship at a major newspaper or magazine as a science journalist.&lt;/p&gt;
+
+&lt;p&gt;Secondly, only by keeping this option open can you function with true independence as a graduate student. If you perceive graduate school as your only option, you will be psychologically labile, inclined to get a bit desperate and insecure, and you will not be able to give your best.&lt;/p&gt;
+
+&lt;p&gt;Thirdly, if things really are not working out for you, then you are only hurting yourself and denying resources to others by staying in graduate school. There are a lot of interesting things to do in life besides being a scientist, and in some the job market is a lot better. If science is not turning you on, perhaps you should try something else. However, do not go off half-cocked. This is a serious decision. Be sure to talk to fellow graduate students and sympathetic faculty before making up your mind.&lt;/p&gt;
+
+&lt;h3 id=&quot;avoid-taking-lectures---theyre-usually-inefficient&quot;&gt;&lt;strong&gt;Avoid Taking Lectures - They’re Usually Inefficient.&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;p&gt;If you already have a good background in your field, then minimize the number of additional courses you take. This recommendation may seem counterintuitive, but it has a sound basis. Right now, you need to learn how to think for yourself. This requires active engagement, not passive listening and regurgitation.&lt;/p&gt;
+
+&lt;p&gt;To learn to think, you need two things: large blocks of time, and as much one-on-one interaction as you can get with someone who thinks more clearly than you do.&lt;/p&gt;
+
+&lt;p&gt;Courses just get in the way, and if you are well motivated, then reading and discussion is much more efficient and broadening than lectures. It is often a good idea to get together with a few colleagues, organize a seminar on a subject of interest, and invite a few faculty to take part. They’ll probably be delighted. After all, it will be interesting for them, they’ll love your initiative - and it will give them credit for teaching a course for which they don’t have to do any work. How can you lose?&lt;/p&gt;
+
+&lt;p&gt;These comments of course do not apply to courses that teach specific skills: e.g., electron microscopy, histological technique, scuba diving.&lt;/p&gt;
+
+&lt;h3 id=&quot;write-a-proposal-and-get-it-criticized&quot;&gt;&lt;strong&gt;Write a Proposal and Get It Criticized.&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;h3 id=&quot;a-research-proposal-serves-many-functions&quot;&gt;&lt;strong&gt;A research proposal serves many functions.&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;By summarizing your year’s thinking and reading, it ensures that you have gotten something out of it.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;It makes it possible for you to defend your independence by providing a concrete demonstration that you used your time well.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;It literally makes it possible for others to help you. What you have in mind is too complex to be communicated verbally - too subtle, and in too many parts. It must be put down in a well-organized, clearly and concisely written document that can be circulated to a few good minds. Only with a proposal before them can they give you constructive criticism.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;You need practice writing. We all do.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Having located your problem and satisfied yourself that it is important, you will have to convince your colleagues that you are not totally demented and, in fact, deserve support. One way to organize a proposal to accomplish this goal is:&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;a. A brief statement of what you propose, couched as a question or hypothesis.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;b. Why it is important scientifically, not why it is important to you personally, and how it fits into the broader scheme of ideas in your field.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;c. A literature review that substantiates (b).&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;d. Describe your problem as a series of subproblems that can each be attacked in a series of small steps. Devise experiments, observations or analyses that will permit you to exclude alternatives at each stage. Line them up and start knocking them down. By transforming the big problem into a series of smaller ones, you always know what to do next, you lower the energy threshold to begin work, you identify the part that will take the longest or cause the most problems, and you have available a list of things to do when something doesn’t work out.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Write down a list of the major problems that could arise and ruin the whole project. Then write down a list of alternatives that you will do if things actually do go wrong.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;It is not a bad idea to design two or three projects and start them in parallel to see which one has the best practical chance of succeeding. There could be two or three model systems that all seem to have equally good chances on paper of providing appropriate tests for your ideas, but in fact practical problems may exclude some of them. It is much more efficient to discover this at the start than to design and execute two or three projects in succession after the first fail for practical reasons.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Pick a date for the presentation of your thesis and work backwards in constructing a schedule of how you are going to use your time. You can expect a stab of terror at this point. Don’t worry - it goes on like this for awhile, then it gradually gets worse.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Spend two to three weeks writing the proposal after you’ve finished your reading, then give it to as many good critics as you can find. Hope that their comments are tough, and respond as constructively as you can.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Get at it. You already have the introduction to your thesis written, and you have only been here 12 to 18 months.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;manage-your-advisors&quot;&gt;&lt;strong&gt;Manage Your Advisors.&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;p&gt;Keep your advisors aware of what you are doing, but do not bother them. Be an interesting presence, not a pest. At least once a year, submit a written progress report 1-2 pages long on your own initiative. They will appreciate it and be impressed.&lt;/p&gt;
+
+&lt;p&gt;Anticipate and work to avoid personality problems. If you do not get along with your professors, change advisors early on. Be very careful about choosing your advisors in the first place. Most important is their interest in your interests.&lt;/p&gt;
+
+&lt;h3 id=&quot;types-of-theses&quot;&gt;&lt;strong&gt;Types of Theses.&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;p&gt;Never elaborate a baroque excrescence on top of existing but shaky ideas. Go right to the foundations and test the implicit but unexamined assumptions of an important body of work, or lay the foundations for a new research thrust. There are, of course, other types of theses:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;The classical thesis involves the formulation of a deductive model that makes novel and surprising predictions which you then test objectively and confirm under conditions unfavorable to the hypothesis. Rarely done and highly prized.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;A critique of the foundations of an important body of research. Again, rare and valuable and a sure winner if properly executed.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The purely theoretical thesis. This takes courage, especially in a department loaded with bedrock empiricists, but can be pulled off if you are genuinely good at math and logic.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Gather data that someone else can synthesize. This is the worst kind of thesis, but in a pinch it will get you through. To certain kinds of people lots of data, even if they don’t test a hypothesis, will always be impressive. At least the results show that you worked hard, a fact with which you can blackmail your committee into giving you the doctorate.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;There are really as many kinds of theses as their are graduate students. The four types listed serve as limiting cases of the good, the bad, and the ugly. Doctoral work is a chance for you to try your hand at a number of different research styles and to discover which suites you best: theory, field work, or lab work. Ideally, you will balance all three and become the rare person who can translate the theory for the empiricists and the real world for the theoreticians.&lt;/p&gt;
+
+&lt;h3 id=&quot;start-publishing-early&quot;&gt;&lt;strong&gt;Start Publishing Early.&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;p&gt;Don’t kid yourself. You may have gotten into this game out of your love for plants and animals, your curiosity about nature, and your drive to know the truth, but you won’t be able to get a job and stay in it unless you publish. You need to publish substantial articles in internationally recognized, refereed journals. Without them, you can forget a career in science. This sounds brutal, but there are good reasons for it, and it can be a joyful challenge and fulfillment. Science is shared knowledge. Until the results are effectively communicated, they in effect do not exist. Publishing is part of the job, and until it is done, the work is not complete. You must master the skill of writing clear, concise, well-organized scientific papers. Here are some tips about getting into the publishing game.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Co-author a paper with someone who has more experience. Approach a professor who is working on an interesting project and offer your services in return for a junior authorship. He’ll appreciate the help and will give you lots of good comments on the paper because his name will be on it.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Do not expect your first paper to be world-shattering. A lot of eminent people began with a minor piece of work. The amount of information reported in the average scientific paper may be less than you think. Work up to the major journals by publishing one or two short - but competent - papers in less well-recognized journals. You will quickly discover that no matter what the reputation of the journal, all editorial boards defend the quality of their product with jealous pride - and they should!&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;If it is good enough, publish your research proposal as a critical review paper. If it is publishable, you’ve probably chosen the right field to work in.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Do not write your thesis as a monograph. Write it as a series of publishable manuscripts, and submit them early enough so that at least one or two chapters of your thesis can be presented as reprints of published articles.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Buy and use a copy of Strunk and White’s Elements of Style. Read it before you sit down to write your first paper, then read it again at least once a year for the next three or four years. Day’s book, How to Write a Scientific Paper, is also excellent.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Get your work reviewed before you submit it to the journal by someone who has the time to criticize your writing as well as your ideas and organization.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;dont-look-down-on-a-masters-thesis&quot;&gt;&lt;strong&gt;Don’t Look Down on a Master’s Thesis.&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;p&gt;The only reason not to do a master’s is to fulfill the generally false conceit that you’re too good for that sort of thing. The master’s has a number of advantages.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;It gives you a natural way of changing schools if you want to. You can use this to broaden your background. Moreover, your ideas on what constitutes an important problem will probably be changing rapidly at this stage of your development. Your knowledge of who is doing what, and where, will be expanding rapidly. If you decide to change universities, this is the best way to do it. You leave behind people satisfied with your performance and in a position to provide well-informed letters of recommendation. You arrive with most of your PhD requirements satisfied.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;You get much-needed experience in research and writing in a context less threatening than doctoral research. You break yourself in gradually. In research, you learn the size of a soluble problem. People who have done master’s work usually have a much easier time with the PhD.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;You get a publication.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;What’s your hurry? If you enter the job market too quickly, you won´t be well prepared. Better to go a bit more slowly, build up a substantial background, and present yourself a bit later as a person with more and broader experience.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;publish-regularly-but-not-too-much&quot;&gt;&lt;strong&gt;Publish Regularly, But Not Too Much.&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;p&gt;The pressure to publish has corroded the quality of journals and the quality of intellectual life. It is far better to have published a few papers of high quality that are widely read than it is to have published a long string of minor articles that are quickly forgotten. You do have to be realistic. You will need publications to get a post-doc, and you will need more to get a faculty position and then tenure. However, to the extent that you can gather your work together in substantial packages of real quality, you will be doing both yourself and your field a favor.&lt;/p&gt;
+
+&lt;p&gt;Most people publish only a few papers that make any difference. Most papers are cited little or not at all. About 10% of the articles published receive 90% of the citations. A paper that is not cited is time and effort wasted. Go for quality, not for quantity. This will take courage and stubbornness, but you won’t regret it. If you are publishing one or two carefully considered, substantial papers in good, refereed journals each year, you’re doing very well - and you’ve taken time to do the job right.&lt;/p&gt;
+
+&lt;p&gt;Acknowledgements Thanks to Frank Pitelka for providing an opportunity, to Ray Huey for being a co-conspirator and sounding board and for providing a number of the comments presented here, to the various unknown graduate students who kept these ideas in circulation, and to Pete Morin for suggesting that I write them up for publication.&lt;/p&gt;
+
+</description>
+        <pubDate>Sat, 18 Feb 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/%E7%A0%94%E7%A9%B6/2017/02/18/SomeAdviceForStudents.html</link>
+        <guid isPermaLink="true">http://localhost:4000/%E7%A0%94%E7%A9%B6/2017/02/18/SomeAdviceForStudents.html</guid>
+        
+        <category>Note</category>
+        
+        
+        <category>研究</category>
+        
+      </item>
+    
+      <item>
+        <title>Conference List</title>
+        <description>&lt;h3 id=&quot;for-my-deadline&quot;&gt;For my deadline:&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;06-05 International Conference on Data Mining &lt;a href=&quot;http://www.cs.uvm.edu/~icdm/&quot;&gt;ICDM&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;aspire-to-inspire-until-i-expire-&quot;&gt;Aspire to inspire until I expire !&lt;/h3&gt;
+</description>
+        <pubDate>Sat, 18 Feb 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/%E7%A0%94%E7%A9%B6/2017/02/18/ConferenceList.html</link>
+        <guid isPermaLink="true">http://localhost:4000/%E7%A0%94%E7%A9%B6/2017/02/18/ConferenceList.html</guid>
+        
+        <category>Note</category>
+        
+        
+        <category>研究</category>
+        
+      </item>
+    
+      <item>
+        <title>2017 兼职收入</title>
+        <description>&lt;br/&gt;
+12月上海交通大学RFID与物联网研究所：2000元&lt;br/&gt;
+&lt;br/&gt;
+1月上海交通大学研究补贴：1860元&lt;br/&gt;
+2月上海交通大学研究补贴：1500元&lt;br&gt;
+1月上海交通大学研究补贴：375元&lt;br/&gt;
+
+</description>
+        <pubDate>Tue, 03 Jan 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/%E8%AE%B0%E5%BD%95/2017/01/03/Salary2017.html</link>
+        <guid isPermaLink="true">http://localhost:4000/%E8%AE%B0%E5%BD%95/2017/01/03/Salary2017.html</guid>
+        
+        
+        <category>记录</category>
         
       </item>
     
