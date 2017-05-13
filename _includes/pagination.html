@@ -3,7 +3,7 @@
 
         {% if paginator.previous_page %}
         {% if paginator.previous_page == 1 %}
-        <a href="/" class="btn btn-outline">&laquo;</a>
+        <a href="/daicoolb/" class="btn btn-outline">&laquo;</a>
         {% else %}
         <a href="/daicoolb/page{{paginator.previous_page}}" class="btn btn-outline">&laquo;</a>
         {% endif %}
@@ -14,7 +14,7 @@
         {% if paginator.page == 1 %}
         <a href="javascript:;" class="active btn btn-outline">1</a>
         {% else %}
-        <a href="/" class="btn btn-outline">1</a>
+        <a href="/daicoolb/" class="btn btn-outline">1</a>
         {% endif %}
 
         {% for count in (2..paginator.total_pages) %}
