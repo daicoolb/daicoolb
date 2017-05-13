@@ -5,7 +5,7 @@
         {% if paginator.previous_page == 1 %}
         <a href="/" class="btn btn-outline">&laquo;</a>
         {% else %}
-        <a href="/page{{paginator.previous_page}}" class="btn btn-outline">&laquo;</a>
+        <a href="/daicoolb/page{{paginator.previous_page}}" class="btn btn-outline">&laquo;</a>
         {% endif %}
         {% else %}
         <button disabled="disabled" href="javascript:;" class="btn btn-outline">&laquo;</button>
@@ -21,12 +21,12 @@
         {% if count == paginator.page %}
         <a href="javascript:;" class="active btn btn-outline">{{count}}</a>
         {% else %}
-        <a href="/page{{count}}" class="btn btn-outline">{{count}}</a>
+        <a href="/daicoolb/page{{count}}" class="btn btn-outline">{{count}}</a>
         {% endif %}
         {% endfor %}
 
         {% if paginator.next_page %}
-        <a href="/page{{paginator.next_page}}" class="btn btn-outline">&raquo;</a>
+        <a href="/daicoolb/page{{paginator.next_page}}" class="btn btn-outline">&raquo;</a>
         {% else %}
         <button disabled="disabled" href="javascript:;" class="btn btn-outline">&raquo;</button>
         {% endif %}
