@@ -6,7 +6,7 @@ category: 研究
 tags: [Note]
 ---
 
-### Summary the typical structure of a Research paper in ICDM.
+## Summary the typical structure of a Research paper in ICDM.
 
 > All this from Pro. Xindong Wu
 
@@ -52,7 +52,7 @@ tags: [Note]
    * > List and *cite* related work
    * Know your enemy: Check who are on the program committee or editorial board, and cite their relevant work with due credit.
 
-### Summary of Take-Home Messages
+## Summary of Take-Home Messages
 
 > * It is not enough to design yet another techinque or system without convincing evaluation
 > * You should avoid claiming too many dimensions, but one or two in-depth evidence

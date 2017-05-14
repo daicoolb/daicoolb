@@ -6,14 +6,14 @@ category: 研究
 tags: [Note]
 ---
 
-### [Some Modest Advice for Graduate Students](http://stearnslab.yale.edu/some-modest-advice-graduate-students)
+## [Some Modest Advice for Graduate Students](http://stearnslab.yale.edu/some-modest-advice-graduate-students)
    by Stephen C. Stearns
 
-### **Always Prepare for the Worst.**
+## **Always Prepare for the Worst.**
 
 Some of the greatest catastrophes in graduate education could have been avoided by a little intelligent foresight. Be cynical. Assume that your proposed research might not work, and that one of your faculty advisers might become unsupportive - or even hostile. Plan for alternatives.
 
-### **Nobody cares about you.**
+## **Nobody cares about you.**
 
 In fact, some professors care about you and some don’t. Most probably do, but all are busy, which means in practice they cannot care about you because they don’t have the time. You are on your own, and you had better get used to it. This has a lot of implications. Here are two important ones:
 
@@ -21,7 +21,7 @@ In fact, some professors care about you and some don’t. Most probably do, but 
 
 2. If you want to pick somebody’s brains, you’ll have to go to him or her, because they won’t be coming to you.
 
-### **You Must Know Why Your Work is Important.**
+## **You Must Know Why Your Work is Important.**
 
 When you first arrive, read and think widely and exhaustively for a year. Assume that everything you read is bullshit until the author manages to convince you that it isn’t. If you do not understand something, don’t feel bad - it’s not your fault, it’s the author’s. He didn’t write clearly enough.
 
@@ -29,7 +29,7 @@ If some authority figure tells you that you aren’t accomplishing anything beca
 
 This is a hard stage to get through because you will feel guilty about not getting going on your own research. You will continually be asking yourself, “What am I doing here?” Be patient. This stage is critical to your personal development and to maintaining the flow of new ideas into science. Here you decide what constitutes an important problem. You must arrive at this decision independently for two reasons. First, if someone hands you a problem, you won’t feel that it is yours, you won’t have that possessiveness that makes you want to work on it, defend it, fight for it, and make it come out beautifully. Secondly, your PhD work will shape your future. It is your choice of a field in which to carry out a life’s work. It is also important to the dynamic of science that your entry be well thought out. This is one point where you can start a whole new area of research. Remember, what sense does it make to start gathering data if you don’t know - and I mean really know - why you’re doing it?
 
-### **Psychological Problems are the Biggest Barrier.**
+## **Psychological Problems are the Biggest Barrier.**
 
 You must establish a firm psychological stance early in your graduate career to keep from being buffeted by the many demands that will be made on your time. If you don’t watch out, the pressures of course work, teaching, language requirements and who knows what else will push you around like a large, docile molecule in Brownian motion. Here are a few things to watch out for:
 
@@ -49,7 +49,7 @@ Secondly, only by keeping this option open can you function with true independen
 
 Thirdly, if things really are not working out for you, then you are only hurting yourself and denying resources to others by staying in graduate school. There are a lot of interesting things to do in life besides being a scientist, and in some the job market is a lot better. If science is not turning you on, perhaps you should try something else. However, do not go off half-cocked. This is a serious decision. Be sure to talk to fellow graduate students and sympathetic faculty before making up your mind.
 
-### **Avoid Taking Lectures - They’re Usually Inefficient.**
+## **Avoid Taking Lectures - They’re Usually Inefficient.**
 
 If you already have a good background in your field, then minimize the number of additional courses you take. This recommendation may seem counterintuitive, but it has a sound basis. Right now, you need to learn how to think for yourself. This requires active engagement, not passive listening and regurgitation.
 
@@ -59,9 +59,9 @@ Courses just get in the way, and if you are well motivated, then reading and dis
 
 These comments of course do not apply to courses that teach specific skills: e.g., electron microscopy, histological technique, scuba diving.
 
-### **Write a Proposal and Get It Criticized.**
+## **Write a Proposal and Get It Criticized.**
 
-### **A research proposal serves many functions.**
+## **A research proposal serves many functions.**
 
 1. By summarizing your year’s thinking and reading, it ensures that you have gotten something out of it.
 
@@ -91,13 +91,13 @@ These comments of course do not apply to courses that teach specific skills: e.g
 
 10. Get at it. You already have the introduction to your thesis written, and you have only been here 12 to 18 months.
 
-### **Manage Your Advisors.**
+## **Manage Your Advisors.**
 
 Keep your advisors aware of what you are doing, but do not bother them. Be an interesting presence, not a pest. At least once a year, submit a written progress report 1-2 pages long on your own initiative. They will appreciate it and be impressed.
 
 Anticipate and work to avoid personality problems. If you do not get along with your professors, change advisors early on. Be very careful about choosing your advisors in the first place. Most important is their interest in your interests.
 
-### **Types of Theses.**
+## **Types of Theses.**
 
 Never elaborate a baroque excrescence on top of existing but shaky ideas. Go right to the foundations and test the implicit but unexamined assumptions of an important body of work, or lay the foundations for a new research thrust. There are, of course, other types of theses:
 
@@ -111,7 +111,7 @@ Never elaborate a baroque excrescence on top of existing but shaky ideas. Go rig
 
 There are really as many kinds of theses as their are graduate students. The four types listed serve as limiting cases of the good, the bad, and the ugly. Doctoral work is a chance for you to try your hand at a number of different research styles and to discover which suites you best: theory, field work, or lab work. Ideally, you will balance all three and become the rare person who can translate the theory for the empiricists and the real world for the theoreticians.
 
-### **Start Publishing Early.**
+## **Start Publishing Early.**
 
 Don’t kid yourself. You may have gotten into this game out of your love for plants and animals, your curiosity about nature, and your drive to know the truth, but you won’t be able to get a job and stay in it unless you publish. You need to publish substantial articles in internationally recognized, refereed journals. Without them, you can forget a career in science. This sounds brutal, but there are good reasons for it, and it can be a joyful challenge and fulfillment. Science is shared knowledge. Until the results are effectively communicated, they in effect do not exist. Publishing is part of the job, and until it is done, the work is not complete. You must master the skill of writing clear, concise, well-organized scientific papers. Here are some tips about getting into the publishing game.
 
@@ -127,7 +127,7 @@ Don’t kid yourself. You may have gotten into this game out of your love for pl
 
 6. Get your work reviewed before you submit it to the journal by someone who has the time to criticize your writing as well as your ideas and organization.
 
-### **Don’t Look Down on a Master’s Thesis.**
+## **Don’t Look Down on a Master’s Thesis.**
 
 The only reason not to do a master’s is to fulfill the generally false conceit that you’re too good for that sort of thing. The master’s has a number of advantages.
 
@@ -139,7 +139,7 @@ The only reason not to do a master’s is to fulfill the generally false conceit
 
 4. What’s your hurry? If you enter the job market too quickly, you won´t be well prepared. Better to go a bit more slowly, build up a substantial background, and present yourself a bit later as a person with more and broader experience.
 
-### **Publish Regularly, But Not Too Much.**
+## **Publish Regularly, But Not Too Much.**
 
 The pressure to publish has corroded the quality of journals and the quality of intellectual life. It is far better to have published a few papers of high quality that are widely read than it is to have published a long string of minor articles that are quickly forgotten. You do have to be realistic. You will need publications to get a post-doc, and you will need more to get a faculty position and then tenure. However, to the extent that you can gather your work together in substantial packages of real quality, you will be doing both yourself and your field a favor.
 
