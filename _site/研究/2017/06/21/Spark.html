@@ -11,7 +11,7 @@
 
     <title>Spark</title>
     <meta name="description"
-          content="【版权声明：本指南为[厦门大学林子雨编著的《大数据技术原理与应用》教材配套学习资料][http://dblab.xmu.edu.cn/post/bigdata/]，版权所有，转载请注明出处，请勿用于商业用途】">
+          content="【版权声明：本指南为厦门大学林子雨编著的《大数据技术原理与应用》教材配套学习资料，版权所有，转载请注明出处，请勿用于商业用途】">
 
     <link rel="canonical" href="http://localhost:4000/%E7%A0%94%E7%A9%B6/2017/06/21/Spark.html">
     <link rel="alternate" type="application/rss+xml" title="Maybe not Good But Studious !" href="http://localhost:4000/feed.xml">
@@ -122,11 +122,11 @@
         
         <div class="col-md-8 markdown-body">
 
-            <p>【版权声明：本指南为[厦门大学林子雨编著的《大数据技术原理与应用》教材配套学习资料][http://dblab.xmu.edu.cn/post/bigdata/]，版权所有，转载请注明出处，请勿用于商业用途】</p>
+            <p>【版权声明：本指南为<a href="http://dblab.xmu.edu.cn/post/bigdata/">厦门大学林子雨编著的《大数据技术原理与应用》教材配套学习资料</a>，版权所有，转载请注明出处，请勿用于商业用途】</p>
 
 <p>注：第十六章Spark，本章为2016年新增章节，不在2015年8月1日由人民邮电出版社出版发行的《大数据技术原理与应用》中，会被放入到教材的下一个版本中。</p>
 
-<p>Apache Spark 是一个新兴的大数据处理通用引擎，提供了分布式的内存抽象。Spark 最大的特点就是快，可比 Hadoop MapReduce 的处理速度快 100 倍。本指南将介绍 Spark 的安装与基本使用。请务必仔细阅读完厦门大学林子雨编著的《大数据技术原理与应用》第16章节（[点击这里下载第十六章Spark的pdf电子书][http://dblab.xmu.edu.cn/wp-content/uploads/2016/01/%E5%8E%A6%E9%97%A8%E5%A4%A7%E5%AD%A6%E6%9E%97%E5%AD%90%E9%9B%A8%E7%BC%96%E8%91%97-%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8-%E7%94%B5%E5%AD%90%E4%B9%A6-%E7%AC%AC16%E7%AB%A0-Spark%EF%BC%882016%E5%B9%B44%E6%9C%8820%E6%97%A5%E7%89%88%E6%9C%AC%EF%BC%89.pdf]），再结合本指南进行学习。</p>
+<p>Apache Spark 是一个新兴的大数据处理通用引擎，提供了分布式的内存抽象。Spark 最大的特点就是快，可比 Hadoop MapReduce 的处理速度快 100 倍。本指南将介绍 Spark 的安装与基本使用。请务必仔细阅读完厦门大学林子雨编著的《大数据技术原理与应用》第16章节（<a href="http://dblab.xmu.edu.cn/wp-content/uploads/2016/01/%E5%8E%A6%E9%97%A8%E5%A4%A7%E5%AD%A6%E6%9E%97%E5%AD%90%E9%9B%A8%E7%BC%96%E8%91%97-%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8-%E7%94%B5%E5%AD%90%E4%B9%A6-%E7%AC%AC16%E7%AB%A0-Spark%EF%BC%882016%E5%B9%B44%E6%9C%8820%E6%97%A5%E7%89%88%E6%9C%AC%EF%BC%89.pdf">点击这里下载第十六章Spark的pdf电子书</a>，再结合本指南进行学习。</p>
 
 <h2 id="一安装-spark">一、安装 Spark</h2>
 <p>访问Spark官方下载地址，按照如下图下载。</p>
@@ -142,31 +142,30 @@
 <h2 id="安装hadoop">安装Hadoop</h2>
 
 <p>Spark的安装过程较为简单，在已安装好 Hadoop 的前提下，经过简单配置即可使用。
-如果仍没有安装Hadoop，请访问[Hadoop安装教程_单机/伪分布式配置_Hadoop2.6.0/Ubuntu14.04][http://dblab.xmu.edu.cn/blog/install-hadoop/],依照教程学习安装即可。</p>
+如果仍没有安装Hadoop，请访问<a href="http://dblab.xmu.edu.cn/blog/install-hadoop/">Hadoop安装教程_单机/伪分布式配置_Hadoop2.6.0/Ubuntu14.04</a>,依照教程学习安装即可。</p>
 
 <h2 id="安装java-jdk">安装JAVA JDK</h2>
 
 <p>安装Hadoop的过程就已经要求安装JAVA JDK了。如果没有，请参考Hadoop安装教程_单机/伪分布式配置_Hadoop2.6.0/Ubuntu14.04进行安装配置。</p>
 
 <h2 id="安装spark">安装Spark</h2>
-<p>sudo tar -zxf ~/下载/spark-1.6.2-bin-without-hadoop.tgz -C /usr/local/
+<pre><code>sudo tar -zxf ~/下载/spark-1.6.2-bin-without-hadoop.tgz -C /usr/local/
 cd /usr/local
 sudo mv ./spark-1.6.2-bin-without-hadoop/ ./spark
-sudo chown -R hadoop:hadoop ./spark          # 此处的 hadoop 为你的用户名
-安装后，还需要修改Spark的配置文件spark-env.sh</p>
+sudo chown -R hadoop:hadoop ./spark          # 此处的 hadoop 为你的用户名 安装后，还需要修改Spark的配置文件spark-env.sh
 
-<p>cd /usr/local/spark
-cp ./conf/spark-env.sh.template ./conf/spark-env.sh
-编辑spark-env.sh文件(vim ./conf/spark-env.sh)，在第一行添加以下配置信息:
-export SPARK_DIST_CLASSPATH=$(/usr/local/hadoop/bin/hadoop classpath)</p>
+cd /usr/local/spark
+cp ./conf/spark-env.sh.template ./conf/spark-env.sh 编辑spark-env.sh文件(vim ./conf/spark-env.sh)，在第一行添加以下配置信息:
+export SPARK_DIST_CLASSPATH=$(/usr/local/hadoop/bin/hadoop classpath)
+</code></pre>
 
 <p>配置完成后就可以直接使用，不需要像Hadoop运行启动命令。
 通过运行Spark自带的示例，验证Spark是否安装成功。
-cd /usr/local/spark
-bin/run-example SparkPi</p>
+	cd /usr/local/spark
+	bin/run-example SparkPi</p>
 
 <p>执行时会输出非常多的运行信息，输出结果不容易找到，可以通过 grep 命令进行过滤（命令中的 2&gt;&amp;1 可以将所有的信息都输出到 stdout 中，否则由于输出日志的性质，还是会输出到屏幕中）:
-bin/run-example SparkPi 2&gt;&amp;1 | grep “Pi is”
+	bin/run-example SparkPi 2&gt;&amp;1 | grep “Pi is”
 这里涉及到Linux Shell中管道的知识，详情可以参考Linux Shell中的管道命令
 过滤后的运行结果如下图示，可以得到π 的 5 位小数近似值：</p>
 
@@ -180,29 +179,30 @@ bin/run-example SparkPi 2&gt;&amp;1 | grep “Pi is”
 
 <p>bin/spark-shell
 启动spark-shell后，会自动创建名为sc的spark context对象和名为sqlContext的sql context对象,如图：
-<img src="/assests/images/spark_1.png" alt="" /></p>
+<img src="http://localhost:4000/assets/images/spark_1.png" alt="" /></p>
 <h2 id="加载text文件">加载text文件</h2>
 
 <p>spark创建sc，可以加载本地文件和HDFS文件创建RDD。这里用Spark自带的本地文件README.md文件测试。</p>
 
-<p>val textFile = sc.textFile(“file:///usr/local/spark/README.md”)
-加载HDFS文件和本地文件都是使用textFile，区别是添加前缀(hdfs://和file://)进行标识。</p>
+<pre><code>val textFile = sc.textFile("file:///usr/local/spark/README.md") 加载HDFS文件和本地文件都是使用textFile，区别是添加前缀(hdfs://和file://)进行标识。
+</code></pre>
 
 <h2 id="简单rdd操作">简单RDD操作</h2>
 
-<p>//获取RDD文件textFile的第一行内容
+<pre><code>//获取RDD文件textFile的第一行内容
 textFile.first()
 //获取RDD文件textFile所有项的计数
 textFile.count()
 //抽取含有“Spark”的行，返回一个新的RDD
-val lineWithSpark = textFile.filter(line =&gt; line.contains(“Spark”))
+val lineWithSpark = textFile.filter(line =&gt; line.contains("Spark"))
 //统计新的RDD的行数
 lineWithSpark.count()
-可以通过组合RDD操作进行组合，可以实现简易MapReduce操作</p>
+可以通过组合RDD操作进行组合，可以实现简易MapReduce操作
 
-<p>//找出文本中每行的最多单词数
-textFile.map(line =&gt; line.split(“ “).size).reduce((a, b) =&gt; if (a &gt; b) a else b)
-更多RDD的操作，请访问Spark官方文档RDD操作</p>
+//找出文本中每行的最多单词数
+textFile.map(line =&gt; line.split(" ").size).reduce((a, b) =&gt; if (a &gt; b) a else b)
+更多RDD的操作，请访问Spark官方文档RDD操作
+</code></pre>
 
 <h2 id="退出spark-shell">退出Spark Shell</h2>
 
@@ -220,84 +220,81 @@ sbt是一款Spark用来对scala编写程序进行打包的工具，这里简单�
 Spark 中没有自带 sbt，这里直接给出sbt-launch.jar的下载地址，直接点击下载即可。
 我们选择安装在 /usr/local/sbt 中：</p>
 
-<p>sudo mkdir /usr/local/sbt
+<pre><code>sudo mkdir /usr/local/sbt
 sudo chown -R hadoop /usr/local/sbt      # 此处的 hadoop 为你的用户名
-cd /usr/local/sbt
-下载后，执行如下命令拷贝至 /usr/local/sbt 中：</p>
+cd /usr/local/sbt 下载后，执行如下命令拷贝至 /usr/local/sbt 中：
 
-<p>cp ~/下载/sbt-launch.jar .
-接着在 /usr/local/sbt 中创建 sbt 脚本（vim ./sbt），添加如下内容：</p>
+cp ~/下载/sbt-launch.jar . 接着在 /usr/local/sbt 中创建 sbt 脚本（vim ./sbt），添加如下内容：
 
-<p>#!/bin/bash
-SBT_OPTS=”-Xms512M -Xmx1536M -Xss1M -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=256M”
-java $SBT_OPTS -jar <code>dirname $0</code>/sbt-launch.jar “$@”
-保存后，为 ./sbt 脚本增加可执行权限：</p>
+#!/bin/bash
+SBT_OPTS="-Xms512M -Xmx1536M -Xss1M -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=256M"
+java $SBT_OPTS -jar `dirname $0`/sbt-launch.jar "$@" 保存后，为 ./sbt 脚本增加可执行权限：
 
-<p>chmod u+x ./sbt
-最后运行如下命令，检验 sbt 是否可用（请确保电脑处于联网状态，首次运行会处于 “Getting org.scala-sbt sbt 0.13.11 …” 的下载状态，请耐心等待。笔者等待了 7 分钟才出现第一条下载提示）：</p>
+chmod u+x ./sbt 最后运行如下命令，检验 sbt 是否可用（请确保电脑处于联网状态，首次运行会处于 “Getting org.scala-sbt sbt 0.13.11 …” 的下载状态，请耐心等待。笔者等待了 7 分钟才出现第一条下载提示）：
 
-<p>./sbt sbt-version
-只要能得到如下图的版本信息就没问题：</p>
+./sbt sbt-version 只要能得到如下图的版本信息就没问题：
+</code></pre>
 
 <p>Scala应用程序代码
 在终端中执行如下命令创建一个文件夹 sparkapp 作为应用程序根目录：</p>
 
-<p>cd ~           # 进入用户主文件夹
+<pre><code>cd ~           # 进入用户主文件夹
 mkdir ./sparkapp        # 创建应用程序根目录
-mkdir -p ./sparkapp/src/main/scala     # 创建所需的文件夹结构
-在 ./sparkapp/src/main/scala 下建立一个名为 SimpleApp.scala 的文件（vim ./sparkapp/src/main/scala/SimpleApp.scala），添加代码如下：</p>
+mkdir -p ./sparkapp/src/main/scala     # 创建所需的文件夹结构 在 ./sparkapp/src/main/scala 下建立一个名为 SimpleApp.scala 的文件（vim ./sparkapp/src/main/scala/SimpleApp.scala），添加代码如下：
 
-<p>/* SimpleApp.scala */
+/* SimpleApp.scala */
 import org.apache.spark.SparkContext
 import org.apache.spark.SparkContext._
 import org.apache.spark.SparkConf
 object SimpleApp {
 	def main(args: Array[String]) {
-		val logFile = “file:///usr/local/spark/README.md” // Should be some file on your system
-		val conf = new SparkConf().setAppName(“Simple Application”)
-		val sc = new SparkContext(conf)
-		val logData = sc.textFile(logFile, 2).cache()
-		val numAs = logData.filter(line =&gt; line.contains(“a”)).count()
-		val numBs = logData.filter(line =&gt; line.contains(“b”)).count()
-		println(“Lines with a: %s, Lines with b: %s”.format(numAs, numBs))
-	}
-}</p>
+	val logFile = "file:///usr/local/spark/README.md" // Should be some file on your system
+	val conf = new SparkConf().setAppName("Simple Application")
+	val sc = new SparkContext(conf)
+	val logData = sc.textFile(logFile, 2).cache()
+	val numAs = logData.filter(line =&gt; line.contains("a")).count()
+	val numBs = logData.filter(line =&gt; line.contains("b")).count()
+	println("Lines with a: %s, Lines with b: %s".format(numAs, numBs))
+}
+}	
+</code></pre>
 
 <p>该程序计算 /usr/local/spark/README 文件中包含 “a” 的行数 和包含 “b” 的行数。代码第8行的 /usr/local/spark 为 Spark 的安装目录，如果不是该目录请自行修改。不同于 Spark shell，独立应用程序需要通过 val sc = new SparkContext(conf) 初始化 SparkContext，SparkContext 的参数 SparkConf 包含了应用程序的信息。</p>
 
 <p>该程序依赖 Spark API，因此我们需要通过 sbt 进行编译打包。 ./sparkapp 中新建文件 simple.sbt（vim ./sparkapp/simple.sbt），添加内容如下，声明该独立应用程序的信息以及与 Spark 的依赖关系：</p>
 
-<p>name := “Simple Project”
-version := “1.0”
-scalaVersion := “2.10.5”
-libraryDependencies += “org.apache.spark” %% “spark-core” % “1.6.2”
-文件 simple.sbt 需要指明 Spark 和 Scala 的版本。在上面的配置信息中，scalaVersion用来指定scala的版本，sparkcore用来指定spark的版本，这两个版本信息都可以在之前的启动 Spark shell 的过程中，从屏幕的显示信息中找到。下面就是笔者在启动过程当中，看到的相关版本信息（备注：屏幕显示信息会很长，需要往回滚动屏幕仔细寻找信息）。</p>
+<pre><code>name := "Simple Project"
+version := "1.0"
+scalaVersion := "2.10.5"
+libraryDependencies += "org.apache.spark" %% "spark-core" % "1.6.2" 文件 simple.sbt 需要指明 Spark 和 Scala 的版本。在上面的配置信息中，scalaVersion用来指定scala的版本，sparkcore用来指定spark的版本，这两个版本信息都可以在之前的启动 Spark shell 的过程中，从屏幕的显示信息中找到。下面就是笔者在启动过程当中，看到的相关版本信息（备注：屏幕显示信息会很长，需要往回滚动屏幕仔细寻找信息）。
+</code></pre>
 
 <p>使用 sbt 打包 Scala 程序
 为保证 sbt 能正常运行，先执行如下命令检查整个应用程序的文件结构：</p>
 
-<p>cd ~/sparkapp
-find .
-文件结构应如下图所示：</p>
+<pre><code>cd ~/sparkapp
+find . 文件结构应如下图所示：
+</code></pre>
 
 <p>接着，我们就可以通过如下代码将整个应用程序打包成 JAR（首次运行同样需要下载依赖包 ）：</p>
 
-<p>/usr/local/sbt/sbt package
-打包成功的话，会输出如下图内容：</p>
+<pre><code>/usr/local/sbt/sbt package 打包成功的话，会输出如下图内容：
+</code></pre>
 
 <p>生成的 jar 包的位置为 ~/sparkapp/target/scala-2.10/simple-project_2.10-1.0.jar。</p>
 
 <p>通过 spark-submit 运行程序
 最后，我们就可以将生成的 jar 包通过 spark-submit 提交到 Spark 中运行了，命令如下：</p>
 
-<p>/usr/local/spark/bin/spark-submit –class “SimpleApp” ~/sparkapp/target/scala-2.10/simple-project_2.10-1.0.jar</p>
-<h1 id="上面命令执行后会输出太多信息可以不使用上面命令而使用下面命令查看想要的结果">上面命令执行后会输出太多信息，可以不使用上面命令，而使用下面命令查看想要的结果</h1>
-<p>/usr/local/spark/bin/spark-submit –class “SimpleApp” ~/sparkapp/target/scala-2.10/simple-project_2.10-1.0.jar 2&gt;&amp;1 | grep “Lines with a:”</p>
+<pre><code>/usr/local/spark/bin/spark-submit --class "SimpleApp" ~/sparkapp/target/scala-2.10/simple-project_2.10-1.0.jar
+# 上面命令执行后会输出太多信息，可以不使用上面命令，而使用下面命令查看想要的结果
+/usr/local/spark/bin/spark-submit --class "SimpleApp" ~/sparkapp/target/scala-2.10/simple-project_2.10-1.0.jar 2&gt;&amp;1 | grep "Lines with a:"
+</code></pre>
 
 <p>最终得到的结果如下：</p>
 
-<p>Lines with a: 58, Lines with b: 26
-自此，你就完成了你的第一个 Spark 应用程序了。</p>
+<pre><code>Lines with a: 58, Lines with b: 26 自此，你就完成了你的第一个 Spark 应用程序了。
+</code></pre>
 
 <h2 id="java独立应用编程">Java独立应用编程</h2>
 
@@ -305,81 +302,88 @@ find .
 ubuntu中没有自带安装maven，需要手动安装maven。可以访问maven官方下载自己下载。这里直接给出apache-maven-3.3.9-bin.zip的下载地址,直接点击下载即可。
 选择安装在/usr/local/maven中：</p>
 
-<p>sudo unzip ~/下载/apache-maven-3.3.9-bin.zip -d /usr/local
+<pre><code>sudo unzip ~/下载/apache-maven-3.3.9-bin.zip -d /usr/local
 cd /usr/local
 sudo mv apache-maven-3.3.9/ ./maven
 sudo chown -R hadoop ./maven
-Java应用程序代码
-在终端执行如下命令创建一个文件夹sparkapp2作为应用程序根目录</p>
+</code></pre>
 
-<p>cd ~ #进入用户主文件夹
+<p>Java应用程序代码</p>
+
+<p>在终端执行如下命令创建一个文件夹sparkapp2作为应用程序根目录</p>
+
+<pre><code>cd ~ #进入用户主文件夹
 mkdir -p ./sparkapp2/src/main/java
-在 ./sparkapp2/src/main/java 下建立一个名为 SimpleApp.java 的文件（vim ./sparkapp2/src/main/java/SimpleApp.java），添加代码如下：</p>
+</code></pre>
 
-<p>/<em>** SimpleApp.java **</em>/
+<p>在 ./sparkapp2/src/main/java 下建立一个名为 SimpleApp.java 的文件（vim ./sparkapp2/src/main/java/SimpleApp.java），添加代码如下：</p>
+
+<pre><code>/*** SimpleApp.java ***/
 import org.apache.spark.api.java.*;
 import org.apache.spark.api.java.function.Function;
 public class SimpleApp {
 	public static void main(String[] args) {
-		String logFile = “file:///usr/local/spark/README.md”; // Should be some file on your system
-		JavaSparkContext sc = new JavaSparkContext(“local”, “Simple App”,
-			“file:///usr/local/spark/”, new String[]{“target/simple-project-1.0.jar”});
-		JavaRDD<String> logData = sc.textFile(logFile).cache();
-		long numAs = logData.filter(new Function&lt;String, Boolean&gt;() {
-			public Boolean call(String s) { return s.contains("a"); }
-		}).count();
-		long numBs = logData.filter(new Function&lt;String, Boolean&gt;() {
-			public Boolean call(String s) { return s.contains("b"); }
-		}).count();
-		System.out.println("Lines with a: " + numAs + ", lines with b: " + numBs);
-	}
+	String logFile = "file:///usr/local/spark/README.md"; // Should be some file on your system
+	JavaSparkContext sc = new JavaSparkContext("local", "Simple App",
+		"file:///usr/local/spark/", new String[]{"target/simple-project-1.0.jar"});
+	JavaRDD&lt;String&gt; logData = sc.textFile(logFile).cache();
+	long numAs = logData.filter(new Function&lt;String, Boolean&gt;() {
+		public Boolean call(String s) { return s.contains("a"); }
+	}).count();
+	long numBs = logData.filter(new Function&lt;String, Boolean&gt;() {
+		public Boolean call(String s) { return s.contains("b"); }
+	}).count();
+	System.out.println("Lines with a: " + numAs + ", lines with b: " + numBs);
 }
-该程序依赖Spark Java API,因此我们需要通过Maven进行编译打包。在./sparkapp2中新建文件pom.xml(vim ./sparkapp2/pom.xml),添加内容如下，声明该独立应用程序的信息以及与Spark的依赖关系：</String></p>
+}
+</code></pre>
 
-<project>
-	<groupId>edu.berkeley</groupId>
-	<artifactId>simple-project</artifactId>
-	<modelVersion>4.0.0</modelVersion>
-	<name>Simple Project</name>
-	<packaging>jar</packaging>
-	<version>1.0</version>
-	<repositories>
-		<repository>
-			<id>Akka repository</id>
-			<url>http://repo.akka.io/releases</url>
-		</repository>
-	</repositories>
-	<dependencies>
-		<dependency> <!-- Spark dependency -->
-			<groupId>org.apache.spark</groupId>
-			<artifactId>spark-core_2.11</artifactId>
-			<version>2.0.0-preview</version>
-		</dependency>
-	</dependencies>
-</project>
-<p>关于Spark dependency的依赖关系，可以访问The Central Repository。搜索spark-core可以找到相关依赖关系信息。</p>
+<p>该程序依赖Spark Java API,因此我们需要通过Maven进行编译打包。在./sparkapp2中新建文件pom.xml(vim ./sparkapp2/pom.xml),添加内容如下，声明该独立应用程序的信息以及与Spark的依赖关系：</p>
+
+<pre><code>&lt;project&gt;
+&lt;groupId&gt;edu.berkeley&lt;/groupId&gt;
+&lt;artifactId&gt;simple-project&lt;/artifactId&gt;
+&lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+&lt;name&gt;Simple Project&lt;/name&gt;
+&lt;packaging&gt;jar&lt;/packaging&gt;
+&lt;version&gt;1.0&lt;/version&gt;
+&lt;repositories&gt;
+	&lt;repository&gt;
+		&lt;id&gt;Akka repository&lt;/id&gt;
+		&lt;url&gt;http://repo.akka.io/releases&lt;/url&gt;
+	&lt;/repository&gt;
+&lt;/repositories&gt;
+&lt;dependencies&gt;
+	&lt;dependency&gt; &lt;!-- Spark dependency --&gt;
+		&lt;groupId&gt;org.apache.spark&lt;/groupId&gt;
+		&lt;artifactId&gt;spark-core_2.11&lt;/artifactId&gt;
+		&lt;version&gt;2.0.0-preview&lt;/version&gt;
+	&lt;/dependency&gt;
+&lt;/dependencies&gt;
+&lt;/project&gt; 关于Spark dependency的依赖关系，可以访问The Central Repository。搜索spark-core可以找到相关依赖关系信息。
+</code></pre>
 
 <p>使用maven打包java程序
 为了保证maven能够正常运行，先执行如下命令检查整个应用程序的文件结构:</p>
 
-<p>cd ~/sparkapp2
-find
-文件结构如下图：</p>
+<pre><code>cd ~/sparkapp2
+find 文件结构如下图：
+</code></pre>
 
 <p>接着，我们可以通过如下代码将这整个应用程序打包成Jar(注意：电脑需要保持连接网络的状态，而且首次运行同样下载依赖包，同样消耗几分钟的时间):</p>
 
-<p>/usr/local/maven/bin/mvn package
-如出现下图，说明生成Jar包成功：</p>
+<pre><code>/usr/local/maven/bin/mvn package 如出现下图，说明生成Jar包成功：
+</code></pre>
 
 <p>通过spark-submit 运行程序
 最后，可以通过将生成的jar包通过spark-submit提交到Spark中运行，如下命令：</p>
 
-<p>/usr/local/spark/bin/spark-submit –class “SimpleApp” ~/sparkapp2/target/simple-project-1.0.jar</p>
-<h1 id="上面命令执行后会输出太多信息可以不使用上面命令而使用下面命令查看想要的结果-1">上面命令执行后会输出太多信息，可以不使用上面命令，而使用下面命令查看想要的结果</h1>
-<p>/usr/local/spark/bin/spark-submit –class “SimpleApp” ~/sparkapp2/target/simple-project-1.0.jar 2&gt;&amp;1 | grep “Lines with a”
-最后得到的结果如下:</p>
+<pre><code>/usr/local/spark/bin/spark-submit --class "SimpleApp" ~/sparkapp2/target/simple-project-1.0.jar
+# 上面命令执行后会输出太多信息，可以不使用上面命令，而使用下面命令查看想要的结果
+/usr/local/spark/bin/spark-submit --class "SimpleApp" ~/sparkapp2/target/simple-project-1.0.jar 2&gt;&amp;1 | grep "Lines with a" 最后得到的结果如下:
 
-<p>Lines with a: 58, Lines with b: 26</p>
+Lines with a: 58, Lines with b: 26
+</code></pre>
 
 
 
