@@ -5,9 +5,1147 @@
     <description>This is personnel website of Beili</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 14 May 2017 14:39:04 +0800</pubDate>
-    <lastBuildDate>Sun, 14 May 2017 14:39:04 +0800</lastBuildDate>
+    <pubDate>Wed, 21 Jun 2017 21:25:52 +0800</pubDate>
+    <lastBuildDate>Wed, 21 Jun 2017 21:25:52 +0800</lastBuildDate>
     <generator>Jekyll v3.4.3</generator>
+    
+      <item>
+        <title>Spark</title>
+        <description>&lt;p&gt;【版权声明：本指南为[厦门大学林子雨编著的《大数据技术原理与应用》教材配套学习资料][http://dblab.xmu.edu.cn/post/bigdata/]，版权所有，转载请注明出处，请勿用于商业用途】&lt;/p&gt;
+
+&lt;p&gt;注：第十六章Spark，本章为2016年新增章节，不在2015年8月1日由人民邮电出版社出版发行的《大数据技术原理与应用》中，会被放入到教材的下一个版本中。&lt;/p&gt;
+
+&lt;p&gt;Apache Spark 是一个新兴的大数据处理通用引擎，提供了分布式的内存抽象。Spark 最大的特点就是快，可比 Hadoop MapReduce 的处理速度快 100 倍。本指南将介绍 Spark 的安装与基本使用。请务必仔细阅读完厦门大学林子雨编著的《大数据技术原理与应用》第16章节（[点击这里下载第十六章Spark的pdf电子书][http://dblab.xmu.edu.cn/wp-content/uploads/2016/01/%E5%8E%A6%E9%97%A8%E5%A4%A7%E5%AD%A6%E6%9E%97%E5%AD%90%E9%9B%A8%E7%BC%96%E8%91%97-%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8-%E7%94%B5%E5%AD%90%E4%B9%A6-%E7%AC%AC16%E7%AB%A0-Spark%EF%BC%882016%E5%B9%B44%E6%9C%8820%E6%97%A5%E7%89%88%E6%9C%AC%EF%BC%89.pdf]），再结合本指南进行学习。&lt;/p&gt;
+
+&lt;h2 id=&quot;一安装-spark&quot;&gt;一、安装 Spark&lt;/h2&gt;
+&lt;p&gt;访问Spark官方下载地址，按照如下图下载。&lt;/p&gt;
+
+&lt;p&gt;该部分介绍了单机中 Spark 的安装。我们选择Spark 1.6.2版本教学。该教程的具体运行环境如下：&lt;/p&gt;
+
+&lt;p&gt;Hadoop 2.6.0以上&lt;/p&gt;
+
+&lt;p&gt;Java JDK 1.7以上&lt;/p&gt;
+
+&lt;p&gt;Spark 1.6.2&lt;/p&gt;
+
+&lt;h2 id=&quot;安装hadoop&quot;&gt;安装Hadoop&lt;/h2&gt;
+
+&lt;p&gt;Spark的安装过程较为简单，在已安装好 Hadoop 的前提下，经过简单配置即可使用。
+如果仍没有安装Hadoop，请访问[Hadoop安装教程_单机/伪分布式配置_Hadoop2.6.0/Ubuntu14.04][http://dblab.xmu.edu.cn/blog/install-hadoop/],依照教程学习安装即可。&lt;/p&gt;
+
+&lt;h2 id=&quot;安装java-jdk&quot;&gt;安装JAVA JDK&lt;/h2&gt;
+
+&lt;p&gt;安装Hadoop的过程就已经要求安装JAVA JDK了。如果没有，请参考Hadoop安装教程_单机/伪分布式配置_Hadoop2.6.0/Ubuntu14.04进行安装配置。&lt;/p&gt;
+
+&lt;h2 id=&quot;安装spark&quot;&gt;安装Spark&lt;/h2&gt;
+&lt;p&gt;sudo tar -zxf ~/下载/spark-1.6.2-bin-without-hadoop.tgz -C /usr/local/
+cd /usr/local
+sudo mv ./spark-1.6.2-bin-without-hadoop/ ./spark
+sudo chown -R hadoop:hadoop ./spark          # 此处的 hadoop 为你的用户名
+安装后，还需要修改Spark的配置文件spark-env.sh&lt;/p&gt;
+
+&lt;p&gt;cd /usr/local/spark
+cp ./conf/spark-env.sh.template ./conf/spark-env.sh
+编辑spark-env.sh文件(vim ./conf/spark-env.sh)，在第一行添加以下配置信息:
+export SPARK_DIST_CLASSPATH=$(/usr/local/hadoop/bin/hadoop classpath)&lt;/p&gt;
+
+&lt;p&gt;配置完成后就可以直接使用，不需要像Hadoop运行启动命令。
+通过运行Spark自带的示例，验证Spark是否安装成功。
+cd /usr/local/spark
+bin/run-example SparkPi&lt;/p&gt;
+
+&lt;p&gt;执行时会输出非常多的运行信息，输出结果不容易找到，可以通过 grep 命令进行过滤（命令中的 2&amp;gt;&amp;amp;1 可以将所有的信息都输出到 stdout 中，否则由于输出日志的性质，还是会输出到屏幕中）:
+bin/run-example SparkPi 2&amp;gt;&amp;amp;1 | grep “Pi is”
+这里涉及到Linux Shell中管道的知识，详情可以参考Linux Shell中的管道命令
+过滤后的运行结果如下图示，可以得到π 的 5 位小数近似值：&lt;/p&gt;
+
+&lt;h2 id=&quot;二使用-spark-shell-编写代码&quot;&gt;二、使用 Spark Shell 编写代码&lt;/h2&gt;
+&lt;p&gt;学习Spark程序开发，建议首先通过spark-shell交互式学习，加深Spark程序开发的理解。
+该部分介绍了 Spark Shell 的基本使用。Spark shell 提供了简单的方式来学习 API，也提供了交互的方式来分析数据。&lt;/p&gt;
+
+&lt;p&gt;Spark Shell 支持 Scala 和 Python，该部分教程选择使用 Scala 来进行介绍。&lt;/p&gt;
+
+&lt;h2 id=&quot;启动spark-shell&quot;&gt;启动Spark Shell&lt;/h2&gt;
+
+&lt;p&gt;bin/spark-shell
+启动spark-shell后，会自动创建名为sc的spark context对象和名为sqlContext的sql context对象,如图：
+&lt;img src=&quot;/assests/images/spark_1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;h2 id=&quot;加载text文件&quot;&gt;加载text文件&lt;/h2&gt;
+
+&lt;p&gt;spark创建sc，可以加载本地文件和HDFS文件创建RDD。这里用Spark自带的本地文件README.md文件测试。&lt;/p&gt;
+
+&lt;p&gt;val textFile = sc.textFile(“file:///usr/local/spark/README.md”)
+加载HDFS文件和本地文件都是使用textFile，区别是添加前缀(hdfs://和file://)进行标识。&lt;/p&gt;
+
+&lt;h2 id=&quot;简单rdd操作&quot;&gt;简单RDD操作&lt;/h2&gt;
+
+&lt;p&gt;//获取RDD文件textFile的第一行内容
+textFile.first()
+//获取RDD文件textFile所有项的计数
+textFile.count()
+//抽取含有“Spark”的行，返回一个新的RDD
+val lineWithSpark = textFile.filter(line =&amp;gt; line.contains(“Spark”))
+//统计新的RDD的行数
+lineWithSpark.count()
+可以通过组合RDD操作进行组合，可以实现简易MapReduce操作&lt;/p&gt;
+
+&lt;p&gt;//找出文本中每行的最多单词数
+textFile.map(line =&amp;gt; line.split(“ “).size).reduce((a, b) =&amp;gt; if (a &amp;gt; b) a else b)
+更多RDD的操作，请访问Spark官方文档RDD操作&lt;/p&gt;
+
+&lt;h2 id=&quot;退出spark-shell&quot;&gt;退出Spark Shell&lt;/h2&gt;
+
+&lt;p&gt;输入exit，即可退出spark shell&lt;/p&gt;
+
+&lt;p&gt;exit&lt;/p&gt;
+
+&lt;h2 id=&quot;三独立应用程序编程&quot;&gt;三、独立应用程序编程&lt;/h2&gt;
+&lt;p&gt;接着我们通过一个简单的应用程序 SimpleApp 来演示如何通过 Spark API 编写一个独立应用程序。使用 Scala 编写的程序需要使用 sbt 进行编译打包，相应的，Java 程序使用 Maven 编译打包，而 Python 程序通过 spark-submit 直接提交。&lt;/p&gt;
+
+&lt;h2 id=&quot;scala独立应用编程&quot;&gt;Scala独立应用编程&lt;/h2&gt;
+
+&lt;p&gt;安装sbt
+sbt是一款Spark用来对scala编写程序进行打包的工具，这里简单介绍sbt的安装过程，感兴趣的读者可以参考官网资料了解更多关于sbt的内容。
+Spark 中没有自带 sbt，这里直接给出sbt-launch.jar的下载地址，直接点击下载即可。
+我们选择安装在 /usr/local/sbt 中：&lt;/p&gt;
+
+&lt;p&gt;sudo mkdir /usr/local/sbt
+sudo chown -R hadoop /usr/local/sbt      # 此处的 hadoop 为你的用户名
+cd /usr/local/sbt
+下载后，执行如下命令拷贝至 /usr/local/sbt 中：&lt;/p&gt;
+
+&lt;p&gt;cp ~/下载/sbt-launch.jar .
+接着在 /usr/local/sbt 中创建 sbt 脚本（vim ./sbt），添加如下内容：&lt;/p&gt;
+
+&lt;p&gt;#!/bin/bash
+SBT_OPTS=”-Xms512M -Xmx1536M -Xss1M -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=256M”
+java $SBT_OPTS -jar &lt;code&gt;dirname $0&lt;/code&gt;/sbt-launch.jar “$@”
+保存后，为 ./sbt 脚本增加可执行权限：&lt;/p&gt;
+
+&lt;p&gt;chmod u+x ./sbt
+最后运行如下命令，检验 sbt 是否可用（请确保电脑处于联网状态，首次运行会处于 “Getting org.scala-sbt sbt 0.13.11 …” 的下载状态，请耐心等待。笔者等待了 7 分钟才出现第一条下载提示）：&lt;/p&gt;
+
+&lt;p&gt;./sbt sbt-version
+只要能得到如下图的版本信息就没问题：&lt;/p&gt;
+
+&lt;p&gt;Scala应用程序代码
+在终端中执行如下命令创建一个文件夹 sparkapp 作为应用程序根目录：&lt;/p&gt;
+
+&lt;p&gt;cd ~           # 进入用户主文件夹
+mkdir ./sparkapp        # 创建应用程序根目录
+mkdir -p ./sparkapp/src/main/scala     # 创建所需的文件夹结构
+在 ./sparkapp/src/main/scala 下建立一个名为 SimpleApp.scala 的文件（vim ./sparkapp/src/main/scala/SimpleApp.scala），添加代码如下：&lt;/p&gt;
+
+&lt;p&gt;/* SimpleApp.scala */
+import org.apache.spark.SparkContext
+import org.apache.spark.SparkContext._
+import org.apache.spark.SparkConf
+object SimpleApp {
+	def main(args: Array[String]) {
+		val logFile = “file:///usr/local/spark/README.md” // Should be some file on your system
+		val conf = new SparkConf().setAppName(“Simple Application”)
+		val sc = new SparkContext(conf)
+		val logData = sc.textFile(logFile, 2).cache()
+		val numAs = logData.filter(line =&amp;gt; line.contains(“a”)).count()
+		val numBs = logData.filter(line =&amp;gt; line.contains(“b”)).count()
+		println(“Lines with a: %s, Lines with b: %s”.format(numAs, numBs))
+	}
+}&lt;/p&gt;
+
+&lt;p&gt;该程序计算 /usr/local/spark/README 文件中包含 “a” 的行数 和包含 “b” 的行数。代码第8行的 /usr/local/spark 为 Spark 的安装目录，如果不是该目录请自行修改。不同于 Spark shell，独立应用程序需要通过 val sc = new SparkContext(conf) 初始化 SparkContext，SparkContext 的参数 SparkConf 包含了应用程序的信息。&lt;/p&gt;
+
+&lt;p&gt;该程序依赖 Spark API，因此我们需要通过 sbt 进行编译打包。 ./sparkapp 中新建文件 simple.sbt（vim ./sparkapp/simple.sbt），添加内容如下，声明该独立应用程序的信息以及与 Spark 的依赖关系：&lt;/p&gt;
+
+&lt;p&gt;name := “Simple Project”
+version := “1.0”
+scalaVersion := “2.10.5”
+libraryDependencies += “org.apache.spark” %% “spark-core” % “1.6.2”
+文件 simple.sbt 需要指明 Spark 和 Scala 的版本。在上面的配置信息中，scalaVersion用来指定scala的版本，sparkcore用来指定spark的版本，这两个版本信息都可以在之前的启动 Spark shell 的过程中，从屏幕的显示信息中找到。下面就是笔者在启动过程当中，看到的相关版本信息（备注：屏幕显示信息会很长，需要往回滚动屏幕仔细寻找信息）。&lt;/p&gt;
+
+&lt;p&gt;使用 sbt 打包 Scala 程序
+为保证 sbt 能正常运行，先执行如下命令检查整个应用程序的文件结构：&lt;/p&gt;
+
+&lt;p&gt;cd ~/sparkapp
+find .
+文件结构应如下图所示：&lt;/p&gt;
+
+&lt;p&gt;接着，我们就可以通过如下代码将整个应用程序打包成 JAR（首次运行同样需要下载依赖包 ）：&lt;/p&gt;
+
+&lt;p&gt;/usr/local/sbt/sbt package
+打包成功的话，会输出如下图内容：&lt;/p&gt;
+
+&lt;p&gt;生成的 jar 包的位置为 ~/sparkapp/target/scala-2.10/simple-project_2.10-1.0.jar。&lt;/p&gt;
+
+&lt;p&gt;通过 spark-submit 运行程序
+最后，我们就可以将生成的 jar 包通过 spark-submit 提交到 Spark 中运行了，命令如下：&lt;/p&gt;
+
+&lt;p&gt;/usr/local/spark/bin/spark-submit –class “SimpleApp” ~/sparkapp/target/scala-2.10/simple-project_2.10-1.0.jar&lt;/p&gt;
+&lt;h1 id=&quot;上面命令执行后会输出太多信息可以不使用上面命令而使用下面命令查看想要的结果&quot;&gt;上面命令执行后会输出太多信息，可以不使用上面命令，而使用下面命令查看想要的结果&lt;/h1&gt;
+&lt;p&gt;/usr/local/spark/bin/spark-submit –class “SimpleApp” ~/sparkapp/target/scala-2.10/simple-project_2.10-1.0.jar 2&amp;gt;&amp;amp;1 | grep “Lines with a:”&lt;/p&gt;
+
+&lt;p&gt;最终得到的结果如下：&lt;/p&gt;
+
+&lt;p&gt;Lines with a: 58, Lines with b: 26
+自此，你就完成了你的第一个 Spark 应用程序了。&lt;/p&gt;
+
+&lt;h2 id=&quot;java独立应用编程&quot;&gt;Java独立应用编程&lt;/h2&gt;
+
+&lt;p&gt;安装maven
+ubuntu中没有自带安装maven，需要手动安装maven。可以访问maven官方下载自己下载。这里直接给出apache-maven-3.3.9-bin.zip的下载地址,直接点击下载即可。
+选择安装在/usr/local/maven中：&lt;/p&gt;
+
+&lt;p&gt;sudo unzip ~/下载/apache-maven-3.3.9-bin.zip -d /usr/local
+cd /usr/local
+sudo mv apache-maven-3.3.9/ ./maven
+sudo chown -R hadoop ./maven
+Java应用程序代码
+在终端执行如下命令创建一个文件夹sparkapp2作为应用程序根目录&lt;/p&gt;
+
+&lt;p&gt;cd ~ #进入用户主文件夹
+mkdir -p ./sparkapp2/src/main/java
+在 ./sparkapp2/src/main/java 下建立一个名为 SimpleApp.java 的文件（vim ./sparkapp2/src/main/java/SimpleApp.java），添加代码如下：&lt;/p&gt;
+
+&lt;p&gt;/&lt;em&gt;** SimpleApp.java **&lt;/em&gt;/
+import org.apache.spark.api.java.*;
+import org.apache.spark.api.java.function.Function;
+public class SimpleApp {
+	public static void main(String[] args) {
+		String logFile = “file:///usr/local/spark/README.md”; // Should be some file on your system
+		JavaSparkContext sc = new JavaSparkContext(“local”, “Simple App”,
+			“file:///usr/local/spark/”, new String[]{“target/simple-project-1.0.jar”});
+		JavaRDD&lt;String&gt; logData = sc.textFile(logFile).cache();
+		long numAs = logData.filter(new Function&amp;lt;String, Boolean&amp;gt;() {
+			public Boolean call(String s) { return s.contains(&quot;a&quot;); }
+		}).count();
+		long numBs = logData.filter(new Function&amp;lt;String, Boolean&amp;gt;() {
+			public Boolean call(String s) { return s.contains(&quot;b&quot;); }
+		}).count();
+		System.out.println(&quot;Lines with a: &quot; + numAs + &quot;, lines with b: &quot; + numBs);
+	}
+}
+该程序依赖Spark Java API,因此我们需要通过Maven进行编译打包。在./sparkapp2中新建文件pom.xml(vim ./sparkapp2/pom.xml),添加内容如下，声明该独立应用程序的信息以及与Spark的依赖关系：&lt;/String&gt;&lt;/p&gt;
+
+&lt;project&gt;
+	&lt;groupId&gt;edu.berkeley&lt;/groupId&gt;
+	&lt;artifactId&gt;simple-project&lt;/artifactId&gt;
+	&lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+	&lt;name&gt;Simple Project&lt;/name&gt;
+	&lt;packaging&gt;jar&lt;/packaging&gt;
+	&lt;version&gt;1.0&lt;/version&gt;
+	&lt;repositories&gt;
+		&lt;repository&gt;
+			&lt;id&gt;Akka repository&lt;/id&gt;
+			&lt;url&gt;http://repo.akka.io/releases&lt;/url&gt;
+		&lt;/repository&gt;
+	&lt;/repositories&gt;
+	&lt;dependencies&gt;
+		&lt;dependency&gt; &lt;!-- Spark dependency --&gt;
+			&lt;groupId&gt;org.apache.spark&lt;/groupId&gt;
+			&lt;artifactId&gt;spark-core_2.11&lt;/artifactId&gt;
+			&lt;version&gt;2.0.0-preview&lt;/version&gt;
+		&lt;/dependency&gt;
+	&lt;/dependencies&gt;
+&lt;/project&gt;
+&lt;p&gt;关于Spark dependency的依赖关系，可以访问The Central Repository。搜索spark-core可以找到相关依赖关系信息。&lt;/p&gt;
+
+&lt;p&gt;使用maven打包java程序
+为了保证maven能够正常运行，先执行如下命令检查整个应用程序的文件结构:&lt;/p&gt;
+
+&lt;p&gt;cd ~/sparkapp2
+find
+文件结构如下图：&lt;/p&gt;
+
+&lt;p&gt;接着，我们可以通过如下代码将这整个应用程序打包成Jar(注意：电脑需要保持连接网络的状态，而且首次运行同样下载依赖包，同样消耗几分钟的时间):&lt;/p&gt;
+
+&lt;p&gt;/usr/local/maven/bin/mvn package
+如出现下图，说明生成Jar包成功：&lt;/p&gt;
+
+&lt;p&gt;通过spark-submit 运行程序
+最后，可以通过将生成的jar包通过spark-submit提交到Spark中运行，如下命令：&lt;/p&gt;
+
+&lt;p&gt;/usr/local/spark/bin/spark-submit –class “SimpleApp” ~/sparkapp2/target/simple-project-1.0.jar&lt;/p&gt;
+&lt;h1 id=&quot;上面命令执行后会输出太多信息可以不使用上面命令而使用下面命令查看想要的结果-1&quot;&gt;上面命令执行后会输出太多信息，可以不使用上面命令，而使用下面命令查看想要的结果&lt;/h1&gt;
+&lt;p&gt;/usr/local/spark/bin/spark-submit –class “SimpleApp” ~/sparkapp2/target/simple-project-1.0.jar 2&amp;gt;&amp;amp;1 | grep “Lines with a”
+最后得到的结果如下:&lt;/p&gt;
+
+&lt;p&gt;Lines with a: 58, Lines with b: 26&lt;/p&gt;
+
+</description>
+        <pubDate>Wed, 21 Jun 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/%E7%A0%94%E7%A9%B6/2017/06/21/Spark.html</link>
+        <guid isPermaLink="true">http://localhost:4000/%E7%A0%94%E7%A9%B6/2017/06/21/Spark.html</guid>
+        
+        <category>Note</category>
+        
+        
+        <category>研究</category>
+        
+      </item>
+    
+      <item>
+        <title>Sort</title>
+        <description>&lt;p&gt;排序有内部排序和外部排序，内部排序是数据记录在内存中进行排序，而外部排序是因排序的数据很大，一次不能容纳全部的排序记录，在排序过程中需要访问外存。
+我们这里说说八大排序就是内部排序。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;当n较大，则应采用时间复杂度为O(nlog2n)的排序方法：快速排序、堆排序或归并排序序。
+
+快速排序：是目前基于比较的内部排序中被认为是最好的方法，当待排序的关键字是随机分布时，快速排序的平均时间最短；
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;1插入排序直接插入排序straight-insertion-sort&quot;&gt;1.插入排序—直接插入排序(Straight Insertion Sort)&lt;/h2&gt;
+&lt;p&gt;基本思想:&lt;/p&gt;
+
+&lt;p&gt;将一个记录插入到已排序好的有序表中，从而得到一个新，记录数增1的有序表。即：先将序列的第1个记录看成是一个有序的子序列，然后从第2个记录逐个进行插入，直至整个序列有序为止。
+要点：设立哨兵，作为临时存储和判断数组边界之用。&lt;/p&gt;
+
+&lt;p&gt;直接插入排序示例：&lt;/p&gt;
+
+&lt;p&gt;如果碰见一个和插入元素相等的，那么插入元素把想插入的元素放在相等元素的后面。所以，相等元素的前后顺序没有改变，从原无序序列出去的顺序就是排好序后的顺序，所以插入排序是稳定的。&lt;/p&gt;
+
+&lt;p&gt;算法的实现：&lt;/p&gt;
+
+&lt;p&gt;void print(int a[], int n ,int i){&lt;br /&gt;
+    cout«i «”:”;&lt;br /&gt;
+    for(int j= 0; j&amp;lt;8; j++){&lt;br /&gt;
+        cout«a[j] «” “;&lt;br /&gt;
+    }&lt;br /&gt;
+    cout«endl;&lt;br /&gt;
+}&lt;/p&gt;
+
+&lt;p&gt;void InsertSort(int a[], int n)&lt;br /&gt;
+{&lt;br /&gt;
+    for(int i= 1; i&amp;lt;n; i++){&lt;br /&gt;
+        if(a[i] &amp;lt; a[i-1]){               //若第i个元素大于i-1元素，直接插入。小于的话，移动有序表后插入&lt;br /&gt;
+            int j= i-1; &lt;br /&gt;
+            int x = a[i];        //复制为哨兵，即存储待排序元素&lt;br /&gt;
+            a[i] = a[i-1];           //先后移一个元素&lt;br /&gt;
+            while(x &amp;lt; a[j]){  //查找在有序表的插入位置&lt;br /&gt;
+                a[j+1] = a[j];&lt;br /&gt;
+                j–;         //元素后移&lt;br /&gt;
+            }&lt;br /&gt;
+            a[j+1] = x;      //插入到正确位置&lt;br /&gt;
+        }&lt;br /&gt;
+        print(a,n,i);           //打印每趟排序的结果&lt;br /&gt;
+    }&lt;/p&gt;
+
+&lt;p&gt;}&lt;/p&gt;
+
+&lt;p&gt;int main(){&lt;br /&gt;
+    int a[8] = {3,1,5,7,2,4,9,6};&lt;br /&gt;
+    InsertSort(a,8);&lt;br /&gt;
+    print(a,8,8);&lt;br /&gt;
+}&lt;/p&gt;
+
+&lt;p&gt;效率：&lt;/p&gt;
+
+&lt;p&gt;时间复杂度：O（n^2）.&lt;/p&gt;
+
+&lt;p&gt;其他的插入排序有二分插入排序，2-路插入排序。&lt;/p&gt;
+
+&lt;h2 id=&quot;2-插入排序希尔排序shell--sort&quot;&gt;2. 插入排序—希尔排序（Shell  Sort）&lt;/h2&gt;
+&lt;p&gt;希尔排序是1959 年由D.L.Shell 提出来的，相对直接排序有较大的改进。希尔排序又叫缩小增量排序&lt;/p&gt;
+
+&lt;p&gt;基本思想：&lt;/p&gt;
+
+&lt;p&gt;先将整个待排序的记录序列分割成为若干子序列分别进行直接插入排序，待整个序列中的记录“基本有序”时，再对全体记录进行依次直接插入排序。&lt;/p&gt;
+
+&lt;p&gt;操作方法：&lt;/p&gt;
+
+&lt;p&gt;选择一个增量序列t1，t2，…，tk，其中ti&amp;gt;tj，tk=1；
+按增量序列个数k，对序列进行k 趟排序；
+每趟排序，根据对应的增量ti，将待排序列分割成若干长度为m 的子序列，分别对各子表进行直接插入排序。仅增量因子为1 时，整个序列作为一个表来处理，表长度即为整个序列的长度。
+希尔排序的示例：&lt;/p&gt;
+
+&lt;p&gt;算法实现：&lt;/p&gt;
+
+&lt;p&gt;我们简单处理增量序列：增量序列d = {n/2 ,n/4, n/8 …..1} n为要排序数的个数
+即：先将要排序的一组记录按某个增量d（n/2,n为要排序数的个数）分成若干组子序列，每组中记录的下标相差d.对每组中全部元素进行直接插入排序，然后再用一个较小的增量（d/2）对它进行分组，在每组中再进行直接插入排序。继续不断缩小增量直至为1，最后使用直接插入排序完成排序。&lt;/p&gt;
+
+&lt;p&gt;void print(int a[], int n ,int i){&lt;br /&gt;
+    cout«i «”:”;&lt;br /&gt;
+    for(int j= 0; j&amp;lt;8; j++){&lt;br /&gt;
+        cout«a[j] «” “;&lt;br /&gt;
+    }&lt;br /&gt;
+    cout«endl;&lt;br /&gt;
+}&lt;br /&gt;
+/**&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;直接插入排序的一般形式&lt;/li&gt;
+  &lt;li&gt;&lt;/li&gt;
+  &lt;li&gt;@param int dk 缩小增量，如果是直接插入排序，dk=1&lt;/li&gt;
+  &lt;li&gt;*/&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;void ShellInsertSort(int a[], int n, int dk)&lt;br /&gt;
+{&lt;br /&gt;
+    for(int i= dk; i&amp;lt;n; ++i){&lt;br /&gt;
+        if(a[i] &amp;lt; a[i-dk]){          //若第i个元素大于i-1元素，直接插入。小于的话，移动有序表后插入&lt;br /&gt;
+            int j = i-dk;   &lt;br /&gt;
+            int x = a[i];           //复制为哨兵，即存储待排序元素&lt;br /&gt;
+            a[i] = a[i-dk];         //首先后移一个元素&lt;br /&gt;
+            while(x &amp;lt; a[j]){     //查找在有序表的插入位置&lt;br /&gt;
+                a[j+dk] = a[j];&lt;br /&gt;
+                j -= dk;             //元素后移&lt;br /&gt;
+            }&lt;br /&gt;
+            a[j+dk] = x;            //插入到正确位置&lt;br /&gt;
+        }&lt;br /&gt;
+        print(a, n,i );&lt;br /&gt;
+    }&lt;/p&gt;
+
+&lt;p&gt;}&lt;/p&gt;
+
+&lt;p&gt;/**&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;先按增量d（n/2,n为要排序数的个数进行希尔排序&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;*/&lt;br /&gt;
+void shellSort(int a[], int n){&lt;/p&gt;
+
+    &lt;p&gt;int dk = n/2;&lt;br /&gt;
+while( dk &amp;gt;= 1  ){&lt;br /&gt;
+    ShellInsertSort(a, n, dk);&lt;br /&gt;
+    dk = dk/2;&lt;br /&gt;
+}&lt;br /&gt;
+}&lt;br /&gt;
+int main(){&lt;br /&gt;
+int a[8] = {3,1,5,7,2,4,9,6};&lt;br /&gt;
+//ShellInsertSort(a,8,1); //直接插入排序&lt;br /&gt;
+shellSort(a,8);           //希尔插入排序&lt;br /&gt;
+print(a,8,8);&lt;br /&gt;
+}&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;希尔排序时效分析很难，关键码的比较次数与记录移动次数依赖于增量因子序列d的选取，特定情况下可以准确估算出关键码的比较次数和记录的移动次数。目前还没有人给出选取最好的增量因子序列的方法。增量因子序列可以有各种取法，有取奇数的，也有取质数的，但需要注意：增量因子中除1 外没有公因子，且最后一个增量因子必须为1。希尔排序方法是一个不稳定的排序方法。&lt;/p&gt;
+
+&lt;h2 id=&quot;3-选择排序简单选择排序simple-selection-sort&quot;&gt;3. 选择排序—简单选择排序（Simple Selection Sort）&lt;/h2&gt;
+&lt;p&gt;基本思想：&lt;/p&gt;
+
+&lt;p&gt;在要排序的一组数中，选出最小（或者最大）的一个数与第1个位置的数交换；然后在剩下的数当中再找最小（或者最大）的与第2个位置的数交换，依次类推，直到第n-1个元素（倒数第二个数）和第n个元素（最后一个数）比较为止。&lt;/p&gt;
+
+&lt;p&gt;简单选择排序的示例：&lt;/p&gt;
+
+&lt;p&gt;操作方法：&lt;/p&gt;
+
+&lt;p&gt;第一趟，从n 个记录中找出关键码最小的记录与第一个记录交换；&lt;/p&gt;
+
+&lt;p&gt;第二趟，从第二个记录开始的n-1 个记录中再选出关键码最小的记录与第二个记录交换；&lt;/p&gt;
+
+&lt;p&gt;以此类推…..&lt;/p&gt;
+
+&lt;p&gt;第i 趟，则从第i 个记录开始的n-i+1 个记录中选出关键码最小的记录与第i 个记录交换，&lt;/p&gt;
+
+&lt;p&gt;直到整个序列按关键码有序。&lt;/p&gt;
+
+&lt;p&gt;算法实现：&lt;/p&gt;
+
+&lt;p&gt;void print(int a[], int n ,int i){&lt;br /&gt;
+    cout«“第”«i+1 «“趟 : “;&lt;br /&gt;
+    for(int j= 0; j&amp;lt;8; j++){&lt;br /&gt;
+        cout«a[j] «”  “;&lt;br /&gt;
+    }&lt;br /&gt;
+    cout«endl;&lt;br /&gt;
+}&lt;br /&gt;
+/**&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;数组的最小值&lt;/li&gt;
+  &lt;li&gt;&lt;/li&gt;
+  &lt;li&gt;@return int 数组的键值 
+ */&lt;br /&gt;
+int SelectMinKey(int a[], int n, int i)&lt;br /&gt;
+{&lt;br /&gt;
+ int k = i;&lt;br /&gt;
+ for(int j=i+1 ;j&amp;lt; n; ++j) {&lt;br /&gt;
+     if(a[k] &amp;gt; a[j]) k = j;&lt;br /&gt;
+ }&lt;br /&gt;
+ return k;&lt;br /&gt;
+}&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;/**&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;选择排序&lt;/li&gt;
+  &lt;li&gt;*/&lt;br /&gt;
+void selectSort(int a[], int n){&lt;br /&gt;
+int key, tmp;&lt;br /&gt;
+for(int i = 0; i&amp;lt; n; ++i) {&lt;br /&gt;
+    key = SelectMinKey(a, n,i);           //选择最小的元素&lt;br /&gt;
+    if(key != i){&lt;br /&gt;
+        tmp = a[i];  a[i] = a[key]; a[key] = tmp; //最小元素与第i位置元素互换&lt;br /&gt;
+    }&lt;br /&gt;
+    print(a,  n , i);&lt;br /&gt;
+}&lt;br /&gt;
+}&lt;br /&gt;
+int main(){&lt;br /&gt;
+int a[8] = {3,1,5,7,2,4,9,6};&lt;br /&gt;
+cout«“初始值：”;&lt;br /&gt;
+for(int j= 0; j&amp;lt;8; j++){&lt;br /&gt;
+    cout«a[j] «”  “;&lt;br /&gt;
+}&lt;br /&gt;
+cout«endl«endl;&lt;br /&gt;
+selectSort(a, 8);&lt;br /&gt;
+print(a,8,8);&lt;br /&gt;
+}&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;简单选择排序的改进——二元选择排序&lt;/p&gt;
+
+&lt;p&gt;简单选择排序，每趟循环只能确定一个元素排序后的定位。我们可以考虑改进为每趟循环确定两个元素（当前趟最大和最小记录）的位置,从而减少排序所需的循环次数。改进后对n个数据进行排序，最多只需进行[n/2]趟循环即可。具体实现如下：&lt;/p&gt;
+
+&lt;p&gt;void SelectSort(int r[],int n) {&lt;br /&gt;
+    int i ,j , min ,max, tmp;&lt;br /&gt;
+    for (i=1 ;i &amp;lt;= n/2;i++) {  &lt;br /&gt;
+        // 做不超过n/2趟选择排序 &lt;br /&gt;
+        min = i; max = i ; //分别记录最大和最小关键字记录位置&lt;br /&gt;
+        for (j= i+1; j&amp;lt;= n-i; j++) {&lt;br /&gt;
+            if (r[j] &amp;gt; r[max]) { &lt;br /&gt;
+                max = j ; continue ; &lt;br /&gt;
+            }  &lt;br /&gt;
+            if (r[j]&amp;lt; r[min]) { &lt;br /&gt;
+                min = j ; &lt;br /&gt;
+            }   &lt;br /&gt;
+      }  &lt;br /&gt;
+      //该交换操作还可分情况讨论以提高效率&lt;br /&gt;
+      tmp = r[i-1]; r[i-1] = r[min]; r[min] = tmp;&lt;br /&gt;
+      tmp = r[n-i]; r[n-i] = r[max]; r[max] = tmp;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;}    }  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;4-选择排序堆排序heap-sort&quot;&gt;4. 选择排序—堆排序（Heap Sort）&lt;/h2&gt;
+&lt;p&gt;堆排序是一种树形选择排序，是对直接选择排序的有效改进。
+基本思想：&lt;/p&gt;
+
+&lt;p&gt;堆的定义如下：具有n个元素的序列（k1,k2,…,kn),当且仅当满足&lt;/p&gt;
+
+&lt;p&gt;时称之为堆。由堆的定义可以看出，堆顶元素（即第一个元素）必为最小项（小顶堆）。
+若以一维数组存储一个堆，则堆对应一棵完全二叉树，且所有非叶结点的值均不大于(或不小于)其子女的值，根结点（堆顶元素）的值是最小(或最大)的。如：&lt;/p&gt;
+
+&lt;p&gt;（a）大顶堆序列：（96, 83,27,38,11,09)&lt;/p&gt;
+
+&lt;p&gt;(b)  小顶堆序列：（12，36，24，85，47，30，53，91）&lt;/p&gt;
+
+&lt;p&gt;初始时把要排序的n个数的序列看作是一棵顺序存储的二叉树（一维数组存储二叉树），调整它们的存储序，使之成为一个堆，将堆顶元素输出，得到n 个元素中最小(或最大)的元素，这时堆的根节点的数最小（或者最大）。然后对前面(n-1)个元素重新调整使之成为堆，输出堆顶元素，得到n 个元素中次小(或次大)的元素。依此类推，直到只有两个节点的堆，并对它们作交换，最后得到有n个节点的有序序列。称这个过程为堆排序。&lt;/p&gt;
+
+&lt;p&gt;因此，实现堆排序需解决两个问题：&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;如何将n 个待排序的数建成堆；&lt;/li&gt;
+  &lt;li&gt;输出堆顶元素后，怎样调整剩余n-1 个元素，使其成为一个新堆。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;首先讨论第二个问题：输出堆顶元素后，对剩余n-1元素重新建成堆的调整过程。
+调整小顶堆的方法：&lt;/p&gt;
+
+&lt;p&gt;1）设有m 个元素的堆，输出堆顶元素后，剩下m-1 个元素。将堆底元素送入堆顶（（最后一个元素与堆顶进行交换），堆被破坏，其原因仅是根结点不满足堆的性质。&lt;/p&gt;
+
+&lt;p&gt;2）将根结点与左、右子树中较小元素的进行交换。&lt;/p&gt;
+
+&lt;p&gt;3）若与左子树交换：如果左子树堆被破坏，即左子树的根结点不满足堆的性质，则重复方法 （2）.&lt;/p&gt;
+
+&lt;p&gt;4）若与右子树交换，如果右子树堆被破坏，即右子树的根结点不满足堆的性质。则重复方法 （2）.&lt;/p&gt;
+
+&lt;p&gt;5）继续对不满足堆性质的子树进行上述交换操作，直到叶子结点，堆被建成。&lt;/p&gt;
+
+&lt;p&gt;称这个自根结点到叶子结点的调整过程为筛选。如图：&lt;/p&gt;
+
+&lt;p&gt;再讨论对n 个元素初始建堆的过程。
+建堆方法：对初始序列建堆的过程，就是一个反复进行筛选的过程。&lt;/p&gt;
+
+&lt;p&gt;1）n 个结点的完全二叉树，则最后一个结点是第个结点的子树。&lt;/p&gt;
+
+&lt;p&gt;2）筛选从第个结点为根的子树开始，该子树成为堆。&lt;/p&gt;
+
+&lt;p&gt;3）之后向前依次对各结点为根的子树进行筛选，使之成为堆，直到根结点。&lt;/p&gt;
+
+&lt;p&gt;如图建堆初始过程：无序序列：（49，38，65，97，76，13，27，49）&lt;/p&gt;
+
+&lt;p&gt;算法的实现：&lt;/p&gt;
+
+&lt;p&gt;从算法描述来看，堆排序需要两个过程，一是建立堆，二是堆顶与堆的最后一个元素交换位置。所以堆排序有两个函数组成。一是建堆的渗透函数，二是反复调用渗透函数实现排序的函数。&lt;/p&gt;
+
+&lt;p&gt;void print(int a[], int n){&lt;br /&gt;
+    for(int j= 0; j&amp;lt;n; j++){&lt;br /&gt;
+        cout«a[j] «”  “;&lt;br /&gt;
+    }&lt;br /&gt;
+    cout«endl;&lt;br /&gt;
+}&lt;/p&gt;
+
+&lt;p&gt;/**&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;已知H[s…m]除了H[s] 外均满足堆的定义&lt;/li&gt;
+  &lt;li&gt;调整H[s],使其成为大顶堆.即将对第s个结点为根的子树筛选,&lt;/li&gt;
+  &lt;li&gt;&lt;/li&gt;
+  &lt;li&gt;@param H是待调整的堆数组&lt;/li&gt;
+  &lt;li&gt;@param s是待调整的数组元素的位置&lt;/li&gt;
+  &lt;li&gt;@param length是数组的长度&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;/&lt;br /&gt;
+void HeapAdjust(int H[],int s, int length)&lt;br /&gt;
+{&lt;br /&gt;
+int tmp  = H[s];&lt;br /&gt;
+int child = 2&lt;/em&gt;s+1; //左孩子结点的位置。(i+1 为当前调整结点的右孩子结点的位置)&lt;br /&gt;
+while (child &amp;lt; length) {&lt;br /&gt;
+    if(child+1 &amp;lt;length &amp;amp;&amp;amp; H[child]&amp;lt;H[child+1]) { // 如果右孩子大于左孩子(找到比当前待调整结点大的孩子结点)&lt;br /&gt;
+        ++child ;&lt;br /&gt;
+    }&lt;br /&gt;
+    if(H[s]&amp;lt;H[child]) {  // 如果较大的子结点大于父结点&lt;br /&gt;
+        H[s] = H[child]; // 那么把较大的子结点往上移动，替换它的父结点&lt;br /&gt;
+        s = child;       // 重新设置s ,即待调整的下一个结点的位置&lt;br /&gt;
+        child = 2*s+1;&lt;br /&gt;
+    }  else {            // 如果当前待调整结点大于它的左右孩子，则不需要调整，直接退出&lt;br /&gt;
+         break;&lt;br /&gt;
+    }&lt;br /&gt;
+    H[s] = tmp;         // 当前待调整的结点放到比其大的孩子结点位置上&lt;br /&gt;
+}&lt;br /&gt;
+print(H,length);&lt;br /&gt;
+}&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;/**&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;初始堆进行调整&lt;/li&gt;
+  &lt;li&gt;将H[0..length-1]建成堆&lt;/li&gt;
+  &lt;li&gt;调整完之后第一个元素是序列的最小的元素 
+ */&lt;br /&gt;
+void BuildingHeap(int H[], int length)&lt;br /&gt;
+{ &lt;br /&gt;
+ //最后一个有孩子的节点的位置 i=  (length -1) / 2&lt;br /&gt;
+ for (int i = (length -1) / 2 ; i &amp;gt;= 0; –i)&lt;br /&gt;
+     HeapAdjust(H,i,length);&lt;br /&gt;
+}&lt;br /&gt;
+/**&lt;/li&gt;
+  &lt;li&gt;堆排序算法 
+ */&lt;br /&gt;
+void HeapSort(int H[],int length)&lt;br /&gt;
+{&lt;br /&gt;
+ //初始堆&lt;br /&gt;
+ BuildingHeap(H, length);&lt;br /&gt;
+ //从最后一个元素开始对序列进行调整&lt;br /&gt;
+ for (int i = length - 1; i &amp;gt; 0; –i)&lt;br /&gt;
+ {&lt;br /&gt;
+     //交换堆顶元素H[0]和堆中最后一个元素&lt;br /&gt;
+     int temp = H[i]; H[i] = H[0]; H[0] = temp;&lt;br /&gt;
+     //每次交换堆顶元素和堆中最后一个元素之后，都要对堆进行调整&lt;br /&gt;
+     HeapAdjust(H,0,i);&lt;br /&gt;
+  }&lt;br /&gt;
+}&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;int main(){&lt;br /&gt;
+    int H[10] = {3,1,5,7,2,4,9,6,10,8};&lt;br /&gt;
+    cout«“初始值：”;&lt;br /&gt;
+    print(H,10);&lt;br /&gt;
+    HeapSort(H,10);&lt;br /&gt;
+    //selectSort(a, 8);&lt;br /&gt;
+    cout«“结果：”;&lt;br /&gt;
+    print(H,10);&lt;/p&gt;
+
+&lt;p&gt;}&lt;/p&gt;
+
+&lt;p&gt;分析:&lt;/p&gt;
+
+&lt;p&gt;设树深度为k，。从根到叶的筛选，元素比较次数至多2(k-1)次，交换记录至多k 次。所以，在建好堆后，排序过程中的筛选次数不超过下式：&lt;/p&gt;
+
+&lt;p&gt;而建堆时的比较次数不超过4n 次，因此堆排序最坏情况下，时间复杂度也为：O(nlogn )。&lt;/p&gt;
+
+&lt;h2 id=&quot;5-交换排序冒泡排序bubble-sort&quot;&gt;5. 交换排序—冒泡排序（Bubble Sort）&lt;/h2&gt;
+&lt;p&gt;基本思想：&lt;/p&gt;
+
+&lt;p&gt;在要排序的一组数中，对当前还未排好序的范围内的全部数，自上而下对相邻的两个数依次进行比较和调整，让较大的数往下沉，较小的往上冒。即：每当两相邻的数比较后发现它们的排序与排序要求相反时，就将它们互换。&lt;/p&gt;
+
+&lt;p&gt;冒泡排序的示例：&lt;/p&gt;
+
+&lt;p&gt;算法的实现：&lt;/p&gt;
+
+&lt;p&gt;void bubbleSort(int a[], int n){&lt;br /&gt;
+    for(int i =0 ; i&amp;lt; n-1; ++i) {&lt;br /&gt;
+        for(int j = 0; j &amp;lt; n-i-1; ++j) {&lt;br /&gt;
+            if(a[j] &amp;gt; a[j+1])&lt;br /&gt;
+            {&lt;br /&gt;
+                int tmp = a[j] ; a[j] = a[j+1] ;  a[j+1] = tmp;&lt;br /&gt;
+            }&lt;br /&gt;
+        }&lt;br /&gt;
+    }&lt;br /&gt;
+}&lt;/p&gt;
+
+&lt;p&gt;冒泡排序算法的改进&lt;/p&gt;
+
+&lt;p&gt;对冒泡排序常见的改进方法是加入一标志性变量exchange，用于标志某一趟排序过程中是否有数据交换，如果进行某一趟排序时并没有进行数据交换，则说明数据已经按要求排列好，可立即结束排序，避免不必要的比较过程。本文再提供以下两种改进算法：&lt;/p&gt;
+
+&lt;p&gt;1．设置一标志性变量pos,用于记录每趟排序中最后一次进行交换的位置。由于pos位置之后的记录均已交换到位,故在进行下一趟排序时只要扫描到pos位置即可。&lt;/p&gt;
+
+&lt;p&gt;改进后算法如下:&lt;/p&gt;
+
+&lt;p&gt;void Bubble_1 ( int r[], int n) {&lt;br /&gt;
+    int i= n -1;  //初始时,最后位置保持不变&lt;br /&gt;
+    while ( i&amp;gt; 0) { &lt;br /&gt;
+        int pos= 0; //每趟开始时,无记录交换&lt;br /&gt;
+        for (int j= 0; j&amp;lt; i; j++)&lt;br /&gt;
+            if (r[j]&amp;gt; r[j+1]) {&lt;br /&gt;
+                pos= j; //记录交换的位置 &lt;br /&gt;
+                int tmp = r[j]; r[j]=r[j+1];r[j+1]=tmp;&lt;br /&gt;
+            } &lt;br /&gt;
+        i= pos; //为下一趟排序作准备&lt;br /&gt;
+     } &lt;br /&gt;
+}&lt;/p&gt;
+
+&lt;p&gt;2．传统冒泡排序中每一趟排序操作只能找到一个最大值或最小值,我们考虑利用在每趟排序中进行正向和反向两遍冒泡的方法一次可以得到两个最终值(最大者和最小者) , 从而使排序趟数几乎减少了一半。&lt;/p&gt;
+
+&lt;p&gt;改进后的算法实现为:&lt;/p&gt;
+
+&lt;p&gt;void Bubble_2 ( int r[], int n){&lt;br /&gt;
+    int low = 0; &lt;br /&gt;
+    int high= n -1; //设置变量的初始值&lt;br /&gt;
+    int tmp,j;&lt;br /&gt;
+    while (low &amp;lt; high) {&lt;br /&gt;
+        for (j= low; j&amp;lt; high; ++j) //正向冒泡,找到最大者&lt;br /&gt;
+            if (r[j]&amp;gt; r[j+1]) {&lt;br /&gt;
+                tmp = r[j]; r[j]=r[j+1];r[j+1]=tmp;&lt;br /&gt;
+            } &lt;br /&gt;
+        –high;                 //修改high值, 前移一位&lt;br /&gt;
+        for ( j=high; j&amp;gt;low; –j) //反向冒泡,找到最小者&lt;br /&gt;
+            if (r[j]&amp;lt;r[j-1]) {&lt;br /&gt;
+                tmp = r[j]; r[j]=r[j-1];r[j-1]=tmp;&lt;br /&gt;
+            }&lt;br /&gt;
+        ++low;                  //修改low值,后移一位&lt;br /&gt;
+    } &lt;br /&gt;
+}&lt;/p&gt;
+
+&lt;h2 id=&quot;6-交换排序快速排序quick-sort&quot;&gt;6. 交换排序—快速排序（Quick Sort）&lt;/h2&gt;
+&lt;p&gt;基本思想：&lt;/p&gt;
+
+&lt;p&gt;1）选择一个基准元素,通常选择第一个元素或者最后一个元素,&lt;/p&gt;
+
+&lt;p&gt;2）通过一趟排序讲待排序的记录分割成独立的两部分，其中一部分记录的元素值均比基准元素值小。另一部分记录的 元素值比基准值大。&lt;/p&gt;
+
+&lt;p&gt;3）此时基准元素在其排好序后的正确位置&lt;/p&gt;
+
+&lt;p&gt;4）然后分别对这两部分记录用同样的方法继续进行排序，直到整个序列有序。&lt;/p&gt;
+
+&lt;p&gt;快速排序的示例：&lt;/p&gt;
+
+&lt;p&gt;（a）一趟排序的过程：&lt;/p&gt;
+
+&lt;p&gt;（b）排序的全过程&lt;/p&gt;
+
+&lt;p&gt;算法的实现：&lt;/p&gt;
+
+&lt;p&gt;递归实现：&lt;/p&gt;
+
+&lt;p&gt;void print(int a[], int n){&lt;br /&gt;
+    for(int j= 0; j&amp;lt;n; j++){&lt;br /&gt;
+        cout«a[j] «”  “;&lt;br /&gt;
+    }&lt;br /&gt;
+    cout«endl;&lt;br /&gt;
+}&lt;/p&gt;
+
+&lt;p&gt;void swap(int *a, int *b)&lt;br /&gt;
+{&lt;br /&gt;
+    int tmp = *a;&lt;br /&gt;
+    *a = *b;&lt;br /&gt;
+    *b = tmp;&lt;br /&gt;
+}&lt;/p&gt;
+
+&lt;p&gt;int partition(int a[], int low, int high)&lt;br /&gt;
+{&lt;br /&gt;
+    int privotKey = a[low];                             //基准元素&lt;br /&gt;
+    while(low &amp;lt; high){                                   //从表的两端交替地向中间扫描&lt;br /&gt;
+        while(low &amp;lt; high  &amp;amp;&amp;amp; a[high] &amp;gt;= privotKey) –high;  //从high 所指位置向前搜索，至多到low+1 位置。将比基准元素小的交换到低端&lt;br /&gt;
+        swap(&amp;amp;a[low], &amp;amp;a[high]);&lt;br /&gt;
+        while(low &amp;lt; high  &amp;amp;&amp;amp; a[low] &amp;lt;= privotKey ) ++low;&lt;br /&gt;
+        swap(&amp;amp;a[low], &amp;amp;a[high]);&lt;br /&gt;
+    }&lt;br /&gt;
+    print(a,10);&lt;br /&gt;
+    return low;&lt;br /&gt;
+}&lt;/p&gt;
+
+&lt;p&gt;void quickSort(int a[], int low, int high){&lt;br /&gt;
+    if(low &amp;lt; high){&lt;br /&gt;
+        int privotLoc = partition(a,  low,  high);  //将表一分为二&lt;br /&gt;
+        quickSort(a,  low,  privotLoc -1);          //递归对低子表递归排序&lt;br /&gt;
+        quickSort(a,   privotLoc + 1, high);        //递归对高子表递归排序&lt;br /&gt;
+    }&lt;br /&gt;
+}&lt;/p&gt;
+
+&lt;p&gt;int main(){&lt;br /&gt;
+    int a[10] = {3,1,5,7,2,4,9,6,10,8};&lt;br /&gt;
+    cout«“初始值：”;&lt;br /&gt;
+    print(a,10);&lt;br /&gt;
+    quickSort(a,0,9);&lt;br /&gt;
+    cout«“结果：”;&lt;br /&gt;
+    print(a,10);&lt;/p&gt;
+
+&lt;p&gt;}&lt;/p&gt;
+
+&lt;p&gt;分析：&lt;/p&gt;
+
+&lt;p&gt;快速排序是通常被认为在同数量级（O(nlog2n)）的排序方法中平均性能最好的。但若初始序列按关键码有序或基本有序时，快排序反而蜕化为冒泡排序。为改进之，通常以“三者取中法”来选取基准记录，即将排序区间的两个端点与中点三个记录关键码居中的调整为支点记录。快速排序是一个不稳定的排序方法。&lt;/p&gt;
+
+&lt;p&gt;快速排序的改进&lt;/p&gt;
+
+&lt;p&gt;在本改进算法中,只对长度大于k的子序列递归调用快速排序,让原序列基本有序，然后再对整个基本有序序列用插入排序算法排序。实践证明，改进后的算法时间复杂度有所降低，且当k取值为 8 左右时,改进算法的性能最佳。算法思想如下：&lt;/p&gt;
+
+&lt;p&gt;void print(int a[], int n){&lt;br /&gt;
+    for(int j= 0; j&amp;lt;n; j++){&lt;br /&gt;
+        cout«a[j] «”  “;&lt;br /&gt;
+    }&lt;br /&gt;
+    cout«endl;&lt;br /&gt;
+}&lt;/p&gt;
+
+&lt;p&gt;void swap(int *a, int *b)&lt;br /&gt;
+{&lt;br /&gt;
+    int tmp = *a;&lt;br /&gt;
+    *a = *b;&lt;br /&gt;
+    *b = tmp;&lt;br /&gt;
+}&lt;/p&gt;
+
+&lt;p&gt;int partition(int a[], int low, int high)&lt;br /&gt;
+{&lt;br /&gt;
+    int privotKey = a[low];                 //基准元素&lt;br /&gt;
+    while(low &amp;lt; high){                   //从表的两端交替地向中间扫描&lt;br /&gt;
+        while(low &amp;lt; high  &amp;amp;&amp;amp; a[high] &amp;gt;= privotKey) –high; //从high 所指位置向前搜索，至多到low+1 位置。将比基准元素小的交换到低端&lt;br /&gt;
+        swap(&amp;amp;a[low], &amp;amp;a[high]);&lt;br /&gt;
+        while(low &amp;lt; high  &amp;amp;&amp;amp; a[low] &amp;lt;= privotKey ) ++low;&lt;br /&gt;
+        swap(&amp;amp;a[low], &amp;amp;a[high]);&lt;br /&gt;
+    }&lt;br /&gt;
+    print(a,10);&lt;br /&gt;
+    return low;&lt;br /&gt;
+}&lt;/p&gt;
+
+&lt;p&gt;void qsort_improve(int r[ ],int low,int high, int k){&lt;br /&gt;
+    if( high -low &amp;gt; k ) { //长度大于k时递归, k为指定的数&lt;br /&gt;
+        int pivot = partition(r, low, high); // 调用的Partition算法保持不变&lt;br /&gt;
+        qsort_improve(r, low, pivot - 1,k);&lt;br /&gt;
+        qsort_improve(r, pivot + 1, high,k);&lt;br /&gt;
+    } &lt;br /&gt;
+} &lt;br /&gt;
+void quickSort(int r[], int n, int k){&lt;br /&gt;
+    qsort_improve(r,0,n,k);//先调用改进算法Qsort使之基本有序&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;//再用插入排序对基本有序序列排序  
+for(int i=1; i&amp;lt;=n;i ++){  
+    int tmp = r[i];   
+    int j=i-1;  
+    while(tmp &amp;lt; r[j]){  
+        r[j+1]=r[j]; j=j-1;   
+    }  
+    r[j+1] = tmp;  
+}   
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;}&lt;/p&gt;
+
+&lt;p&gt;int main(){&lt;br /&gt;
+    int a[10] = {3,1,5,7,2,4,9,6,10,8};&lt;br /&gt;
+    cout«“初始值：”;&lt;br /&gt;
+    print(a,10);&lt;br /&gt;
+    quickSort(a,9,4);&lt;br /&gt;
+    cout«“结果：”;&lt;br /&gt;
+    print(a,10);&lt;/p&gt;
+
+&lt;p&gt;}&lt;/p&gt;
+
+&lt;h2 id=&quot;7-归并排序merge-sort&quot;&gt;7. 归并排序（Merge Sort）&lt;/h2&gt;
+
+&lt;p&gt;基本思想：&lt;/p&gt;
+
+&lt;p&gt;归并（Merge）排序法是将两个（或两个以上）有序表合并成一个新的有序表，即把待排序序列分为若干个子序列，每个子序列是有序的。然后再把有序子序列合并为整体有序序列。&lt;/p&gt;
+
+&lt;p&gt;归并排序示例：&lt;/p&gt;
+
+&lt;p&gt;合并方法：&lt;/p&gt;
+
+&lt;p&gt;设r[i…n]由两个有序子表r[i…m]和r[m+1…n]组成，两个子表长度分别为n-i +1、n-m。
+j=m+1；k=i；i=i;  置两个子表的起始下标及辅助数组的起始下标
+若i&amp;gt;m 或j&amp;gt;n，转⑷  其中一个子表已合并完，比较选取结束
+选取r[i]和r[j]较小的存入辅助数组rf
+如果r[i]&amp;lt;r[j]，rf[k]=r[i]； i++； k++； 转⑵
+否则，rf[k]=r[j]； j++； k++； 转⑵
+//将尚未处理完的子表中元素存入rf
+如果i&amp;lt;=m，将r[i…m]存入rf[k…n] //前一子表非空
+如果j&amp;lt;=n ,  将r[j…n] 存入rf[k…n] //后一子表非空
+合并结束。
+//将r[i…m]和r[m +1 …n]归并到辅助数组rf[i…n]&lt;br /&gt;
+void Merge(ElemType *r,ElemType *rf, int i, int m, int n)&lt;br /&gt;
+{&lt;br /&gt;
+    int j,k;&lt;br /&gt;
+    for(j=m+1,k=i; i&amp;lt;=m &amp;amp;&amp;amp; j &amp;lt;=n ; ++k){&lt;br /&gt;
+        if(r[j] &amp;lt; r[i]) rf[k] = r[j++];&lt;br /&gt;
+        else rf[k] = r[i++];&lt;br /&gt;
+    }&lt;br /&gt;
+    while(i &amp;lt;= m)  rf[k++] = r[i++];&lt;br /&gt;
+    while(j &amp;lt;= n)  rf[k++] = r[j++];&lt;br /&gt;
+}&lt;/p&gt;
+
+&lt;p&gt;归并的迭代算法&lt;/p&gt;
+
+&lt;p&gt;1 个元素的表总是有序的。所以对n 个元素的待排序列，每个元素可看成1 个有序子表。对子表两两合并生成n/2个子表，所得子表除最后一个子表长度可能为1 外，其余子表长度均为2。再进行两两合并，直到生成n 个元素按关键码有序的表。&lt;/p&gt;
+
+&lt;p&gt;void print(int a[], int n){&lt;br /&gt;
+    for(int j= 0; j&amp;lt;n; j++){&lt;br /&gt;
+        cout«a[j] «”  “;&lt;br /&gt;
+    }&lt;br /&gt;
+    cout«endl;&lt;br /&gt;
+}&lt;/p&gt;
+
+&lt;p&gt;//将r[i…m]和r[m +1 …n]归并到辅助数组rf[i…n]&lt;br /&gt;
+void Merge(ElemType *r,ElemType *rf, int i, int m, int n)&lt;br /&gt;
+{&lt;br /&gt;
+    int j,k;&lt;br /&gt;
+    for(j=m+1,k=i; i&amp;lt;=m &amp;amp;&amp;amp; j &amp;lt;=n ; ++k){&lt;br /&gt;
+        if(r[j] &amp;lt; r[i]) rf[k] = r[j++];&lt;br /&gt;
+        else rf[k] = r[i++];&lt;br /&gt;
+    }&lt;br /&gt;
+    while(i &amp;lt;= m)  rf[k++] = r[i++];&lt;br /&gt;
+    while(j &amp;lt;= n)  rf[k++] = r[j++];&lt;br /&gt;
+    print(rf,n+1);&lt;br /&gt;
+}&lt;/p&gt;
+
+&lt;p&gt;void MergeSort(ElemType *r, ElemType *rf, int lenght)&lt;br /&gt;
+{ &lt;br /&gt;
+    int len = 1;&lt;br /&gt;
+    ElemType *q = r ;&lt;br /&gt;
+    ElemType *tmp ;&lt;br /&gt;
+    while(len &amp;lt; lenght) {&lt;br /&gt;
+        int s = len;&lt;br /&gt;
+        len = 2 * s ;&lt;br /&gt;
+        int i = 0;&lt;br /&gt;
+        while(i+ len &amp;lt;lenght){&lt;br /&gt;
+            Merge(q, rf,  i, i+ s-1, i+ len-1 ); //对等长的两个子表合并&lt;br /&gt;
+            i = i+ len;&lt;br /&gt;
+        }&lt;br /&gt;
+        if(i + s &amp;lt; lenght){&lt;br /&gt;
+            Merge(q, rf,  i, i+ s -1, lenght -1); //对不等长的两个子表合并&lt;br /&gt;
+        }&lt;br /&gt;
+        tmp = q; q = rf; rf = tmp; //交换q,rf，以保证下一趟归并时，仍从q 归并到rf&lt;br /&gt;
+    }&lt;br /&gt;
+}&lt;/p&gt;
+
+&lt;p&gt;int main(){&lt;br /&gt;
+    int a[10] = {3,1,5,7,2,4,9,6,10,8};&lt;br /&gt;
+    int b[10];&lt;br /&gt;
+    MergeSort(a, b, 10);&lt;br /&gt;
+    print(b,10);&lt;br /&gt;
+    cout«“结果：”;&lt;br /&gt;
+    print(a,10);&lt;/p&gt;
+
+&lt;p&gt;}&lt;/p&gt;
+
+&lt;p&gt;两路归并的递归算法&lt;/p&gt;
+
+&lt;p&gt;void MSort(ElemType &lt;em&gt;r, ElemType *rf,int s, int t)&lt;br /&gt;
+{ &lt;br /&gt;
+    ElemType *rf2;&lt;br /&gt;
+    if(s==t) r[s] = rf[s];&lt;br /&gt;
+    else&lt;br /&gt;
+    { &lt;br /&gt;
+        int m=(s+t)/2;          /&lt;/em&gt;平分&lt;em&gt;p 表&lt;/em&gt;/&lt;br /&gt;
+        MSort(r, rf2, s, m);        /&lt;em&gt;递归地将p[s…m]归并为有序的p2[s…m]&lt;/em&gt;/&lt;br /&gt;
+        MSort(r, rf2, m+1, t);      /&lt;em&gt;递归地将p[m+1…t]归并为有序的p2[m+1…t]&lt;/em&gt;/&lt;br /&gt;
+        Merge(rf2, rf, s, m+1,t);   /&lt;em&gt;将p2[s…m]和p2[m+1…t]归并到p1[s…t]&lt;/em&gt;/&lt;br /&gt;
+    }&lt;br /&gt;
+}&lt;br /&gt;
+void MergeSort_recursive(ElemType &lt;em&gt;r, ElemType *rf, int n)&lt;br /&gt;
+{   /&lt;/em&gt;对顺序表&lt;em&gt;p 作归并排序&lt;/em&gt;/&lt;br /&gt;
+    MSort(r, rf,0, n-1);&lt;br /&gt;
+}&lt;/p&gt;
+&lt;h4 id=&quot;8-桶排序基数排序radix-sort&quot;&gt;8. 桶排序/基数排序(Radix Sort)&lt;/h4&gt;
+&lt;p&gt;说基数排序之前，我们先说桶排序：&lt;/p&gt;
+
+&lt;p&gt;基本思想：是将阵列分到有限数量的桶子里。每个桶子再个别排序（有可能再使用别的排序算法或是以递回方式继续使用桶排序进行排序）。桶排序是鸽巢排序的一种归纳结果。当要被排序的阵列内的数值是均匀分配的时候，桶排序使用线性时间（Θ（n））。但桶排序并不是 比较排序，他不受到 O(n log n) 下限的影响。
+         简单来说，就是把数据分组，放在一个个的桶中，然后对每个桶里面的在进行排序。&lt;br /&gt;
+ 例如要对大小为[1..1000]范围内的n个整数A[1..n]排序&lt;/p&gt;
+
+&lt;p&gt;首先，可以把桶设为大小为10的范围，具体而言，设集合B[1]存储[1..10]的整数，集合B[2]存储   (10..20]的整数，……集合B[i]存储(   (i-1)&lt;em&gt;10,   i&lt;/em&gt;10]的整数，i   =   1,2,..100。总共有  100个桶。&lt;/p&gt;
+
+&lt;p&gt;然后，对A[1..n]从头到尾扫描一遍，把每个A[i]放入对应的桶B[j]中。  再对这100个桶中每个桶里的数字排序，这时可用冒泡，选择，乃至快排，一般来说任  何排序法都可以。&lt;/p&gt;
+
+&lt;p&gt;最后，依次输出每个桶里面的数字，且每个桶中的数字从小到大输出，这  样就得到所有数字排好序的一个序列了。&lt;/p&gt;
+
+&lt;p&gt;假设有n个数字，有m个桶，如果数字是平均分布的，则每个桶里面平均有n/m个数字。如果&lt;/p&gt;
+
+&lt;p&gt;对每个桶中的数字采用快速排序，那么整个算法的复杂度是&lt;/p&gt;
+
+&lt;p&gt;O(n   +   m   *   n/m*log(n/m))   =   O(n   +   nlogn   -   nlogm)&lt;/p&gt;
+
+&lt;p&gt;从上式看出，当m接近n的时候，桶排序复杂度接近O(n)&lt;/p&gt;
+
+&lt;p&gt;当然，以上复杂度的计算是基于输入的n个数字是平均分布这个假设的。这个假设是很强的  ，实际应用中效果并没有这么好。如果所有的数字都落在同一个桶中，那就退化成一般的排序了。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    前面说的几大排序算法 ，大部分时间复杂度都是O（n2），也有部分排序算法时间复杂度是O(nlogn)。而桶式排序却能实现O（n）的时间复杂度。但桶排序的缺点是：
+
+    1）首先是空间复杂度比较高，需要的额外开销大。排序有两个数组的空间开销，一个存放待排序数组，一个就是所谓的桶，比如待排序值是从0到m-1，那就需要m个桶，这个桶数组就要至少m个空间。
+
+    2）其次待排序的元素都要在一定的范围内等等。
+
+   桶式排序是一种分配排序。分配排序的特定是不需要进行关键码的比较，但前提是要知道待排序列的一些具体情况。
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;分配排序的基本思想：说白了就是进行多次的桶式排序。&lt;/p&gt;
+
+&lt;p&gt;基数排序过程无须比较关键字，而是通过“分配”和“收集”过程来实现排序。它们的时间复杂度可达到线性阶：O(n)。&lt;/p&gt;
+
+&lt;p&gt;实例:&lt;/p&gt;
+
+&lt;p&gt;扑克牌中52 张牌，可按花色和面值分成两个字段，其大小关系为：
+花色： 梅花&amp;lt; 方块&amp;lt; 红心&amp;lt; 黑心&lt;br /&gt;
+面值： 2 &amp;lt; 3 &amp;lt; 4 &amp;lt; 5 &amp;lt; 6 &amp;lt; 7 &amp;lt; 8 &amp;lt; 9 &amp;lt; 10 &amp;lt; J &amp;lt; Q &amp;lt; K &amp;lt; A&lt;/p&gt;
+
+&lt;p&gt;若对扑克牌按花色、面值进行升序排序，得到如下序列：&lt;/p&gt;
+
+&lt;p&gt;即两张牌，若花色不同，不论面值怎样，花色低的那张牌小于花色高的，只有在同花色情况下，大小关系才由面值的大小确定。这就是多关键码排序。&lt;/p&gt;
+
+&lt;p&gt;为得到排序结果，我们讨论两种排序方法。
+方法1：先对花色排序，将其分为4 个组，即梅花组、方块组、红心组、黑心组。再对每个组分别按面值进行排序，最后，将4 个组连接起来即可。
+方法2：先按13 个面值给出13 个编号组(2 号，3 号，…，A 号)，将牌按面值依次放入对应的编号组，分成13 堆。再按花色给出4 个编号组(梅花、方块、红心、黑心)，将2号组中牌取出分别放入对应花色组，再将3 号组中牌取出分别放入对应花色组，……，这样，4 个花色组中均按面值有序，然后，将4 个花色组依次连接起来即可。&lt;/p&gt;
+
+&lt;p&gt;设n 个元素的待排序列包含d 个关键码{k1，k2，…，kd}，则称序列对关键码{k1，k2，…，kd}有序是指：对于序列中任两个记录r[i]和r&lt;a href=&quot;1≤i≤j≤n&quot;&gt;j&lt;/a&gt;都满足下列有序关系：&lt;/p&gt;
+
+&lt;p&gt;其中k1 称为最主位关键码，kd 称为最次位关键码     。&lt;/p&gt;
+
+&lt;p&gt;两种多关键码排序方法：&lt;/p&gt;
+
+&lt;p&gt;多关键码排序按照从最主位关键码到最次位关键码或从最次位到最主位关键码的顺序逐次排序，分两种方法：&lt;/p&gt;
+
+&lt;p&gt;最高位优先(Most Significant Digit first)法，简称MSD 法：&lt;/p&gt;
+
+&lt;p&gt;1）先按k1 排序分组，将序列分成若干子序列，同一组序列的记录中，关键码k1 相等。&lt;/p&gt;
+
+&lt;p&gt;2）再对各组按k2 排序分成子组，之后，对后面的关键码继续这样的排序分组，直到按最次位关键码kd 对各子组排序后。&lt;/p&gt;
+
+&lt;p&gt;3）再将各组连接起来，便得到一个有序序列。扑克牌按花色、面值排序中介绍的方法一即是MSD 法。&lt;/p&gt;
+
+&lt;p&gt;最低位优先(Least Significant Digit first)法，简称LSD 法：&lt;/p&gt;
+
+&lt;p&gt;1) 先从kd 开始排序，再对kd-1进行排序，依次重复，直到按k1排序分组分成最小的子序列后。&lt;/p&gt;
+
+&lt;p&gt;2) 最后将各个子序列连接起来，便可得到一个有序的序列, 扑克牌按花色、面值排序中介绍的方法二即是LSD 法。&lt;/p&gt;
+
+&lt;p&gt;基于LSD方法的链式基数排序的基本思想&lt;/p&gt;
+
+&lt;p&gt;　　“多关键字排序”的思想实现“单关键字排序”。对数字型或字符型的单关键字，可以看作由多个数位或多个字符构成的多关键字，此时可以采用“分配-收集”的方法进行排序，这一过程称作基数排序法，其中每个数字或字符可能的取值个数称为基数。比如，扑克牌的花色基数为4，面值基数为13。在整理扑克牌时，既可以先按花色整理，也可以先按面值整理。按花色整理时，先按红、黑、方、花的顺序分成4摞（分配），再按此顺序再叠放在一起（收集），然后按面值的顺序分成13摞（分配），再按此顺序叠放在一起（收集），如此进行二次分配和收集即可将扑克牌排列有序。&lt;/p&gt;
+
+&lt;p&gt;基数排序:&lt;/p&gt;
+
+&lt;p&gt;是按照低位先排序，然后收集；再按照高位排序，然后再收集；依次类推，直到最高位。有时候有些属性是有优先级顺序的，先按低优先级排序，再按高优先级排序。最后的次序就是高优先级高的在前，高优先级相同的低优先级高的在前。基数排序基于分别排序，分别收集，所以是稳定的。&lt;/p&gt;
+
+&lt;p&gt;算法实现：&lt;/p&gt;
+
+&lt;p&gt;Void RadixSort(Node L[],length,maxradix)&lt;br /&gt;
+{&lt;br /&gt;
+   int m,n,k,lsp;&lt;br /&gt;
+   k=1;m=1;&lt;br /&gt;
+   int temp[10][length-1];&lt;br /&gt;
+   Empty(temp); //清空临时空间&lt;br /&gt;
+   while(k&amp;lt;maxradix) //遍历所有关键字&lt;br /&gt;
+   {&lt;br /&gt;
+     for(int i=0;i&amp;lt;length;i++) //分配过程&lt;br /&gt;
+    {&lt;br /&gt;
+       if(L[i]&amp;lt;m)&lt;br /&gt;
+          Temp[0][n]=L[i];&lt;br /&gt;
+       else&lt;br /&gt;
+          Lsp=(L[i]/m)%10; //确定关键字&lt;br /&gt;
+       Temp[lsp][n]=L[i];&lt;br /&gt;
+       n++;&lt;br /&gt;
+   }&lt;br /&gt;
+   CollectElement(L,Temp); //收集&lt;br /&gt;
+   n=0;&lt;br /&gt;
+   m=m*10;&lt;br /&gt;
+  k++;&lt;br /&gt;
+ }&lt;br /&gt;
+}&lt;/p&gt;
+
+&lt;p&gt;总结
+各种排序的稳定性，时间复杂度和空间复杂度总结：&lt;/p&gt;
+
+&lt;p&gt;我们比较时间复杂度函数的情况：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;                         时间复杂度函数O(n)的增长情况
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;所以对n较大的排序记录。一般的选择都是时间复杂度为O(nlog2n)的排序方法。&lt;/p&gt;
+
+&lt;p&gt;时间复杂度来说：&lt;/p&gt;
+
+&lt;p&gt;(1)平方阶(O(n2))排序
+　　各类简单排序:直接插入、直接选择和冒泡排序；
+ (2)线性对数阶(O(nlog2n))排序
+　　快速排序、堆排序和归并排序；
+ (3)O(n1+§))排序,§是介于0和1之间的常数。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;   希尔排序 (4)线性阶(O(n))排序 　　基数排序，此外还有桶、箱排序。
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;说明：&lt;/p&gt;
+
+&lt;p&gt;当原表有序或基本有序时，直接插入排序和冒泡排序将大大减少比较次数和移动记录的次数，时间复杂度可降至O（n）；&lt;/p&gt;
+
+&lt;p&gt;而快速排序则相反，当原表基本有序时，将蜕化为冒泡排序，时间复杂度提高为O（n2）；&lt;/p&gt;
+
+&lt;p&gt;原表是否有序，对简单选择排序、堆排序、归并排序和基数排序的时间复杂度影响不大。&lt;/p&gt;
+
+&lt;p&gt;稳定性：&lt;/p&gt;
+
+&lt;p&gt;排序算法的稳定性:若待排序的序列中，存在多个具有相同关键字的记录，经过排序， 这些记录的相对次序保持不变，则称该算法是稳定的；若经排序后，记录的相对 次序发生了改变，则称该算法是不稳定的。 
+     稳定性的好处：排序算法如果是稳定的，那么从一个键上排序，然后再从另一个键上排序，第一个键排序的结果可以为第二个键排序所用。基数排序就是这样，先按低位排序，逐次按高位排序，低位相同的元素其顺序再高位也相同时是不会改变的。另外，如果排序算法稳定，可以避免多余的比较；&lt;/p&gt;
+
+&lt;p&gt;稳定的排序算法：冒泡排序、插入排序、归并排序和基数排序&lt;/p&gt;
+
+&lt;p&gt;不是稳定的排序算法：选择排序、快速排序、希尔排序、堆排序&lt;/p&gt;
+
+&lt;p&gt;选择排序算法准则：&lt;/p&gt;
+
+&lt;p&gt;每种排序算法都各有优缺点。因此，在实用时需根据不同情况适当选用，甚至可以将多种方法结合起来使用。&lt;/p&gt;
+
+&lt;p&gt;选择排序算法的依据&lt;/p&gt;
+
+&lt;p&gt;影响排序的因素有很多，平均时间复杂度低的算法并不一定就是最优的。相反，有时平均时间复杂度高的算法可能更适合某些特殊情况。同时，选择算法时还得考虑它的可读性，以利于软件的维护。一般而言，需要考虑的因素有以下四点：&lt;/p&gt;
+
+&lt;p&gt;1．待排序的记录数目n的大小；&lt;/p&gt;
+
+&lt;p&gt;2．记录本身数据量的大小，也就是记录中除关键字外的其他信息量的大小；&lt;/p&gt;
+
+&lt;p&gt;3．关键字的结构及其分布情况；&lt;/p&gt;
+
+&lt;p&gt;4．对排序稳定性的要求。&lt;/p&gt;
+
+&lt;p&gt;设待排序元素的个数为n.&lt;/p&gt;
+
+&lt;p&gt;1）当n较大，则应采用时间复杂度为O(nlog2n)的排序方法：快速排序、堆排序或归并排序序。&lt;/p&gt;
+
+&lt;p&gt;快速排序：是目前基于比较的内部排序中被认为是最好的方法，当待排序的关键字是随机分布时，快速排序的平均时间最短；
+       堆排序 ：  如果内存空间允许且要求稳定性的，&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;   归并排序：它有一定数量的数据移动，所以我们可能过与插入排序组合，先获得一定长度的序列，然后再合并，在效率上将有所提高。
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;2）  当n较大，内存空间允许，且要求稳定性 =》归并排序&lt;/p&gt;
+
+&lt;p&gt;3）当n较小，可采用直接插入或直接选择排序。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;直接插入排序：当元素分布有序，直接插入排序将大大减少比较次数和移动记录的次数。
+
+直接选择排序 ：元素分布有序，如果不要求稳定性，选择直接选择排序
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;5）一般不使用或不直接使用传统的冒泡排序。&lt;/p&gt;
+
+&lt;p&gt;6）基数排序
+它是一种稳定的排序算法，但有一定的局限性：
+　　1、关键字可分解。
+　　2、记录的关键字位数较少，如果密集更好
+　　3、如果是数字时，最好是无符号的，否则将增加相应的映射复杂度，可先将其正负分开排序。&lt;/p&gt;
+
+</description>
+        <pubDate>Sun, 28 May 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/%E7%A0%94%E7%A9%B6/2017/05/28/Sort.html</link>
+        <guid isPermaLink="true">http://localhost:4000/%E7%A0%94%E7%A9%B6/2017/05/28/Sort.html</guid>
+        
+        <category>Note</category>
+        
+        
+        <category>研究</category>
+        
+      </item>
     
       <item>
         <title>CCF Paper</title>
@@ -1150,46 +2288,6 @@ Alternatively, you can combine both the commands together as shown below.&lt;/li
         
         
         <category>研究</category>
-        
-      </item>
-    
-      <item>
-        <title>Conference List</title>
-        <description>&lt;h3 id=&quot;for-my-deadline&quot;&gt;For my deadline:&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;06-05 International Conference on Data Mining &lt;a href=&quot;http://www.cs.uvm.edu/~icdm/&quot;&gt;ICDM&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;aspire-to-inspire-until-i-expire-&quot;&gt;Aspire to inspire until I expire !&lt;/h3&gt;
-</description>
-        <pubDate>Sat, 18 Feb 2017 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/%E7%A0%94%E7%A9%B6/2017/02/18/ConferenceList.html</link>
-        <guid isPermaLink="true">http://localhost:4000/%E7%A0%94%E7%A9%B6/2017/02/18/ConferenceList.html</guid>
-        
-        <category>Note</category>
-        
-        
-        <category>研究</category>
-        
-      </item>
-    
-      <item>
-        <title>2017 兼职收入</title>
-        <description>&lt;br/&gt;
-12月上海交通大学RFID与物联网研究所：2000元&lt;br/&gt;
-&lt;br/&gt;
-1月上海交通大学研究补贴：1860元&lt;br/&gt;
-2月上海交通大学研究补贴：1500元&lt;br&gt;
-1月上海交通大学研究补贴：375元&lt;br/&gt;
-
-</description>
-        <pubDate>Tue, 03 Jan 2017 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/%E8%AE%B0%E5%BD%95/2017/01/03/Salary2017.html</link>
-        <guid isPermaLink="true">http://localhost:4000/%E8%AE%B0%E5%BD%95/2017/01/03/Salary2017.html</guid>
-        
-        
-        <category>记录</category>
         
       </item>
     
