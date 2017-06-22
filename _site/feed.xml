@@ -5,8 +5,8 @@
     <description>This is personnel website of Beili</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 22 Jun 2017 17:03:40 +0800</pubDate>
-    <lastBuildDate>Thu, 22 Jun 2017 17:03:40 +0800</lastBuildDate>
+    <pubDate>Thu, 22 Jun 2017 19:28:26 +0800</pubDate>
+    <lastBuildDate>Thu, 22 Jun 2017 19:28:26 +0800</lastBuildDate>
     <generator>Jekyll v3.4.3</generator>
     
       <item>
@@ -1198,8 +1198,6 @@ void MergeSort_recursive(ElemType &lt;em&gt;r, ElemType *rf, int n)&lt;br /&gt;
         <title>Introduction to Boosted Trees</title>
         <description>&lt;h2 id=&quot;introduction-to-boosted-trees&quot;&gt;Introduction to Boosted Trees&lt;/h2&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;J_\alpha(x) = \sum\limits_{m=0}^\infty \frac{(-1)^m}{m! \, \Gamma(m + \alpha + 1)}{\left({\frac{x}{2}}\right)}^{2 m + \alpha}&lt;/script&gt;
-
 &lt;p&gt;XGBoost is short for “Extreme Gradient Boosting”, where the term “Gradient Boosting” is proposed in the paper &lt;strong&gt;&lt;em&gt;Greedy Function Approximation: A Gradient Boosting Machine&lt;/em&gt;&lt;/strong&gt;, by Friedman. XGBoost is based on this original model. This is a tutorial on gradient boosted trees, and most of the content is based on these &lt;a href=&quot;http://homes.cs.washington.edu/~tqchen/pdf/BoostedTree.pdf&quot;&gt;slides&lt;/a&gt; by the author of xgboost.&lt;/p&gt;
 
 &lt;p&gt;The GBM (boosted trees) has been around for really a while, and there are a lot of materials on the topic. This tutorial tries to explain boosted trees in a self-contained and principled way using the elements of supervised learning. We think this explanation is cleaner, more formal, and motivates the variant used in xgboost&lt;/p&gt;
@@ -1210,34 +1208,40 @@ void MergeSort_recursive(ElemType &lt;em&gt;r, ElemType *rf, int n)&lt;br /&gt;
 
 &lt;h2 id=&quot;model-and-parameters&quot;&gt;Model and Parameters&lt;/h2&gt;
 
-&lt;p&gt;The model in supervised learning usually refers to the mathematical structure of how to make the prediction &lt;strong&gt;yi&lt;/strong&gt; given &lt;strong&gt;xi&lt;/strong&gt;. For example, a common model is a linear model, where the prediction is given by &lt;strong&gt;y^i=∑jθjxij&lt;/strong&gt;, a linear combination of weighted input features. The prediction value can have different interpretations, depending on the task, i.e., regression or classification. For example, it can be logistic transformed to get the probability of positive class in logistic regression, and it can also be used as a ranking score when we want to rank the outputs.&lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;&lt;em&gt;model&lt;/em&gt;&lt;/strong&gt; in supervised learning usually refers to the mathematical structure of how to make the prediction &lt;strong&gt;yi&lt;/strong&gt; given &lt;strong&gt;xi&lt;/strong&gt;. For example, a common model is a linear model, where the prediction is given by &lt;strong&gt;&lt;script type=&quot;math/tex&quot;&gt;\hat{y}_i = \sum_j \theta_j x_{ij}&lt;/script&gt;&lt;/strong&gt;, a linear combination of weighted input features. The prediction value can have different interpretations, depending on the task, i.e., regression or classification. For example, it can be logistic transformed to get the probability of positive class in logistic regression, and it can also be used as a ranking score when we want to rank the outputs.&lt;/p&gt;
 
-&lt;p&gt;The parameters are the undetermined part that we need to learn from data. In linear regression problems, the parameters are the coefficients [Math Processing Error]θ. Usually we will use [Math Processing Error]θ to denote the parameters (there are many parameters in a model, our definition here is sloppy&lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;&lt;em&gt;parameters&lt;/em&gt;&lt;/strong&gt; are the undetermined part that we need to learn from data. In linear regression problems, the parameters are the coefficients &lt;script type=&quot;math/tex&quot;&gt;θ&lt;/script&gt;. Usually we will use &lt;script type=&quot;math/tex&quot;&gt;θ&lt;/script&gt;  to denote the parameters (there are many parameters in a model, our definition here is sloppy)&lt;/p&gt;
 
 &lt;h2 id=&quot;objective-function--training-loss--regularization&quot;&gt;Objective Function : Training Loss + Regularization&lt;/h2&gt;
-&lt;p&gt;Based on different understandings of [Math Processing Error]yi we can have different problems, such as regression, classification, ordering, etc. We need to find a way to find the best parameters given the training data. In order to do so, we need to define a so-called objective function, to measure the performance of the model given a certain set of parameters.&lt;/p&gt;
+&lt;p&gt;Based on different understandings of &lt;strong&gt;&lt;em&gt;&lt;script type=&quot;math/tex&quot;&gt;y_i&lt;/script&gt;&lt;/em&gt;&lt;/strong&gt; we can have different problems, such as regression, classification, ordering, etc. We need to find a way to find the best parameters given the training data. In order to do so, we need to define a so-called objective function, to measure the performance of the model given a certain set of parameters.&lt;/p&gt;
 
 &lt;p&gt;A very important fact about objective functions is they must always contain two parts: training loss and regularization.&lt;/p&gt;
 
-&lt;p&gt;Obj(Θ)=L(θ)+Ω(Θ)
-where [Math Processing Error]L is the training loss function, and [Math Processing Error]Ω is the regularization term. The training loss measures how predictive our model is on training data. For example, a commonly used training loss is mean squared error.&lt;/p&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;Obj(\Theta) = L(\theta) + \Omega(\Theta)&lt;/script&gt;
 
-&lt;p&gt;L(θ)=∑i(yi−y^i)2
-Another commonly used loss function is logistic loss for logistic regression&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;where &lt;script type=&quot;math/tex&quot;&gt;L&lt;/script&gt; is the training loss function, and &lt;script type=&quot;math/tex&quot;&gt;Ω&lt;/script&gt;  is the regularization term. The training loss measures how predictive our model is on training data. For example, a commonly used training loss is mean squared error.&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&lt;p&gt;L(θ)=∑i[yiln⁡(1+e−y^i)+(1−yi)ln⁡(1+ey^i)]&lt;/p&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;L(\theta) = \sum_i (y_i-\hat{y}_i)^2&lt;/script&gt;
 
-&lt;p&gt;The regularization term is what people usually forget to add. The regularization term controls the complexity of the model, which helps us to avoid overfitting. This sounds a bit abstract, so let us consider the following problem in the following picture. You are asked to fit visually a step function given the input data points on the upper left corner of the image. Which solution among the three do you think is the best fit?&lt;/p&gt;
+&lt;p&gt;Another commonly used loss function is logistic loss for logistic regression&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;L(\theta) = \sum_i[ y_i\ln (1+e^{-\hat{y}_i}) + (1-y_i)\ln (1+e^{\hat{y}_i})]&lt;/script&gt;
+
+&lt;p&gt;The &lt;strong&gt;&lt;em&gt;regularization term&lt;/em&gt;&lt;/strong&gt; is what people usually forget to add. The regularization term controls the complexity of the model, which helps us to avoid overfitting. This sounds a bit abstract, so let us consider the following problem in the following picture. You are asked to fit visually a step function given the input data points on the upper left corner of the image. Which solution among the three do you think is the best fit?&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/xgboost_1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;he correct answer is marked in red. Please consider if this visually seems a reasonable fit to you. The general principle is we want both a simple and predictive model. The tradeoff between the two is also referred as bias-variance tradeoff in machine learning.&lt;/p&gt;
+&lt;p&gt;he correct answer is marked in red. Please consider if this visually seems a reasonable fit to you. The general principle is we want both a &lt;strong&gt;&lt;em&gt;simple&lt;/em&gt;&lt;/strong&gt; and &lt;strong&gt;&lt;em&gt;predictive&lt;/em&gt;&lt;/strong&gt; model. The tradeoff between the two is also referred as bias-variance tradeoff in machine learning.&lt;/p&gt;
 
-&lt;p&gt;Why introduce the general principle?
-The elements introduced above form the basic elements of supervised learning, and they are naturally the building blocks of machine learning toolkits. For example, you should be able to describe the differences and commonalities between boosted trees and random forests. Understanding the process in a formalized way also helps us to understand the objective that we are learning and the reason behind the heuristics such as pruning and smoothing.&lt;/p&gt;
+&lt;h2 id=&quot;why-introduce-the-general-principle&quot;&gt;Why introduce the general principle?&lt;/h2&gt;
 
-&lt;p&gt;Tree Ensemble
-Now that we have introduced the elements of supervised learning, let us get started with real trees. To begin with, let us first learn about the model of xgboost: tree ensembles. The tree ensemble model is a set of classification and regression trees (CART). Here’s a simple example of a CART that classifies whether someone will like computer games.&lt;/p&gt;
+&lt;p&gt;The elements introduced above form the basic elements of supervised learning, and they are naturally the building blocks of machine learning toolkits. For example, you should be able to describe the differences and commonalities between boosted trees and random forests. Understanding the process in a formalized way also helps us to understand the objective that we are learning and the reason behind the heuristics such as pruning and smoothing.&lt;/p&gt;
+
+&lt;h2 id=&quot;tree-ensemble&quot;&gt;Tree Ensemble&lt;/h2&gt;
+
+&lt;p&gt;Now that we have introduced the elements of supervised learning, let us get started with real trees. To begin with, let us first learn about the &lt;strong&gt;&lt;em&gt;model&lt;/em&gt;&lt;/strong&gt; of xgboost: tree ensembles. The tree ensemble model is a set of classification and regression trees (CART). Here’s a simple example of a CART that classifies whether someone will like computer games.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/xgboost_2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
@@ -1251,7 +1255,120 @@ Now that we have introduced the elements of supervised learning, let us get star
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;\hat{y}_i = \sum_{k=1}^K f_k(x_i), f_k \in \mathcal{F}&lt;/script&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\text{obj}(\theta) = \sum_i^n l(y_i, \hat{y}_i) + \sum_{k=1}^K \Omega(f_k)&lt;/script&gt;
+&lt;p&gt;where &lt;script type=&quot;math/tex&quot;&gt;K&lt;/script&gt; is the number of trees, &lt;script type=&quot;math/tex&quot;&gt;f&lt;/script&gt; is a function in the functional space &lt;script type=&quot;math/tex&quot;&gt;F&lt;/script&gt;, and &lt;script type=&quot;math/tex&quot;&gt;F&lt;/script&gt;  is the set of all possible CARTs. Therefore our objective to optimize can be written as&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;{obj}(\theta) = \sum_i^n l(y_i, \hat{y}_i) + \sum_{k=1}^K \Omega(f_k)&lt;/script&gt;
+
+&lt;p&gt;Now here comes the question, what is the model for random forests? It is exactly tree ensembles! So random forests and boosted trees are not different in terms of model, the difference is how we train them. This means if you write a predictive service of tree ensembles, you only need to write one of them and they should directly work for both random forests and boosted trees. One example of why elements of supervised learning rock.&lt;/p&gt;
+
+&lt;h2 id=&quot;tree-boosting&quot;&gt;Tree Boosting&lt;/h2&gt;
+
+&lt;p&gt;After introducing the model, let us begin with the real training part. How should we learn the trees? The answer is, as is always for all supervised learning models: define an objective function, and optimize it!&lt;/p&gt;
+
+&lt;p&gt;Assume we have the following objective function (remember it always needs to contain training loss and regularization)&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\begin{split}\text{obj} = \sum_{i=1}^n l(y_i, \hat{y}_i^{(t)}) + \sum_{i=1}^t\Omega(f_i) \end{split}&lt;/script&gt;
+
+&lt;h2 id=&quot;additive-training&quot;&gt;Additive Training&lt;/h2&gt;
+
+&lt;p&gt;First thing we want to ask is what are the &lt;strong&gt;&lt;em&gt;parameters&lt;/em&gt;&lt;/strong&gt; of trees? You can find that what we need to learn are those functions &lt;script type=&quot;math/tex&quot;&gt;f_i&lt;/script&gt;, with each containing the structure of the tree and the leaf scores. This is much harder than traditional optimization problem where you can take the gradient and go. It is not easy to train all the trees at once. Instead, we use an additive strategy: fix what we have learned, and add one new tree at a time. We write the prediction value at step &lt;script type=&quot;math/tex&quot;&gt;t&lt;/script&gt; as &lt;script type=&quot;math/tex&quot;&gt;\hat{y}_i^{(t)}&lt;/script&gt;, so we have&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{split}\hat{y}_i^{(0)} &amp;= 0\\
+\hat{y}_i^{(1)} &amp;= f_1(x_i) = \hat{y}_i^{(0)} + f_1(x_i)\\
+\hat{y}_i^{(2)} &amp;= f_1(x_i) + f_2(x_i)= \hat{y}_i^{(1)} + f_2(x_i)\\
+&amp;\dots\\
+\hat{y}_i^{(t)} &amp;= \sum_{k=1}^t f_k(x_i)= \hat{y}_i^{(t-1)} + f_t(x_i)
+\end{split} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;It remains to ask, which tree do we want at each step? A natural thing is to add the one that optimizes our objective.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{split}\text{obj}^{(t)} &amp; = \sum_{i=1}^n l(y_i, \hat{y}_i^{(t)}) + \sum_{i=1}^t\Omega(f_i) \\
+          &amp; = \sum_{i=1}^n l(y_i, \hat{y}_i^{(t-1)} + f_t(x_i)) + \Omega(f_t) + constant
+\end{split} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;If we consider using MSE as our loss function, it becomes the following form.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{split}\text{obj}^{(t)} &amp; = \sum_{i=1}^n (y_i - (\hat{y}_i^{(t-1)} + f_t(x_i)))^2 + \sum_{i=1}^t\Omega(f_i) \\
+          &amp; = \sum_{i=1}^n [2(\hat{y}_i^{(t-1)} - y_i)f_t(x_i) + f_t(x_i)^2] + \Omega(f_t) + constant
+\end{split} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;The form of MSE is friendly, with a first order term (usually called the residual) and a quadratic term. For other losses of interest (for example, logistic loss), it is not so easy to get such a nice form. So in the general case, we take the Taylor expansion of the loss function up to the second order&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\text{obj}^{(t)} = \sum_{i=1}^n [l(y_i, \hat{y}_i^{(t-1)}) + g_i f_t(x_i) + \frac{1}{2} h_i f_t^2(x_i)] + \Omega(f_t) + constant&lt;/script&gt;
+
+&lt;p&gt;where the &lt;script type=&quot;math/tex&quot;&gt;g_i&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;h_i&lt;/script&gt; are defined as:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{split}g_i &amp;= \partial_{\hat{y}_i^{(t-1)}} l(y_i, \hat{y}_i^{(t-1)})\\
+h_i &amp;= \partial_{\hat{y}_i^{(t-1)}}^2 l(y_i, \hat{y}_i^{(t-1)})
+\end{split} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;After we remove all the constants, the specific objective at step tt becomes&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\sum_{i=1}^n [g_i f_t(x_i) + \frac{1}{2} h_i f_t^2(x_i)] + \Omega(f_t)&lt;/script&gt;
+
+&lt;p&gt;This becomes our optimization goal for the new tree. One important advantage of this definition is that it only depends on &lt;script type=&quot;math/tex&quot;&gt;g_i&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;h_i&lt;/script&gt;. This is how xgboost can support custom loss functions. We can optimize every loss function, including logistic regression and weighted logistic regression, using exactly the same solver that takes gigi and hihi as input!&lt;/p&gt;
+
+&lt;h2 id=&quot;model-complexity&quot;&gt;Model Complexity&lt;/h2&gt;
+
+&lt;p&gt;We have introduced the training step, but wait, there is one important thing, the &lt;strong&gt;&lt;em&gt;regularization&lt;/em&gt;&lt;/strong&gt;! We need to define the complexity of the tree &lt;script type=&quot;math/tex&quot;&gt;\Omega(f)&lt;/script&gt;. In order to do so, let us first refine the definition of the tree &lt;script type=&quot;math/tex&quot;&gt;f(x)&lt;/script&gt; as&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;f_t(x) = w_{q(x)}, w \in R^T, q:R^d\rightarrow \{1,2,\cdots,T\} .&lt;/script&gt;
+
+&lt;p&gt;Here &lt;script type=&quot;math/tex&quot;&gt;w&lt;/script&gt; is the vector of scores on leaves, &lt;script type=&quot;math/tex&quot;&gt;q&lt;/script&gt; is a function assigning each data point to the corresponding leaf, and &lt;script type=&quot;math/tex&quot;&gt;T&lt;/script&gt; is the number of leaves. In XGBoost, we define the complexity as&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\Omega(f) = \gamma T + \frac{1}{2}\lambda \sum_{j=1}^T w_j^2&lt;/script&gt;
+
+&lt;p&gt;Of course there is more than one way to define the complexity, but this specific one works well in practice. The regularization is one part most tree packages treat less carefully, or simply ignore. This was because the traditional treatment of tree learning only emphasized improving impurity, while the complexity control was left to heuristics. By defining it formally, we can get a better idea of what we are learning, and yes it works well in practice.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-structure-score&quot;&gt;The Structure Score&lt;/h2&gt;
+&lt;p&gt;Here is the magical part of the derivation. After reformalizing the tree model, we can write the objective value with the &lt;script type=&quot;math/tex&quot;&gt;t&lt;/script&gt;-th tree as:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{split}Obj^{(t)} &amp;\approx \sum_{i=1}^n [g_i w_{q(x_i)} + \frac{1}{2} h_i w_{q(x_i)}^2] + \gamma T + \frac{1}{2}\lambda \sum_{j=1}^T w_j^2\\
+&amp;= \sum^T_{j=1} [(\sum_{i\in I_j} g_i) w_j + \frac{1}{2} (\sum_{i\in I_j} h_i + \lambda) w_j^2 ] + \gamma T
+\end{split} %]]&gt;&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;I_j=\{i|q(x_i)=j\}&lt;/script&gt;
+
+&lt;p&gt;where is the set of indices of data points assigned to the &lt;script type=&quot;math/tex&quot;&gt;j&lt;/script&gt;-th leaf. Notice that in the second line we have changed the index of the summation because all the data points on the same leaf get the same score. We could further compress the expression by defining&lt;/p&gt;
+
+&lt;p&gt;&lt;script type=&quot;math/tex&quot;&gt;G_j = \sum_{i\in I_j} g_i&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;H_j = \sum_{i\in I_j} h_i&lt;/script&gt;&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\text{obj}^{(t)} = \sum^T_{j=1} [G_jw_j + \frac{1}{2} (H_j+\lambda) w_j^2] +\gamma T&lt;/script&gt;
+
+&lt;p&gt;In this equation &lt;script type=&quot;math/tex&quot;&gt;w_j&lt;/script&gt; are independent with respect to each other, the form &lt;script type=&quot;math/tex&quot;&gt;G_jw_j+\frac{1}{2}(H_j+\lambda)w_j^2&lt;/script&gt; is quadratic and the best &lt;script type=&quot;math/tex&quot;&gt;w_j&lt;/script&gt; for a given structure &lt;script type=&quot;math/tex&quot;&gt;q(x)&lt;/script&gt;and the best objective reduction we can get is:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\begin{split}w_j^\ast = -\frac{G_j}{H_j+\lambda}\\
+\text{obj}^\ast = -\frac{1}{2} \sum_{j=1}^T \frac{G_j^2}{H_j+\lambda} + \gamma T
+\end{split}&lt;/script&gt;
+
+&lt;p&gt;The last equation measures &lt;strong&gt;&lt;em&gt;how good&lt;/em&gt;&lt;/strong&gt; a tree structure &lt;script type=&quot;math/tex&quot;&gt;q(x)&lt;/script&gt; is.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/xgboost_4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;If all this sounds a bit complicated, let’s take a look at the picture, and see how the scores can be calculated. Basically, for a given tree structure, we push the statistics &lt;script type=&quot;math/tex&quot;&gt;g_i&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;h_i&lt;/script&gt; to the leaves they belong to, sum the statistics together, and use the formula to calculate how good the tree is. This score is like the impurity measure in a decision tree, except that it also takes the model complexity into account.&lt;/p&gt;
+
+&lt;p&gt;##Learn the tree structure&lt;/p&gt;
+
+&lt;p&gt;Now that we have a way to measure how good a tree is, ideally we would enumerate all possible trees and pick the best one. In practice this is intractable, so we will try to optimize one level of the tree at a time. Specifically we try to split a leaf into two leaves, and the score it gains is&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;Gain = \frac{1}{2} \left[\frac{G_L^2}{H_L+\lambda}+\frac{G_R^2}{H_R+\lambda}-\frac{(G_L+G_R)^2}{H_L+H_R+\lambda}\right] - \gamma&lt;/script&gt;
+
+&lt;p&gt;This formula can be decomposed as 1) the score on the new left leaf 2) the score on the new right leaf 3) The score on the original leaf 4) regularization on the additional leaf. We can see an important fact here: if the gain is smaller than &lt;script type=&quot;math/tex&quot;&gt;\gamma&lt;/script&gt;, we would do better not to add that branch. This is exactly the &lt;strong&gt;&lt;em&gt;pruning&lt;/em&gt;&lt;/strong&gt; techniques in tree based models! By using the principles of supervised learning, we can naturally come up with the reason these techniques work :)&lt;/p&gt;
+
+&lt;p&gt;For real valued data, we usually want to search for an optimal split. To efficiently do so, we place all the instances in sorted order, like the following picture.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/xgboost_5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;A left to right scan is sufficient to calculate the structure score of all possible split solutions, and we can find the best split efficiently.&lt;/p&gt;
+
+&lt;h2 id=&quot;final-words-on-xgboost&quot;&gt;Final words on XGBoost&lt;/h2&gt;
+&lt;p&gt;Now that you understand what boosted trees are, you may ask, where is the introduction on &lt;a href=&quot;https://github.com/dmlc/xgboost&quot;&gt;XGBoost&lt;/a&gt;? XGBoost is exactly a tool motivated by the formal principle introduced in this tutorial! More importantly, it is developed with both deep consideration in terms of &lt;strong&gt;&lt;em&gt;systems optimization&lt;/em&gt;&lt;/strong&gt; and &lt;strong&gt;&lt;em&gt;principles in machine learning&lt;/em&gt;&lt;/strong&gt;. The goal of this library is to push the extreme of the computation limits of machines to provide a &lt;strong&gt;&lt;em&gt;scalable&lt;/em&gt;&lt;/strong&gt;, &lt;strong&gt;&lt;em&gt;portable&lt;/em&gt;&lt;/strong&gt; and &lt;strong&gt;&lt;em&gt;accurate&lt;/em&gt;&lt;/strong&gt; library. Make sure you &lt;a href=&quot;https://github.com/dmlc/xgboost&quot;&gt;try it out&lt;/a&gt;, and most importantly, contribute your piece of wisdom (code, examples, tutorials) to the community!&lt;/p&gt;
+
 </description>
         <pubDate>Wed, 10 May 2017 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/%E7%A0%94%E7%A9%B6/2017/05/10/XGBoost.html</link>
