@@ -124,6 +124,8 @@
 
             <h2 id="introduction-to-boosted-trees">Introduction to Boosted Trees</h2>
 
+<script type="math/tex; mode=display">J_\alpha(x) = \sum\limits_{m=0}^\infty \frac{(-1)^m}{m! \, \Gamma(m + \alpha + 1)}{\left({\frac{x}{2}}\right)}^{2 m + \alpha}</script>
+
 <p>XGBoost is short for “Extreme Gradient Boosting”, where the term “Gradient Boosting” is proposed in the paper <strong><em>Greedy Function Approximation: A Gradient Boosting Machine</em></strong>, by Friedman. XGBoost is based on this original model. This is a tutorial on gradient boosted trees, and most of the content is based on these <a href="http://homes.cs.washington.edu/~tqchen/pdf/BoostedTree.pdf">slides</a> by the author of xgboost.</p>
 
 <p>The GBM (boosted trees) has been around for really a while, and there are a lot of materials on the topic. This tutorial tries to explain boosted trees in a self-contained and principled way using the elements of supervised learning. We think this explanation is cleaner, more formal, and motivates the variant used in xgboost</p>
@@ -173,10 +175,9 @@ Now that we have introduced the elements of supervised learning, let us get star
 
 <p>Here is an example of a tree ensemble of two trees. The prediction scores of each individual tree are summed up to get the final score. If you look at the example, an important fact is that the two trees try to complement each other. Mathematically, we can write our model in the form</p>
 
-<pre><code>\hat{y}_i = \sum_{k=1}^K f_k(x_i), f_k \in \mathcal{F}
-</code></pre>
+<script type="math/tex; mode=display">\hat{y}_i = \sum_{k=1}^K f_k(x_i), f_k \in \mathcal{F}</script>
 
-<p>\text{obj}(\theta) = \sum_i^n l(y_i, \hat{y}<em>i) + \sum</em>{k=1}^K \Omega(f_k)</p>
+<script type="math/tex; mode=display">\text{obj}(\theta) = \sum_i^n l(y_i, \hat{y}_i) + \sum_{k=1}^K \Omega(f_k)</script>
 
 
             <!-- Comments -->
