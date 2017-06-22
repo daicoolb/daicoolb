@@ -5,8 +5,8 @@
     <description>This is personnel website of Beili</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 22 Jun 2017 00:00:48 +0800</pubDate>
-    <lastBuildDate>Thu, 22 Jun 2017 00:00:48 +0800</lastBuildDate>
+    <pubDate>Thu, 22 Jun 2017 16:58:34 +0800</pubDate>
+    <lastBuildDate>Thu, 22 Jun 2017 16:58:34 +0800</lastBuildDate>
     <generator>Jekyll v3.4.3</generator>
     
       <item>
@@ -18,7 +18,8 @@
 &lt;p&gt;Apache Spark 是一个新兴的大数据处理通用引擎，提供了分布式的内存抽象。Spark 最大的特点就是快，可比 Hadoop MapReduce 的处理速度快 100 倍。本指南将介绍 Spark 的安装与基本使用。请务必仔细阅读完厦门大学林子雨编著的《大数据技术原理与应用》第16章节（&lt;a href=&quot;http://dblab.xmu.edu.cn/wp-content/uploads/2016/01/%E5%8E%A6%E9%97%A8%E5%A4%A7%E5%AD%A6%E6%9E%97%E5%AD%90%E9%9B%A8%E7%BC%96%E8%91%97-%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8-%E7%94%B5%E5%AD%90%E4%B9%A6-%E7%AC%AC16%E7%AB%A0-Spark%EF%BC%882016%E5%B9%B44%E6%9C%8820%E6%97%A5%E7%89%88%E6%9C%AC%EF%BC%89.pdf&quot;&gt;点击这里下载第十六章Spark的pdf电子书&lt;/a&gt;，再结合本指南进行学习。&lt;/p&gt;
 
 &lt;h2 id=&quot;一安装-spark&quot;&gt;一、安装 Spark&lt;/h2&gt;
-&lt;p&gt;访问Spark官方下载地址，按照如下图下载。&lt;/p&gt;
+&lt;p&gt;访问&lt;a href=&quot;http://spark.apache.org/downloads.html&quot;&gt;Spark官方下载地址&lt;/a&gt;，按照如下图下载。
+&lt;img src=&quot;http://localhost:4000/assets/images/spark_1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;该部分介绍了单机中 Spark 的安装。我们选择Spark 1.6.2版本教学。该教程的具体运行环境如下：&lt;/p&gt;
 
@@ -35,7 +36,7 @@
 
 &lt;h2 id=&quot;安装java-jdk&quot;&gt;安装JAVA JDK&lt;/h2&gt;
 
-&lt;p&gt;安装Hadoop的过程就已经要求安装JAVA JDK了。如果没有，请参考Hadoop安装教程_单机/伪分布式配置_Hadoop2.6.0/Ubuntu14.04进行安装配置。&lt;/p&gt;
+&lt;p&gt;安装Hadoop的过程就已经要求安装JAVA JDK了。如果没有，请参考&lt;a href=&quot;http://dblab.xmu.edu.cn/blog/install-hadoop/&quot;&gt;Hadoop安装教程_单机/伪分布式配置_Hadoop2.6.0/Ubuntu14.04&lt;/a&gt;进行安装配置。&lt;/p&gt;
 
 &lt;h2 id=&quot;安装spark&quot;&gt;安装Spark&lt;/h2&gt;
 &lt;pre&gt;&lt;code&gt;sudo tar -zxf ~/下载/spark-1.6.2-bin-without-hadoop.tgz -C /usr/local/
@@ -55,9 +56,9 @@ export SPARK_DIST_CLASSPATH=$(/usr/local/hadoop/bin/hadoop classpath)
 
 &lt;p&gt;执行时会输出非常多的运行信息，输出结果不容易找到，可以通过 grep 命令进行过滤（命令中的 2&amp;gt;&amp;amp;1 可以将所有的信息都输出到 stdout 中，否则由于输出日志的性质，还是会输出到屏幕中）:
 	bin/run-example SparkPi 2&amp;gt;&amp;amp;1 | grep “Pi is”
-这里涉及到Linux Shell中管道的知识，详情可以参考Linux Shell中的管道命令
-过滤后的运行结果如下图示，可以得到π 的 5 位小数近似值：&lt;/p&gt;
-
+这里涉及到Linux Shell中管道的知识，详情可以参考&lt;a href=&quot;http://dblab.xmu.edu.cn/blog/824-2/&quot;&gt;Linux Shell中的管道命令&lt;/a&gt;
+过滤后的运行结果如下图示，可以得到π 的 5 位小数近似值：
+&lt;img src=&quot;http://localhost:4000/assets/images/spark_6.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 &lt;h2 id=&quot;二使用-spark-shell-编写代码&quot;&gt;二、使用 Spark Shell 编写代码&lt;/h2&gt;
 &lt;p&gt;学习Spark程序开发，建议首先通过spark-shell交互式学习，加深Spark程序开发的理解。
 该部分介绍了 Spark Shell 的基本使用。Spark shell 提供了简单的方式来学习 API，也提供了交互的方式来分析数据。&lt;/p&gt;
@@ -66,9 +67,11 @@ export SPARK_DIST_CLASSPATH=$(/usr/local/hadoop/bin/hadoop classpath)
 
 &lt;h2 id=&quot;启动spark-shell&quot;&gt;启动Spark Shell&lt;/h2&gt;
 
-&lt;p&gt;bin/spark-shell
-启动spark-shell后，会自动创建名为sc的spark context对象和名为sqlContext的sql context对象,如图：
-&lt;img src=&quot;http://localhost:4000/assets/images/spark_1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;bin/spark-shell&lt;/p&gt;
+
+&lt;p&gt;启动spark-shell后，会自动创建名为sc的spark context对象和名为sqlContext的sql context对象,如图：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/spark_3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 &lt;h2 id=&quot;加载text文件&quot;&gt;加载text文件&lt;/h2&gt;
 
 &lt;p&gt;spark创建sc，可以加载本地文件和HDFS文件创建RDD。这里用Spark自带的本地文件README.md文件测试。&lt;/p&gt;
@@ -106,23 +109,36 @@ textFile.map(line =&amp;gt; line.split(&quot; &quot;).size).reduce((a, b) =&amp;
 
 &lt;p&gt;安装sbt
 sbt是一款Spark用来对scala编写程序进行打包的工具，这里简单介绍sbt的安装过程，感兴趣的读者可以参考官网资料了解更多关于sbt的内容。
-Spark 中没有自带 sbt，这里直接给出sbt-launch.jar的下载地址，直接点击下载即可。
+Spark 中没有自带 sbt，这里直接给出&lt;a href=&quot;https://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/sbt-launch/0.13.11/sbt-launch.jar&quot;&gt;sbt-launch.jar的下载地址&lt;/a&gt;，直接点击下载即可。
 我们选择安装在 /usr/local/sbt 中：&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;sudo mkdir /usr/local/sbt
 sudo chown -R hadoop /usr/local/sbt      # 此处的 hadoop 为你的用户名
-cd /usr/local/sbt 下载后，执行如下命令拷贝至 /usr/local/sbt 中：
-
-cp ~/下载/sbt-launch.jar . 接着在 /usr/local/sbt 中创建 sbt 脚本（vim ./sbt），添加如下内容：
-
-#!/bin/bash
-SBT_OPTS=&quot;-Xms512M -Xmx1536M -Xss1M -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=256M&quot;
-java $SBT_OPTS -jar `dirname $0`/sbt-launch.jar &quot;$@&quot; 保存后，为 ./sbt 脚本增加可执行权限：
-
-chmod u+x ./sbt 最后运行如下命令，检验 sbt 是否可用（请确保电脑处于联网状态，首次运行会处于 “Getting org.scala-sbt sbt 0.13.11 …” 的下载状态，请耐心等待。笔者等待了 7 分钟才出现第一条下载提示）：
-
-./sbt sbt-version 只要能得到如下图的版本信息就没问题：
+cd /usr/local/sbt
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;下载后，执行如下命令拷贝至 /usr/local/sbt 中：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cp ~/下载/sbt-launch.jar .
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;接着在 /usr/local/sbt 中创建 sbt 脚本（vim ./sbt），添加如下内容：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#!/bin/bash
+SBT_OPTS=&quot;-Xms512M -Xmx1536M -Xss1M -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=256M&quot;
+java $SBT_OPTS -jar `dirname $0`/sbt-launch.jar &quot;$@&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;保存后，为 ./sbt 脚本增加可执行权限：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;chmod u+x ./sbt 最后运行如下命令，检验 sbt 是否可用（请确保电脑处于联网状态，首次运行会处于 “Getting org.scala-sbt sbt 0.13.11 …” 的下载状态，请耐心等待。笔者等待了 7 分钟才出现第一条下载提示）：
+
+./sbt sbt-version
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;只要能得到如下图的版本信息就没问题：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/spark_10.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Scala应用程序代码
 在终端中执行如下命令创建一个文件夹 sparkapp 作为应用程序根目录：&lt;/p&gt;
@@ -155,20 +171,32 @@ object SimpleApp {
 &lt;pre&gt;&lt;code&gt;name := &quot;Simple Project&quot;
 version := &quot;1.0&quot;
 scalaVersion := &quot;2.10.5&quot;
-libraryDependencies += &quot;org.apache.spark&quot; %% &quot;spark-core&quot; % &quot;1.6.2&quot; 文件 simple.sbt 需要指明 Spark 和 Scala 的版本。在上面的配置信息中，scalaVersion用来指定scala的版本，sparkcore用来指定spark的版本，这两个版本信息都可以在之前的启动 Spark shell 的过程中，从屏幕的显示信息中找到。下面就是笔者在启动过程当中，看到的相关版本信息（备注：屏幕显示信息会很长，需要往回滚动屏幕仔细寻找信息）。
+libraryDependencies += &quot;org.apache.spark&quot; %% &quot;spark-core&quot; % &quot;1.6.2&quot;
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;文件 simple.sbt 需要指明 Spark 和 Scala 的版本。在上面的配置信息中，scalaVersion用来指定scala的版本，sparkcore用来指定spark的版本，这两个版本信息都可以在之前的启动 Spark shell 的过程中，从屏幕的显示信息中找到。下面就是笔者在启动过程当中，看到的相关版本信息（备注：屏幕显示信息会很长，需要往回滚动屏幕仔细寻找信息）。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/spark_8.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;使用 sbt 打包 Scala 程序
 为保证 sbt 能正常运行，先执行如下命令检查整个应用程序的文件结构：&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;cd ~/sparkapp
-find . 文件结构应如下图所示：
+find .
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;文件结构应如下图所示：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/spark_7.png}&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;接着，我们就可以通过如下代码将整个应用程序打包成 JAR（首次运行同样需要下载依赖包 ）：&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;/usr/local/sbt/sbt package 打包成功的话，会输出如下图内容：
+&lt;pre&gt;&lt;code&gt;/usr/local/sbt/sbt package
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;打包成功的话，会输出如下图内容：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/spark_5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;生成的 jar 包的位置为 ~/sparkapp/target/scala-2.10/simple-project_2.10-1.0.jar。&lt;/p&gt;
 
@@ -188,7 +216,7 @@ find . 文件结构应如下图所示：
 &lt;h2 id=&quot;java独立应用编程&quot;&gt;Java独立应用编程&lt;/h2&gt;
 
 &lt;p&gt;安装maven
-ubuntu中没有自带安装maven，需要手动安装maven。可以访问maven官方下载自己下载。这里直接给出apache-maven-3.3.9-bin.zip的下载地址,直接点击下载即可。
+ubuntu中没有自带安装maven，需要手动安装maven。可以访问&lt;a href=&quot;https://maven.apache.org/download.cgi#Files&quot;&gt;maven官方下载&lt;/a&gt;自己下载。这里直接给出&lt;a href=&quot;http://apache.fayea.com/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.zip&quot;&gt;apache-maven-3.3.9-bin.zip&lt;/a&gt;的下载地址,直接点击下载即可。
 选择安装在/usr/local/maven中：&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;sudo unzip ~/下载/apache-maven-3.3.9-bin.zip -d /usr/local
@@ -249,29 +277,44 @@ public class SimpleApp {
 		&amp;lt;version&amp;gt;2.0.0-preview&amp;lt;/version&amp;gt;
 	&amp;lt;/dependency&amp;gt;
 &amp;lt;/dependencies&amp;gt;
-&amp;lt;/project&amp;gt; 关于Spark dependency的依赖关系，可以访问The Central Repository。搜索spark-core可以找到相关依赖关系信息。
+&amp;lt;/project&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;关于Spark dependency的依赖关系，可以访问&lt;a href=&quot;http://search.maven.org/&quot;&gt;The Central Repository&lt;/a&gt;。搜索spark-core可以找到相关依赖关系信息。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/spark_4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;使用maven打包java程序
 为了保证maven能够正常运行，先执行如下命令检查整个应用程序的文件结构:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;cd ~/sparkapp2
-find 文件结构如下图：
+find
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;文件结构如下图：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/spark_9.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;接着，我们可以通过如下代码将这整个应用程序打包成Jar(注意：电脑需要保持连接网络的状态，而且首次运行同样下载依赖包，同样消耗几分钟的时间):&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;/usr/local/maven/bin/mvn package 如出现下图，说明生成Jar包成功：
+&lt;pre&gt;&lt;code&gt;/usr/local/maven/bin/mvn package
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;如出现下图，说明生成Jar包成功：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/spark_2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;通过spark-submit 运行程序
 最后，可以通过将生成的jar包通过spark-submit提交到Spark中运行，如下命令：&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;/usr/local/spark/bin/spark-submit --class &quot;SimpleApp&quot; ~/sparkapp2/target/simple-project-1.0.jar
 # 上面命令执行后会输出太多信息，可以不使用上面命令，而使用下面命令查看想要的结果
-/usr/local/spark/bin/spark-submit --class &quot;SimpleApp&quot; ~/sparkapp2/target/simple-project-1.0.jar 2&amp;gt;&amp;amp;1 | grep &quot;Lines with a&quot; 最后得到的结果如下:
+/usr/local/spark/bin/spark-submit --class &quot;SimpleApp&quot; ~/sparkapp2/target/simple-project-1.0.jar 2&amp;gt;&amp;amp;1 | grep &quot;Lines with a&quot;
+&lt;/code&gt;&lt;/pre&gt;
 
-Lines with a: 58, Lines with b: 26
+&lt;p&gt;最后得到的结果如下:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Lines with a: 58, Lines with b: 26
 &lt;/code&gt;&lt;/pre&gt;
 
 </description>
@@ -1143,6 +1186,75 @@ void MergeSort_recursive(ElemType &lt;em&gt;r, ElemType *rf, int n)&lt;br /&gt;
         <pubDate>Sun, 28 May 2017 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/%E7%A0%94%E7%A9%B6/2017/05/28/Sort.html</link>
         <guid isPermaLink="true">http://localhost:4000/%E7%A0%94%E7%A9%B6/2017/05/28/Sort.html</guid>
+        
+        <category>Note</category>
+        
+        
+        <category>研究</category>
+        
+      </item>
+    
+      <item>
+        <title>Introduction to Boosted Trees</title>
+        <description>&lt;h2 id=&quot;introduction-to-boosted-trees&quot;&gt;Introduction to Boosted Trees&lt;/h2&gt;
+
+&lt;p&gt;XGBoost is short for “Extreme Gradient Boosting”, where the term “Gradient Boosting” is proposed in the paper &lt;strong&gt;&lt;em&gt;Greedy Function Approximation: A Gradient Boosting Machine&lt;/em&gt;&lt;/strong&gt;, by Friedman. XGBoost is based on this original model. This is a tutorial on gradient boosted trees, and most of the content is based on these &lt;a href=&quot;http://homes.cs.washington.edu/~tqchen/pdf/BoostedTree.pdf&quot;&gt;slides&lt;/a&gt; by the author of xgboost.&lt;/p&gt;
+
+&lt;p&gt;The GBM (boosted trees) has been around for really a while, and there are a lot of materials on the topic. This tutorial tries to explain boosted trees in a self-contained and principled way using the elements of supervised learning. We think this explanation is cleaner, more formal, and motivates the variant used in xgboost&lt;/p&gt;
+
+&lt;h2 id=&quot;elements-of-supervised-learning&quot;&gt;Elements of Supervised Learning&lt;/h2&gt;
+
+&lt;p&gt;XGBoost is used for supervised learning problems, where we use the training data (with multiple features) &lt;strong&gt;xi&lt;/strong&gt; to predict a target variable &lt;strong&gt;yi&lt;/strong&gt;. Before we dive into trees, let us start by reviewing the basic elements in supervised learning&lt;/p&gt;
+
+&lt;h2 id=&quot;model-and-parameters&quot;&gt;Model and Parameters&lt;/h2&gt;
+
+&lt;p&gt;The model in supervised learning usually refers to the mathematical structure of how to make the prediction &lt;strong&gt;yi&lt;/strong&gt; given &lt;strong&gt;xi&lt;/strong&gt;. For example, a common model is a linear model, where the prediction is given by &lt;strong&gt;y^i=∑jθjxij&lt;/strong&gt;, a linear combination of weighted input features. The prediction value can have different interpretations, depending on the task, i.e., regression or classification. For example, it can be logistic transformed to get the probability of positive class in logistic regression, and it can also be used as a ranking score when we want to rank the outputs.&lt;/p&gt;
+
+&lt;p&gt;The parameters are the undetermined part that we need to learn from data. In linear regression problems, the parameters are the coefficients [Math Processing Error]θ. Usually we will use [Math Processing Error]θ to denote the parameters (there are many parameters in a model, our definition here is sloppy&lt;/p&gt;
+
+&lt;h2 id=&quot;objective-function--training-loss--regularization&quot;&gt;Objective Function : Training Loss + Regularization&lt;/h2&gt;
+&lt;p&gt;Based on different understandings of [Math Processing Error]yi we can have different problems, such as regression, classification, ordering, etc. We need to find a way to find the best parameters given the training data. In order to do so, we need to define a so-called objective function, to measure the performance of the model given a certain set of parameters.&lt;/p&gt;
+
+&lt;p&gt;A very important fact about objective functions is they must always contain two parts: training loss and regularization.&lt;/p&gt;
+
+&lt;p&gt;Obj(Θ)=L(θ)+Ω(Θ)
+where [Math Processing Error]L is the training loss function, and [Math Processing Error]Ω is the regularization term. The training loss measures how predictive our model is on training data. For example, a commonly used training loss is mean squared error.&lt;/p&gt;
+
+&lt;p&gt;L(θ)=∑i(yi−y^i)2
+Another commonly used loss function is logistic loss for logistic regression&lt;/p&gt;
+
+&lt;p&gt;L(θ)=∑i[yiln⁡(1+e−y^i)+(1−yi)ln⁡(1+ey^i)]&lt;/p&gt;
+
+&lt;p&gt;The regularization term is what people usually forget to add. The regularization term controls the complexity of the model, which helps us to avoid overfitting. This sounds a bit abstract, so let us consider the following problem in the following picture. You are asked to fit visually a step function given the input data points on the upper left corner of the image. Which solution among the three do you think is the best fit?&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/xgboost_1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;he correct answer is marked in red. Please consider if this visually seems a reasonable fit to you. The general principle is we want both a simple and predictive model. The tradeoff between the two is also referred as bias-variance tradeoff in machine learning.&lt;/p&gt;
+
+&lt;p&gt;Why introduce the general principle?
+The elements introduced above form the basic elements of supervised learning, and they are naturally the building blocks of machine learning toolkits. For example, you should be able to describe the differences and commonalities between boosted trees and random forests. Understanding the process in a formalized way also helps us to understand the objective that we are learning and the reason behind the heuristics such as pruning and smoothing.&lt;/p&gt;
+
+&lt;p&gt;Tree Ensemble
+Now that we have introduced the elements of supervised learning, let us get started with real trees. To begin with, let us first learn about the model of xgboost: tree ensembles. The tree ensemble model is a set of classification and regression trees (CART). Here’s a simple example of a CART that classifies whether someone will like computer games.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/xgboost_2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We classify the members of a family into different leaves, and assign them the score on the corresponding leaf. A CART is a bit different from decision trees, where the leaf only contains decision values. In CART, a real score is associated with each of the leaves, which gives us richer interpretations that go beyond classification. This also makes the unified optimization step easier, as we will see in a later part of this tutorial.&lt;/p&gt;
+
+&lt;p&gt;Usually, a single tree is not strong enough to be used in practice. What is actually used is the so-called tree ensemble model, which sums the prediction of multiple trees together.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/xgboost_3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Here is an example of a tree ensemble of two trees. The prediction scores of each individual tree are summed up to get the final score. If you look at the example, an important fact is that the two trees try to complement each other. Mathematically, we can write our model in the form&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;\hat{y}_i = \sum_{k=1}^K f_k(x_i), f_k \in \mathcal{F}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;\text{obj}(\theta) = \sum_i^n l(y_i, \hat{y}&lt;em&gt;i) + \sum&lt;/em&gt;{k=1}^K \Omega(f_k)&lt;/p&gt;
+</description>
+        <pubDate>Wed, 10 May 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/%E7%A0%94%E7%A9%B6/2017/05/10/XGBoost.html</link>
+        <guid isPermaLink="true">http://localhost:4000/%E7%A0%94%E7%A9%B6/2017/05/10/XGBoost.html</guid>
         
         <category>Note</category>
         
@@ -2078,220 +2190,6 @@ Alternatively, you can combine both the commands together as shown below.&lt;/li
         
         
         <category>读书</category>
-        
-      </item>
-    
-      <item>
-        <title>Advice For Graduate Students</title>
-        <description>&lt;h2 id=&quot;some-modest-advice-for-graduate-students&quot;&gt;&lt;a href=&quot;http://stearnslab.yale.edu/some-modest-advice-graduate-students&quot;&gt;Some Modest Advice for Graduate Students&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;by Stephen C. Stearns&lt;/p&gt;
-
-&lt;h2 id=&quot;always-prepare-for-the-worst&quot;&gt;&lt;strong&gt;Always Prepare for the Worst.&lt;/strong&gt;&lt;/h2&gt;
-
-&lt;p&gt;Some of the greatest catastrophes in graduate education could have been avoided by a little intelligent foresight. Be cynical. Assume that your proposed research might not work, and that one of your faculty advisers might become unsupportive - or even hostile. Plan for alternatives.&lt;/p&gt;
-
-&lt;h2 id=&quot;nobody-cares-about-you&quot;&gt;&lt;strong&gt;Nobody cares about you.&lt;/strong&gt;&lt;/h2&gt;
-
-&lt;p&gt;In fact, some professors care about you and some don’t. Most probably do, but all are busy, which means in practice they cannot care about you because they don’t have the time. You are on your own, and you had better get used to it. This has a lot of implications. Here are two important ones:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;You had better decide early on that you are in charge of your program. The degree you get is yours to create. Your major professor can advise you and protect you to a certain extent from bureaucratic and financial demons, but he should not tell you what to do. That is up to you. If you need advice, ask for it: that’s his job.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;If you want to pick somebody’s brains, you’ll have to go to him or her, because they won’t be coming to you.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;you-must-know-why-your-work-is-important&quot;&gt;&lt;strong&gt;You Must Know Why Your Work is Important.&lt;/strong&gt;&lt;/h2&gt;
-
-&lt;p&gt;When you first arrive, read and think widely and exhaustively for a year. Assume that everything you read is bullshit until the author manages to convince you that it isn’t. If you do not understand something, don’t feel bad - it’s not your fault, it’s the author’s. He didn’t write clearly enough.&lt;/p&gt;
-
-&lt;p&gt;If some authority figure tells you that you aren’t accomplishing anything because you aren’t taking courses and you aren’t gathering data, tell him what you’re up to. If he persists, tell him to bug off, because you know what you’re doing, dammit.&lt;/p&gt;
-
-&lt;p&gt;This is a hard stage to get through because you will feel guilty about not getting going on your own research. You will continually be asking yourself, “What am I doing here?” Be patient. This stage is critical to your personal development and to maintaining the flow of new ideas into science. Here you decide what constitutes an important problem. You must arrive at this decision independently for two reasons. First, if someone hands you a problem, you won’t feel that it is yours, you won’t have that possessiveness that makes you want to work on it, defend it, fight for it, and make it come out beautifully. Secondly, your PhD work will shape your future. It is your choice of a field in which to carry out a life’s work. It is also important to the dynamic of science that your entry be well thought out. This is one point where you can start a whole new area of research. Remember, what sense does it make to start gathering data if you don’t know - and I mean really know - why you’re doing it?&lt;/p&gt;
-
-&lt;h2 id=&quot;psychological-problems-are-the-biggest-barrier&quot;&gt;&lt;strong&gt;Psychological Problems are the Biggest Barrier.&lt;/strong&gt;&lt;/h2&gt;
-
-&lt;p&gt;You must establish a firm psychological stance early in your graduate career to keep from being buffeted by the many demands that will be made on your time. If you don’t watch out, the pressures of course work, teaching, language requirements and who knows what else will push you around like a large, docile molecule in Brownian motion. Here are a few things to watch out for:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;The initiation-rite nature of the PhD and its power to convince you that your value as a person is being judged. No matter how hard you try, you won’t be able to avoid this one. No one does. It stems from the open-ended nature of the thesis problem. You have to decide what a “good” thesis is. A thesis can always be made better, which gets you into an infinite regress of possible improvements.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Recognize that you cannot produce a “perfect” thesis. There are going to be flaws in it, as there are in everything. Settle down to make it as good as you can within the limits of time, money, energy, encouragement and thought at your disposal.&lt;/p&gt;
-
-&lt;p&gt;You can alleviate this problem by jumping all the explicit hurdles early in the game. Get all of your course requirements and examinations out of the way as soon as possible. Not only do you thereby clear the decks for your thesis, but you also convince yourself, by successfully jumping each hurdle, that you probably are good enough after all.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;Nothing elicits dominant behavior like subservient behavior. Expect and demand to be treated like a colleague. The paper requirements are the explicit hurdle you will have to jump, but the implicit hurdle is attaining the status of a colleague. Act like one and you’ll be treated like one.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Graduate school is only one of the tools that you have at hand for shaping your own development. Be prepared to quit for awhile if something better comes up. There are three good reasons to do this.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;First, a real opportunity could arise that is more productive and challenging than anything you could do in graduate school and that involves a long enough block of time to justify dropping out. Examples include field work in Africa on a project not directly related to your PhD work, a contract for software development, an opportunity to work as an aide in the nation’s capital in the formulation of science policy, or an internship at a major newspaper or magazine as a science journalist.&lt;/p&gt;
-
-&lt;p&gt;Secondly, only by keeping this option open can you function with true independence as a graduate student. If you perceive graduate school as your only option, you will be psychologically labile, inclined to get a bit desperate and insecure, and you will not be able to give your best.&lt;/p&gt;
-
-&lt;p&gt;Thirdly, if things really are not working out for you, then you are only hurting yourself and denying resources to others by staying in graduate school. There are a lot of interesting things to do in life besides being a scientist, and in some the job market is a lot better. If science is not turning you on, perhaps you should try something else. However, do not go off half-cocked. This is a serious decision. Be sure to talk to fellow graduate students and sympathetic faculty before making up your mind.&lt;/p&gt;
-
-&lt;h2 id=&quot;avoid-taking-lectures---theyre-usually-inefficient&quot;&gt;&lt;strong&gt;Avoid Taking Lectures - They’re Usually Inefficient.&lt;/strong&gt;&lt;/h2&gt;
-
-&lt;p&gt;If you already have a good background in your field, then minimize the number of additional courses you take. This recommendation may seem counterintuitive, but it has a sound basis. Right now, you need to learn how to think for yourself. This requires active engagement, not passive listening and regurgitation.&lt;/p&gt;
-
-&lt;p&gt;To learn to think, you need two things: large blocks of time, and as much one-on-one interaction as you can get with someone who thinks more clearly than you do.&lt;/p&gt;
-
-&lt;p&gt;Courses just get in the way, and if you are well motivated, then reading and discussion is much more efficient and broadening than lectures. It is often a good idea to get together with a few colleagues, organize a seminar on a subject of interest, and invite a few faculty to take part. They’ll probably be delighted. After all, it will be interesting for them, they’ll love your initiative - and it will give them credit for teaching a course for which they don’t have to do any work. How can you lose?&lt;/p&gt;
-
-&lt;p&gt;These comments of course do not apply to courses that teach specific skills: e.g., electron microscopy, histological technique, scuba diving.&lt;/p&gt;
-
-&lt;h2 id=&quot;write-a-proposal-and-get-it-criticized&quot;&gt;&lt;strong&gt;Write a Proposal and Get It Criticized.&lt;/strong&gt;&lt;/h2&gt;
-
-&lt;h2 id=&quot;a-research-proposal-serves-many-functions&quot;&gt;&lt;strong&gt;A research proposal serves many functions.&lt;/strong&gt;&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;By summarizing your year’s thinking and reading, it ensures that you have gotten something out of it.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;It makes it possible for you to defend your independence by providing a concrete demonstration that you used your time well.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;It literally makes it possible for others to help you. What you have in mind is too complex to be communicated verbally - too subtle, and in too many parts. It must be put down in a well-organized, clearly and concisely written document that can be circulated to a few good minds. Only with a proposal before them can they give you constructive criticism.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;You need practice writing. We all do.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Having located your problem and satisfied yourself that it is important, you will have to convince your colleagues that you are not totally demented and, in fact, deserve support. One way to organize a proposal to accomplish this goal is:&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;a. A brief statement of what you propose, couched as a question or hypothesis.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;b. Why it is important scientifically, not why it is important to you personally, and how it fits into the broader scheme of ideas in your field.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;c. A literature review that substantiates (b).&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;d. Describe your problem as a series of subproblems that can each be attacked in a series of small steps. Devise experiments, observations or analyses that will permit you to exclude alternatives at each stage. Line them up and start knocking them down. By transforming the big problem into a series of smaller ones, you always know what to do next, you lower the energy threshold to begin work, you identify the part that will take the longest or cause the most problems, and you have available a list of things to do when something doesn’t work out.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;Write down a list of the major problems that could arise and ruin the whole project. Then write down a list of alternatives that you will do if things actually do go wrong.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;It is not a bad idea to design two or three projects and start them in parallel to see which one has the best practical chance of succeeding. There could be two or three model systems that all seem to have equally good chances on paper of providing appropriate tests for your ideas, but in fact practical problems may exclude some of them. It is much more efficient to discover this at the start than to design and execute two or three projects in succession after the first fail for practical reasons.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Pick a date for the presentation of your thesis and work backwards in constructing a schedule of how you are going to use your time. You can expect a stab of terror at this point. Don’t worry - it goes on like this for awhile, then it gradually gets worse.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Spend two to three weeks writing the proposal after you’ve finished your reading, then give it to as many good critics as you can find. Hope that their comments are tough, and respond as constructively as you can.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Get at it. You already have the introduction to your thesis written, and you have only been here 12 to 18 months.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;manage-your-advisors&quot;&gt;&lt;strong&gt;Manage Your Advisors.&lt;/strong&gt;&lt;/h2&gt;
-
-&lt;p&gt;Keep your advisors aware of what you are doing, but do not bother them. Be an interesting presence, not a pest. At least once a year, submit a written progress report 1-2 pages long on your own initiative. They will appreciate it and be impressed.&lt;/p&gt;
-
-&lt;p&gt;Anticipate and work to avoid personality problems. If you do not get along with your professors, change advisors early on. Be very careful about choosing your advisors in the first place. Most important is their interest in your interests.&lt;/p&gt;
-
-&lt;h2 id=&quot;types-of-theses&quot;&gt;&lt;strong&gt;Types of Theses.&lt;/strong&gt;&lt;/h2&gt;
-
-&lt;p&gt;Never elaborate a baroque excrescence on top of existing but shaky ideas. Go right to the foundations and test the implicit but unexamined assumptions of an important body of work, or lay the foundations for a new research thrust. There are, of course, other types of theses:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;The classical thesis involves the formulation of a deductive model that makes novel and surprising predictions which you then test objectively and confirm under conditions unfavorable to the hypothesis. Rarely done and highly prized.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;A critique of the foundations of an important body of research. Again, rare and valuable and a sure winner if properly executed.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;The purely theoretical thesis. This takes courage, especially in a department loaded with bedrock empiricists, but can be pulled off if you are genuinely good at math and logic.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Gather data that someone else can synthesize. This is the worst kind of thesis, but in a pinch it will get you through. To certain kinds of people lots of data, even if they don’t test a hypothesis, will always be impressive. At least the results show that you worked hard, a fact with which you can blackmail your committee into giving you the doctorate.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;There are really as many kinds of theses as their are graduate students. The four types listed serve as limiting cases of the good, the bad, and the ugly. Doctoral work is a chance for you to try your hand at a number of different research styles and to discover which suites you best: theory, field work, or lab work. Ideally, you will balance all three and become the rare person who can translate the theory for the empiricists and the real world for the theoreticians.&lt;/p&gt;
-
-&lt;h2 id=&quot;start-publishing-early&quot;&gt;&lt;strong&gt;Start Publishing Early.&lt;/strong&gt;&lt;/h2&gt;
-
-&lt;p&gt;Don’t kid yourself. You may have gotten into this game out of your love for plants and animals, your curiosity about nature, and your drive to know the truth, but you won’t be able to get a job and stay in it unless you publish. You need to publish substantial articles in internationally recognized, refereed journals. Without them, you can forget a career in science. This sounds brutal, but there are good reasons for it, and it can be a joyful challenge and fulfillment. Science is shared knowledge. Until the results are effectively communicated, they in effect do not exist. Publishing is part of the job, and until it is done, the work is not complete. You must master the skill of writing clear, concise, well-organized scientific papers. Here are some tips about getting into the publishing game.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;Co-author a paper with someone who has more experience. Approach a professor who is working on an interesting project and offer your services in return for a junior authorship. He’ll appreciate the help and will give you lots of good comments on the paper because his name will be on it.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Do not expect your first paper to be world-shattering. A lot of eminent people began with a minor piece of work. The amount of information reported in the average scientific paper may be less than you think. Work up to the major journals by publishing one or two short - but competent - papers in less well-recognized journals. You will quickly discover that no matter what the reputation of the journal, all editorial boards defend the quality of their product with jealous pride - and they should!&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;If it is good enough, publish your research proposal as a critical review paper. If it is publishable, you’ve probably chosen the right field to work in.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Do not write your thesis as a monograph. Write it as a series of publishable manuscripts, and submit them early enough so that at least one or two chapters of your thesis can be presented as reprints of published articles.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Buy and use a copy of Strunk and White’s Elements of Style. Read it before you sit down to write your first paper, then read it again at least once a year for the next three or four years. Day’s book, How to Write a Scientific Paper, is also excellent.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Get your work reviewed before you submit it to the journal by someone who has the time to criticize your writing as well as your ideas and organization.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;dont-look-down-on-a-masters-thesis&quot;&gt;&lt;strong&gt;Don’t Look Down on a Master’s Thesis.&lt;/strong&gt;&lt;/h2&gt;
-
-&lt;p&gt;The only reason not to do a master’s is to fulfill the generally false conceit that you’re too good for that sort of thing. The master’s has a number of advantages.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;It gives you a natural way of changing schools if you want to. You can use this to broaden your background. Moreover, your ideas on what constitutes an important problem will probably be changing rapidly at this stage of your development. Your knowledge of who is doing what, and where, will be expanding rapidly. If you decide to change universities, this is the best way to do it. You leave behind people satisfied with your performance and in a position to provide well-informed letters of recommendation. You arrive with most of your PhD requirements satisfied.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;You get much-needed experience in research and writing in a context less threatening than doctoral research. You break yourself in gradually. In research, you learn the size of a soluble problem. People who have done master’s work usually have a much easier time with the PhD.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;You get a publication.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;What’s your hurry? If you enter the job market too quickly, you won´t be well prepared. Better to go a bit more slowly, build up a substantial background, and present yourself a bit later as a person with more and broader experience.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;publish-regularly-but-not-too-much&quot;&gt;&lt;strong&gt;Publish Regularly, But Not Too Much.&lt;/strong&gt;&lt;/h2&gt;
-
-&lt;p&gt;The pressure to publish has corroded the quality of journals and the quality of intellectual life. It is far better to have published a few papers of high quality that are widely read than it is to have published a long string of minor articles that are quickly forgotten. You do have to be realistic. You will need publications to get a post-doc, and you will need more to get a faculty position and then tenure. However, to the extent that you can gather your work together in substantial packages of real quality, you will be doing both yourself and your field a favor.&lt;/p&gt;
-
-&lt;p&gt;Most people publish only a few papers that make any difference. Most papers are cited little or not at all. About 10% of the articles published receive 90% of the citations. A paper that is not cited is time and effort wasted. Go for quality, not for quantity. This will take courage and stubbornness, but you won’t regret it. If you are publishing one or two carefully considered, substantial papers in good, refereed journals each year, you’re doing very well - and you’ve taken time to do the job right.&lt;/p&gt;
-
-&lt;p&gt;Acknowledgements Thanks to Frank Pitelka for providing an opportunity, to Ray Huey for being a co-conspirator and sounding board and for providing a number of the comments presented here, to the various unknown graduate students who kept these ideas in circulation, and to Pete Morin for suggesting that I write them up for publication.&lt;/p&gt;
-
-</description>
-        <pubDate>Sat, 18 Feb 2017 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/%E7%A0%94%E7%A9%B6/2017/02/18/SomeAdviceForStudents.html</link>
-        <guid isPermaLink="true">http://localhost:4000/%E7%A0%94%E7%A9%B6/2017/02/18/SomeAdviceForStudents.html</guid>
-        
-        <category>Note</category>
-        
-        
-        <category>研究</category>
         
       </item>
     

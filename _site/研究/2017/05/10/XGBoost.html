@@ -9,11 +9,11 @@
     <!-- Favicon Icon -->
     <link rel="shortcut icon" type="image/x-icon" href="http://localhost:4000/assets/images/favicon.png">
 
-    <title>Plan 杂记</title>
+    <title>Introduction to Boosted Trees</title>
     <meta name="description"
-          content="2016年 3 月 29 日工作计划：  1、完成Edison板卡移植：Start wifi STA模式+循环遍历IO引脚+发送消息 + End Wifi STA模式  2、毕业设计 基于Intel实感技术的智慧商店系统开发与应用实践 论文结构+实体代码修改  3、BIM Attribute模块添加属性，QTre...">
+          content="Introduction to Boosted Trees">
 
-    <link rel="canonical" href="http://localhost:4000/%E8%AE%B0%E5%BD%95/2016/06/03/Dairy.html">
+    <link rel="canonical" href="http://localhost:4000/%E7%A0%94%E7%A9%B6/2017/05/10/XGBoost.html">
     <link rel="alternate" type="application/rss+xml" title="Maybe not Good But Studious !" href="http://localhost:4000/feed.xml">
 
     <script type="text/javascript" src="http://localhost:4000/bower_components/jquery/dist/jquery.min.js"></script>
@@ -92,14 +92,14 @@
 
         <div class="content">
             <link rel="stylesheet" href="http://localhost:4000/assets/css/sidebar-post-nav.css" />
-<section class="jumbotron geopattern" data-pattern-id="Plan 杂记">
+<section class="jumbotron geopattern" data-pattern-id="Introduction to Boosted Trees">
     <div class="container">
         <div id="jumbotron-meta-info">
-            <h1>Plan 杂记</h1>
+            <h1>Introduction to Boosted Trees</h1>
             <span class="meta-info">
                 
                 
-                <span class="octicon octicon-calendar"></span> 2016/06/03
+                <span class="octicon octicon-calendar"></span> 2017/05/10
                 
             </span>
         </div>
@@ -122,104 +122,61 @@
         
         <div class="col-md-8 markdown-body">
 
-            <h2 id="2016年-3-月-29-日">2016年 3 月 29 日</h2>
-<p>工作计划：</p>
-<ul>
-  <li>1、完成Edison板卡移植：Start wifi STA模式+循环遍历IO引脚+发送消息 + End Wifi STA模式</li>
-  <li>2、毕业设计 基于Intel实感技术的智慧商店系统开发与应用实践 论文结构+实体代码修改</li>
-  <li>3、BIM Attribute模块添加属性，QTreeWidget结构</li>
-</ul>
+            <h2 id="introduction-to-boosted-trees">Introduction to Boosted Trees</h2>
 
-<p>主要问题：</p>
-<ul>
-  <li>1、台式主机配置Edison环境成功， 下载显示 resource 无法获取权限</li>
-  <li>2、笔记本无法安装CDC Serial驱动（显示无法找到指定文件）———–系统精简原因</li>
-  <li>3、IfcGears1.0版本的属性获取与IFCPlusPlus基本属性对应不相同</li>
-</ul>
+<p>XGBoost is short for “Extreme Gradient Boosting”, where the term “Gradient Boosting” is proposed in the paper <strong><em>Greedy Function Approximation: A Gradient Boosting Machine</em></strong>, by Friedman. XGBoost is based on this original model. This is a tutorial on gradient boosted trees, and most of the content is based on these <a href="http://homes.cs.washington.edu/~tqchen/pdf/BoostedTree.pdf">slides</a> by the author of xgboost.</p>
 
-<h2 id="2016年-4-月-05-日">2016年 4 月 05 日</h2>
-<p>工作计划：</p>
-<ul>
-  <li>1、修复毕业设计的bug</li>
-  <li>2、IFC实习项目跟进
-主要问题：</li>
-  <li>1、RealSense没有自己的核心算法</li>
-  <li>2、C++自己编程能力比较薄弱、概念性知识欠缺</li>
-  <li>3、对于model和属性的模块概念不清晰</li>
-</ul>
+<p>The GBM (boosted trees) has been around for really a while, and there are a lot of materials on the topic. This tutorial tries to explain boosted trees in a self-contained and principled way using the elements of supervised learning. We think this explanation is cleaner, more formal, and motivates the variant used in xgboost</p>
 
-<h2 id="2016年-4-月-12-日">2016年 4 月 12 日</h2>
-<p>工作计划：</p>
-<ul>
-  <li>1、填写毕业设计中期检查报告，准备中期检查，并设计RealSense 的核心算法</li>
-  <li>2、IFC完成IFCChecker部分</li>
-  <li>3、IFC完成model叠加显示</li>
-  <li>4、智能工位系统的调试完成
-主要问题：</li>
-  <li>1、RealSense熟悉程度不深，中期检查报告不明确重点内容</li>
-  <li>2、IFC model模块的叠加显示遇到osg的显示问题</li>
-</ul>
+<h2 id="elements-of-supervised-learning">Elements of Supervised Learning</h2>
 
-<h2 id="2016年-4-月-18-日">2016年 4 月 18 日</h2>
-<p>工作计划：</p>
-<ul>
-  <li>1、修复图像合成的处理，解决软件关闭时进程在应用的问题</li>
-  <li>2、心率流处理 图像流处理</li>
-  <li>3、特征点提取与归一化</li>
-  <li>4、IFC osg显示
-主要问题：</li>
-  <li>1、不知道如何进行特征点的对齐</li>
-  <li>2、不明确进程被占用的具体原因——调试能力薄弱</li>
-  <li>3、心率原始流的处理不知如何下手</li>
-</ul>
+<p>XGBoost is used for supervised learning problems, where we use the training data (with multiple features) <strong>xi</strong> to predict a target variable <strong>yi</strong>. Before we dive into trees, let us start by reviewing the basic elements in supervised learning</p>
 
-<h2 id="2016年-4-月-26-日">2016年 4 月 26 日</h2>
-<p>工作计划：</p>
-<ul>
-  <li>1、将RealSense 的代码再看一遍，修补bug（务必完成）</li>
-  <li>2、IFCPlus花两天时间完成需求</li>
-  <li>3、着手准备写论文的材料，并有针对性的看能不能结合毕业设计进行小论文的发表（RealSense目前应用有8篇）
-主要问题：</li>
-  <li>1、比较懒散，自控力差，效率低</li>
-  <li>2、没有养成良好的代码习惯，对于bug的敏感程度也比较低</li>
-  <li>3、对于英文论文和毕业论文的书写基础薄弱</li>
-</ul>
+<h2 id="model-and-parameters">Model and Parameters</h2>
 
-<h2 id="2016年-5-月-04-日">2016年 5 月 04 日</h2>
-<p>工作计划：</p>
-<ul>
-  <li>1、删除Microsoft 中的emotion部分，因为此部分主要也是分析表情，而Intel的微笑API已经足够进行表情分析</li>
-  <li>2、对于RealSense的进行面部配置识别，目前代码实现有瓶颈，同一个人他的脸的朝向和位置影响配置和识别，考虑算法</li>
-  <li>3、对于IFC，需要解决的是如何获取动态指针的转换问题
-主要问题：</li>
-  <li>1、RealSense 删除Microsoft后，代码只有2000多行，需要进行添加完善</li>
-  <li>2、RealSense的配置识别，可以考虑从软件部分实现，如何进行判别一个人的脸已经在数据库里面呢？(耗时)</li>
-  <li>3、IFC指针转换，进行信息提取</li>
-</ul>
+<p>The model in supervised learning usually refers to the mathematical structure of how to make the prediction <strong>yi</strong> given <strong>xi</strong>. For example, a common model is a linear model, where the prediction is given by <strong>y^i=∑jθjxij</strong>, a linear combination of weighted input features. The prediction value can have different interpretations, depending on the task, i.e., regression or classification. For example, it can be logistic transformed to get the probability of positive class in logistic regression, and it can also be used as a ranking score when we want to rank the outputs.</p>
 
-<h2 id="2016年-5-月-20-日">2016年 5 月 20 日</h2>
-<p>工作计划：</p>
-<ul>
-  <li>1、完成IFC属性提取显示，目前已经掌握属性提取的方法，需要将PPTYPE做对应转换然后设计反属性递归即可</li>
-  <li>2、准备5月24日的毕业设计代码检测部分，同时准备完善毕业设计论文相关内容（可能5月31日之前就要提交）</li>
-  <li>3、英特尔杯的软件设计大赛，提出创意方案，25-26号之间尽量能够想出一个比较好的idea，交付王老师</li>
-  <li>4、5月底能够完成毕业设计相关部分的内容，准备研究生阶段的学习内容
-主要问题：</li>
-  <li>1、时间拖延症，自我安排不合理</li>
-  <li>2、毕业论文没有数理背景和很深的算法基础</li>
-  <li>3、英特尔杯此次的比赛突出的是互联和中间件服务层的使用，已经有大致概念，但是目前没有很好的想法和设计方案</li>
-</ul>
+<p>The parameters are the undetermined part that we need to learn from data. In linear regression problems, the parameters are the coefficients [Math Processing Error]θ. Usually we will use [Math Processing Error]θ to denote the parameters (there are many parameters in a model, our definition here is sloppy</p>
 
-<h2 id="2016年-6-月-03-日">2016年 6 月 03 日</h2>
-<p>工作计划：</p>
-<ul>
-  <li>1、创建自己的github博客，如何博客创建的不错（争取自己购买一个域名）</li>
-  <li>2、学习统计学习方法和英语
-主要问题：</li>
-  <li>1、完成答辩材料</li>
-  <li>2、英语学习需要明确一个学习规划和学习目标</li>
-</ul>
+<h2 id="objective-function--training-loss--regularization">Objective Function : Training Loss + Regularization</h2>
+<p>Based on different understandings of [Math Processing Error]yi we can have different problems, such as regression, classification, ordering, etc. We need to find a way to find the best parameters given the training data. In order to do so, we need to define a so-called objective function, to measure the performance of the model given a certain set of parameters.</p>
 
+<p>A very important fact about objective functions is they must always contain two parts: training loss and regularization.</p>
+
+<p>Obj(Θ)=L(θ)+Ω(Θ)
+where [Math Processing Error]L is the training loss function, and [Math Processing Error]Ω is the regularization term. The training loss measures how predictive our model is on training data. For example, a commonly used training loss is mean squared error.</p>
+
+<p>L(θ)=∑i(yi−y^i)2
+Another commonly used loss function is logistic loss for logistic regression</p>
+
+<p>L(θ)=∑i[yiln⁡(1+e−y^i)+(1−yi)ln⁡(1+ey^i)]</p>
+
+<p>The regularization term is what people usually forget to add. The regularization term controls the complexity of the model, which helps us to avoid overfitting. This sounds a bit abstract, so let us consider the following problem in the following picture. You are asked to fit visually a step function given the input data points on the upper left corner of the image. Which solution among the three do you think is the best fit?</p>
+
+<p><img src="http://localhost:4000/assets/images/xgboost_1.png" alt="" /></p>
+
+<p>he correct answer is marked in red. Please consider if this visually seems a reasonable fit to you. The general principle is we want both a simple and predictive model. The tradeoff between the two is also referred as bias-variance tradeoff in machine learning.</p>
+
+<p>Why introduce the general principle?
+The elements introduced above form the basic elements of supervised learning, and they are naturally the building blocks of machine learning toolkits. For example, you should be able to describe the differences and commonalities between boosted trees and random forests. Understanding the process in a formalized way also helps us to understand the objective that we are learning and the reason behind the heuristics such as pruning and smoothing.</p>
+
+<p>Tree Ensemble
+Now that we have introduced the elements of supervised learning, let us get started with real trees. To begin with, let us first learn about the model of xgboost: tree ensembles. The tree ensemble model is a set of classification and regression trees (CART). Here’s a simple example of a CART that classifies whether someone will like computer games.</p>
+
+<p><img src="http://localhost:4000/assets/images/xgboost_2.png" alt="" /></p>
+
+<p>We classify the members of a family into different leaves, and assign them the score on the corresponding leaf. A CART is a bit different from decision trees, where the leaf only contains decision values. In CART, a real score is associated with each of the leaves, which gives us richer interpretations that go beyond classification. This also makes the unified optimization step easier, as we will see in a later part of this tutorial.</p>
+
+<p>Usually, a single tree is not strong enough to be used in practice. What is actually used is the so-called tree ensemble model, which sums the prediction of multiple trees together.</p>
+
+<p><img src="http://localhost:4000/assets/images/xgboost_3.png" alt="" /></p>
+
+<p>Here is an example of a tree ensemble of two trees. The prediction scores of each individual tree are summed up to get the final score. If you look at the example, an important fact is that the two trees try to complement each other. Mathematically, we can write our model in the form</p>
+
+<pre><code>\hat{y}_i = \sum_{k=1}^K f_k(x_i), f_k \in \mathcal{F}
+</code></pre>
+
+<p>\text{obj}(\theta) = \sum_i^n l(y_i, \hat{y}<em>i) + \sum</em>{k=1}^K \Omega(f_k)</p>
 
 
             <!-- Comments -->

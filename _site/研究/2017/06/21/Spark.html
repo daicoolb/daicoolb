@@ -129,7 +129,8 @@
 <p>Apache Spark 是一个新兴的大数据处理通用引擎，提供了分布式的内存抽象。Spark 最大的特点就是快，可比 Hadoop MapReduce 的处理速度快 100 倍。本指南将介绍 Spark 的安装与基本使用。请务必仔细阅读完厦门大学林子雨编著的《大数据技术原理与应用》第16章节（<a href="http://dblab.xmu.edu.cn/wp-content/uploads/2016/01/%E5%8E%A6%E9%97%A8%E5%A4%A7%E5%AD%A6%E6%9E%97%E5%AD%90%E9%9B%A8%E7%BC%96%E8%91%97-%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8-%E7%94%B5%E5%AD%90%E4%B9%A6-%E7%AC%AC16%E7%AB%A0-Spark%EF%BC%882016%E5%B9%B44%E6%9C%8820%E6%97%A5%E7%89%88%E6%9C%AC%EF%BC%89.pdf">点击这里下载第十六章Spark的pdf电子书</a>，再结合本指南进行学习。</p>
 
 <h2 id="一安装-spark">一、安装 Spark</h2>
-<p>访问Spark官方下载地址，按照如下图下载。</p>
+<p>访问<a href="http://spark.apache.org/downloads.html">Spark官方下载地址</a>，按照如下图下载。
+<img src="http://localhost:4000/assets/images/spark_1.png" alt="" /></p>
 
 <p>该部分介绍了单机中 Spark 的安装。我们选择Spark 1.6.2版本教学。该教程的具体运行环境如下：</p>
 
@@ -146,7 +147,7 @@
 
 <h2 id="安装java-jdk">安装JAVA JDK</h2>
 
-<p>安装Hadoop的过程就已经要求安装JAVA JDK了。如果没有，请参考Hadoop安装教程_单机/伪分布式配置_Hadoop2.6.0/Ubuntu14.04进行安装配置。</p>
+<p>安装Hadoop的过程就已经要求安装JAVA JDK了。如果没有，请参考<a href="http://dblab.xmu.edu.cn/blog/install-hadoop/">Hadoop安装教程_单机/伪分布式配置_Hadoop2.6.0/Ubuntu14.04</a>进行安装配置。</p>
 
 <h2 id="安装spark">安装Spark</h2>
 <pre><code>sudo tar -zxf ~/下载/spark-1.6.2-bin-without-hadoop.tgz -C /usr/local/
@@ -166,9 +167,9 @@ export SPARK_DIST_CLASSPATH=$(/usr/local/hadoop/bin/hadoop classpath)
 
 <p>执行时会输出非常多的运行信息，输出结果不容易找到，可以通过 grep 命令进行过滤（命令中的 2&gt;&amp;1 可以将所有的信息都输出到 stdout 中，否则由于输出日志的性质，还是会输出到屏幕中）:
 	bin/run-example SparkPi 2&gt;&amp;1 | grep “Pi is”
-这里涉及到Linux Shell中管道的知识，详情可以参考Linux Shell中的管道命令
-过滤后的运行结果如下图示，可以得到π 的 5 位小数近似值：</p>
-
+这里涉及到Linux Shell中管道的知识，详情可以参考<a href="http://dblab.xmu.edu.cn/blog/824-2/">Linux Shell中的管道命令</a>
+过滤后的运行结果如下图示，可以得到π 的 5 位小数近似值：
+<img src="http://localhost:4000/assets/images/spark_6.png" alt="" /></p>
 <h2 id="二使用-spark-shell-编写代码">二、使用 Spark Shell 编写代码</h2>
 <p>学习Spark程序开发，建议首先通过spark-shell交互式学习，加深Spark程序开发的理解。
 该部分介绍了 Spark Shell 的基本使用。Spark shell 提供了简单的方式来学习 API，也提供了交互的方式来分析数据。</p>
@@ -177,9 +178,11 @@ export SPARK_DIST_CLASSPATH=$(/usr/local/hadoop/bin/hadoop classpath)
 
 <h2 id="启动spark-shell">启动Spark Shell</h2>
 
-<p>bin/spark-shell
-启动spark-shell后，会自动创建名为sc的spark context对象和名为sqlContext的sql context对象,如图：
-<img src="http://localhost:4000/assets/images/spark_1.png" alt="" /></p>
+<p>bin/spark-shell</p>
+
+<p>启动spark-shell后，会自动创建名为sc的spark context对象和名为sqlContext的sql context对象,如图：</p>
+
+<p><img src="http://localhost:4000/assets/images/spark_3.png" alt="" /></p>
 <h2 id="加载text文件">加载text文件</h2>
 
 <p>spark创建sc，可以加载本地文件和HDFS文件创建RDD。这里用Spark自带的本地文件README.md文件测试。</p>
@@ -217,23 +220,36 @@ textFile.map(line =&gt; line.split(" ").size).reduce((a, b) =&gt; if (a &gt; b) 
 
 <p>安装sbt
 sbt是一款Spark用来对scala编写程序进行打包的工具，这里简单介绍sbt的安装过程，感兴趣的读者可以参考官网资料了解更多关于sbt的内容。
-Spark 中没有自带 sbt，这里直接给出sbt-launch.jar的下载地址，直接点击下载即可。
+Spark 中没有自带 sbt，这里直接给出<a href="https://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/sbt-launch/0.13.11/sbt-launch.jar">sbt-launch.jar的下载地址</a>，直接点击下载即可。
 我们选择安装在 /usr/local/sbt 中：</p>
 
 <pre><code>sudo mkdir /usr/local/sbt
 sudo chown -R hadoop /usr/local/sbt      # 此处的 hadoop 为你的用户名
-cd /usr/local/sbt 下载后，执行如下命令拷贝至 /usr/local/sbt 中：
-
-cp ~/下载/sbt-launch.jar . 接着在 /usr/local/sbt 中创建 sbt 脚本（vim ./sbt），添加如下内容：
-
-#!/bin/bash
-SBT_OPTS="-Xms512M -Xmx1536M -Xss1M -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=256M"
-java $SBT_OPTS -jar `dirname $0`/sbt-launch.jar "$@" 保存后，为 ./sbt 脚本增加可执行权限：
-
-chmod u+x ./sbt 最后运行如下命令，检验 sbt 是否可用（请确保电脑处于联网状态，首次运行会处于 “Getting org.scala-sbt sbt 0.13.11 …” 的下载状态，请耐心等待。笔者等待了 7 分钟才出现第一条下载提示）：
-
-./sbt sbt-version 只要能得到如下图的版本信息就没问题：
+cd /usr/local/sbt
 </code></pre>
+
+<p>下载后，执行如下命令拷贝至 /usr/local/sbt 中：</p>
+
+<pre><code>cp ~/下载/sbt-launch.jar .
+</code></pre>
+
+<p>接着在 /usr/local/sbt 中创建 sbt 脚本（vim ./sbt），添加如下内容：</p>
+
+<pre><code>#!/bin/bash
+SBT_OPTS="-Xms512M -Xmx1536M -Xss1M -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=256M"
+java $SBT_OPTS -jar `dirname $0`/sbt-launch.jar "$@"
+</code></pre>
+
+<p>保存后，为 ./sbt 脚本增加可执行权限：</p>
+
+<pre><code>chmod u+x ./sbt 最后运行如下命令，检验 sbt 是否可用（请确保电脑处于联网状态，首次运行会处于 “Getting org.scala-sbt sbt 0.13.11 …” 的下载状态，请耐心等待。笔者等待了 7 分钟才出现第一条下载提示）：
+
+./sbt sbt-version
+</code></pre>
+
+<p>只要能得到如下图的版本信息就没问题：</p>
+
+<p><img src="http://localhost:4000/assets/images/spark_10.png" alt="" /></p>
 
 <p>Scala应用程序代码
 在终端中执行如下命令创建一个文件夹 sparkapp 作为应用程序根目录：</p>
@@ -266,20 +282,32 @@ object SimpleApp {
 <pre><code>name := "Simple Project"
 version := "1.0"
 scalaVersion := "2.10.5"
-libraryDependencies += "org.apache.spark" %% "spark-core" % "1.6.2" 文件 simple.sbt 需要指明 Spark 和 Scala 的版本。在上面的配置信息中，scalaVersion用来指定scala的版本，sparkcore用来指定spark的版本，这两个版本信息都可以在之前的启动 Spark shell 的过程中，从屏幕的显示信息中找到。下面就是笔者在启动过程当中，看到的相关版本信息（备注：屏幕显示信息会很长，需要往回滚动屏幕仔细寻找信息）。
+libraryDependencies += "org.apache.spark" %% "spark-core" % "1.6.2"
 </code></pre>
+
+<p>文件 simple.sbt 需要指明 Spark 和 Scala 的版本。在上面的配置信息中，scalaVersion用来指定scala的版本，sparkcore用来指定spark的版本，这两个版本信息都可以在之前的启动 Spark shell 的过程中，从屏幕的显示信息中找到。下面就是笔者在启动过程当中，看到的相关版本信息（备注：屏幕显示信息会很长，需要往回滚动屏幕仔细寻找信息）。</p>
+
+<p><img src="http://localhost:4000/assets/images/spark_8.png" alt="" /></p>
 
 <p>使用 sbt 打包 Scala 程序
 为保证 sbt 能正常运行，先执行如下命令检查整个应用程序的文件结构：</p>
 
 <pre><code>cd ~/sparkapp
-find . 文件结构应如下图所示：
+find .
 </code></pre>
+
+<p>文件结构应如下图所示：</p>
+
+<p><img src="http://localhost:4000/assets/images/spark_7.png}" alt="" /></p>
 
 <p>接着，我们就可以通过如下代码将整个应用程序打包成 JAR（首次运行同样需要下载依赖包 ）：</p>
 
-<pre><code>/usr/local/sbt/sbt package 打包成功的话，会输出如下图内容：
+<pre><code>/usr/local/sbt/sbt package
 </code></pre>
+
+<p>打包成功的话，会输出如下图内容：</p>
+
+<p><img src="http://localhost:4000/assets/images/spark_5.png" alt="" /></p>
 
 <p>生成的 jar 包的位置为 ~/sparkapp/target/scala-2.10/simple-project_2.10-1.0.jar。</p>
 
@@ -299,7 +327,7 @@ find . 文件结构应如下图所示：
 <h2 id="java独立应用编程">Java独立应用编程</h2>
 
 <p>安装maven
-ubuntu中没有自带安装maven，需要手动安装maven。可以访问maven官方下载自己下载。这里直接给出apache-maven-3.3.9-bin.zip的下载地址,直接点击下载即可。
+ubuntu中没有自带安装maven，需要手动安装maven。可以访问<a href="https://maven.apache.org/download.cgi#Files">maven官方下载</a>自己下载。这里直接给出<a href="http://apache.fayea.com/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.zip">apache-maven-3.3.9-bin.zip</a>的下载地址,直接点击下载即可。
 选择安装在/usr/local/maven中：</p>
 
 <pre><code>sudo unzip ~/下载/apache-maven-3.3.9-bin.zip -d /usr/local
@@ -360,29 +388,44 @@ public class SimpleApp {
 		&lt;version&gt;2.0.0-preview&lt;/version&gt;
 	&lt;/dependency&gt;
 &lt;/dependencies&gt;
-&lt;/project&gt; 关于Spark dependency的依赖关系，可以访问The Central Repository。搜索spark-core可以找到相关依赖关系信息。
+&lt;/project&gt;
 </code></pre>
+
+<p>关于Spark dependency的依赖关系，可以访问<a href="http://search.maven.org/">The Central Repository</a>。搜索spark-core可以找到相关依赖关系信息。</p>
+
+<p><img src="http://localhost:4000/assets/images/spark_4.png" alt="" /></p>
 
 <p>使用maven打包java程序
 为了保证maven能够正常运行，先执行如下命令检查整个应用程序的文件结构:</p>
 
 <pre><code>cd ~/sparkapp2
-find 文件结构如下图：
+find
 </code></pre>
+
+<p>文件结构如下图：</p>
+
+<p><img src="http://localhost:4000/assets/images/spark_9.png" alt="" /></p>
 
 <p>接着，我们可以通过如下代码将这整个应用程序打包成Jar(注意：电脑需要保持连接网络的状态，而且首次运行同样下载依赖包，同样消耗几分钟的时间):</p>
 
-<pre><code>/usr/local/maven/bin/mvn package 如出现下图，说明生成Jar包成功：
+<pre><code>/usr/local/maven/bin/mvn package
 </code></pre>
+
+<p>如出现下图，说明生成Jar包成功：</p>
+
+<p><img src="http://localhost:4000/assets/images/spark_2.png" alt="" /></p>
 
 <p>通过spark-submit 运行程序
 最后，可以通过将生成的jar包通过spark-submit提交到Spark中运行，如下命令：</p>
 
 <pre><code>/usr/local/spark/bin/spark-submit --class "SimpleApp" ~/sparkapp2/target/simple-project-1.0.jar
 # 上面命令执行后会输出太多信息，可以不使用上面命令，而使用下面命令查看想要的结果
-/usr/local/spark/bin/spark-submit --class "SimpleApp" ~/sparkapp2/target/simple-project-1.0.jar 2&gt;&amp;1 | grep "Lines with a" 最后得到的结果如下:
+/usr/local/spark/bin/spark-submit --class "SimpleApp" ~/sparkapp2/target/simple-project-1.0.jar 2&gt;&amp;1 | grep "Lines with a"
+</code></pre>
 
-Lines with a: 58, Lines with b: 26
+<p>最后得到的结果如下:</p>
+
+<pre><code>Lines with a: 58, Lines with b: 26
 </code></pre>
 
 
@@ -476,7 +519,7 @@ Lines with a: 58, Lines with b: 26
         
 
     </div>
-
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </article>
 
         </div>
