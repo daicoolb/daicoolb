@@ -5,8 +5,8 @@
     <description>This is personnel website of Beili</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 22 Jun 2017 19:28:26 +0800</pubDate>
-    <lastBuildDate>Thu, 22 Jun 2017 19:28:26 +0800</lastBuildDate>
+    <pubDate>Thu, 22 Jun 2017 20:07:30 +0800</pubDate>
+    <lastBuildDate>Thu, 22 Jun 2017 20:07:30 +0800</lastBuildDate>
     <generator>Jekyll v3.4.3</generator>
     
       <item>
@@ -334,10 +334,11 @@ find
         <description>&lt;p&gt;排序有内部排序和外部排序，内部排序是数据记录在内存中进行排序，而外部排序是因排序的数据很大，一次不能容纳全部的排序记录，在排序过程中需要访问外存。
 我们这里说说八大排序就是内部排序。&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;当n较大，则应采用时间复杂度为O(nlog2n)的排序方法：快速排序、堆排序或归并排序序。
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/sort_1.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-快速排序：是目前基于比较的内部排序中被认为是最好的方法，当待排序的关键字是随机分布时，快速排序的平均时间最短；
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;当n较大，则应采用时间复杂度为O(nlog2n)的排序方法：快速排序、堆排序或归并排序序。&lt;/p&gt;
+
+&lt;p&gt;快速排序：是目前基于比较的内部排序中被认为是最好的方法，当待排序的关键字是随机分布时，快速排序的平均时间最短；&lt;/p&gt;
 
 &lt;h2 id=&quot;1插入排序直接插入排序straight-insertion-sort&quot;&gt;1.插入排序—直接插入排序(Straight Insertion Sort)&lt;/h2&gt;
 &lt;p&gt;基本思想:&lt;/p&gt;
@@ -347,41 +348,45 @@ find
 
 &lt;p&gt;直接插入排序示例：&lt;/p&gt;
 
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/sort_2.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
 &lt;p&gt;如果碰见一个和插入元素相等的，那么插入元素把想插入的元素放在相等元素的后面。所以，相等元素的前后顺序没有改变，从原无序序列出去的顺序就是排好序后的顺序，所以插入排序是稳定的。&lt;/p&gt;
 
 &lt;p&gt;算法的实现：&lt;/p&gt;
 
-&lt;p&gt;void print(int a[], int n ,int i){&lt;br /&gt;
-    cout«i «”:”;&lt;br /&gt;
-    for(int j= 0; j&amp;lt;8; j++){&lt;br /&gt;
-        cout«a[j] «” “;&lt;br /&gt;
-    }&lt;br /&gt;
-    cout«endl;&lt;br /&gt;
-}&lt;/p&gt;
-
-&lt;p&gt;void InsertSort(int a[], int n)&lt;br /&gt;
-{&lt;br /&gt;
-    for(int i= 1; i&amp;lt;n; i++){&lt;br /&gt;
-        if(a[i] &amp;lt; a[i-1]){               //若第i个元素大于i-1元素，直接插入。小于的话，移动有序表后插入&lt;br /&gt;
-            int j= i-1; &lt;br /&gt;
-            int x = a[i];        //复制为哨兵，即存储待排序元素&lt;br /&gt;
-            a[i] = a[i-1];           //先后移一个元素&lt;br /&gt;
-            while(x &amp;lt; a[j]){  //查找在有序表的插入位置&lt;br /&gt;
-                a[j+1] = a[j];&lt;br /&gt;
-                j–;         //元素后移&lt;br /&gt;
-            }&lt;br /&gt;
-            a[j+1] = x;      //插入到正确位置&lt;br /&gt;
-        }&lt;br /&gt;
-        print(a,n,i);           //打印每趟排序的结果&lt;br /&gt;
-    }&lt;/p&gt;
-
-&lt;p&gt;}&lt;/p&gt;
-
-&lt;p&gt;int main(){&lt;br /&gt;
-    int a[8] = {3,1,5,7,2,4,9,6};&lt;br /&gt;
-    InsertSort(a,8);&lt;br /&gt;
-    print(a,8,8);&lt;br /&gt;
-}&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;void print(int a[], int n ,int i){  
+	cout&amp;lt;&amp;lt;i &amp;lt;&amp;lt;&quot;:&quot;;  
+	for(int j= 0; j&amp;lt;8; j++){  
+    	cout&amp;lt;&amp;lt;a[j] &amp;lt;&amp;lt;&quot; &quot;;  
+	}  
+	cout&amp;lt;&amp;lt;endl;  
+}  
+  
+  
+void InsertSort(int a[], int n)  
+{  
+   	 for(int i= 1; i&amp;lt;n; i++){  
+    	if(a[i] &amp;lt; a[i-1]){               //若第i个元素大于i-1元素，直接插入。小于的话，移动有序表后插入  
+        	int j= i-1;   
+        	int x = a[i];        //复制为哨兵，即存储待排序元素  
+        	a[i] = a[i-1];           //先后移一个元素  
+        	while(x &amp;lt; a[j]){  //查找在有序表的插入位置  
+            a[j+1] = a[j];  
+            j--;         //元素后移  
+        	}  
+        	a[j+1] = x;      //插入到正确位置  
+    	}  
+    	print(a,n,i);           //打印每趟排序的结果  
+	}  
+  
+}  
+  
+int main(){  
+	int a[8] = {3,1,5,7,2,4,9,6};  
+	InsertSort(a,8);  
+	print(a,8,8);  
+}	  
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;效率：&lt;/p&gt;
 
@@ -403,65 +408,63 @@ find
 每趟排序，根据对应的增量ti，将待排序列分割成若干长度为m 的子序列，分别对各子表进行直接插入排序。仅增量因子为1 时，整个序列作为一个表来处理，表长度即为整个序列的长度。
 希尔排序的示例：&lt;/p&gt;
 
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/sort_3.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
 &lt;p&gt;算法实现：&lt;/p&gt;
 
 &lt;p&gt;我们简单处理增量序列：增量序列d = {n/2 ,n/4, n/8 …..1} n为要排序数的个数
 即：先将要排序的一组记录按某个增量d（n/2,n为要排序数的个数）分成若干组子序列，每组中记录的下标相差d.对每组中全部元素进行直接插入排序，然后再用一个较小的增量（d/2）对它进行分组，在每组中再进行直接插入排序。继续不断缩小增量直至为1，最后使用直接插入排序完成排序。&lt;/p&gt;
 
-&lt;p&gt;void print(int a[], int n ,int i){&lt;br /&gt;
-    cout«i «”:”;&lt;br /&gt;
-    for(int j= 0; j&amp;lt;8; j++){&lt;br /&gt;
-        cout«a[j] «” “;&lt;br /&gt;
-    }&lt;br /&gt;
-    cout«endl;&lt;br /&gt;
-}&lt;br /&gt;
-/**&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;直接插入排序的一般形式&lt;/li&gt;
-  &lt;li&gt;&lt;/li&gt;
-  &lt;li&gt;@param int dk 缩小增量，如果是直接插入排序，dk=1&lt;/li&gt;
-  &lt;li&gt;*/&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;void ShellInsertSort(int a[], int n, int dk)&lt;br /&gt;
-{&lt;br /&gt;
-    for(int i= dk; i&amp;lt;n; ++i){&lt;br /&gt;
-        if(a[i] &amp;lt; a[i-dk]){          //若第i个元素大于i-1元素，直接插入。小于的话，移动有序表后插入&lt;br /&gt;
-            int j = i-dk;   &lt;br /&gt;
-            int x = a[i];           //复制为哨兵，即存储待排序元素&lt;br /&gt;
-            a[i] = a[i-dk];         //首先后移一个元素&lt;br /&gt;
-            while(x &amp;lt; a[j]){     //查找在有序表的插入位置&lt;br /&gt;
-                a[j+dk] = a[j];&lt;br /&gt;
-                j -= dk;             //元素后移&lt;br /&gt;
-            }&lt;br /&gt;
-            a[j+dk] = x;            //插入到正确位置&lt;br /&gt;
-        }&lt;br /&gt;
-        print(a, n,i );&lt;br /&gt;
-    }&lt;/p&gt;
-
-&lt;p&gt;}&lt;/p&gt;
-
-&lt;p&gt;/**&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;先按增量d（n/2,n为要排序数的个数进行希尔排序&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;*/&lt;br /&gt;
-void shellSort(int a[], int n){&lt;/p&gt;
-
-    &lt;p&gt;int dk = n/2;&lt;br /&gt;
-while( dk &amp;gt;= 1  ){&lt;br /&gt;
-    ShellInsertSort(a, n, dk);&lt;br /&gt;
-    dk = dk/2;&lt;br /&gt;
-}&lt;br /&gt;
-}&lt;br /&gt;
-int main(){&lt;br /&gt;
-int a[8] = {3,1,5,7,2,4,9,6};&lt;br /&gt;
-//ShellInsertSort(a,8,1); //直接插入排序&lt;br /&gt;
-shellSort(a,8);           //希尔插入排序&lt;br /&gt;
-print(a,8,8);&lt;br /&gt;
-}&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;void print(int a[], int n ,int i){  
+	cout&amp;lt;&amp;lt;i &amp;lt;&amp;lt;&quot;:&quot;;  
+	for(int j= 0; j&amp;lt;8; j++){  
+    	cout&amp;lt;&amp;lt;a[j] &amp;lt;&amp;lt;&quot; &quot;;  
+	}	  
+	cout&amp;lt;&amp;lt;endl;  
+}  
+/**   * 	直接插入排序的一般形式 
+ 	*   * 	@param int dk 缩小增量，如果是直接插入排序，dk=1 
+ 	* 
+ 	*/  
+  
+void ShellInsertSort(int a[], int n, int dk)  
+{  
+	for(int i= dk; i&amp;lt;n; ++i){  
+    	if(a[i] &amp;lt; a[i-dk]){          //若第i个元素大于i-1元素，直接插入。小于的话，移动有序表后插入  
+        	int j = i-dk;     
+        	int x = a[i];           //复制为哨兵，即存储待排序元素  
+        	a[i] = a[i-dk];         //首先后移一个元素  
+        	while(x &amp;lt; a[j]){     //查找在有序表的插入位置  
+            	a[j+dk] = a[j];  
+            	j -= dk;             //元素后移  
+        	}  
+        	a[j+dk] = x;            //插入到正确位置  
+    	}  
+    	print(a, n,i );  
+	}  
+  
+}  
+  
+/** 
+ 	* 先按增量d（n/2,n为要排序数的个数进行希尔排序 
+ 	* 
+ 	*/
+  
+void shellSort(int a[], int n){  
+  	
+	int dk = n/2;  
+   	while( dk &amp;gt;= 1  ){  
+    	ShellInsertSort(a, n, dk);  
+    	dk = dk/2;  
+	}  
+}  
+int main(){  
+	int a[8] = {3,1,5,7,2,4,9,6};  
+	//ShellInsertSort(a,8,1); //直接插入排序  
+   	shellSort(a,8);           //希尔插入排序  
+	print(a,8,8);  
+}  
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;希尔排序时效分析很难，关键码的比较次数与记录移动次数依赖于增量因子序列d的选取，特定情况下可以准确估算出关键码的比较次数和记录的移动次数。目前还没有人给出选取最好的增量因子序列的方法。增量因子序列可以有各种取法，有取奇数的，也有取质数的，但需要注意：增量因子中除1 外没有公因子，且最后一个增量因子必须为1。希尔排序方法是一个不稳定的排序方法。&lt;/p&gt;
 
@@ -486,77 +489,77 @@ print(a,8,8);&lt;br /&gt;
 
 &lt;p&gt;算法实现：&lt;/p&gt;
 
-&lt;p&gt;void print(int a[], int n ,int i){&lt;br /&gt;
-    cout«“第”«i+1 «“趟 : “;&lt;br /&gt;
-    for(int j= 0; j&amp;lt;8; j++){&lt;br /&gt;
-        cout«a[j] «”  “;&lt;br /&gt;
-    }&lt;br /&gt;
-    cout«endl;&lt;br /&gt;
-}&lt;br /&gt;
-/**&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;数组的最小值&lt;/li&gt;
-  &lt;li&gt;&lt;/li&gt;
-  &lt;li&gt;@return int 数组的键值 
- */&lt;br /&gt;
-int SelectMinKey(int a[], int n, int i)&lt;br /&gt;
-{&lt;br /&gt;
- int k = i;&lt;br /&gt;
- for(int j=i+1 ;j&amp;lt; n; ++j) {&lt;br /&gt;
-     if(a[k] &amp;gt; a[j]) k = j;&lt;br /&gt;
- }&lt;br /&gt;
- return k;&lt;br /&gt;
-}&lt;/li&gt;
-&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;void print(int a[], int n ,int i){  
+	cout&amp;lt;&amp;lt;&quot;第&quot;&amp;lt;&amp;lt;i+1 &amp;lt;&amp;lt;&quot;趟 : &quot;;  
+	for(int j= 0; j&amp;lt;8; j++){  
+    	cout&amp;lt;&amp;lt;a[j] &amp;lt;&amp;lt;&quot;  &quot;;  
+	}  
+	cout&amp;lt;&amp;lt;endl;  
+}  
+/** 
+ 	* 数组的最小值 
+ 	* 
+ 	* @return int 数组的键值 
+ 	*/  
+int SelectMinKey(int a[], int n, int i)  
+{  
+	int k = i;  
+	for(int j=i+1 ;j&amp;lt; n; ++j) {  
+    	if(a[k] &amp;gt; a[j]) k = j;  
+	}  
+	return k;  
+}  
+  
+/** 
+ 	* 选择排序 
+ * 
+ 	*/  
 
-&lt;p&gt;/**&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;选择排序&lt;/li&gt;
-  &lt;li&gt;*/&lt;br /&gt;
-void selectSort(int a[], int n){&lt;br /&gt;
-int key, tmp;&lt;br /&gt;
-for(int i = 0; i&amp;lt; n; ++i) {&lt;br /&gt;
-    key = SelectMinKey(a, n,i);           //选择最小的元素&lt;br /&gt;
-    if(key != i){&lt;br /&gt;
-        tmp = a[i];  a[i] = a[key]; a[key] = tmp; //最小元素与第i位置元素互换&lt;br /&gt;
-    }&lt;br /&gt;
-    print(a,  n , i);&lt;br /&gt;
-}&lt;br /&gt;
-}&lt;br /&gt;
-int main(){&lt;br /&gt;
-int a[8] = {3,1,5,7,2,4,9,6};&lt;br /&gt;
-cout«“初始值：”;&lt;br /&gt;
-for(int j= 0; j&amp;lt;8; j++){&lt;br /&gt;
-    cout«a[j] «”  “;&lt;br /&gt;
-}&lt;br /&gt;
-cout«endl«endl;&lt;br /&gt;
-selectSort(a, 8);&lt;br /&gt;
-print(a,8,8);&lt;br /&gt;
-}&lt;/li&gt;
-&lt;/ul&gt;
+void selectSort(int a[], int n){  
+	int key, tmp;  
+	for(int i = 0; i&amp;lt; n; ++i) {  
+    	key = SelectMinKey(a, n,i);           //选择最小的元素  
+    	if(key != i){  
+        	tmp = a[i];  a[i] = a[key]; a[key] = tmp; //最小元素与第i位置元素互换  
+    	}  
+    	print(a,  n , i);  
+	}  
+}  
+int main(){  
+	int a[8] = {3,1,5,7,2,4,9,6};  
+	cout&amp;lt;&amp;lt;&quot;初始值：&quot;;  
+	for(int j= 0; j&amp;lt;8; j++){  
+    	cout&amp;lt;&amp;lt;a[j] &amp;lt;&amp;lt;&quot;  &quot;;  
+	}  
+	cout&amp;lt;&amp;lt;endl&amp;lt;&amp;lt;endl;  
+	selectSort(a, 8);  
+	print(a,8,8);  
+}  
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;简单选择排序的改进——二元选择排序&lt;/p&gt;
 
 &lt;p&gt;简单选择排序，每趟循环只能确定一个元素排序后的定位。我们可以考虑改进为每趟循环确定两个元素（当前趟最大和最小记录）的位置,从而减少排序所需的循环次数。改进后对n个数据进行排序，最多只需进行[n/2]趟循环即可。具体实现如下：&lt;/p&gt;
 
-&lt;p&gt;void SelectSort(int r[],int n) {&lt;br /&gt;
-    int i ,j , min ,max, tmp;&lt;br /&gt;
-    for (i=1 ;i &amp;lt;= n/2;i++) {  &lt;br /&gt;
-        // 做不超过n/2趟选择排序 &lt;br /&gt;
-        min = i; max = i ; //分别记录最大和最小关键字记录位置&lt;br /&gt;
-        for (j= i+1; j&amp;lt;= n-i; j++) {&lt;br /&gt;
-            if (r[j] &amp;gt; r[max]) { &lt;br /&gt;
-                max = j ; continue ; &lt;br /&gt;
-            }  &lt;br /&gt;
-            if (r[j]&amp;lt; r[min]) { &lt;br /&gt;
-                min = j ; &lt;br /&gt;
-            }   &lt;br /&gt;
-      }  &lt;br /&gt;
-      //该交换操作还可分情况讨论以提高效率&lt;br /&gt;
-      tmp = r[i-1]; r[i-1] = r[min]; r[min] = tmp;&lt;br /&gt;
-      tmp = r[n-i]; r[n-i] = r[max]; r[max] = tmp;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;}    }  
+&lt;pre&gt;&lt;code&gt;void SelectSort(int r[],int n) {  
+	int i ,j , min ,max, tmp;  
+	for (i=1 ;i &amp;lt;= n/2;i++) {    
+    // 做不超过n/2趟选择排序   
+    min = i; max = i ; //分别记录最大和最小关键字记录位置  
+    for (j= i+1; j&amp;lt;= n-i; j++) {  
+        if (r[j] &amp;gt; r[max]) {   
+            max = j ; continue ;   
+        }    
+        if (r[j]&amp;lt; r[min]) {   
+            min = j ;   
+        }     
+  	}    
+  	//该交换操作还可分情况讨论以提高效率  
+  	tmp = r[i-1]; r[i-1] = r[min]; r[min] = tmp;  
+  	tmp = r[n-i]; r[n-i] = r[max]; r[max] = tmp;   
+  
+	}   
+}  
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2 id=&quot;4-选择排序堆排序heap-sort&quot;&gt;4. 选择排序—堆排序（Heap Sort）&lt;/h2&gt;
@@ -565,12 +568,16 @@ print(a,8,8);&lt;br /&gt;
 
 &lt;p&gt;堆的定义如下：具有n个元素的序列（k1,k2,…,kn),当且仅当满足&lt;/p&gt;
 
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/sort_4.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
 &lt;p&gt;时称之为堆。由堆的定义可以看出，堆顶元素（即第一个元素）必为最小项（小顶堆）。
 若以一维数组存储一个堆，则堆对应一棵完全二叉树，且所有非叶结点的值均不大于(或不小于)其子女的值，根结点（堆顶元素）的值是最小(或最大)的。如：&lt;/p&gt;
 
 &lt;p&gt;（a）大顶堆序列：（96, 83,27,38,11,09)&lt;/p&gt;
 
-&lt;p&gt;(b)  小顶堆序列：（12，36，24，85，47，30，53，91）&lt;/p&gt;
+&lt;p&gt;(b) 小顶堆序列：（12，36，24，85，47，30，53，91）&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/sort_5.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;初始时把要排序的n个数的序列看作是一棵顺序存储的二叉树（一维数组存储二叉树），调整它们的存储序，使之成为一个堆，将堆顶元素输出，得到n 个元素中最小(或最大)的元素，这时堆的根节点的数最小（或者最大）。然后对前面(n-1)个元素重新调整使之成为堆，输出堆顶元素，得到n 个元素中次小(或次大)的元素。依此类推，直到只有两个节点的堆，并对它们作交换，最后得到有n个节点的有序序列。称这个过程为堆排序。&lt;/p&gt;
 
@@ -595,6 +602,8 @@ print(a,8,8);&lt;br /&gt;
 
 &lt;p&gt;称这个自根结点到叶子结点的调整过程为筛选。如图：&lt;/p&gt;
 
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/sort_6.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
 &lt;p&gt;再讨论对n 个元素初始建堆的过程。
 建堆方法：对初始序列建堆的过程，就是一个反复进行筛选的过程。&lt;/p&gt;
 
@@ -606,89 +615,95 @@ print(a,8,8);&lt;br /&gt;
 
 &lt;p&gt;如图建堆初始过程：无序序列：（49，38，65，97，76，13，27，49）&lt;/p&gt;
 
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/sort_7.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
 &lt;p&gt;算法的实现：&lt;/p&gt;
 
 &lt;p&gt;从算法描述来看，堆排序需要两个过程，一是建立堆，二是堆顶与堆的最后一个元素交换位置。所以堆排序有两个函数组成。一是建堆的渗透函数，二是反复调用渗透函数实现排序的函数。&lt;/p&gt;
 
-&lt;p&gt;void print(int a[], int n){&lt;br /&gt;
-    for(int j= 0; j&amp;lt;n; j++){&lt;br /&gt;
-        cout«a[j] «”  “;&lt;br /&gt;
-    }&lt;br /&gt;
-    cout«endl;&lt;br /&gt;
-}&lt;/p&gt;
-
-&lt;p&gt;/**&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;已知H[s…m]除了H[s] 外均满足堆的定义&lt;/li&gt;
-  &lt;li&gt;调整H[s],使其成为大顶堆.即将对第s个结点为根的子树筛选,&lt;/li&gt;
-  &lt;li&gt;&lt;/li&gt;
-  &lt;li&gt;@param H是待调整的堆数组&lt;/li&gt;
-  &lt;li&gt;@param s是待调整的数组元素的位置&lt;/li&gt;
-  &lt;li&gt;@param length是数组的长度&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;/&lt;br /&gt;
-void HeapAdjust(int H[],int s, int length)&lt;br /&gt;
-{&lt;br /&gt;
-int tmp  = H[s];&lt;br /&gt;
-int child = 2&lt;/em&gt;s+1; //左孩子结点的位置。(i+1 为当前调整结点的右孩子结点的位置)&lt;br /&gt;
-while (child &amp;lt; length) {&lt;br /&gt;
-    if(child+1 &amp;lt;length &amp;amp;&amp;amp; H[child]&amp;lt;H[child+1]) { // 如果右孩子大于左孩子(找到比当前待调整结点大的孩子结点)&lt;br /&gt;
-        ++child ;&lt;br /&gt;
-    }&lt;br /&gt;
-    if(H[s]&amp;lt;H[child]) {  // 如果较大的子结点大于父结点&lt;br /&gt;
-        H[s] = H[child]; // 那么把较大的子结点往上移动，替换它的父结点&lt;br /&gt;
-        s = child;       // 重新设置s ,即待调整的下一个结点的位置&lt;br /&gt;
-        child = 2*s+1;&lt;br /&gt;
-    }  else {            // 如果当前待调整结点大于它的左右孩子，则不需要调整，直接退出&lt;br /&gt;
-         break;&lt;br /&gt;
-    }&lt;br /&gt;
-    H[s] = tmp;         // 当前待调整的结点放到比其大的孩子结点位置上&lt;br /&gt;
-}&lt;br /&gt;
-print(H,length);&lt;br /&gt;
-}&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;/**&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;初始堆进行调整&lt;/li&gt;
-  &lt;li&gt;将H[0..length-1]建成堆&lt;/li&gt;
-  &lt;li&gt;调整完之后第一个元素是序列的最小的元素 
- */&lt;br /&gt;
-void BuildingHeap(int H[], int length)&lt;br /&gt;
-{ &lt;br /&gt;
- //最后一个有孩子的节点的位置 i=  (length -1) / 2&lt;br /&gt;
- for (int i = (length -1) / 2 ; i &amp;gt;= 0; –i)&lt;br /&gt;
-     HeapAdjust(H,i,length);&lt;br /&gt;
-}&lt;br /&gt;
-/**&lt;/li&gt;
-  &lt;li&gt;堆排序算法 
- */&lt;br /&gt;
-void HeapSort(int H[],int length)&lt;br /&gt;
-{&lt;br /&gt;
- //初始堆&lt;br /&gt;
- BuildingHeap(H, length);&lt;br /&gt;
- //从最后一个元素开始对序列进行调整&lt;br /&gt;
- for (int i = length - 1; i &amp;gt; 0; –i)&lt;br /&gt;
- {&lt;br /&gt;
-     //交换堆顶元素H[0]和堆中最后一个元素&lt;br /&gt;
-     int temp = H[i]; H[i] = H[0]; H[0] = temp;&lt;br /&gt;
-     //每次交换堆顶元素和堆中最后一个元素之后，都要对堆进行调整&lt;br /&gt;
-     HeapAdjust(H,0,i);&lt;br /&gt;
-  }&lt;br /&gt;
-}&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;int main(){&lt;br /&gt;
-    int H[10] = {3,1,5,7,2,4,9,6,10,8};&lt;br /&gt;
-    cout«“初始值：”;&lt;br /&gt;
-    print(H,10);&lt;br /&gt;
-    HeapSort(H,10);&lt;br /&gt;
-    //selectSort(a, 8);&lt;br /&gt;
-    cout«“结果：”;&lt;br /&gt;
-    print(H,10);&lt;/p&gt;
-
-&lt;p&gt;}&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;void print(int a[], int n){  
+	for(int j= 0; j&amp;lt;n; j++){  
+    	cout&amp;lt;&amp;lt;a[j] &amp;lt;&amp;lt;&quot;  &quot;;  
+	}  
+	cout&amp;lt;&amp;lt;endl;  
+}  
+  
+  
+  
+/** 
+ 	* 已知H[s…m]除了H[s] 外均满足堆的定义 
+ 	* 调整H[s],使其成为大顶堆.即将对第s个结点为根的子树筛选,  
+ 	* 
+ 	* @param H是待调整的堆数组 
+ 	* @param s是待调整的数组元素的位置 
+ 	* @param length是数组的长度 
+ 	* 
+ 	*/
+  
+void HeapAdjust(int H[],int s, int length)  
+{  
+	int tmp  = H[s];  
+	int child = 2*s+1; //左孩子结点的位置。(i+1 为当前调整结点的右孩子结点的位置)  
+	while (child &amp;lt; length) {  
+    	if(child+1 &amp;lt;length &amp;amp;&amp;amp; H[child]&amp;lt;H[child+1]) { // 如果右孩子大于左孩子(找到比当前待调整结点大的孩子结点)  
+        	++child ;  
+    	}  
+    	if(H[s]&amp;lt;H[child]) {  // 如果较大的子结点大于父结点  
+        	H[s] = H[child]; // 那么把较大的子结点往上移动，替换它的父结点  
+        	s = child;       // 重新设置s ,即待调整的下一个结点的位置  
+        	child = 2*s+1;  
+    	}  else {            // 如果当前待调整结点大于它的左右孩子，则不需要调整，直接退出  
+        	 break;  
+    	}  
+    	H[s] = tmp;         // 当前待调整的结点放到比其大的孩子结点位置上  
+	}  
+	print(H,length);  
+}  
+  
+  
+/** 
+ 	* 初始堆进行调整 
+ 	* 将H[0..length-1]建成堆 
+ 	* 调整完之后第一个元素是序列的最小的元素 
+ 	*/  
+void BuildingHeap(int H[], int length)  
+{   
+	//最后一个有孩子的节点的位置 i=  (length -1) / 2  
+	for (int i = (length -1) / 2 ; i &amp;gt;= 0; --i)  
+    	HeapAdjust(H,i,length);  
+}	  
+/** 
+ 	* 堆排序算法 
+ 	*/  
+void HeapSort(int H[],int length)  
+{  
+	//初始堆  
+	BuildingHeap(H, length);  
+	//从最后一个元素开始对序列进行调整  
+	for (int i = length - 1; i &amp;gt; 0; --i)  
+	{  
+    //交换堆顶元素H[0]和堆中最后一个元素  
+    int temp = H[i]; H[i] = H[0]; H[0] = temp;  
+    //每次交换堆顶元素和堆中最后一个元素之后，都要对堆进行调整  
+    HeapAdjust(H,0,i);  
+  	}  
+}	   
+  
+int main(){  
+	int H[10] = {3,1,5,7,2,4,9,6,10,8};  
+   	cout&amp;lt;&amp;lt;&quot;初始值：&quot;;  
+	print(H,10);  
+	HeapSort(H,10);  
+	//selectSort(a, 8);  
+	cout&amp;lt;&amp;lt;&quot;结果：&quot;;  
+	print(H,10);  
+  
+}  
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;分析:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/sort_8.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;设树深度为k，。从根到叶的筛选，元素比较次数至多2(k-1)次，交换记录至多k 次。所以，在建好堆后，排序过程中的筛选次数不超过下式：&lt;/p&gt;
 
@@ -701,18 +716,21 @@ void HeapSort(int H[],int length)&lt;br /&gt;
 
 &lt;p&gt;冒泡排序的示例：&lt;/p&gt;
 
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/sort_9.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
 &lt;p&gt;算法的实现：&lt;/p&gt;
 
-&lt;p&gt;void bubbleSort(int a[], int n){&lt;br /&gt;
-    for(int i =0 ; i&amp;lt; n-1; ++i) {&lt;br /&gt;
-        for(int j = 0; j &amp;lt; n-i-1; ++j) {&lt;br /&gt;
-            if(a[j] &amp;gt; a[j+1])&lt;br /&gt;
-            {&lt;br /&gt;
-                int tmp = a[j] ; a[j] = a[j+1] ;  a[j+1] = tmp;&lt;br /&gt;
-            }&lt;br /&gt;
-        }&lt;br /&gt;
-    }&lt;br /&gt;
-}&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;void bubbleSort(int a[], int n){  
+	for(int i =0 ; i&amp;lt; n-1; ++i) {  
+    	for(int j = 0; j &amp;lt; n-i-1; ++j) {  
+        	if(a[j] &amp;gt; a[j+1])  
+        	{  
+            	int tmp = a[j] ; a[j] = a[j+1] ;  a[j+1] = tmp;  
+        	}	  
+   		}  
+	}  
+}  
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;冒泡排序算法的改进&lt;/p&gt;
 
@@ -722,40 +740,42 @@ void HeapSort(int H[],int length)&lt;br /&gt;
 
 &lt;p&gt;改进后算法如下:&lt;/p&gt;
 
-&lt;p&gt;void Bubble_1 ( int r[], int n) {&lt;br /&gt;
-    int i= n -1;  //初始时,最后位置保持不变&lt;br /&gt;
-    while ( i&amp;gt; 0) { &lt;br /&gt;
-        int pos= 0; //每趟开始时,无记录交换&lt;br /&gt;
-        for (int j= 0; j&amp;lt; i; j++)&lt;br /&gt;
-            if (r[j]&amp;gt; r[j+1]) {&lt;br /&gt;
-                pos= j; //记录交换的位置 &lt;br /&gt;
-                int tmp = r[j]; r[j]=r[j+1];r[j+1]=tmp;&lt;br /&gt;
-            } &lt;br /&gt;
-        i= pos; //为下一趟排序作准备&lt;br /&gt;
-     } &lt;br /&gt;
-}&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;void Bubble_1 ( int r[], int n) {  
+	int i= n -1;  //初始时,最后位置保持不变  
+   	while ( i&amp;gt; 0) {   
+    	int pos= 0; //每趟开始时,无记录交换  
+    	for (int j= 0; j&amp;lt; i; j++)  
+        	if (r[j]&amp;gt; r[j+1]) {  
+            	pos= j; //记录交换的位置   
+            	int tmp = r[j]; r[j]=r[j+1];r[j+1]=tmp;  
+        	}   
+    	i= pos; //为下一趟排序作准备  
+ 	}   
+}    
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;2．传统冒泡排序中每一趟排序操作只能找到一个最大值或最小值,我们考虑利用在每趟排序中进行正向和反向两遍冒泡的方法一次可以得到两个最终值(最大者和最小者) , 从而使排序趟数几乎减少了一半。&lt;/p&gt;
 
 &lt;p&gt;改进后的算法实现为:&lt;/p&gt;
 
-&lt;p&gt;void Bubble_2 ( int r[], int n){&lt;br /&gt;
-    int low = 0; &lt;br /&gt;
-    int high= n -1; //设置变量的初始值&lt;br /&gt;
-    int tmp,j;&lt;br /&gt;
-    while (low &amp;lt; high) {&lt;br /&gt;
-        for (j= low; j&amp;lt; high; ++j) //正向冒泡,找到最大者&lt;br /&gt;
-            if (r[j]&amp;gt; r[j+1]) {&lt;br /&gt;
-                tmp = r[j]; r[j]=r[j+1];r[j+1]=tmp;&lt;br /&gt;
-            } &lt;br /&gt;
-        –high;                 //修改high值, 前移一位&lt;br /&gt;
-        for ( j=high; j&amp;gt;low; –j) //反向冒泡,找到最小者&lt;br /&gt;
-            if (r[j]&amp;lt;r[j-1]) {&lt;br /&gt;
-                tmp = r[j]; r[j]=r[j-1];r[j-1]=tmp;&lt;br /&gt;
-            }&lt;br /&gt;
-        ++low;                  //修改low值,后移一位&lt;br /&gt;
-    } &lt;br /&gt;
-}&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;void Bubble_2 ( int r[], int n){  
+	int low = 0;   
+	int high= n -1; //设置变量的初始值  
+	int tmp,j;  
+	while (low &amp;lt; high) {  
+    	for (j= low; j&amp;lt; high; ++j) //正向冒泡,找到最大者  
+        	if (r[j]&amp;gt; r[j+1]) {  
+            	tmp = r[j]; r[j]=r[j+1];r[j+1]=tmp;  
+        	}   
+    	--high;                 //修改high值, 前移一位  
+    	for ( j=high; j&amp;gt;low; --j) //反向冒泡,找到最小者  
+        	if (r[j]&amp;lt;r[j-1]) {  
+            	tmp = r[j]; r[j]=r[j-1];r[j-1]=tmp;  
+        	}  
+    	++low;                  //修改low值,后移一位  
+	}   
+}   
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2 id=&quot;6-交换排序快速排序quick-sort&quot;&gt;6. 交换排序—快速排序（Quick Sort）&lt;/h2&gt;
 &lt;p&gt;基本思想：&lt;/p&gt;
@@ -768,60 +788,64 @@ void HeapSort(int H[],int length)&lt;br /&gt;
 
 &lt;p&gt;4）然后分别对这两部分记录用同样的方法继续进行排序，直到整个序列有序。&lt;/p&gt;
 
-&lt;p&gt;快速排序的示例：&lt;/p&gt;
+&lt;p&gt;快速排序的示例：
+（a）一趟排序的过程：&lt;/p&gt;
 
-&lt;p&gt;（a）一趟排序的过程：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/sort_10.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;（b）排序的全过程&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/sort_11.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;算法的实现：&lt;/p&gt;
 
 &lt;p&gt;递归实现：&lt;/p&gt;
 
-&lt;p&gt;void print(int a[], int n){&lt;br /&gt;
-    for(int j= 0; j&amp;lt;n; j++){&lt;br /&gt;
-        cout«a[j] «”  “;&lt;br /&gt;
-    }&lt;br /&gt;
-    cout«endl;&lt;br /&gt;
-}&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;void print(int a[], int n){  
+	for(int j= 0; j&amp;lt;n; j++){  
+    	cout&amp;lt;&amp;lt;a[j] &amp;lt;&amp;lt;&quot;  &quot;;  
+	}  
+	cout&amp;lt;&amp;lt;endl;  
+}  
+  
+void swap(int *a, int *b)  
+{  
+	int tmp = *a;  
+	*a = *b;  
+   	*b = tmp;  
+}	  
+  
+int partition(int a[], int low, int high)  
+{  
+	int privotKey = a[low];                             //基准元素  
+	while(low &amp;lt; high){                                   //从表的两端交替地向中间扫描  
+    	while(low &amp;lt; high  &amp;amp;&amp;amp; a[high] &amp;gt;= privotKey) --high;  //从high 所指位置向前搜索，至多到low+1 位置。将比基准元素小的交换到低端  
+    	swap(&amp;amp;a[low], &amp;amp;a[high]);  
+    	while(low &amp;lt; high  &amp;amp;&amp;amp; a[low] &amp;lt;= privotKey ) ++low;  
+    	swap(&amp;amp;a[low], &amp;amp;a[high]);  
+	}  
+	print(a,10);  
+	return low;  
+}  
 
-&lt;p&gt;void swap(int *a, int *b)&lt;br /&gt;
-{&lt;br /&gt;
-    int tmp = *a;&lt;br /&gt;
-    *a = *b;&lt;br /&gt;
-    *b = tmp;&lt;br /&gt;
-}&lt;/p&gt;
-
-&lt;p&gt;int partition(int a[], int low, int high)&lt;br /&gt;
-{&lt;br /&gt;
-    int privotKey = a[low];                             //基准元素&lt;br /&gt;
-    while(low &amp;lt; high){                                   //从表的两端交替地向中间扫描&lt;br /&gt;
-        while(low &amp;lt; high  &amp;amp;&amp;amp; a[high] &amp;gt;= privotKey) –high;  //从high 所指位置向前搜索，至多到low+1 位置。将比基准元素小的交换到低端&lt;br /&gt;
-        swap(&amp;amp;a[low], &amp;amp;a[high]);&lt;br /&gt;
-        while(low &amp;lt; high  &amp;amp;&amp;amp; a[low] &amp;lt;= privotKey ) ++low;&lt;br /&gt;
-        swap(&amp;amp;a[low], &amp;amp;a[high]);&lt;br /&gt;
-    }&lt;br /&gt;
-    print(a,10);&lt;br /&gt;
-    return low;&lt;br /&gt;
-}&lt;/p&gt;
-
-&lt;p&gt;void quickSort(int a[], int low, int high){&lt;br /&gt;
-    if(low &amp;lt; high){&lt;br /&gt;
-        int privotLoc = partition(a,  low,  high);  //将表一分为二&lt;br /&gt;
-        quickSort(a,  low,  privotLoc -1);          //递归对低子表递归排序&lt;br /&gt;
-        quickSort(a,   privotLoc + 1, high);        //递归对高子表递归排序&lt;br /&gt;
-    }&lt;br /&gt;
-}&lt;/p&gt;
-
-&lt;p&gt;int main(){&lt;br /&gt;
-    int a[10] = {3,1,5,7,2,4,9,6,10,8};&lt;br /&gt;
-    cout«“初始值：”;&lt;br /&gt;
-    print(a,10);&lt;br /&gt;
-    quickSort(a,0,9);&lt;br /&gt;
-    cout«“结果：”;&lt;br /&gt;
-    print(a,10);&lt;/p&gt;
-
-&lt;p&gt;}&lt;/p&gt;
+void quickSort(int a[], int low, int high){  
+	if(low &amp;lt; high){  
+    	int privotLoc = partition(a,  low,  high);  //将表一分为二  
+    	quickSort(a,  low,  privotLoc -1);          //递归对低子表递归排序  
+    	quickSort(a,   privotLoc + 1, high);        //递归对高子表递归排序  
+	}  
+}  
+  
+int main(){  
+	int a[10] = {3,1,5,7,2,4,9,6,10,8};  
+	cout&amp;lt;&amp;lt;&quot;初始值：&quot;;  
+	print(a,10);  
+	quickSort(a,0,9);  
+	cout&amp;lt;&amp;lt;&quot;结果：&quot;;  
+	print(a,10);  
+  
+}  
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;分析：&lt;/p&gt;
 
@@ -831,65 +855,66 @@ void HeapSort(int H[],int length)&lt;br /&gt;
 
 &lt;p&gt;在本改进算法中,只对长度大于k的子序列递归调用快速排序,让原序列基本有序，然后再对整个基本有序序列用插入排序算法排序。实践证明，改进后的算法时间复杂度有所降低，且当k取值为 8 左右时,改进算法的性能最佳。算法思想如下：&lt;/p&gt;
 
-&lt;p&gt;void print(int a[], int n){&lt;br /&gt;
-    for(int j= 0; j&amp;lt;n; j++){&lt;br /&gt;
-        cout«a[j] «”  “;&lt;br /&gt;
-    }&lt;br /&gt;
-    cout«endl;&lt;br /&gt;
-}&lt;/p&gt;
-
-&lt;p&gt;void swap(int *a, int *b)&lt;br /&gt;
-{&lt;br /&gt;
-    int tmp = *a;&lt;br /&gt;
-    *a = *b;&lt;br /&gt;
-    *b = tmp;&lt;br /&gt;
-}&lt;/p&gt;
-
-&lt;p&gt;int partition(int a[], int low, int high)&lt;br /&gt;
-{&lt;br /&gt;
-    int privotKey = a[low];                 //基准元素&lt;br /&gt;
-    while(low &amp;lt; high){                   //从表的两端交替地向中间扫描&lt;br /&gt;
-        while(low &amp;lt; high  &amp;amp;&amp;amp; a[high] &amp;gt;= privotKey) –high; //从high 所指位置向前搜索，至多到low+1 位置。将比基准元素小的交换到低端&lt;br /&gt;
-        swap(&amp;amp;a[low], &amp;amp;a[high]);&lt;br /&gt;
-        while(low &amp;lt; high  &amp;amp;&amp;amp; a[low] &amp;lt;= privotKey ) ++low;&lt;br /&gt;
-        swap(&amp;amp;a[low], &amp;amp;a[high]);&lt;br /&gt;
-    }&lt;br /&gt;
-    print(a,10);&lt;br /&gt;
-    return low;&lt;br /&gt;
-}&lt;/p&gt;
-
-&lt;p&gt;void qsort_improve(int r[ ],int low,int high, int k){&lt;br /&gt;
-    if( high -low &amp;gt; k ) { //长度大于k时递归, k为指定的数&lt;br /&gt;
-        int pivot = partition(r, low, high); // 调用的Partition算法保持不变&lt;br /&gt;
-        qsort_improve(r, low, pivot - 1,k);&lt;br /&gt;
-        qsort_improve(r, pivot + 1, high,k);&lt;br /&gt;
-    } &lt;br /&gt;
-} &lt;br /&gt;
-void quickSort(int r[], int n, int k){&lt;br /&gt;
-    qsort_improve(r,0,n,k);//先调用改进算法Qsort使之基本有序&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;//再用插入排序对基本有序序列排序  
-for(int i=1; i&amp;lt;=n;i ++){  
-    int tmp = r[i];   
-    int j=i-1;  
-    while(tmp &amp;lt; r[j]){  
-        r[j+1]=r[j]; j=j-1;   
-    }  
-    r[j+1] = tmp;  
+&lt;pre&gt;&lt;code&gt;void print(int a[], int n){  
+	for(int j= 0; j&amp;lt;n; j++){  
+    	cout&amp;lt;&amp;lt;a[j] &amp;lt;&amp;lt;&quot;  &quot;;  
+	}  
+	cout&amp;lt;&amp;lt;endl;  
+}  
+  
+void swap(int *a, int *b)  
+{  
+	int tmp = *a;  
+	*a = *b;  
+	*b = tmp;  
+}	  
+  
+int partition(int a[], int low, int high)  
+{  
+	int privotKey = a[low];                 //基准元素  
+	while(low &amp;lt; high){                   //从表的两端交替地向中间扫描  
+    	while(low &amp;lt; high  &amp;amp;&amp;amp; a[high] &amp;gt;= privotKey) --high; //从high 所指位置向前搜索，至多到low+1 位置。将比基准元素小的交换到低端  
+    	swap(&amp;amp;a[low], &amp;amp;a[high]);  
+    	while(low &amp;lt; high  &amp;amp;&amp;amp; a[low] &amp;lt;= privotKey ) ++low;  
+    	swap(&amp;amp;a[low], &amp;amp;a[high]);  
+	}  
+	print(a,10);  
+	return low;  
+}  
+  
+  
+void qsort_improve(int r[ ],int low,int high, int k){  
+	if( high -low &amp;gt; k ) { //长度大于k时递归, k为指定的数  
+    	int pivot = partition(r, low, high); // 调用的Partition算法保持不变  
+    	qsort_improve(r, low, pivot - 1,k);  
+    	qsort_improve(r, pivot + 1, high,k);  
+	}   
 }   
+void quickSort(int r[], int n, int k){  
+	qsort_improve(r,0,n,k);//先调用改进算法Qsort使之基本有序  
+  
+	//再用插入排序对基本有序序列排序  
+	for(int i=1; i&amp;lt;=n;i ++){  
+    	int tmp = r[i];   
+    	int j=i-1;  
+    	while(tmp &amp;lt; r[j]){  
+        	r[j+1]=r[j]; j=j-1;   
+    	}	  
+    	r[j+1] = tmp;  
+	}   
+  
+}   
+
+int main(){  
+	int a[10] = {3,1,5,7,2,4,9,6,10,8};  
+	cout&amp;lt;&amp;lt;&quot;初始值：&quot;;  
+	print(a,10);  
+	quickSort(a,9,4);  
+    cout&amp;lt;&amp;lt;&quot;结果：&quot;;  
+	print(a,10);  
+  
+}  
 &lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;}&lt;/p&gt;
-
-&lt;p&gt;int main(){&lt;br /&gt;
-    int a[10] = {3,1,5,7,2,4,9,6,10,8};&lt;br /&gt;
-    cout«“初始值：”;&lt;br /&gt;
-    print(a,10);&lt;br /&gt;
-    quickSort(a,9,4);&lt;br /&gt;
-    cout«“结果：”;&lt;br /&gt;
-    print(a,10);&lt;/p&gt;
-
-&lt;p&gt;}&lt;/p&gt;
 
 &lt;h2 id=&quot;7-归并排序merge-sort&quot;&gt;7. 归并排序（Merge Sort）&lt;/h2&gt;
 
@@ -899,103 +924,117 @@ for(int i=1; i&amp;lt;=n;i ++){
 
 &lt;p&gt;归并排序示例：&lt;/p&gt;
 
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/sort_12.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
 &lt;p&gt;合并方法：&lt;/p&gt;
 
 &lt;p&gt;设r[i…n]由两个有序子表r[i…m]和r[m+1…n]组成，两个子表长度分别为n-i +1、n-m。
 j=m+1；k=i；i=i;  置两个子表的起始下标及辅助数组的起始下标
 若i&amp;gt;m 或j&amp;gt;n，转⑷  其中一个子表已合并完，比较选取结束
 选取r[i]和r[j]较小的存入辅助数组rf
-如果r[i]&amp;lt;r[j]，rf[k]=r[i]； i++； k++； 转⑵
-否则，rf[k]=r[j]； j++； k++； 转⑵
-//将尚未处理完的子表中元素存入rf
-如果i&amp;lt;=m，将r[i…m]存入rf[k…n] //前一子表非空
-如果j&amp;lt;=n ,  将r[j…n] 存入rf[k…n] //后一子表非空
-合并结束。
-//将r[i…m]和r[m +1 …n]归并到辅助数组rf[i…n]&lt;br /&gt;
-void Merge(ElemType *r,ElemType *rf, int i, int m, int n)&lt;br /&gt;
-{&lt;br /&gt;
-    int j,k;&lt;br /&gt;
-    for(j=m+1,k=i; i&amp;lt;=m &amp;amp;&amp;amp; j &amp;lt;=n ; ++k){&lt;br /&gt;
-        if(r[j] &amp;lt; r[i]) rf[k] = r[j++];&lt;br /&gt;
-        else rf[k] = r[i++];&lt;br /&gt;
-    }&lt;br /&gt;
-    while(i &amp;lt;= m)  rf[k++] = r[i++];&lt;br /&gt;
-    while(j &amp;lt;= n)  rf[k++] = r[j++];&lt;br /&gt;
-}&lt;/p&gt;
+如果r[i]&amp;lt;r[j]，rf[k]=r[i]； i++； k++； 转⑵&lt;/p&gt;
+
+&lt;p&gt;否则，rf[k]=r[j]； j++； k++； 转⑵&lt;/p&gt;
+
+&lt;p&gt;//将尚未处理完的子表中元素存入rf&lt;/p&gt;
+
+&lt;p&gt;如果i&amp;lt;=m，将r[i…m]存入rf[k…n] //前一子表非空&lt;/p&gt;
+
+&lt;p&gt;如果j&amp;lt;=n ,  将r[j…n] 存入rf[k…n] //后一子表非空&lt;/p&gt;
+
+&lt;p&gt;合并结束。&lt;/p&gt;
+
+&lt;p&gt;//将r[i…m]和r[m +1 …n]归并到辅助数组rf[i…n]&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;void Merge(ElemType *r,ElemType *rf, int i, int m, int n)  
+{  
+	int j,k;  
+	for(j=m+1,k=i; i&amp;lt;=m &amp;amp;&amp;amp; j &amp;lt;=n ; ++k){  
+    	if(r[j] &amp;lt; r[i]) rf[k] = r[j++];  
+   		else rf[k] = r[i++];  
+	}  
+	while(i &amp;lt;= m)  rf[k++] = r[i++];  
+	while(j &amp;lt;= n)  rf[k++] = r[j++];  
+}  
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;归并的迭代算法&lt;/p&gt;
 
 &lt;p&gt;1 个元素的表总是有序的。所以对n 个元素的待排序列，每个元素可看成1 个有序子表。对子表两两合并生成n/2个子表，所得子表除最后一个子表长度可能为1 外，其余子表长度均为2。再进行两两合并，直到生成n 个元素按关键码有序的表。&lt;/p&gt;
 
-&lt;p&gt;void print(int a[], int n){&lt;br /&gt;
-    for(int j= 0; j&amp;lt;n; j++){&lt;br /&gt;
-        cout«a[j] «”  “;&lt;br /&gt;
-    }&lt;br /&gt;
-    cout«endl;&lt;br /&gt;
-}&lt;/p&gt;
-
-&lt;p&gt;//将r[i…m]和r[m +1 …n]归并到辅助数组rf[i…n]&lt;br /&gt;
-void Merge(ElemType *r,ElemType *rf, int i, int m, int n)&lt;br /&gt;
-{&lt;br /&gt;
-    int j,k;&lt;br /&gt;
-    for(j=m+1,k=i; i&amp;lt;=m &amp;amp;&amp;amp; j &amp;lt;=n ; ++k){&lt;br /&gt;
-        if(r[j] &amp;lt; r[i]) rf[k] = r[j++];&lt;br /&gt;
-        else rf[k] = r[i++];&lt;br /&gt;
-    }&lt;br /&gt;
-    while(i &amp;lt;= m)  rf[k++] = r[i++];&lt;br /&gt;
-    while(j &amp;lt;= n)  rf[k++] = r[j++];&lt;br /&gt;
-    print(rf,n+1);&lt;br /&gt;
-}&lt;/p&gt;
-
-&lt;p&gt;void MergeSort(ElemType *r, ElemType *rf, int lenght)&lt;br /&gt;
-{ &lt;br /&gt;
-    int len = 1;&lt;br /&gt;
-    ElemType *q = r ;&lt;br /&gt;
-    ElemType *tmp ;&lt;br /&gt;
-    while(len &amp;lt; lenght) {&lt;br /&gt;
-        int s = len;&lt;br /&gt;
-        len = 2 * s ;&lt;br /&gt;
-        int i = 0;&lt;br /&gt;
-        while(i+ len &amp;lt;lenght){&lt;br /&gt;
-            Merge(q, rf,  i, i+ s-1, i+ len-1 ); //对等长的两个子表合并&lt;br /&gt;
-            i = i+ len;&lt;br /&gt;
-        }&lt;br /&gt;
-        if(i + s &amp;lt; lenght){&lt;br /&gt;
-            Merge(q, rf,  i, i+ s -1, lenght -1); //对不等长的两个子表合并&lt;br /&gt;
-        }&lt;br /&gt;
-        tmp = q; q = rf; rf = tmp; //交换q,rf，以保证下一趟归并时，仍从q 归并到rf&lt;br /&gt;
-    }&lt;br /&gt;
-}&lt;/p&gt;
-
-&lt;p&gt;int main(){&lt;br /&gt;
-    int a[10] = {3,1,5,7,2,4,9,6,10,8};&lt;br /&gt;
-    int b[10];&lt;br /&gt;
-    MergeSort(a, b, 10);&lt;br /&gt;
-    print(b,10);&lt;br /&gt;
-    cout«“结果：”;&lt;br /&gt;
-    print(a,10);&lt;/p&gt;
-
-&lt;p&gt;}&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;void print(int a[], int n){  
+	for(int j= 0; j&amp;lt;n; j++){  
+    	cout&amp;lt;&amp;lt;a[j] &amp;lt;&amp;lt;&quot;  &quot;;  
+	}  
+	cout&amp;lt;&amp;lt;endl;  
+}  
+  
+//将r[i…m]和r[m +1 …n]归并到辅助数组rf[i…n]  
+void Merge(ElemType *r,ElemType *rf, int i, int m, int n)  
+{  
+	int j,k;  
+	for(j=m+1,k=i; i&amp;lt;=m &amp;amp;&amp;amp; j &amp;lt;=n ; ++k){  
+    	if(r[j] &amp;lt; r[i]) rf[k] = r[j++];  
+    	else rf[k] = r[i++];  
+   	}	  
+   	while(i &amp;lt;= m)  rf[k++] = r[i++];  
+	while(j &amp;lt;= n)  rf[k++] = r[j++];  
+	print(rf,n+1);  
+}  
+  
+void MergeSort(ElemType *r, ElemType *rf, int lenght)  
+{   
+	int len = 1;  
+	ElemType *q = r ;  
+   	ElemType *tmp ;  
+	while(len &amp;lt; lenght) {  
+    	int s = len;  
+    	len = 2 * s ;  
+    	int i = 0;  
+    while(i+ len &amp;lt;lenght){  
+        Merge(q, rf,  i, i+ s-1, i+ len-1 ); //对等长的两个子表合并  
+        i = i+ len;  
+    }  
+    if(i + s &amp;lt; lenght){  
+        Merge(q, rf,  i, i+ s -1, lenght -1); //对不等长的两个子表合并  
+    }  
+    tmp = q; q = rf; rf = tmp; //交换q,rf，以保证下一趟归并时，仍从q 归并到rf  
+	}  
+}  
+  
+  
+int main(){  
+	int a[10] = {3,1,5,7,2,4,9,6,10,8};  
+	int b[10];  
+	MergeSort(a, b, 10);  
+	print(b,10);  
+   	cout&amp;lt;&amp;lt;&quot;结果：&quot;;  
+	print(a,10);  
+  	
+}  
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;两路归并的递归算法&lt;/p&gt;
 
-&lt;p&gt;void MSort(ElemType &lt;em&gt;r, ElemType *rf,int s, int t)&lt;br /&gt;
-{ &lt;br /&gt;
-    ElemType *rf2;&lt;br /&gt;
-    if(s==t) r[s] = rf[s];&lt;br /&gt;
-    else&lt;br /&gt;
-    { &lt;br /&gt;
-        int m=(s+t)/2;          /&lt;/em&gt;平分&lt;em&gt;p 表&lt;/em&gt;/&lt;br /&gt;
-        MSort(r, rf2, s, m);        /&lt;em&gt;递归地将p[s…m]归并为有序的p2[s…m]&lt;/em&gt;/&lt;br /&gt;
-        MSort(r, rf2, m+1, t);      /&lt;em&gt;递归地将p[m+1…t]归并为有序的p2[m+1…t]&lt;/em&gt;/&lt;br /&gt;
-        Merge(rf2, rf, s, m+1,t);   /&lt;em&gt;将p2[s…m]和p2[m+1…t]归并到p1[s…t]&lt;/em&gt;/&lt;br /&gt;
-    }&lt;br /&gt;
-}&lt;br /&gt;
-void MergeSort_recursive(ElemType &lt;em&gt;r, ElemType *rf, int n)&lt;br /&gt;
-{   /&lt;/em&gt;对顺序表&lt;em&gt;p 作归并排序&lt;/em&gt;/&lt;br /&gt;
-    MSort(r, rf,0, n-1);&lt;br /&gt;
-}&lt;/p&gt;
-&lt;h4 id=&quot;8-桶排序基数排序radix-sort&quot;&gt;8. 桶排序/基数排序(Radix Sort)&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;void MSort(ElemType *r, ElemType *rf,int s, int t)  
+{   
+	ElemType *rf2;  
+	if(s==t) r[s] = rf[s];  
+	else  
+	{   
+    	int m=(s+t)/2;          /*平分*p 表*/  
+    	MSort(r, rf2, s, m);        /*递归地将p[s…m]归并为有序的p2[s…m]*/  
+    	MSort(r, rf2, m+1, t);      /*递归地将p[m+1…t]归并为有序的p2[m+1…t]*/  
+    	Merge(rf2, rf, s, m+1,t);   /*将p2[s…m]和p2[m+1…t]归并到p1[s…t]*/  
+   	}	  
+}  
+void MergeSort_recursive(ElemType *r, ElemType *rf, int n)  
+{   /*对顺序表*p 作归并排序*/  
+	MSort(r, rf,0, n-1);  
+}	  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;8-桶排序基数排序radix-sort&quot;&gt;8. 桶排序/基数排序(Radix Sort)&lt;/h2&gt;
 &lt;p&gt;说基数排序之前，我们先说桶排序：&lt;/p&gt;
 
 &lt;p&gt;基本思想：是将阵列分到有限数量的桶子里。每个桶子再个别排序（有可能再使用别的排序算法或是以递回方式继续使用桶排序进行排序）。桶排序是鸽巢排序的一种归纳结果。当要被排序的阵列内的数值是均匀分配的时候，桶排序使用线性时间（Θ（n））。但桶排序并不是 比较排序，他不受到 O(n log n) 下限的影响。
@@ -1018,14 +1057,13 @@ void MergeSort_recursive(ElemType &lt;em&gt;r, ElemType *rf, int n)&lt;br /&gt;
 
 &lt;p&gt;当然，以上复杂度的计算是基于输入的n个数字是平均分布这个假设的。这个假设是很强的  ，实际应用中效果并没有这么好。如果所有的数字都落在同一个桶中，那就退化成一般的排序了。&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;    前面说的几大排序算法 ，大部分时间复杂度都是O（n2），也有部分排序算法时间复杂度是O(nlogn)。而桶式排序却能实现O（n）的时间复杂度。但桶排序的缺点是：
+&lt;p&gt;前面说的几大排序算法 ，大部分时间复杂度都是O（n2），也有部分排序算法时间复杂度是O(nlogn)。而桶式排序却能实现O（n）的时间复杂度。但桶排序的缺点是：&lt;/p&gt;
 
-    1）首先是空间复杂度比较高，需要的额外开销大。排序有两个数组的空间开销，一个存放待排序数组，一个就是所谓的桶，比如待排序值是从0到m-1，那就需要m个桶，这个桶数组就要至少m个空间。
+&lt;p&gt;1）首先是空间复杂度比较高，需要的额外开销大。排序有两个数组的空间开销，一个存放待排序数组，一个就是所谓的桶，比如待排序值是从0到m-1，那就需要m个桶，这个桶数组就要至少m个空间。&lt;/p&gt;
 
-    2）其次待排序的元素都要在一定的范围内等等。
+&lt;p&gt;2）其次待排序的元素都要在一定的范围内等等。&lt;/p&gt;
 
-   桶式排序是一种分配排序。分配排序的特定是不需要进行关键码的比较，但前提是要知道待排序列的一些具体情况。
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;桶式排序是一种分配排序。分配排序的特定是不需要进行关键码的比较，但前提是要知道待排序列的一些具体情况。&lt;/p&gt;
 
 &lt;p&gt;分配排序的基本思想：说白了就是进行多次的桶式排序。&lt;/p&gt;
 
@@ -1047,7 +1085,9 @@ void MergeSort_recursive(ElemType &lt;em&gt;r, ElemType *rf, int n)&lt;br /&gt;
 
 &lt;p&gt;设n 个元素的待排序列包含d 个关键码{k1，k2，…，kd}，则称序列对关键码{k1，k2，…，kd}有序是指：对于序列中任两个记录r[i]和r&lt;a href=&quot;1≤i≤j≤n&quot;&gt;j&lt;/a&gt;都满足下列有序关系：&lt;/p&gt;
 
-&lt;p&gt;其中k1 称为最主位关键码，kd 称为最次位关键码     。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/sort_13.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;其中k1 称为最主位关键码，kd 称为最次位关键码。&lt;/p&gt;
 
 &lt;p&gt;两种多关键码排序方法：&lt;/p&gt;
 
@@ -1077,37 +1117,43 @@ void MergeSort_recursive(ElemType &lt;em&gt;r, ElemType *rf, int n)&lt;br /&gt;
 
 &lt;p&gt;算法实现：&lt;/p&gt;
 
-&lt;p&gt;Void RadixSort(Node L[],length,maxradix)&lt;br /&gt;
-{&lt;br /&gt;
-   int m,n,k,lsp;&lt;br /&gt;
-   k=1;m=1;&lt;br /&gt;
-   int temp[10][length-1];&lt;br /&gt;
-   Empty(temp); //清空临时空间&lt;br /&gt;
-   while(k&amp;lt;maxradix) //遍历所有关键字&lt;br /&gt;
-   {&lt;br /&gt;
-     for(int i=0;i&amp;lt;length;i++) //分配过程&lt;br /&gt;
-    {&lt;br /&gt;
-       if(L[i]&amp;lt;m)&lt;br /&gt;
-          Temp[0][n]=L[i];&lt;br /&gt;
-       else&lt;br /&gt;
-          Lsp=(L[i]/m)%10; //确定关键字&lt;br /&gt;
-       Temp[lsp][n]=L[i];&lt;br /&gt;
-       n++;&lt;br /&gt;
-   }&lt;br /&gt;
-   CollectElement(L,Temp); //收集&lt;br /&gt;
-   n=0;&lt;br /&gt;
-   m=m*10;&lt;br /&gt;
-  k++;&lt;br /&gt;
- }&lt;br /&gt;
-}&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Void RadixSort(Node L[],length,maxradix)  
+{  
+  	 int m,n,k,lsp;  
+   	k=1;m=1;  
+   	int temp[10][length-1];  
+   	Empty(temp); //清空临时空间  
+   	while(k&amp;lt;maxradix) //遍历所有关键字  
+   	{  
+ 	for(int i=0;i&amp;lt;length;i++) //分配过程  
+	{  
+   	if(L[i]&amp;lt;m)  
+      	Temp[0][n]=L[i];  
+   	else  
+      	Lsp=(L[i]/m)%10; //确定关键字  
+   	Temp[lsp][n]=L[i];  
+   	n++;  
+   	}  
+   	CollectElement(L,Temp); //收集  
+   	n=0;  
+   	m=m*10;  
+  	k++;  
+ 	}  
+}  
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;总结
 各种排序的稳定性，时间复杂度和空间复杂度总结：&lt;/p&gt;
 
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/sort_14.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
 &lt;p&gt;我们比较时间复杂度函数的情况：&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;                         时间复杂度函数O(n)的增长情况
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/sort_15.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;时间复杂度函数O(n)的增长情况&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/sort_16.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;所以对n较大的排序记录。一般的选择都是时间复杂度为O(nlog2n)的排序方法。&lt;/p&gt;
 
@@ -1115,25 +1161,22 @@ void MergeSort_recursive(ElemType &lt;em&gt;r, ElemType *rf, int n)&lt;br /&gt;
 
 &lt;p&gt;(1)平方阶(O(n2))排序
 　　各类简单排序:直接插入、直接选择和冒泡排序；
- (2)线性对数阶(O(nlog2n))排序
+(2)线性对数阶(O(nlog2n))排序
 　　快速排序、堆排序和归并排序；
- (3)O(n1+§))排序,§是介于0和1之间的常数。&lt;/p&gt;
+(3)O(n1+§))排序,§是介于0和1之间的常数。&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;   希尔排序 (4)线性阶(O(n))排序 　　基数排序，此外还有桶、箱排序。
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;希尔排序
+(4)线性阶(O(n))排序
+基数排序，此外还有桶、箱排序。&lt;/p&gt;
 
-&lt;p&gt;说明：&lt;/p&gt;
+&lt;p&gt;说明：
+当原表有序或基本有序时，直接插入排序和冒泡排序将大大减少比较次数和移动记录的次数，时间复杂度可降至O（n）；
+而快速排序则相反，当原表基本有序时，将蜕化为冒泡排序，时间复杂度提高为O（n2）；
+原表是否有序，对简单选择排序、堆排序、归并排序和基数排序的时间复杂度影响不大。&lt;/p&gt;
 
-&lt;p&gt;当原表有序或基本有序时，直接插入排序和冒泡排序将大大减少比较次数和移动记录的次数，时间复杂度可降至O（n）；&lt;/p&gt;
-
-&lt;p&gt;而快速排序则相反，当原表基本有序时，将蜕化为冒泡排序，时间复杂度提高为O（n2）；&lt;/p&gt;
-
-&lt;p&gt;原表是否有序，对简单选择排序、堆排序、归并排序和基数排序的时间复杂度影响不大。&lt;/p&gt;
-
-&lt;p&gt;稳定性：&lt;/p&gt;
-
-&lt;p&gt;排序算法的稳定性:若待排序的序列中，存在多个具有相同关键字的记录，经过排序， 这些记录的相对次序保持不变，则称该算法是稳定的；若经排序后，记录的相对 次序发生了改变，则称该算法是不稳定的。 
-     稳定性的好处：排序算法如果是稳定的，那么从一个键上排序，然后再从另一个键上排序，第一个键排序的结果可以为第二个键排序所用。基数排序就是这样，先按低位排序，逐次按高位排序，低位相同的元素其顺序再高位也相同时是不会改变的。另外，如果排序算法稳定，可以避免多余的比较；&lt;/p&gt;
+&lt;p&gt;稳定性：
+排序算法的稳定性:若待排序的序列中，存在多个具有相同关键字的记录，经过排序， 这些记录的相对次序保持不变，则称该算法是稳定的；若经排序后，记录的相对 次序发生了改变，则称该算法是不稳定的。 
+稳定性的好处：排序算法如果是稳定的，那么从一个键上排序，然后再从另一个键上排序，第一个键排序的结果可以为第二个键排序所用。基数排序就是这样，先按低位排序，逐次按高位排序，低位相同的元素其顺序再高位也相同时是不会改变的。另外，如果排序算法稳定，可以避免多余的比较；&lt;/p&gt;
 
 &lt;p&gt;稳定的排序算法：冒泡排序、插入排序、归并排序和基数排序&lt;/p&gt;
 
@@ -1160,19 +1203,17 @@ void MergeSort_recursive(ElemType &lt;em&gt;r, ElemType *rf, int n)&lt;br /&gt;
 &lt;p&gt;1）当n较大，则应采用时间复杂度为O(nlog2n)的排序方法：快速排序、堆排序或归并排序序。&lt;/p&gt;
 
 &lt;p&gt;快速排序：是目前基于比较的内部排序中被认为是最好的方法，当待排序的关键字是随机分布时，快速排序的平均时间最短；
-       堆排序 ：  如果内存空间允许且要求稳定性的，&lt;/p&gt;
+ 堆排序 ：  如果内存空间允许且要求稳定性的，&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;   归并排序：它有一定数量的数据移动，所以我们可能过与插入排序组合，先获得一定长度的序列，然后再合并，在效率上将有所提高。
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;归并排序：它有一定数量的数据移动，所以我们可能过与插入排序组合，先获得一定长度的序列，然后再合并，在效率上将有所提高。&lt;/p&gt;
 
-&lt;p&gt;2）  当n较大，内存空间允许，且要求稳定性 =》归并排序&lt;/p&gt;
+&lt;p&gt;2）当n较大，内存空间允许，且要求稳定性 =》归并排序&lt;/p&gt;
 
 &lt;p&gt;3）当n较小，可采用直接插入或直接选择排序。&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;直接插入排序：当元素分布有序，直接插入排序将大大减少比较次数和移动记录的次数。
+&lt;p&gt;直接插入排序：当元素分布有序，直接插入排序将大大减少比较次数和移动记录的次数。&lt;/p&gt;
 
-直接选择排序 ：元素分布有序，如果不要求稳定性，选择直接选择排序
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;直接选择排序 ：元素分布有序，如果不要求稳定性，选择直接选择排序&lt;/p&gt;
 
 &lt;p&gt;5）一般不使用或不直接使用传统的冒泡排序。&lt;/p&gt;
 
@@ -1334,9 +1375,7 @@ h_i &amp;= \partial_{\hat{y}_i^{(t-1)}}^2 l(y_i, \hat{y}_i^{(t-1)})
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;I_j=\{i|q(x_i)=j\}&lt;/script&gt;
 
-&lt;p&gt;where is the set of indices of data points assigned to the &lt;script type=&quot;math/tex&quot;&gt;j&lt;/script&gt;-th leaf. Notice that in the second line we have changed the index of the summation because all the data points on the same leaf get the same score. We could further compress the expression by defining&lt;/p&gt;
-
-&lt;p&gt;&lt;script type=&quot;math/tex&quot;&gt;G_j = \sum_{i\in I_j} g_i&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;H_j = \sum_{i\in I_j} h_i&lt;/script&gt;&lt;/p&gt;
+&lt;p&gt;where is the set of indices of data points assigned to the &lt;script type=&quot;math/tex&quot;&gt;j&lt;/script&gt;-th leaf. Notice that in the second line we have changed the index of the summation because all the data points on the same leaf get the same score. We could further compress the expression by defining &lt;script type=&quot;math/tex&quot;&gt;G_j = \sum_{i\in I_j} g_i&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;H_j = \sum_{i\in I_j} h_i&lt;/script&gt;&lt;/p&gt;
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;\text{obj}^{(t)} = \sum^T_{j=1} [G_jw_j + \frac{1}{2} (H_j+\lambda) w_j^2] +\gamma T&lt;/script&gt;
 

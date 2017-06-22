@@ -260,9 +260,7 @@ h_i &= \partial_{\hat{y}_i^{(t-1)}}^2 l(y_i, \hat{y}_i^{(t-1)})
 
 <script type="math/tex; mode=display">I_j=\{i|q(x_i)=j\}</script>
 
-<p>where is the set of indices of data points assigned to the <script type="math/tex">j</script>-th leaf. Notice that in the second line we have changed the index of the summation because all the data points on the same leaf get the same score. We could further compress the expression by defining</p>
-
-<p><script type="math/tex">G_j = \sum_{i\in I_j} g_i</script> and <script type="math/tex">H_j = \sum_{i\in I_j} h_i</script></p>
+<p>where is the set of indices of data points assigned to the <script type="math/tex">j</script>-th leaf. Notice that in the second line we have changed the index of the summation because all the data points on the same leaf get the same score. We could further compress the expression by defining <script type="math/tex">G_j = \sum_{i\in I_j} g_i</script> and <script type="math/tex">H_j = \sum_{i\in I_j} h_i</script></p>
 
 <script type="math/tex; mode=display">\text{obj}^{(t)} = \sum^T_{j=1} [G_jw_j + \frac{1}{2} (H_j+\lambda) w_j^2] +\gamma T</script>
 
