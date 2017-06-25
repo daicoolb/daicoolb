@@ -264,9 +264,9 @@ int main(){
 
 <p>在要排序的一组数中，选出最小（或者最大）的一个数与第1个位置的数交换；然后在剩下的数当中再找最小（或者最大）的与第2个位置的数交换，依次类推，直到第n-1个元素（倒数第二个数）和第n个元素（最后一个数）比较为止。</p>
 
-<p>简单选择排序的示例：</p>
-
-<p>操作方法：</p>
+<p>简单选择排序的示例：
+<img src="http://localhost:4000/assets/images/sort_4.jpg" alt="" /><br />
+操作方法：</p>
 
 <p>第一趟，从n 个记录中找出关键码最小的记录与第一个记录交换；</p>
 
@@ -359,7 +359,7 @@ int main(){
 
 <p>堆的定义如下：具有n个元素的序列（k1,k2,…,kn),当且仅当满足</p>
 
-<p><img src="http://localhost:4000/assets/images/sort_4.jpg" alt="" /></p>
+<p><img src="http://localhost:4000/assets/images/sort_5.jpg" alt="" /></p>
 
 <p>时称之为堆。由堆的定义可以看出，堆顶元素（即第一个元素）必为最小项（小顶堆）。
 若以一维数组存储一个堆，则堆对应一棵完全二叉树，且所有非叶结点的值均不大于(或不小于)其子女的值，根结点（堆顶元素）的值是最小(或最大)的。如：</p>
@@ -368,7 +368,7 @@ int main(){
 
 <p>(b) 小顶堆序列：（12，36，24，85，47，30，53，91）</p>
 
-<p><img src="http://localhost:4000/assets/images/sort_5.jpg" alt="" /></p>
+<p><img src="http://localhost:4000/assets/images/sort_6.jpg" alt="" /></p>
 
 <p>初始时把要排序的n个数的序列看作是一棵顺序存储的二叉树（一维数组存储二叉树），调整它们的存储序，使之成为一个堆，将堆顶元素输出，得到n 个元素中最小(或最大)的元素，这时堆的根节点的数最小（或者最大）。然后对前面(n-1)个元素重新调整使之成为堆，输出堆顶元素，得到n 个元素中次小(或次大)的元素。依此类推，直到只有两个节点的堆，并对它们作交换，最后得到有n个节点的有序序列。称这个过程为堆排序。</p>
 
@@ -393,7 +393,7 @@ int main(){
 
 <p>称这个自根结点到叶子结点的调整过程为筛选。如图：</p>
 
-<p><img src="http://localhost:4000/assets/images/sort_6.jpg" alt="" /></p>
+<p><img src="http://localhost:4000/assets/images/sort_7.jpg" alt="" /></p>
 
 <p>再讨论对n 个元素初始建堆的过程。
 建堆方法：对初始序列建堆的过程，就是一个反复进行筛选的过程。</p>
@@ -406,7 +406,7 @@ int main(){
 
 <p>如图建堆初始过程：无序序列：（49，38，65，97，76，13，27，49）</p>
 
-<p><img src="http://localhost:4000/assets/images/sort_7.jpg" alt="" /></p>
+<p><img src="http://localhost:4000/assets/images/sort_8.jpg" alt="" /></p>
 
 <p>算法的实现：</p>
 
@@ -494,7 +494,7 @@ int main(){
 
 <p>分析:</p>
 
-<p><img src="http://localhost:4000/assets/images/sort_8.jpg" alt="" /></p>
+<p><img src="http://localhost:4000/assets/images/sort_9.jpg" alt="" /></p>
 
 <p>设树深度为k，。从根到叶的筛选，元素比较次数至多2(k-1)次，交换记录至多k 次。所以，在建好堆后，排序过程中的筛选次数不超过下式：</p>
 
@@ -507,7 +507,7 @@ int main(){
 
 <p>冒泡排序的示例：</p>
 
-<p><img src="http://localhost:4000/assets/images/sort_9.jpg" alt="" /></p>
+<p><img src="http://localhost:4000/assets/images/sort_10.jpg" alt="" /></p>
 
 <p>算法的实现：</p>
 
@@ -582,11 +582,11 @@ int main(){
 <p>快速排序的示例：
 （a）一趟排序的过程：</p>
 
-<p><img src="http://localhost:4000/assets/images/sort_10.jpg" alt="" /></p>
+<p><img src="http://localhost:4000/assets/images/sort_11.jpg" alt="" /></p>
 
 <p>（b）排序的全过程</p>
 
-<p><img src="http://localhost:4000/assets/images/sort_11.jpg" alt="" /></p>
+<p><img src="http://localhost:4000/assets/images/sort_12.jpg" alt="" /></p>
 
 <p>算法的实现：</p>
 
@@ -715,7 +715,7 @@ int main(){
 
 <p>归并排序示例：</p>
 
-<p><img src="http://localhost:4000/assets/images/sort_12.jpg" alt="" /></p>
+<p><img src="http://localhost:4000/assets/images/sort_13.jpg" alt="" /></p>
 
 <p>合并方法：</p>
 
@@ -876,7 +876,7 @@ void MergeSort_recursive(ElemType *r, ElemType *rf, int n)
 
 <p>设n 个元素的待排序列包含d 个关键码{k1，k2，…，kd}，则称序列对关键码{k1，k2，…，kd}有序是指：对于序列中任两个记录r[i]和r<a href="1≤i≤j≤n">j</a>都满足下列有序关系：</p>
 
-<p><img src="http://localhost:4000/assets/images/sort_13.jpg" alt="" /></p>
+<p><img src="http://localhost:4000/assets/images/sort_14.jpg" alt="" /></p>
 
 <p>其中k1 称为最主位关键码，kd 称为最次位关键码。</p>
 
@@ -936,15 +936,15 @@ void MergeSort_recursive(ElemType *r, ElemType *rf, int n)
 <p>总结
 各种排序的稳定性，时间复杂度和空间复杂度总结：</p>
 
-<p><img src="http://localhost:4000/assets/images/sort_14.jpg" alt="" /></p>
+<p><img src="http://localhost:4000/assets/images/sort_15.jpg" alt="" /></p>
 
 <p>我们比较时间复杂度函数的情况：</p>
 
-<p><img src="http://localhost:4000/assets/images/sort_15.jpg" alt="" /></p>
+<p><img src="http://localhost:4000/assets/images/sort_16.jpg" alt="" /></p>
 
 <p>时间复杂度函数O(n)的增长情况</p>
 
-<p><img src="http://localhost:4000/assets/images/sort_16.jpg" alt="" /></p>
+<p><img src="http://localhost:4000/assets/images/sort_17.jpg" alt="" /></p>
 
 <p>所以对n较大的排序记录。一般的选择都是时间复杂度为O(nlog2n)的排序方法。</p>
 

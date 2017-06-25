@@ -141,6 +141,14 @@
             
             <li class="posts-list-item">
                 <div class="posts-content">
+                    <span class="posts-list-meta">2017-05-15</span>
+                    <a class="posts-list-name bubble-float-left" href="http://localhost:4000/%E7%A0%94%E7%A9%B6/2017/05/15/FM.html">FM Introduction From MeiTuan</a>
+                    <span class="circle"></span>
+                </div>
+            </li>
+            
+            <li class="posts-list-item">
+                <div class="posts-content">
                     <span class="posts-list-meta">2017-05-10</span>
                     <a class="posts-list-name bubble-float-left" href="http://localhost:4000/%E7%A0%94%E7%A9%B6/2017/05/10/XGBoost.html">Introduction to Boosted Trees</a>
                     <span class="circle"></span>
@@ -401,36 +409,35 @@
     </div>
 
     <div class="col-md-4">
-        <h3 class="sidebar-title">Blog Categories</h3>
-<div id="blog-categories">
-    <ul class="list-group">
-        
-        <li class="list-group-item">
-            读书
-            <span class="badge">3</span>
-        </li>
-        
-        <li class="list-group-item">
-            记录
-            <span class="badge">16</span>
-        </li>
-        
-        <li class="list-group-item">
-            研究
-            <span class="badge">10</span>
-        </li>
-        
-    </ul>
-
-</div>
-<script type="text/javascript">
-
-    $(document).ready(function(){
+       <h3 class="sidebar-title">Blog Categories</h3>
+	<div id="blog-categories">
+    	<ul class="list-group">
+        	
+        	<li class="list-group-item" onclick="openhtml()">
+           		读书 
+            		<span class="badge">3</span>
+        	</li>
+        	
+        	<li class="list-group-item" onclick="openhtml()">
+           		记录 
+            		<span class="badge">16</span>
+        	</li>
+        	
+        	<li class="list-group-item" onclick="openhtml()">
+           		研究 
+            		<span class="badge">11</span>
+        	</li>
+        	
+    	</ul>
+	</div>
+    	<script type="text/javascript">
+   	$(document).ready(function(){
         $("#blog-categories li").css('text-transform','capitalize')
-    });
-
-</script>
-
+    	});
+    	function openhtml(){
+    	doucument.getElementById("post-list").getElementsByTagName("li").innerHTML="";
+    	}
+	</script>
     </div>
 
 </div>
