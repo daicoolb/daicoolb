@@ -45,7 +45,7 @@ nohup 示例
 	root      3067   984  0 21:06 pts/3    00:00:00 grep 3059
 	[root@pvcent107 ~]#
 
-## 2。setsid
+## 2 setsid
 nohup 无疑能通过忽略 HUP 信号来使我们的进程避免中途被中断，但如果我们换个角度思考，如果我们的进程不属于接受 HUP 信号的终端的子进程，那么自然也就不会受到 HUP 信号的影响了。setsid 就能帮助我们做到这一点。让我们先来看一下 setsid 的帮助信息：
 
 	SETSID(8)                 Linux Programmer’s Manual                 SETSID(8)
@@ -69,7 +69,7 @@ setsid 示例
 	[root@pvcent107 ~]#
 
 值得注意的是，上例中我们的进程 ID(PID)为31094，而它的父 ID（PPID）为1（即为 init 进程 ID），并不是当前终端的进程 ID。请将此例与nohup 例中的父 ID 做比较。
-## 3。&
+## 3 &
 这里还有一个关于 subshell 的小技巧。我们知道，将一个或多个命名包含在“()”中就能让这些命令在子 shell 中运行中，从而扩展出很多有趣的功能，我们现在要讨论的就是其中之一。
 当我们将"&"也放入“()”内之后，我们就会发现所提交的作业并不在作业列表中，也就是说，是无法通过jobs来查看的。让我们来看看为什么这样就能躲过 HUP 信号的影响吧。
 subshell 示例
@@ -81,8 +81,8 @@ subshell 示例
 	[root@pvcent107 ~]#
 
 从上例中可以看出，新提交的进程的父 ID（PPID）为1（init 进程的 PID），并不是当前终端的进程 ID。因此并不属于当前终端的子进程，从而也就不会受到当前终端的 HUP 信号的影响了。
-回页首
-disown
+
+## 4 disown
 场景：
 我们已经知道，如果事先在命令前加上 nohup 或者 setsid 就可以避免 HUP 信号的影响。但是如果我们未加任何处理就已经提交了命令，该如何补救才能让它避免 HUP 信号的影响呢？
 解决方法：
@@ -102,6 +102,7 @@ disown
 
 可以看出，我们可以用如下方式来达成我们的目的。
 灵活运用 CTRL-z
+
 在我们的日常工作中，我们可以用 CTRL-z 来将当前进程挂起到后台暂停运行，执行一些别的操作，然后再用 fg 来将挂起的进程重新放回前台（也可用 bg 来将挂起的进程放在后台）继续运行。这样我们就可以在一个终端内灵活切换运行多个任务，这一点在调试代码时尤为有用。因为将代码编辑器挂起到后台再重新放回时，光标定位仍然停留在上次挂起时的位置，避免了重新定位的麻烦。
 用disown -h jobspec来使某个作业忽略HUP信号。
 用disown -ah 来使所有的作业都忽略HUP信号。
@@ -136,8 +137,7 @@ disown 示例2（如果提交命令时未使用“&”将命令放入后台运�
 	root      5824  5577  0 10:05 pts/3    00:00:00 grep largeFile2
 	[root@pvcent107 build]#
 
-回页首
-screen
+## screen
 场景：
 我们已经知道了如何让进程免受 HUP 信号的影响，但是如果有大量这种命令需要在稳定的后台里运行，如何避免对每条命令都做这样的操作呢？
 解决方法：
@@ -181,27 +181,27 @@ screen 示例
 当我们用“-r”连接到 screen 会话后，我们就可以在这个伪终端里面为所欲为，再也不用担心 HUP 信号会对我们的进程造成影响，也不用给每个命令前都加上“nohup”或者“setsid”了。这是为什么呢？让我来看一下下面两个例子吧。
 1. 未使用 screen 时新进程的进程树
 
-	[root@pvcent107 ~]# ping www.google.com &
-	[1] 9499
-	[root@pvcent107 ~]# pstree -H 9499
-	init─┬─Xvnc
-	     ├─acpid
-	     ├─atd
-	     ├─2*[sendmail]	
-	     ├─sshd─┬─sshd───bash───pstree
-	     │       └─sshd───bash───ping
+		[root@pvcent107 ~]# ping www.google.com &
+		[1] 9499
+		[root@pvcent107 ~]# pstree -H 9499
+		init─┬─Xvnc
+		     ├─acpid
+		     ├─atd
+		     ├─2*[sendmail]	
+		     ├─sshd─┬─sshd───bash───pstree
+		     │       └─sshd───bash───ping
 
 我们可以看出，未使用 screen 时我们所处的 bash 是 sshd 的子进程，当 ssh 断开连接时，HUP 信号自然会影响到它下面的所有子进程（包括我们新建立的 ping 进程）。
 2. 使用了 screen 后新进程的进程树
 
-	[root@pvcent107 ~]# screen -r Urumchi
-	[root@pvcent107 ~]# ping www.ibm.com &
-	[1] 9488
-	[root@pvcent107 ~]# pstree -H 9488
-	init─┬─Xvnc
-	     ├─acpid
-	     ├─atd
-	     ├─screen───bash───ping
-	     ├─2*[sendmail]
+		[root@pvcent107 ~]# screen -r Urumchi
+		[root@pvcent107 ~]# ping www.ibm.com &
+		[1] 9488
+		[root@pvcent107 ~]# pstree -H 9488
+		init─┬─Xvnc
+		     ├─acpid
+		     ├─atd
+		     ├─screen───bash───ping
+		     ├─2*[sendmail]
 
 而使用了 screen 后就不同了，此时 bash 是 screen 的子进程，而 screen 是 init（PID为1）的子进程。那么当 ssh 断开连接时，HUP 信号自然不会影响到 screen 下面的子进程了。
