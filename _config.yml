@@ -44,7 +44,7 @@ kramdown:
 
 
 # Pagination
-paginate: 10
+paginate: 13
 paginate_path: 'page:num'
 
 # Navigation
