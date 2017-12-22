@@ -1,3 +1,6 @@
+
+[![](https://jaywcjlove.github.io/sb/ico/awesome.svg)](#) [![](https://jaywcjlove.github.io/sb/license/mit.svg)](#)
+
 This is a bolg repository.
 
 I have tried different themes and different platforms. At last, I choose the jekyll as the background.
