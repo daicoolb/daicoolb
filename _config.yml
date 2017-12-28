@@ -45,7 +45,7 @@ kramdown:
 
 # Pagination
 paginate: 8
-paginate_path: 'weareyoung:num'
+paginate_path: 'page:num'
 
 # Navigation
 navs:
