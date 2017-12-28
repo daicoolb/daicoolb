@@ -5,7 +5,7 @@ subtitle: <span class="mega-octicon octicon-repo"></span>&nbsp;&nbsp; To mark us
 menu: Bookmark
 ---
 
-## Papers that used in Recommender System
+## Papers in Recommender System
 
 [![](https://jaywcjlove.github.io/sb/ico/awesome.svg)](#) [![](https://jaywcjlove.github.io/sb/license/mit.svg)](#)
 
@@ -109,7 +109,7 @@ For the convenience of reading, I collect some basic and important papers about 
  - Talks
  - etc
  
-## Engine in RS
+## Engine in Recommender System
 
 **In this session, I have collected some useful recommeder system engine**:
  - [Mosaic](https://github.com/guymorita/Mosaic-Films---Recommendation-Engine-Demo) Mosaic Films is a demo of the recommendationRaccoon engine built on top of Node.js.
@@ -119,7 +119,7 @@ For the convenience of reading, I collect some basic and important papers about 
  - [Ger](https://github.com/grahamjenson/ger) Providing good recommendations can get greater user engagement and provide an opportunity to add value that would otherwise not exist.
  - [Crab](https://muricoca.github.io/crab/index.html) Crab as known as scikits.recommender is a Python framework for building recommender engines integrated with the world of scientific Python packages (numpy, scipy, matplotlib).
 
-## Framework in RS
+## Framework in Recommender System
 
 **In this session, I have collected some useful recommender system algorithm framework**:
  - [Surprise](https://github.com/NicolasHug/Surprise) Surprise is a Python scikit building and analyzing recommender systems.
