@@ -44,8 +44,8 @@ kramdown:
 
 
 # Pagination
-paginate: 14
-paginate_path: 'page:num'
+paginate: 8
+paginate_path: 'weareyoung:num'
 
 # Navigation
 navs:
@@ -70,7 +70,7 @@ navs:
     label: About
 
 # Sidebar to show popular repo
-side_bar_repo_limit: 5 # Number of repos to show
+side_bar_repo_limit: 3 # Number of repos to show
 
 # Google Analytics
 analytics :
