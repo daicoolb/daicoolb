@@ -13,7 +13,7 @@ subtitle:   <h3>Download My CV</h3>
 css: ['about.css', 'sidebar-popular-repo.css', '../../bower_components/flag-icon-css/css/flag-icon.min.css']
 ---
 
-**Welcome to Jie Liu's Personal Wiki site !!!**
+**Welcome to Jie Liu's Personal site !!!**
 
 > Hello , I am _Jie Liu_ , who comes from [Shanghai Jiao Tong University](http://www.sjtu.edu.cn/). This is the 2nd year of my master degree in Software Engineering . I like **travelling**、 **running** and **playing the guitar**, but without bells and whistles, I am just a rookie in these fields.
 
