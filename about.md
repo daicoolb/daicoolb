@@ -1,6 +1,6 @@
 ---
 layout: page
-title: About Me
+title: Yeah, This is a very Nice boy 
 menu: about
 subtitle:   <h3>Download My CV</h3>
             <a role="button" class="btn btn-primary hvr-grow-shadow" href="/assets/files/Beili_CV.pdf" target="_blanks">
