@@ -44,27 +44,27 @@ Here is the cities that I have visited:
 - Sanya
 - Wuxi
 - **Shangri-La**
-    - an eternally peaceful and quiet place among mountains in the East
+  - an eternally peaceful and quiet place among mountains in the East
 - Wuyuan
 - Changsha
 - **Beijing**
-    - _Even losing my job, I will never work in this busy and colorful city..._
+  - _Even losing my job, I will never work in this busy and colorful city..._
 - Guangzhou
-    - Yeah, this is an open and open and open city ~~
+  - Yeah, this is an open and open and open city ~~
 - Wuhan
 - Guiling
 - **Chengdu**
-    - To be honest, I don't like this city since 2013...
+  - To be honest, I don't like this city since 2013...
 - Dali
 - **Lijiang**
-    - yeah, I will take my GF to visit it again, you have my words. 
+  - yeah, I will take my GF to visit it again, you have my words. 
 - Xiamen
 - Hengyang
 - **Huangshan** 
-    - Every bit of Huangshan Mountain scenery is worth painting
+  - Every bit of Huangshan Mountain scenery is worth painting
 - Changzhou
 - **Tongling**
-    - This is my hometown, however, I have only lived here for four years.
+  - This is my hometown, however, I have only lived here for four years.
 - Hefei
 - Hangzhou
 - Zhengzhou
