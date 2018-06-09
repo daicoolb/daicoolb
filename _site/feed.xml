@@ -1,0 +1,2893 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Maybe not Good But Studious !</title>
+    <description>This is personnel website of Beili</description>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sat, 09 Jun 2018 12:32:44 +0800</pubDate>
+    <lastBuildDate>Sat, 09 Jun 2018 12:32:44 +0800</lastBuildDate>
+    <generator>Jekyll v3.4.3</generator>
+    
+      <item>
+        <title>2017半年总结</title>
+        <description>&lt;p&gt;很久没有写过总结了，这次就总结一下从２月份到７月份自己的心路历程，立下的flag，以及自己一些经验教训&lt;/p&gt;
+
+&lt;h2 id=&quot;那些月份&quot;&gt;那些月份&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;2月份早早的就回学校了，主要精力放在了论文上，当时困惑LSA, PLSA, LDA这些主题模型的方法，心中有很多疑惑．后来自己一个一个的博客看，一点一点的想，一步一步的推，算是把基本思路搞清楚了，但是对Gibbs采样还不是很理解，还是感觉非常困惑．总是不能理解到它的精髓之处，看别人写的东西，总是觉得关键地方人家没有说清楚．就比如说，为什么联合概率密度分布不好计算，为什么这个时候条件概率分布是好计算的，进而就能表示出联合概率密度分布了．&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;3月份持续读论文，这个月开始搜集survey之类的资料，算是开始进入推荐系统的领域了．同时，自己开始背单词，抄写主要的生词．&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;4月份上课，同时准备面试的一些工作，但是很遗憾没有坚持住.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;5月份，帮助学姐修改论文，与此同时，自己也在着手准备自己的论文方向，从一开始的冷启动，到后来的并行SGD，自己在topic的问题上挣扎了不少次．&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;6月份，这个月主要在准备考试，也没有准备什么其他的工作，不幸的是，掉入了王者荣耀的坑，打了一个月的游戏．&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;7月份，偶然间发现了2篇论文，一篇是ConvMF,一篇是aSDAE,当时就在想能不能把二者结合起来，自己在推理公式的时候，发现这个方向可行，立马投入coding的工作&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;些许感受&quot;&gt;些许感受&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;有的时候会感觉很孤单，特别是７月份准备论文的那段时间，感觉时间都静止了．很多时候，真的很想身边能够有一个人能聊聊天，和她说说那些我傻冒的故事，也听听来自另外一个世界的声音．&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;这半年我看了很多综艺节目，电视剧，还有电影．空闲时间基本上都是在与他们朝夕相处，仿佛没了这些，我就不知道该如何生活了．”奇葩说”不知道是什么吸引了我，其实不是他们的论点，不是他们的诙谐，也不是他们严谨的逻辑，而是他们那种较真与执着，对的，就是这种执着深深的吸引着我, 我喜欢他们身上的那股子执拗,倍棒.&lt;/p&gt;
+
+&lt;p&gt;这段时间,自己也开始沉迷王者荣耀,为什么呢?也许是自己一个人久了,只能通过游戏来发泄?还是自己总是这么荒废时间,于是乎只能把自己丢进这个农药的坑,麻痹自己,以此谋求一丝安静?我也不知道,也许等我内心真的安静下来,我就能找到答案了.生活真的挺有意思的,每当你想放弃它的时候,它却不会放弃你,因为它知道你还是个孩子,总喜欢耍点孩子脾气,而他的职责就是在你掉进深渊的时候拉你一把,让你有机会跟他对话,真的挺好.&lt;/p&gt;
+
+&lt;h2 id=&quot;乱七八糟&quot;&gt;乱七八糟&lt;/h2&gt;
+
+&lt;p&gt;说实话,这几个月的学习状态很差,效率很低.自己总是患得患失的,总不能坚持,这件事情结束了,下一件事情就会出现,我有的时候也不知道是怎么了.可能是真的不适合IT这个行业?谁知道呢?&lt;/p&gt;
+</description>
+        <pubDate>Sun, 30 Jul 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/%E8%AE%B0%E5%BD%95/2017/07/30/paperReview.html</link>
+        <guid isPermaLink="true">http://localhost:4000/%E8%AE%B0%E5%BD%95/2017/07/30/paperReview.html</guid>
+        
+        
+        <category>记录</category>
+        
+      </item>
+    
+      <item>
+        <title>Spark</title>
+        <description>&lt;p&gt;【版权声明：本指南为&lt;a href=&quot;http://dblab.xmu.edu.cn/post/bigdata/&quot;&gt;厦门大学林子雨编著的《大数据技术原理与应用》教材配套学习资料&lt;/a&gt;，版权所有，转载请注明出处，请勿用于商业用途】&lt;/p&gt;
+
+&lt;p&gt;注：第十六章Spark，本章为2016年新增章节，不在2015年8月1日由人民邮电出版社出版发行的《大数据技术原理与应用》中，会被放入到教材的下一个版本中。&lt;/p&gt;
+
+&lt;p&gt;Apache Spark 是一个新兴的大数据处理通用引擎，提供了分布式的内存抽象。Spark 最大的特点就是快，可比 Hadoop MapReduce 的处理速度快 100 倍。本指南将介绍 Spark 的安装与基本使用。请务必仔细阅读完厦门大学林子雨编著的《大数据技术原理与应用》第16章节（&lt;a href=&quot;http://dblab.xmu.edu.cn/wp-content/uploads/2016/01/%E5%8E%A6%E9%97%A8%E5%A4%A7%E5%AD%A6%E6%9E%97%E5%AD%90%E9%9B%A8%E7%BC%96%E8%91%97-%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8-%E7%94%B5%E5%AD%90%E4%B9%A6-%E7%AC%AC16%E7%AB%A0-Spark%EF%BC%882016%E5%B9%B44%E6%9C%8820%E6%97%A5%E7%89%88%E6%9C%AC%EF%BC%89.pdf&quot;&gt;点击这里下载第十六章Spark的pdf电子书&lt;/a&gt;，再结合本指南进行学习。&lt;/p&gt;
+
+&lt;h2 id=&quot;一安装-spark&quot;&gt;一、安装 Spark&lt;/h2&gt;
+&lt;p&gt;访问&lt;a href=&quot;http://spark.apache.org/downloads.html&quot;&gt;Spark官方下载地址&lt;/a&gt;，按照如下图下载。
+&lt;img src=&quot;http://localhost:4000/assets/images/spark_1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;该部分介绍了单机中 Spark 的安装。我们选择Spark 1.6.2版本教学。该教程的具体运行环境如下：&lt;/p&gt;
+
+&lt;p&gt;Hadoop 2.6.0以上&lt;/p&gt;
+
+&lt;p&gt;Java JDK 1.7以上&lt;/p&gt;
+
+&lt;p&gt;Spark 1.6.2&lt;/p&gt;
+
+&lt;h2 id=&quot;安装hadoop&quot;&gt;安装Hadoop&lt;/h2&gt;
+
+&lt;p&gt;Spark的安装过程较为简单，在已安装好 Hadoop 的前提下，经过简单配置即可使用。
+如果仍没有安装Hadoop，请访问&lt;a href=&quot;http://dblab.xmu.edu.cn/blog/install-hadoop/&quot;&gt;Hadoop安装教程_单机/伪分布式配置_Hadoop2.6.0/Ubuntu14.04&lt;/a&gt;,依照教程学习安装即可。&lt;/p&gt;
+
+&lt;h2 id=&quot;安装java-jdk&quot;&gt;安装JAVA JDK&lt;/h2&gt;
+
+&lt;p&gt;安装Hadoop的过程就已经要求安装JAVA JDK了。如果没有，请参考&lt;a href=&quot;http://dblab.xmu.edu.cn/blog/install-hadoop/&quot;&gt;Hadoop安装教程_单机/伪分布式配置_Hadoop2.6.0/Ubuntu14.04&lt;/a&gt;进行安装配置。&lt;/p&gt;
+
+&lt;h2 id=&quot;安装spark&quot;&gt;安装Spark&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;sudo tar -zxf ~/下载/spark-1.6.2-bin-without-hadoop.tgz -C /usr/local/
+cd /usr/local
+sudo mv ./spark-1.6.2-bin-without-hadoop/ ./spark
+sudo chown -R hadoop:hadoop ./spark          # 此处的 hadoop 为你的用户名 安装后，还需要修改Spark的配置文件spark-env.sh
+
+cd /usr/local/spark
+cp ./conf/spark-env.sh.template ./conf/spark-env.sh 编辑spark-env.sh文件(vim ./conf/spark-env.sh)，在第一行添加以下配置信息:
+export SPARK_DIST_CLASSPATH=$(/usr/local/hadoop/bin/hadoop classpath)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;配置完成后就可以直接使用，不需要像Hadoop运行启动命令。
+通过运行Spark自带的示例，验证Spark是否安装成功。
+	cd /usr/local/spark
+	bin/run-example SparkPi&lt;/p&gt;
+
+&lt;p&gt;执行时会输出非常多的运行信息，输出结果不容易找到，可以通过 grep 命令进行过滤（命令中的 2&amp;gt;&amp;amp;1 可以将所有的信息都输出到 stdout 中，否则由于输出日志的性质，还是会输出到屏幕中）:
+	bin/run-example SparkPi 2&amp;gt;&amp;amp;1 | grep “Pi is”
+这里涉及到Linux Shell中管道的知识，详情可以参考&lt;a href=&quot;http://dblab.xmu.edu.cn/blog/824-2/&quot;&gt;Linux Shell中的管道命令&lt;/a&gt;
+过滤后的运行结果如下图示，可以得到π 的 5 位小数近似值：
+&lt;img src=&quot;http://localhost:4000/assets/images/spark_6.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;h2 id=&quot;二使用-spark-shell-编写代码&quot;&gt;二、使用 Spark Shell 编写代码&lt;/h2&gt;
+&lt;p&gt;学习Spark程序开发，建议首先通过spark-shell交互式学习，加深Spark程序开发的理解。
+该部分介绍了 Spark Shell 的基本使用。Spark shell 提供了简单的方式来学习 API，也提供了交互的方式来分析数据。&lt;/p&gt;
+
+&lt;p&gt;Spark Shell 支持 Scala 和 Python，该部分教程选择使用 Scala 来进行介绍。&lt;/p&gt;
+
+&lt;h2 id=&quot;启动spark-shell&quot;&gt;启动Spark Shell&lt;/h2&gt;
+
+&lt;p&gt;bin/spark-shell&lt;/p&gt;
+
+&lt;p&gt;启动spark-shell后，会自动创建名为sc的spark context对象和名为sqlContext的sql context对象,如图：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/spark_3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;h2 id=&quot;加载text文件&quot;&gt;加载text文件&lt;/h2&gt;
+
+&lt;p&gt;spark创建sc，可以加载本地文件和HDFS文件创建RDD。这里用Spark自带的本地文件README.md文件测试。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;val textFile = sc.textFile(&quot;file:///usr/local/spark/README.md&quot;) 加载HDFS文件和本地文件都是使用textFile，区别是添加前缀(hdfs://和file://)进行标识。
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;简单rdd操作&quot;&gt;简单RDD操作&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;//获取RDD文件textFile的第一行内容
+textFile.first()
+//获取RDD文件textFile所有项的计数
+textFile.count()
+//抽取含有“Spark”的行，返回一个新的RDD
+val lineWithSpark = textFile.filter(line =&amp;gt; line.contains(&quot;Spark&quot;))
+//统计新的RDD的行数
+lineWithSpark.count()
+可以通过组合RDD操作进行组合，可以实现简易MapReduce操作
+
+//找出文本中每行的最多单词数
+textFile.map(line =&amp;gt; line.split(&quot; &quot;).size).reduce((a, b) =&amp;gt; if (a &amp;gt; b) a else b)
+更多RDD的操作，请访问Spark官方文档RDD操作
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;退出spark-shell&quot;&gt;退出Spark Shell&lt;/h2&gt;
+
+&lt;p&gt;输入exit，即可退出spark shell&lt;/p&gt;
+
+&lt;p&gt;exit&lt;/p&gt;
+
+&lt;h2 id=&quot;三独立应用程序编程&quot;&gt;三、独立应用程序编程&lt;/h2&gt;
+&lt;p&gt;接着我们通过一个简单的应用程序 SimpleApp 来演示如何通过 Spark API 编写一个独立应用程序。使用 Scala 编写的程序需要使用 sbt 进行编译打包，相应的，Java 程序使用 Maven 编译打包，而 Python 程序通过 spark-submit 直接提交。&lt;/p&gt;
+
+&lt;h2 id=&quot;scala独立应用编程&quot;&gt;Scala独立应用编程&lt;/h2&gt;
+
+&lt;p&gt;安装sbt
+sbt是一款Spark用来对scala编写程序进行打包的工具，这里简单介绍sbt的安装过程，感兴趣的读者可以参考官网资料了解更多关于sbt的内容。
+Spark 中没有自带 sbt，这里直接给出&lt;a href=&quot;https://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/sbt-launch/0.13.11/sbt-launch.jar&quot;&gt;sbt-launch.jar的下载地址&lt;/a&gt;，直接点击下载即可。
+我们选择安装在 /usr/local/sbt 中：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo mkdir /usr/local/sbt
+sudo chown -R hadoop /usr/local/sbt      # 此处的 hadoop 为你的用户名
+cd /usr/local/sbt
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;下载后，执行如下命令拷贝至 /usr/local/sbt 中：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cp ~/下载/sbt-launch.jar .
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;接着在 /usr/local/sbt 中创建 sbt 脚本（vim ./sbt），添加如下内容：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#!/bin/bash
+SBT_OPTS=&quot;-Xms512M -Xmx1536M -Xss1M -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=256M&quot;
+java $SBT_OPTS -jar `dirname $0`/sbt-launch.jar &quot;$@&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;保存后，为 ./sbt 脚本增加可执行权限：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;chmod u+x ./sbt 最后运行如下命令，检验 sbt 是否可用（请确保电脑处于联网状态，首次运行会处于 “Getting org.scala-sbt sbt 0.13.11 …” 的下载状态，请耐心等待。笔者等待了 7 分钟才出现第一条下载提示）：
+
+./sbt sbt-version
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;只要能得到如下图的版本信息就没问题：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/spark_10.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Scala应用程序代码
+在终端中执行如下命令创建一个文件夹 sparkapp 作为应用程序根目录：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cd ~           # 进入用户主文件夹
+mkdir ./sparkapp        # 创建应用程序根目录
+mkdir -p ./sparkapp/src/main/scala     # 创建所需的文件夹结构 在 ./sparkapp/src/main/scala 下建立一个名为 SimpleApp.scala 的文件（vim ./sparkapp/src/main/scala/SimpleApp.scala），添加代码如下：
+
+/* SimpleApp.scala */
+import org.apache.spark.SparkContext
+import org.apache.spark.SparkContext._
+import org.apache.spark.SparkConf
+object SimpleApp {
+	def main(args: Array[String]) {
+	val logFile = &quot;file:///usr/local/spark/README.md&quot; // Should be some file on your system
+	val conf = new SparkConf().setAppName(&quot;Simple Application&quot;)
+	val sc = new SparkContext(conf)
+	val logData = sc.textFile(logFile, 2).cache()
+	val numAs = logData.filter(line =&amp;gt; line.contains(&quot;a&quot;)).count()
+	val numBs = logData.filter(line =&amp;gt; line.contains(&quot;b&quot;)).count()
+	println(&quot;Lines with a: %s, Lines with b: %s&quot;.format(numAs, numBs))
+}
+}	
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;该程序计算 /usr/local/spark/README 文件中包含 “a” 的行数 和包含 “b” 的行数。代码第8行的 /usr/local/spark 为 Spark 的安装目录，如果不是该目录请自行修改。不同于 Spark shell，独立应用程序需要通过 val sc = new SparkContext(conf) 初始化 SparkContext，SparkContext 的参数 SparkConf 包含了应用程序的信息。&lt;/p&gt;
+
+&lt;p&gt;该程序依赖 Spark API，因此我们需要通过 sbt 进行编译打包。 ./sparkapp 中新建文件 simple.sbt（vim ./sparkapp/simple.sbt），添加内容如下，声明该独立应用程序的信息以及与 Spark 的依赖关系：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;name := &quot;Simple Project&quot;
+version := &quot;1.0&quot;
+scalaVersion := &quot;2.10.5&quot;
+libraryDependencies += &quot;org.apache.spark&quot; %% &quot;spark-core&quot; % &quot;1.6.2&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;文件 simple.sbt 需要指明 Spark 和 Scala 的版本。在上面的配置信息中，scalaVersion用来指定scala的版本，sparkcore用来指定spark的版本，这两个版本信息都可以在之前的启动 Spark shell 的过程中，从屏幕的显示信息中找到。下面就是笔者在启动过程当中，看到的相关版本信息（备注：屏幕显示信息会很长，需要往回滚动屏幕仔细寻找信息）。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/spark_8.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;使用 sbt 打包 Scala 程序
+为保证 sbt 能正常运行，先执行如下命令检查整个应用程序的文件结构：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cd ~/sparkapp
+find .
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;文件结构应如下图所示：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/spark_7.png}&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;接着，我们就可以通过如下代码将整个应用程序打包成 JAR（首次运行同样需要下载依赖包 ）：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/usr/local/sbt/sbt package
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;打包成功的话，会输出如下图内容：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/spark_5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;生成的 jar 包的位置为 ~/sparkapp/target/scala-2.10/simple-project_2.10-1.0.jar。&lt;/p&gt;
+
+&lt;p&gt;通过 spark-submit 运行程序
+最后，我们就可以将生成的 jar 包通过 spark-submit 提交到 Spark 中运行了，命令如下：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/usr/local/spark/bin/spark-submit --class &quot;SimpleApp&quot; ~/sparkapp/target/scala-2.10/simple-project_2.10-1.0.jar
+# 上面命令执行后会输出太多信息，可以不使用上面命令，而使用下面命令查看想要的结果
+/usr/local/spark/bin/spark-submit --class &quot;SimpleApp&quot; ~/sparkapp/target/scala-2.10/simple-project_2.10-1.0.jar 2&amp;gt;&amp;amp;1 | grep &quot;Lines with a:&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;最终得到的结果如下：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Lines with a: 58, Lines with b: 26 自此，你就完成了你的第一个 Spark 应用程序了。
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;java独立应用编程&quot;&gt;Java独立应用编程&lt;/h2&gt;
+
+&lt;p&gt;安装maven
+ubuntu中没有自带安装maven，需要手动安装maven。可以访问&lt;a href=&quot;https://maven.apache.org/download.cgi#Files&quot;&gt;maven官方下载&lt;/a&gt;自己下载。这里直接给出&lt;a href=&quot;http://apache.fayea.com/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.zip&quot;&gt;apache-maven-3.3.9-bin.zip&lt;/a&gt;的下载地址,直接点击下载即可。
+选择安装在/usr/local/maven中：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo unzip ~/下载/apache-maven-3.3.9-bin.zip -d /usr/local
+cd /usr/local
+sudo mv apache-maven-3.3.9/ ./maven
+sudo chown -R hadoop ./maven
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Java应用程序代码&lt;/p&gt;
+
+&lt;p&gt;在终端执行如下命令创建一个文件夹sparkapp2作为应用程序根目录&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cd ~ #进入用户主文件夹
+mkdir -p ./sparkapp2/src/main/java
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;在 ./sparkapp2/src/main/java 下建立一个名为 SimpleApp.java 的文件（vim ./sparkapp2/src/main/java/SimpleApp.java），添加代码如下：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/*** SimpleApp.java ***/
+import org.apache.spark.api.java.*;
+import org.apache.spark.api.java.function.Function;
+public class SimpleApp {
+	public static void main(String[] args) {
+	String logFile = &quot;file:///usr/local/spark/README.md&quot;; // Should be some file on your system
+	JavaSparkContext sc = new JavaSparkContext(&quot;local&quot;, &quot;Simple App&quot;,
+		&quot;file:///usr/local/spark/&quot;, new String[]{&quot;target/simple-project-1.0.jar&quot;});
+	JavaRDD&amp;lt;String&amp;gt; logData = sc.textFile(logFile).cache();
+	long numAs = logData.filter(new Function&amp;lt;String, Boolean&amp;gt;() {
+		public Boolean call(String s) { return s.contains(&quot;a&quot;); }
+	}).count();
+	long numBs = logData.filter(new Function&amp;lt;String, Boolean&amp;gt;() {
+		public Boolean call(String s) { return s.contains(&quot;b&quot;); }
+	}).count();
+	System.out.println(&quot;Lines with a: &quot; + numAs + &quot;, lines with b: &quot; + numBs);
+}
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;该程序依赖Spark Java API,因此我们需要通过Maven进行编译打包。在./sparkapp2中新建文件pom.xml(vim ./sparkapp2/pom.xml),添加内容如下，声明该独立应用程序的信息以及与Spark的依赖关系：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;project&amp;gt;
+&amp;lt;groupId&amp;gt;edu.berkeley&amp;lt;/groupId&amp;gt;
+&amp;lt;artifactId&amp;gt;simple-project&amp;lt;/artifactId&amp;gt;
+&amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt;
+&amp;lt;name&amp;gt;Simple Project&amp;lt;/name&amp;gt;
+&amp;lt;packaging&amp;gt;jar&amp;lt;/packaging&amp;gt;
+&amp;lt;version&amp;gt;1.0&amp;lt;/version&amp;gt;
+&amp;lt;repositories&amp;gt;
+	&amp;lt;repository&amp;gt;
+		&amp;lt;id&amp;gt;Akka repository&amp;lt;/id&amp;gt;
+		&amp;lt;url&amp;gt;http://repo.akka.io/releases&amp;lt;/url&amp;gt;
+	&amp;lt;/repository&amp;gt;
+&amp;lt;/repositories&amp;gt;
+&amp;lt;dependencies&amp;gt;
+	&amp;lt;dependency&amp;gt; &amp;lt;!-- Spark dependency --&amp;gt;
+		&amp;lt;groupId&amp;gt;org.apache.spark&amp;lt;/groupId&amp;gt;
+		&amp;lt;artifactId&amp;gt;spark-core_2.11&amp;lt;/artifactId&amp;gt;
+		&amp;lt;version&amp;gt;2.0.0-preview&amp;lt;/version&amp;gt;
+	&amp;lt;/dependency&amp;gt;
+&amp;lt;/dependencies&amp;gt;
+&amp;lt;/project&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;关于Spark dependency的依赖关系，可以访问&lt;a href=&quot;http://search.maven.org/&quot;&gt;The Central Repository&lt;/a&gt;。搜索spark-core可以找到相关依赖关系信息。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/spark_4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;使用maven打包java程序
+为了保证maven能够正常运行，先执行如下命令检查整个应用程序的文件结构:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cd ~/sparkapp2
+find
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;文件结构如下图：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/spark_9.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;接着，我们可以通过如下代码将这整个应用程序打包成Jar(注意：电脑需要保持连接网络的状态，而且首次运行同样下载依赖包，同样消耗几分钟的时间):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/usr/local/maven/bin/mvn package
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;如出现下图，说明生成Jar包成功：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/spark_2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;通过spark-submit 运行程序
+最后，可以通过将生成的jar包通过spark-submit提交到Spark中运行，如下命令：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/usr/local/spark/bin/spark-submit --class &quot;SimpleApp&quot; ~/sparkapp2/target/simple-project-1.0.jar
+# 上面命令执行后会输出太多信息，可以不使用上面命令，而使用下面命令查看想要的结果
+/usr/local/spark/bin/spark-submit --class &quot;SimpleApp&quot; ~/sparkapp2/target/simple-project-1.0.jar 2&amp;gt;&amp;amp;1 | grep &quot;Lines with a&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;最后得到的结果如下:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Lines with a: 58, Lines with b: 26
+&lt;/code&gt;&lt;/pre&gt;
+
+</description>
+        <pubDate>Wed, 21 Jun 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/%E7%A0%94%E7%A9%B6/2017/06/21/Spark.html</link>
+        <guid isPermaLink="true">http://localhost:4000/%E7%A0%94%E7%A9%B6/2017/06/21/Spark.html</guid>
+        
+        <category>Note</category>
+        
+        
+        <category>研究</category>
+        
+      </item>
+    
+      <item>
+        <title>Sort</title>
+        <description>&lt;p&gt;排序有内部排序和外部排序，内部排序是数据记录在内存中进行排序，而外部排序是因排序的数据很大，一次不能容纳全部的排序记录，在排序过程中需要访问外存。
+我们这里说说八大排序就是内部排序。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/sort_1.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;当n较大，则应采用时间复杂度为O(nlog2n)的排序方法：快速排序、堆排序或归并排序序。&lt;/p&gt;
+
+&lt;p&gt;快速排序：是目前基于比较的内部排序中被认为是最好的方法，当待排序的关键字是随机分布时，快速排序的平均时间最短；&lt;/p&gt;
+
+&lt;h2 id=&quot;1插入排序直接插入排序straight-insertion-sort&quot;&gt;1.插入排序—直接插入排序(Straight Insertion Sort)&lt;/h2&gt;
+&lt;p&gt;基本思想:&lt;/p&gt;
+
+&lt;p&gt;将一个记录插入到已排序好的有序表中，从而得到一个新，记录数增1的有序表。即：先将序列的第1个记录看成是一个有序的子序列，然后从第2个记录逐个进行插入，直至整个序列有序为止。
+要点：设立哨兵，作为临时存储和判断数组边界之用。&lt;/p&gt;
+
+&lt;p&gt;直接插入排序示例：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/sort_2.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;如果碰见一个和插入元素相等的，那么插入元素把想插入的元素放在相等元素的后面。所以，相等元素的前后顺序没有改变，从原无序序列出去的顺序就是排好序后的顺序，所以插入排序是稳定的。&lt;/p&gt;
+
+&lt;p&gt;算法的实现：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;void print(int a[], int n ,int i){  
+	cout&amp;lt;&amp;lt;i &amp;lt;&amp;lt;&quot;:&quot;;  
+	for(int j= 0; j&amp;lt;8; j++){  
+    	cout&amp;lt;&amp;lt;a[j] &amp;lt;&amp;lt;&quot; &quot;;  
+	}  
+	cout&amp;lt;&amp;lt;endl;  
+}  
+  
+  
+void InsertSort(int a[], int n)  
+{  
+   	 for(int i= 1; i&amp;lt;n; i++){  
+    	if(a[i] &amp;lt; a[i-1]){               //若第i个元素大于i-1元素，直接插入。小于的话，移动有序表后插入  
+        	int j= i-1;   
+        	int x = a[i];        //复制为哨兵，即存储待排序元素  
+        	a[i] = a[i-1];           //先后移一个元素  
+        	while(x &amp;lt; a[j]){  //查找在有序表的插入位置  
+            a[j+1] = a[j];  
+            j--;         //元素后移  
+        	}  
+        	a[j+1] = x;      //插入到正确位置  
+    	}  
+    	print(a,n,i);           //打印每趟排序的结果  
+	}  
+  
+}  
+  
+int main(){  
+	int a[8] = {3,1,5,7,2,4,9,6};  
+	InsertSort(a,8);  
+	print(a,8,8);  
+}	  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;效率：&lt;/p&gt;
+
+&lt;p&gt;时间复杂度：O（n^2）.&lt;/p&gt;
+
+&lt;p&gt;其他的插入排序有二分插入排序，2-路插入排序。&lt;/p&gt;
+
+&lt;h2 id=&quot;2-插入排序希尔排序shell--sort&quot;&gt;2. 插入排序—希尔排序（Shell  Sort）&lt;/h2&gt;
+&lt;p&gt;希尔排序是1959 年由D.L.Shell 提出来的，相对直接排序有较大的改进。希尔排序又叫缩小增量排序&lt;/p&gt;
+
+&lt;p&gt;基本思想：&lt;/p&gt;
+
+&lt;p&gt;先将整个待排序的记录序列分割成为若干子序列分别进行直接插入排序，待整个序列中的记录“基本有序”时，再对全体记录进行依次直接插入排序。&lt;/p&gt;
+
+&lt;p&gt;操作方法：&lt;/p&gt;
+
+&lt;p&gt;选择一个增量序列t1，t2，…，tk，其中ti&amp;gt;tj，tk=1；
+按增量序列个数k，对序列进行k 趟排序；
+每趟排序，根据对应的增量ti，将待排序列分割成若干长度为m 的子序列，分别对各子表进行直接插入排序。仅增量因子为1 时，整个序列作为一个表来处理，表长度即为整个序列的长度。
+希尔排序的示例：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/sort_3.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;算法实现：&lt;/p&gt;
+
+&lt;p&gt;我们简单处理增量序列：增量序列d = {n/2 ,n/4, n/8 …..1} n为要排序数的个数
+即：先将要排序的一组记录按某个增量d（n/2,n为要排序数的个数）分成若干组子序列，每组中记录的下标相差d.对每组中全部元素进行直接插入排序，然后再用一个较小的增量（d/2）对它进行分组，在每组中再进行直接插入排序。继续不断缩小增量直至为1，最后使用直接插入排序完成排序。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;void print(int a[], int n ,int i){  
+	cout&amp;lt;&amp;lt;i &amp;lt;&amp;lt;&quot;:&quot;;  
+	for(int j= 0; j&amp;lt;8; j++){  
+    	cout&amp;lt;&amp;lt;a[j] &amp;lt;&amp;lt;&quot; &quot;;  
+	}	  
+	cout&amp;lt;&amp;lt;endl;  
+}  
+/**   * 	直接插入排序的一般形式 
+ 	*   * 	@param int dk 缩小增量，如果是直接插入排序，dk=1 
+ 	* 
+ 	*/  
+  
+void ShellInsertSort(int a[], int n, int dk)  
+{  
+	for(int i= dk; i&amp;lt;n; ++i){  
+    	if(a[i] &amp;lt; a[i-dk]){          //若第i个元素大于i-1元素，直接插入。小于的话，移动有序表后插入  
+        	int j = i-dk;     
+        	int x = a[i];           //复制为哨兵，即存储待排序元素  
+        	a[i] = a[i-dk];         //首先后移一个元素  
+        	while(x &amp;lt; a[j]){     //查找在有序表的插入位置  
+            	a[j+dk] = a[j];  
+            	j -= dk;             //元素后移  
+        	}  
+        	a[j+dk] = x;            //插入到正确位置  
+    	}  
+    	print(a, n,i );  
+	}  
+  
+}  
+  
+/** 
+ 	* 先按增量d（n/2,n为要排序数的个数进行希尔排序 
+ 	* 
+ 	*/
+  
+void shellSort(int a[], int n){  
+  	
+	int dk = n/2;  
+   	while( dk &amp;gt;= 1  ){  
+    	ShellInsertSort(a, n, dk);  
+    	dk = dk/2;  
+	}  
+}  
+int main(){  
+	int a[8] = {3,1,5,7,2,4,9,6};  
+	//ShellInsertSort(a,8,1); //直接插入排序  
+   	shellSort(a,8);           //希尔插入排序  
+	print(a,8,8);  
+}  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;希尔排序时效分析很难，关键码的比较次数与记录移动次数依赖于增量因子序列d的选取，特定情况下可以准确估算出关键码的比较次数和记录的移动次数。目前还没有人给出选取最好的增量因子序列的方法。增量因子序列可以有各种取法，有取奇数的，也有取质数的，但需要注意：增量因子中除1 外没有公因子，且最后一个增量因子必须为1。希尔排序方法是一个不稳定的排序方法。&lt;/p&gt;
+
+&lt;h2 id=&quot;3-选择排序简单选择排序simple-selection-sort&quot;&gt;3. 选择排序—简单选择排序（Simple Selection Sort）&lt;/h2&gt;
+&lt;p&gt;基本思想：&lt;/p&gt;
+
+&lt;p&gt;在要排序的一组数中，选出最小（或者最大）的一个数与第1个位置的数交换；然后在剩下的数当中再找最小（或者最大）的与第2个位置的数交换，依次类推，直到第n-1个元素（倒数第二个数）和第n个元素（最后一个数）比较为止。&lt;/p&gt;
+
+&lt;p&gt;简单选择排序的示例：
+&lt;img src=&quot;http://localhost:4000/assets/images/sort_4.jpg&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;
+操作方法：&lt;/p&gt;
+
+&lt;p&gt;第一趟，从n 个记录中找出关键码最小的记录与第一个记录交换；&lt;/p&gt;
+
+&lt;p&gt;第二趟，从第二个记录开始的n-1 个记录中再选出关键码最小的记录与第二个记录交换；&lt;/p&gt;
+
+&lt;p&gt;以此类推…..&lt;/p&gt;
+
+&lt;p&gt;第i 趟，则从第i 个记录开始的n-i+1 个记录中选出关键码最小的记录与第i 个记录交换，&lt;/p&gt;
+
+&lt;p&gt;直到整个序列按关键码有序。&lt;/p&gt;
+
+&lt;p&gt;算法实现：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;void print(int a[], int n ,int i){  
+	cout&amp;lt;&amp;lt;&quot;第&quot;&amp;lt;&amp;lt;i+1 &amp;lt;&amp;lt;&quot;趟 : &quot;;  
+	for(int j= 0; j&amp;lt;8; j++){  
+    	cout&amp;lt;&amp;lt;a[j] &amp;lt;&amp;lt;&quot;  &quot;;  
+	}  
+	cout&amp;lt;&amp;lt;endl;  
+}  
+/** 
+ 	* 数组的最小值 
+ 	* 
+ 	* @return int 数组的键值 
+ 	*/  
+int SelectMinKey(int a[], int n, int i)  
+{  
+	int k = i;  
+	for(int j=i+1 ;j&amp;lt; n; ++j) {  
+    	if(a[k] &amp;gt; a[j]) k = j;  
+	}  
+	return k;  
+}  
+  
+/** 
+ 	* 选择排序 
+ * 
+ 	*/  
+
+void selectSort(int a[], int n){  
+	int key, tmp;  
+	for(int i = 0; i&amp;lt; n; ++i) {  
+    	key = SelectMinKey(a, n,i);           //选择最小的元素  
+    	if(key != i){  
+        	tmp = a[i];  a[i] = a[key]; a[key] = tmp; //最小元素与第i位置元素互换  
+    	}  
+    	print(a,  n , i);  
+	}  
+}  
+int main(){  
+	int a[8] = {3,1,5,7,2,4,9,6};  
+	cout&amp;lt;&amp;lt;&quot;初始值：&quot;;  
+	for(int j= 0; j&amp;lt;8; j++){  
+    	cout&amp;lt;&amp;lt;a[j] &amp;lt;&amp;lt;&quot;  &quot;;  
+	}  
+	cout&amp;lt;&amp;lt;endl&amp;lt;&amp;lt;endl;  
+	selectSort(a, 8);  
+	print(a,8,8);  
+}  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;简单选择排序的改进——二元选择排序&lt;/p&gt;
+
+&lt;p&gt;简单选择排序，每趟循环只能确定一个元素排序后的定位。我们可以考虑改进为每趟循环确定两个元素（当前趟最大和最小记录）的位置,从而减少排序所需的循环次数。改进后对n个数据进行排序，最多只需进行[n/2]趟循环即可。具体实现如下：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;void SelectSort(int r[],int n) {  
+	int i ,j , min ,max, tmp;  
+	for (i=1 ;i &amp;lt;= n/2;i++) {    
+    // 做不超过n/2趟选择排序   
+    min = i; max = i ; //分别记录最大和最小关键字记录位置  
+    for (j= i+1; j&amp;lt;= n-i; j++) {  
+        if (r[j] &amp;gt; r[max]) {   
+            max = j ; continue ;   
+        }    
+        if (r[j]&amp;lt; r[min]) {   
+            min = j ;   
+        }     
+  	}    
+  	//该交换操作还可分情况讨论以提高效率  
+  	tmp = r[i-1]; r[i-1] = r[min]; r[min] = tmp;  
+  	tmp = r[n-i]; r[n-i] = r[max]; r[max] = tmp;   
+  
+	}   
+}  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;4-选择排序堆排序heap-sort&quot;&gt;4. 选择排序—堆排序（Heap Sort）&lt;/h2&gt;
+&lt;p&gt;堆排序是一种树形选择排序，是对直接选择排序的有效改进。
+基本思想：&lt;/p&gt;
+
+&lt;p&gt;堆的定义如下：具有n个元素的序列（k1,k2,…,kn),当且仅当满足&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/sort_5.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;时称之为堆。由堆的定义可以看出，堆顶元素（即第一个元素）必为最小项（小顶堆）。
+若以一维数组存储一个堆，则堆对应一棵完全二叉树，且所有非叶结点的值均不大于(或不小于)其子女的值，根结点（堆顶元素）的值是最小(或最大)的。如：&lt;/p&gt;
+
+&lt;p&gt;（a）大顶堆序列：（96, 83,27,38,11,09)&lt;/p&gt;
+
+&lt;p&gt;(b) 小顶堆序列：（12，36，24，85，47，30，53，91）&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/sort_6.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;初始时把要排序的n个数的序列看作是一棵顺序存储的二叉树（一维数组存储二叉树），调整它们的存储序，使之成为一个堆，将堆顶元素输出，得到n 个元素中最小(或最大)的元素，这时堆的根节点的数最小（或者最大）。然后对前面(n-1)个元素重新调整使之成为堆，输出堆顶元素，得到n 个元素中次小(或次大)的元素。依此类推，直到只有两个节点的堆，并对它们作交换，最后得到有n个节点的有序序列。称这个过程为堆排序。&lt;/p&gt;
+
+&lt;p&gt;因此，实现堆排序需解决两个问题：&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;如何将n 个待排序的数建成堆；&lt;/li&gt;
+  &lt;li&gt;输出堆顶元素后，怎样调整剩余n-1 个元素，使其成为一个新堆。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;首先讨论第二个问题：输出堆顶元素后，对剩余n-1元素重新建成堆的调整过程。
+调整小顶堆的方法：&lt;/p&gt;
+
+&lt;p&gt;1）设有m 个元素的堆，输出堆顶元素后，剩下m-1 个元素。将堆底元素送入堆顶（（最后一个元素与堆顶进行交换），堆被破坏，其原因仅是根结点不满足堆的性质。&lt;/p&gt;
+
+&lt;p&gt;2）将根结点与左、右子树中较小元素的进行交换。&lt;/p&gt;
+
+&lt;p&gt;3）若与左子树交换：如果左子树堆被破坏，即左子树的根结点不满足堆的性质，则重复方法 （2）.&lt;/p&gt;
+
+&lt;p&gt;4）若与右子树交换，如果右子树堆被破坏，即右子树的根结点不满足堆的性质。则重复方法 （2）.&lt;/p&gt;
+
+&lt;p&gt;5）继续对不满足堆性质的子树进行上述交换操作，直到叶子结点，堆被建成。&lt;/p&gt;
+
+&lt;p&gt;称这个自根结点到叶子结点的调整过程为筛选。如图：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/sort_7.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;再讨论对n 个元素初始建堆的过程。
+建堆方法：对初始序列建堆的过程，就是一个反复进行筛选的过程。&lt;/p&gt;
+
+&lt;p&gt;1）n 个结点的完全二叉树，则最后一个结点是第个结点的子树。&lt;/p&gt;
+
+&lt;p&gt;2）筛选从第个结点为根的子树开始，该子树成为堆。&lt;/p&gt;
+
+&lt;p&gt;3）之后向前依次对各结点为根的子树进行筛选，使之成为堆，直到根结点。&lt;/p&gt;
+
+&lt;p&gt;如图建堆初始过程：无序序列：（49，38，65，97，76，13，27，49）&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/sort_8.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;算法的实现：&lt;/p&gt;
+
+&lt;p&gt;从算法描述来看，堆排序需要两个过程，一是建立堆，二是堆顶与堆的最后一个元素交换位置。所以堆排序有两个函数组成。一是建堆的渗透函数，二是反复调用渗透函数实现排序的函数。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;void print(int a[], int n){  
+	for(int j= 0; j&amp;lt;n; j++){  
+    	cout&amp;lt;&amp;lt;a[j] &amp;lt;&amp;lt;&quot;  &quot;;  
+	}  
+	cout&amp;lt;&amp;lt;endl;  
+}  
+  
+  
+  
+/** 
+ 	* 已知H[s…m]除了H[s] 外均满足堆的定义 
+ 	* 调整H[s],使其成为大顶堆.即将对第s个结点为根的子树筛选,  
+ 	* 
+ 	* @param H是待调整的堆数组 
+ 	* @param s是待调整的数组元素的位置 
+ 	* @param length是数组的长度 
+ 	* 
+ 	*/
+  
+void HeapAdjust(int H[],int s, int length)  
+{  
+	int tmp  = H[s];  
+	int child = 2*s+1; //左孩子结点的位置。(i+1 为当前调整结点的右孩子结点的位置)  
+	while (child &amp;lt; length) {  
+    	if(child+1 &amp;lt;length &amp;amp;&amp;amp; H[child]&amp;lt;H[child+1]) { // 如果右孩子大于左孩子(找到比当前待调整结点大的孩子结点)  
+        	++child ;  
+    	}  
+    	if(H[s]&amp;lt;H[child]) {  // 如果较大的子结点大于父结点  
+        	H[s] = H[child]; // 那么把较大的子结点往上移动，替换它的父结点  
+        	s = child;       // 重新设置s ,即待调整的下一个结点的位置  
+        	child = 2*s+1;  
+    	}  else {            // 如果当前待调整结点大于它的左右孩子，则不需要调整，直接退出  
+        	 break;  
+    	}  
+    	H[s] = tmp;         // 当前待调整的结点放到比其大的孩子结点位置上  
+	}  
+	print(H,length);  
+}  
+  
+  
+/** 
+ 	* 初始堆进行调整 
+ 	* 将H[0..length-1]建成堆 
+ 	* 调整完之后第一个元素是序列的最小的元素 
+ 	*/  
+void BuildingHeap(int H[], int length)  
+{   
+	//最后一个有孩子的节点的位置 i=  (length -1) / 2  
+	for (int i = (length -1) / 2 ; i &amp;gt;= 0; --i)  
+    	HeapAdjust(H,i,length);  
+}	  
+/** 
+ 	* 堆排序算法 
+ 	*/  
+void HeapSort(int H[],int length)  
+{  
+	//初始堆  
+	BuildingHeap(H, length);  
+	//从最后一个元素开始对序列进行调整  
+	for (int i = length - 1; i &amp;gt; 0; --i)  
+	{  
+    //交换堆顶元素H[0]和堆中最后一个元素  
+    int temp = H[i]; H[i] = H[0]; H[0] = temp;  
+    //每次交换堆顶元素和堆中最后一个元素之后，都要对堆进行调整  
+    HeapAdjust(H,0,i);  
+  	}  
+}	   
+  
+int main(){  
+	int H[10] = {3,1,5,7,2,4,9,6,10,8};  
+   	cout&amp;lt;&amp;lt;&quot;初始值：&quot;;  
+	print(H,10);  
+	HeapSort(H,10);  
+	//selectSort(a, 8);  
+	cout&amp;lt;&amp;lt;&quot;结果：&quot;;  
+	print(H,10);  
+  
+}  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;分析:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/sort_9.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;设树深度为k，。从根到叶的筛选，元素比较次数至多2(k-1)次，交换记录至多k 次。所以，在建好堆后，排序过程中的筛选次数不超过下式：&lt;/p&gt;
+
+&lt;p&gt;而建堆时的比较次数不超过4n 次，因此堆排序最坏情况下，时间复杂度也为：O(nlogn )。&lt;/p&gt;
+
+&lt;h2 id=&quot;5-交换排序冒泡排序bubble-sort&quot;&gt;5. 交换排序—冒泡排序（Bubble Sort）&lt;/h2&gt;
+&lt;p&gt;基本思想：&lt;/p&gt;
+
+&lt;p&gt;在要排序的一组数中，对当前还未排好序的范围内的全部数，自上而下对相邻的两个数依次进行比较和调整，让较大的数往下沉，较小的往上冒。即：每当两相邻的数比较后发现它们的排序与排序要求相反时，就将它们互换。&lt;/p&gt;
+
+&lt;p&gt;冒泡排序的示例：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/sort_10.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;算法的实现：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;void bubbleSort(int a[], int n){  
+	for(int i =0 ; i&amp;lt; n-1; ++i) {  
+    	for(int j = 0; j &amp;lt; n-i-1; ++j) {  
+        	if(a[j] &amp;gt; a[j+1])  
+        	{  
+            	int tmp = a[j] ; a[j] = a[j+1] ;  a[j+1] = tmp;  
+        	}	  
+   		}  
+	}  
+}  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;冒泡排序算法的改进&lt;/p&gt;
+
+&lt;p&gt;对冒泡排序常见的改进方法是加入一标志性变量exchange，用于标志某一趟排序过程中是否有数据交换，如果进行某一趟排序时并没有进行数据交换，则说明数据已经按要求排列好，可立即结束排序，避免不必要的比较过程。本文再提供以下两种改进算法：&lt;/p&gt;
+
+&lt;p&gt;1．设置一标志性变量pos,用于记录每趟排序中最后一次进行交换的位置。由于pos位置之后的记录均已交换到位,故在进行下一趟排序时只要扫描到pos位置即可。&lt;/p&gt;
+
+&lt;p&gt;改进后算法如下:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;void Bubble_1 ( int r[], int n) {  
+	int i= n -1;  //初始时,最后位置保持不变  
+   	while ( i&amp;gt; 0) {   
+    	int pos= 0; //每趟开始时,无记录交换  
+    	for (int j= 0; j&amp;lt; i; j++)  
+        	if (r[j]&amp;gt; r[j+1]) {  
+            	pos= j; //记录交换的位置   
+            	int tmp = r[j]; r[j]=r[j+1];r[j+1]=tmp;  
+        	}   
+    	i= pos; //为下一趟排序作准备  
+ 	}   
+}    
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;2．传统冒泡排序中每一趟排序操作只能找到一个最大值或最小值,我们考虑利用在每趟排序中进行正向和反向两遍冒泡的方法一次可以得到两个最终值(最大者和最小者) , 从而使排序趟数几乎减少了一半。&lt;/p&gt;
+
+&lt;p&gt;改进后的算法实现为:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;void Bubble_2 ( int r[], int n){  
+	int low = 0;   
+	int high= n -1; //设置变量的初始值  
+	int tmp,j;  
+	while (low &amp;lt; high) {  
+    	for (j= low; j&amp;lt; high; ++j) //正向冒泡,找到最大者  
+        	if (r[j]&amp;gt; r[j+1]) {  
+            	tmp = r[j]; r[j]=r[j+1];r[j+1]=tmp;  
+        	}   
+    	--high;                 //修改high值, 前移一位  
+    	for ( j=high; j&amp;gt;low; --j) //反向冒泡,找到最小者  
+        	if (r[j]&amp;lt;r[j-1]) {  
+            	tmp = r[j]; r[j]=r[j-1];r[j-1]=tmp;  
+        	}  
+    	++low;                  //修改low值,后移一位  
+	}   
+}   
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;6-交换排序快速排序quick-sort&quot;&gt;6. 交换排序—快速排序（Quick Sort）&lt;/h2&gt;
+&lt;p&gt;基本思想：&lt;/p&gt;
+
+&lt;p&gt;1）选择一个基准元素,通常选择第一个元素或者最后一个元素,&lt;/p&gt;
+
+&lt;p&gt;2）通过一趟排序讲待排序的记录分割成独立的两部分，其中一部分记录的元素值均比基准元素值小。另一部分记录的 元素值比基准值大。&lt;/p&gt;
+
+&lt;p&gt;3）此时基准元素在其排好序后的正确位置&lt;/p&gt;
+
+&lt;p&gt;4）然后分别对这两部分记录用同样的方法继续进行排序，直到整个序列有序。&lt;/p&gt;
+
+&lt;p&gt;快速排序的示例：
+（a）一趟排序的过程：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/sort_11.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;（b）排序的全过程&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/sort_12.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;算法的实现：&lt;/p&gt;
+
+&lt;p&gt;递归实现：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;void print(int a[], int n){  
+	for(int j= 0; j&amp;lt;n; j++){  
+    	cout&amp;lt;&amp;lt;a[j] &amp;lt;&amp;lt;&quot;  &quot;;  
+	}  
+	cout&amp;lt;&amp;lt;endl;  
+}  
+  
+void swap(int *a, int *b)  
+{  
+	int tmp = *a;  
+	*a = *b;  
+   	*b = tmp;  
+}	  
+  
+int partition(int a[], int low, int high)  
+{  
+	int privotKey = a[low];                             //基准元素  
+	while(low &amp;lt; high){                                   //从表的两端交替地向中间扫描  
+    	while(low &amp;lt; high  &amp;amp;&amp;amp; a[high] &amp;gt;= privotKey) --high;  //从high 所指位置向前搜索，至多到low+1 位置。将比基准元素小的交换到低端  
+    	swap(&amp;amp;a[low], &amp;amp;a[high]);  
+    	while(low &amp;lt; high  &amp;amp;&amp;amp; a[low] &amp;lt;= privotKey ) ++low;  
+    	swap(&amp;amp;a[low], &amp;amp;a[high]);  
+	}  
+	print(a,10);  
+	return low;  
+}  
+
+void quickSort(int a[], int low, int high){  
+	if(low &amp;lt; high){  
+    	int privotLoc = partition(a,  low,  high);  //将表一分为二  
+    	quickSort(a,  low,  privotLoc -1);          //递归对低子表递归排序  
+    	quickSort(a,   privotLoc + 1, high);        //递归对高子表递归排序  
+	}  
+}  
+  
+int main(){  
+	int a[10] = {3,1,5,7,2,4,9,6,10,8};  
+	cout&amp;lt;&amp;lt;&quot;初始值：&quot;;  
+	print(a,10);  
+	quickSort(a,0,9);  
+	cout&amp;lt;&amp;lt;&quot;结果：&quot;;  
+	print(a,10);  
+  
+}  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;分析：&lt;/p&gt;
+
+&lt;p&gt;快速排序是通常被认为在同数量级（O(nlog2n)）的排序方法中平均性能最好的。但若初始序列按关键码有序或基本有序时，快排序反而蜕化为冒泡排序。为改进之，通常以“三者取中法”来选取基准记录，即将排序区间的两个端点与中点三个记录关键码居中的调整为支点记录。快速排序是一个不稳定的排序方法。&lt;/p&gt;
+
+&lt;p&gt;快速排序的改进&lt;/p&gt;
+
+&lt;p&gt;在本改进算法中,只对长度大于k的子序列递归调用快速排序,让原序列基本有序，然后再对整个基本有序序列用插入排序算法排序。实践证明，改进后的算法时间复杂度有所降低，且当k取值为 8 左右时,改进算法的性能最佳。算法思想如下：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;void print(int a[], int n){  
+	for(int j= 0; j&amp;lt;n; j++){  
+    	cout&amp;lt;&amp;lt;a[j] &amp;lt;&amp;lt;&quot;  &quot;;  
+	}  
+	cout&amp;lt;&amp;lt;endl;  
+}  
+  
+void swap(int *a, int *b)  
+{  
+	int tmp = *a;  
+	*a = *b;  
+	*b = tmp;  
+}	  
+  
+int partition(int a[], int low, int high)  
+{  
+	int privotKey = a[low];                 //基准元素  
+	while(low &amp;lt; high){                   //从表的两端交替地向中间扫描  
+    	while(low &amp;lt; high  &amp;amp;&amp;amp; a[high] &amp;gt;= privotKey) --high; //从high 所指位置向前搜索，至多到low+1 位置。将比基准元素小的交换到低端  
+    	swap(&amp;amp;a[low], &amp;amp;a[high]);  
+    	while(low &amp;lt; high  &amp;amp;&amp;amp; a[low] &amp;lt;= privotKey ) ++low;  
+    	swap(&amp;amp;a[low], &amp;amp;a[high]);  
+	}  
+	print(a,10);  
+	return low;  
+}  
+  
+  
+void qsort_improve(int r[ ],int low,int high, int k){  
+	if( high -low &amp;gt; k ) { //长度大于k时递归, k为指定的数  
+    	int pivot = partition(r, low, high); // 调用的Partition算法保持不变  
+    	qsort_improve(r, low, pivot - 1,k);  
+    	qsort_improve(r, pivot + 1, high,k);  
+	}   
+}   
+void quickSort(int r[], int n, int k){  
+	qsort_improve(r,0,n,k);//先调用改进算法Qsort使之基本有序  
+  
+	//再用插入排序对基本有序序列排序  
+	for(int i=1; i&amp;lt;=n;i ++){  
+    	int tmp = r[i];   
+    	int j=i-1;  
+    	while(tmp &amp;lt; r[j]){  
+        	r[j+1]=r[j]; j=j-1;   
+    	}	  
+    	r[j+1] = tmp;  
+	}   
+  
+}   
+
+int main(){  
+	int a[10] = {3,1,5,7,2,4,9,6,10,8};  
+	cout&amp;lt;&amp;lt;&quot;初始值：&quot;;  
+	print(a,10);  
+	quickSort(a,9,4);  
+    cout&amp;lt;&amp;lt;&quot;结果：&quot;;  
+	print(a,10);  
+  
+}  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;7-归并排序merge-sort&quot;&gt;7. 归并排序（Merge Sort）&lt;/h2&gt;
+
+&lt;p&gt;基本思想：&lt;/p&gt;
+
+&lt;p&gt;归并（Merge）排序法是将两个（或两个以上）有序表合并成一个新的有序表，即把待排序序列分为若干个子序列，每个子序列是有序的。然后再把有序子序列合并为整体有序序列。&lt;/p&gt;
+
+&lt;p&gt;归并排序示例：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/sort_13.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;合并方法：&lt;/p&gt;
+
+&lt;p&gt;设r[i…n]由两个有序子表r[i…m]和r[m+1…n]组成，两个子表长度分别为n-i +1、n-m。
+j=m+1；k=i；i=i;  置两个子表的起始下标及辅助数组的起始下标
+若i&amp;gt;m 或j&amp;gt;n，转⑷  其中一个子表已合并完，比较选取结束
+选取r[i]和r[j]较小的存入辅助数组rf
+如果r[i]&amp;lt;r[j]，rf[k]=r[i]； i++； k++； 转⑵&lt;/p&gt;
+
+&lt;p&gt;否则，rf[k]=r[j]； j++； k++； 转⑵&lt;/p&gt;
+
+&lt;p&gt;//将尚未处理完的子表中元素存入rf&lt;/p&gt;
+
+&lt;p&gt;如果i&amp;lt;=m，将r[i…m]存入rf[k…n] //前一子表非空&lt;/p&gt;
+
+&lt;p&gt;如果j&amp;lt;=n ,  将r[j…n] 存入rf[k…n] //后一子表非空&lt;/p&gt;
+
+&lt;p&gt;合并结束。&lt;/p&gt;
+
+&lt;p&gt;//将r[i…m]和r[m +1 …n]归并到辅助数组rf[i…n]&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;void Merge(ElemType *r,ElemType *rf, int i, int m, int n)  
+{  
+	int j,k;  
+	for(j=m+1,k=i; i&amp;lt;=m &amp;amp;&amp;amp; j &amp;lt;=n ; ++k){  
+    	if(r[j] &amp;lt; r[i]) rf[k] = r[j++];  
+   		else rf[k] = r[i++];  
+	}  
+	while(i &amp;lt;= m)  rf[k++] = r[i++];  
+	while(j &amp;lt;= n)  rf[k++] = r[j++];  
+}  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;归并的迭代算法&lt;/p&gt;
+
+&lt;p&gt;1 个元素的表总是有序的。所以对n 个元素的待排序列，每个元素可看成1 个有序子表。对子表两两合并生成n/2个子表，所得子表除最后一个子表长度可能为1 外，其余子表长度均为2。再进行两两合并，直到生成n 个元素按关键码有序的表。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;void print(int a[], int n){  
+	for(int j= 0; j&amp;lt;n; j++){  
+    	cout&amp;lt;&amp;lt;a[j] &amp;lt;&amp;lt;&quot;  &quot;;  
+	}  
+	cout&amp;lt;&amp;lt;endl;  
+}  
+  
+//将r[i…m]和r[m +1 …n]归并到辅助数组rf[i…n]  
+void Merge(ElemType *r,ElemType *rf, int i, int m, int n)  
+{  
+	int j,k;  
+	for(j=m+1,k=i; i&amp;lt;=m &amp;amp;&amp;amp; j &amp;lt;=n ; ++k){  
+    	if(r[j] &amp;lt; r[i]) rf[k] = r[j++];  
+    	else rf[k] = r[i++];  
+   	}	  
+   	while(i &amp;lt;= m)  rf[k++] = r[i++];  
+	while(j &amp;lt;= n)  rf[k++] = r[j++];  
+	print(rf,n+1);  
+}  
+  
+void MergeSort(ElemType *r, ElemType *rf, int lenght)  
+{   
+	int len = 1;  
+	ElemType *q = r ;  
+   	ElemType *tmp ;  
+	while(len &amp;lt; lenght) {  
+    	int s = len;  
+    	len = 2 * s ;  
+    	int i = 0;  
+    while(i+ len &amp;lt;lenght){  
+        Merge(q, rf,  i, i+ s-1, i+ len-1 ); //对等长的两个子表合并  
+        i = i+ len;  
+    }  
+    if(i + s &amp;lt; lenght){  
+        Merge(q, rf,  i, i+ s -1, lenght -1); //对不等长的两个子表合并  
+    }  
+    tmp = q; q = rf; rf = tmp; //交换q,rf，以保证下一趟归并时，仍从q 归并到rf  
+	}  
+}  
+  
+  
+int main(){  
+	int a[10] = {3,1,5,7,2,4,9,6,10,8};  
+	int b[10];  
+	MergeSort(a, b, 10);  
+	print(b,10);  
+   	cout&amp;lt;&amp;lt;&quot;结果：&quot;;  
+	print(a,10);  
+  	
+}  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;两路归并的递归算法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;void MSort(ElemType *r, ElemType *rf,int s, int t)  
+{   
+	ElemType *rf2;  
+	if(s==t) r[s] = rf[s];  
+	else  
+	{   
+    	int m=(s+t)/2;          /*平分*p 表*/  
+    	MSort(r, rf2, s, m);        /*递归地将p[s…m]归并为有序的p2[s…m]*/  
+    	MSort(r, rf2, m+1, t);      /*递归地将p[m+1…t]归并为有序的p2[m+1…t]*/  
+    	Merge(rf2, rf, s, m+1,t);   /*将p2[s…m]和p2[m+1…t]归并到p1[s…t]*/  
+   	}	  
+}  
+void MergeSort_recursive(ElemType *r, ElemType *rf, int n)  
+{   /*对顺序表*p 作归并排序*/  
+	MSort(r, rf,0, n-1);  
+}	  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;8-桶排序基数排序radix-sort&quot;&gt;8. 桶排序/基数排序(Radix Sort)&lt;/h2&gt;
+&lt;p&gt;说基数排序之前，我们先说桶排序：&lt;/p&gt;
+
+&lt;p&gt;基本思想：是将阵列分到有限数量的桶子里。每个桶子再个别排序（有可能再使用别的排序算法或是以递回方式继续使用桶排序进行排序）。桶排序是鸽巢排序的一种归纳结果。当要被排序的阵列内的数值是均匀分配的时候，桶排序使用线性时间（Θ（n））。但桶排序并不是 比较排序，他不受到 O(n log n) 下限的影响。
+         简单来说，就是把数据分组，放在一个个的桶中，然后对每个桶里面的在进行排序。&lt;br /&gt;
+ 例如要对大小为[1..1000]范围内的n个整数A[1..n]排序&lt;/p&gt;
+
+&lt;p&gt;首先，可以把桶设为大小为10的范围，具体而言，设集合B[1]存储[1..10]的整数，集合B[2]存储   (10..20]的整数，……集合B[i]存储(   (i-1)&lt;em&gt;10,   i&lt;/em&gt;10]的整数，i   =   1,2,..100。总共有  100个桶。&lt;/p&gt;
+
+&lt;p&gt;然后，对A[1..n]从头到尾扫描一遍，把每个A[i]放入对应的桶B[j]中。  再对这100个桶中每个桶里的数字排序，这时可用冒泡，选择，乃至快排，一般来说任  何排序法都可以。&lt;/p&gt;
+
+&lt;p&gt;最后，依次输出每个桶里面的数字，且每个桶中的数字从小到大输出，这  样就得到所有数字排好序的一个序列了。&lt;/p&gt;
+
+&lt;p&gt;假设有n个数字，有m个桶，如果数字是平均分布的，则每个桶里面平均有n/m个数字。如果&lt;/p&gt;
+
+&lt;p&gt;对每个桶中的数字采用快速排序，那么整个算法的复杂度是&lt;/p&gt;
+
+&lt;p&gt;O(n   +   m   *   n/m*log(n/m))   =   O(n   +   nlogn   -   nlogm)&lt;/p&gt;
+
+&lt;p&gt;从上式看出，当m接近n的时候，桶排序复杂度接近O(n)&lt;/p&gt;
+
+&lt;p&gt;当然，以上复杂度的计算是基于输入的n个数字是平均分布这个假设的。这个假设是很强的  ，实际应用中效果并没有这么好。如果所有的数字都落在同一个桶中，那就退化成一般的排序了。&lt;/p&gt;
+
+&lt;p&gt;前面说的几大排序算法 ，大部分时间复杂度都是O（n2），也有部分排序算法时间复杂度是O(nlogn)。而桶式排序却能实现O（n）的时间复杂度。但桶排序的缺点是：&lt;/p&gt;
+
+&lt;p&gt;1）首先是空间复杂度比较高，需要的额外开销大。排序有两个数组的空间开销，一个存放待排序数组，一个就是所谓的桶，比如待排序值是从0到m-1，那就需要m个桶，这个桶数组就要至少m个空间。&lt;/p&gt;
+
+&lt;p&gt;2）其次待排序的元素都要在一定的范围内等等。&lt;/p&gt;
+
+&lt;p&gt;桶式排序是一种分配排序。分配排序的特定是不需要进行关键码的比较，但前提是要知道待排序列的一些具体情况。&lt;/p&gt;
+
+&lt;p&gt;分配排序的基本思想：说白了就是进行多次的桶式排序。&lt;/p&gt;
+
+&lt;p&gt;基数排序过程无须比较关键字，而是通过“分配”和“收集”过程来实现排序。它们的时间复杂度可达到线性阶：O(n)。&lt;/p&gt;
+
+&lt;p&gt;实例:&lt;/p&gt;
+
+&lt;p&gt;扑克牌中52 张牌，可按花色和面值分成两个字段，其大小关系为：
+花色： 梅花&amp;lt; 方块&amp;lt; 红心&amp;lt; 黑心&lt;br /&gt;
+面值： 2 &amp;lt; 3 &amp;lt; 4 &amp;lt; 5 &amp;lt; 6 &amp;lt; 7 &amp;lt; 8 &amp;lt; 9 &amp;lt; 10 &amp;lt; J &amp;lt; Q &amp;lt; K &amp;lt; A&lt;/p&gt;
+
+&lt;p&gt;若对扑克牌按花色、面值进行升序排序，得到如下序列：&lt;/p&gt;
+
+&lt;p&gt;即两张牌，若花色不同，不论面值怎样，花色低的那张牌小于花色高的，只有在同花色情况下，大小关系才由面值的大小确定。这就是多关键码排序。&lt;/p&gt;
+
+&lt;p&gt;为得到排序结果，我们讨论两种排序方法。
+方法1：先对花色排序，将其分为4 个组，即梅花组、方块组、红心组、黑心组。再对每个组分别按面值进行排序，最后，将4 个组连接起来即可。
+方法2：先按13 个面值给出13 个编号组(2 号，3 号，…，A 号)，将牌按面值依次放入对应的编号组，分成13 堆。再按花色给出4 个编号组(梅花、方块、红心、黑心)，将2号组中牌取出分别放入对应花色组，再将3 号组中牌取出分别放入对应花色组，……，这样，4 个花色组中均按面值有序，然后，将4 个花色组依次连接起来即可。&lt;/p&gt;
+
+&lt;p&gt;设n 个元素的待排序列包含d 个关键码{k1，k2，…，kd}，则称序列对关键码{k1，k2，…，kd}有序是指：对于序列中任两个记录r[i]和r&lt;a href=&quot;1≤i≤j≤n&quot;&gt;j&lt;/a&gt;都满足下列有序关系：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/sort_14.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;其中k1 称为最主位关键码，kd 称为最次位关键码。&lt;/p&gt;
+
+&lt;p&gt;两种多关键码排序方法：&lt;/p&gt;
+
+&lt;p&gt;多关键码排序按照从最主位关键码到最次位关键码或从最次位到最主位关键码的顺序逐次排序，分两种方法：&lt;/p&gt;
+
+&lt;p&gt;最高位优先(Most Significant Digit first)法，简称MSD 法：&lt;/p&gt;
+
+&lt;p&gt;1）先按k1 排序分组，将序列分成若干子序列，同一组序列的记录中，关键码k1 相等。&lt;/p&gt;
+
+&lt;p&gt;2）再对各组按k2 排序分成子组，之后，对后面的关键码继续这样的排序分组，直到按最次位关键码kd 对各子组排序后。&lt;/p&gt;
+
+&lt;p&gt;3）再将各组连接起来，便得到一个有序序列。扑克牌按花色、面值排序中介绍的方法一即是MSD 法。&lt;/p&gt;
+
+&lt;p&gt;最低位优先(Least Significant Digit first)法，简称LSD 法：&lt;/p&gt;
+
+&lt;p&gt;1) 先从kd 开始排序，再对kd-1进行排序，依次重复，直到按k1排序分组分成最小的子序列后。&lt;/p&gt;
+
+&lt;p&gt;2) 最后将各个子序列连接起来，便可得到一个有序的序列, 扑克牌按花色、面值排序中介绍的方法二即是LSD 法。&lt;/p&gt;
+
+&lt;p&gt;基于LSD方法的链式基数排序的基本思想&lt;/p&gt;
+
+&lt;p&gt;　　“多关键字排序”的思想实现“单关键字排序”。对数字型或字符型的单关键字，可以看作由多个数位或多个字符构成的多关键字，此时可以采用“分配-收集”的方法进行排序，这一过程称作基数排序法，其中每个数字或字符可能的取值个数称为基数。比如，扑克牌的花色基数为4，面值基数为13。在整理扑克牌时，既可以先按花色整理，也可以先按面值整理。按花色整理时，先按红、黑、方、花的顺序分成4摞（分配），再按此顺序再叠放在一起（收集），然后按面值的顺序分成13摞（分配），再按此顺序叠放在一起（收集），如此进行二次分配和收集即可将扑克牌排列有序。&lt;/p&gt;
+
+&lt;p&gt;基数排序:&lt;/p&gt;
+
+&lt;p&gt;是按照低位先排序，然后收集；再按照高位排序，然后再收集；依次类推，直到最高位。有时候有些属性是有优先级顺序的，先按低优先级排序，再按高优先级排序。最后的次序就是高优先级高的在前，高优先级相同的低优先级高的在前。基数排序基于分别排序，分别收集，所以是稳定的。&lt;/p&gt;
+
+&lt;p&gt;算法实现：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Void RadixSort(Node L[],length,maxradix)  
+{  
+  	 int m,n,k,lsp;  
+   	k=1;m=1;  
+   	int temp[10][length-1];  
+   	Empty(temp); //清空临时空间  
+   	while(k&amp;lt;maxradix) //遍历所有关键字  
+   	{  
+ 	for(int i=0;i&amp;lt;length;i++) //分配过程  
+	{  
+   	if(L[i]&amp;lt;m)  
+      	Temp[0][n]=L[i];  
+   	else  
+      	Lsp=(L[i]/m)%10; //确定关键字  
+   	Temp[lsp][n]=L[i];  
+   	n++;  
+   	}  
+   	CollectElement(L,Temp); //收集  
+   	n=0;  
+   	m=m*10;  
+  	k++;  
+ 	}  
+}  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;总结
+各种排序的稳定性，时间复杂度和空间复杂度总结：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/sort_15.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;我们比较时间复杂度函数的情况：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/sort_16.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;时间复杂度函数O(n)的增长情况&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/sort_17.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;所以对n较大的排序记录。一般的选择都是时间复杂度为O(nlog2n)的排序方法。&lt;/p&gt;
+
+&lt;p&gt;时间复杂度来说：&lt;/p&gt;
+
+&lt;p&gt;(1)平方阶(O(n2))排序
+　　各类简单排序:直接插入、直接选择和冒泡排序；
+(2)线性对数阶(O(nlog2n))排序
+　　快速排序、堆排序和归并排序；
+(3)O(n1+§))排序,§是介于0和1之间的常数。&lt;/p&gt;
+
+&lt;p&gt;希尔排序
+(4)线性阶(O(n))排序
+基数排序，此外还有桶、箱排序。&lt;/p&gt;
+
+&lt;p&gt;说明：
+当原表有序或基本有序时，直接插入排序和冒泡排序将大大减少比较次数和移动记录的次数，时间复杂度可降至O（n）；
+而快速排序则相反，当原表基本有序时，将蜕化为冒泡排序，时间复杂度提高为O（n2）；
+原表是否有序，对简单选择排序、堆排序、归并排序和基数排序的时间复杂度影响不大。&lt;/p&gt;
+
+&lt;p&gt;稳定性：
+排序算法的稳定性:若待排序的序列中，存在多个具有相同关键字的记录，经过排序， 这些记录的相对次序保持不变，则称该算法是稳定的；若经排序后，记录的相对 次序发生了改变，则称该算法是不稳定的。 
+稳定性的好处：排序算法如果是稳定的，那么从一个键上排序，然后再从另一个键上排序，第一个键排序的结果可以为第二个键排序所用。基数排序就是这样，先按低位排序，逐次按高位排序，低位相同的元素其顺序再高位也相同时是不会改变的。另外，如果排序算法稳定，可以避免多余的比较；&lt;/p&gt;
+
+&lt;p&gt;稳定的排序算法：冒泡排序、插入排序、归并排序和基数排序&lt;/p&gt;
+
+&lt;p&gt;不是稳定的排序算法：选择排序、快速排序、希尔排序、堆排序&lt;/p&gt;
+
+&lt;p&gt;选择排序算法准则：&lt;/p&gt;
+
+&lt;p&gt;每种排序算法都各有优缺点。因此，在实用时需根据不同情况适当选用，甚至可以将多种方法结合起来使用。&lt;/p&gt;
+
+&lt;p&gt;选择排序算法的依据&lt;/p&gt;
+
+&lt;p&gt;影响排序的因素有很多，平均时间复杂度低的算法并不一定就是最优的。相反，有时平均时间复杂度高的算法可能更适合某些特殊情况。同时，选择算法时还得考虑它的可读性，以利于软件的维护。一般而言，需要考虑的因素有以下四点：&lt;/p&gt;
+
+&lt;p&gt;1．待排序的记录数目n的大小；&lt;/p&gt;
+
+&lt;p&gt;2．记录本身数据量的大小，也就是记录中除关键字外的其他信息量的大小；&lt;/p&gt;
+
+&lt;p&gt;3．关键字的结构及其分布情况；&lt;/p&gt;
+
+&lt;p&gt;4．对排序稳定性的要求。&lt;/p&gt;
+
+&lt;p&gt;设待排序元素的个数为n.&lt;/p&gt;
+
+&lt;p&gt;1）当n较大，则应采用时间复杂度为O(nlog2n)的排序方法：快速排序、堆排序或归并排序序。&lt;/p&gt;
+
+&lt;p&gt;快速排序：是目前基于比较的内部排序中被认为是最好的方法，当待排序的关键字是随机分布时，快速排序的平均时间最短；
+ 堆排序 ：  如果内存空间允许且要求稳定性的，&lt;/p&gt;
+
+&lt;p&gt;归并排序：它有一定数量的数据移动，所以我们可能过与插入排序组合，先获得一定长度的序列，然后再合并，在效率上将有所提高。&lt;/p&gt;
+
+&lt;p&gt;2）当n较大，内存空间允许，且要求稳定性 =》归并排序&lt;/p&gt;
+
+&lt;p&gt;3）当n较小，可采用直接插入或直接选择排序。&lt;/p&gt;
+
+&lt;p&gt;直接插入排序：当元素分布有序，直接插入排序将大大减少比较次数和移动记录的次数。&lt;/p&gt;
+
+&lt;p&gt;直接选择排序 ：元素分布有序，如果不要求稳定性，选择直接选择排序&lt;/p&gt;
+
+&lt;p&gt;5）一般不使用或不直接使用传统的冒泡排序。&lt;/p&gt;
+
+&lt;p&gt;6）基数排序
+它是一种稳定的排序算法，但有一定的局限性：
+　　1、关键字可分解。
+　　2、记录的关键字位数较少，如果密集更好
+　　3、如果是数字时，最好是无符号的，否则将增加相应的映射复杂度，可先将其正负分开排序。&lt;/p&gt;
+
+</description>
+        <pubDate>Sun, 28 May 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/%E7%A0%94%E7%A9%B6/2017/05/28/Sort.html</link>
+        <guid isPermaLink="true">http://localhost:4000/%E7%A0%94%E7%A9%B6/2017/05/28/Sort.html</guid>
+        
+        <category>Note</category>
+        
+        
+        <category>研究</category>
+        
+      </item>
+    
+      <item>
+        <title>FM Introduction From MeiTuan</title>
+        <description>&lt;p&gt;FM和FFM模型是最近几年提出的模型，凭借其在数据量比较大并且特征稀疏的情况下，仍然能够得到优秀的性能和效果的特性，屡次在各大公司举办的CTR预估比赛中获得不错的战绩。美团点评技术团队在搭建DSP的过程中，探索并使用了FM和FFM模型进行CTR和CVR预估，并且取得了不错的效果。本文旨在把我们对FM和FFM原理的探索和应用的经验介绍给有兴趣的读者。&lt;/p&gt;
+
+&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
+&lt;p&gt;在计算广告领域，点击率CTR（click-through rate）和转化率CVR（conversion rate）是衡量广告流量的两个关键指标。准确的估计CTR、CVR对于提高流量的价值，增加广告收入有重要的指导作用。预估CTR/CVR，业界常用的方法有人工特征工程 + LR(Logistic Regression)、GBDT(Gradient Boosting Decision Tree) + LR&lt;a href=&quot;http://blog.csdn.net/lilyth_lilyth/article/details/48032119&quot;&gt;1&lt;/a&gt;&lt;a href=&quot;http://www.cnblogs.com/Matrix_Yao/p/4773221.html&quot;&gt;2&lt;/a&gt;&lt;a href=&quot;http://blog.csdn.net/lilyth_lilyth/article/details/48032119&quot;&gt;3&lt;/a&gt;、FM（Factorization Machine）&lt;a href=&quot;http://www.cnblogs.com/Matrix_Yao/p/4773221.html&quot;&gt;2&lt;/a&gt;&lt;a href=&quot;http://www.algo.uni-konstanz.de/members/rendle/pdf/Rendle2010FM.pdf&quot;&gt;7&lt;/a&gt;和FFM（Field-aware Factorization Machine）&lt;a href=&quot;http://www.csie.ntu.edu.tw/~r01922136/slides/ffm.pdf&quot;&gt;9&lt;/a&gt;模型。在这些模型中，FM和FFM近年来表现突出，分别在由Criteo和Avazu举办的CTR预测竞赛中夺得冠军&lt;a href=&quot;https://www.kaggle.com/c/criteo-display-ad-challenge&quot;&gt;4&lt;/a&gt;&lt;a href=&quot;https://www.kaggle.com/c/avazu-ctr-prediction&quot;&gt;5&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;考虑到FFM模型在CTR预估比赛中的不俗战绩，美团点评技术团队在搭建DSP（Demand Side Platform）&lt;a href=&quot;https://en.wikipedia.org/wiki/Demand-side_platform&quot;&gt;6&lt;/a&gt;平台时，在站内CTR/CVR的预估上使用了该模型，取得了不错的效果。本文是基于对FFM模型的深度调研和使用经验，从原理、实现和应用几个方面对FFM进行探讨，希望能够从原理上解释FFM模型在点击率预估上取得优秀效果的原因。因为FFM是在FM的基础上改进得来的，所以我们首先引入FM模型，本文章节组织方式如下：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;首先介绍FM的原理。&lt;/li&gt;
+  &lt;li&gt;其次介绍FFM对FM的改进。&lt;/li&gt;
+  &lt;li&gt;然后介绍FFM的实现细节。&lt;/li&gt;
+  &lt;li&gt;最后介绍模型在DSP场景的应用。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;fm原理&quot;&gt;FM原理&lt;/h2&gt;
+
+&lt;p&gt;FM（Factorization Machine）是由Konstanz大学Steffen Rendle（现任职于Google）于2010年最早提出的，旨在解决稀疏数据下的特征组合问题&lt;a href=&quot;http://www.algo.uni-konstanz.de/members/rendle/pdf/Rendle2010FM.pdf&quot;&gt;7&lt;/a&gt;。下面以一个示例引入FM模型。假设一个广告分类的问题，根据用户和广告位相关的特征，预测用户是否点击了广告。源数据如下&lt;a href=&quot;http://www.cs.cmu.edu/~wcohen/10-605/2015-guest-lecture/FM.pdf&quot;&gt;8&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/FM-1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;“Clicked?”是label，Country、Day、Ad_type是特征。由于三种特征都是categorical类型的，需要经过独热编码（One-Hot Encoding）转换成数值型特征。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/FM-2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;由上表可以看出，经过One-Hot编码之后，大部分样本数据特征是比较稀疏的。上面的样例中，每个样本有7维特征，但平均仅有3维特征具有非零值。实际上，这种情况并不是此例独有的，在真实应用场景中这种情况普遍存在。例如，CTR/CVR预测时，用户的性别、职业、教育水平、品类偏好，商品的品类等，经过One-Hot编码转换后都会导致样本数据的稀疏性。特别是商品品类这种类型的特征，如商品的末级品类约有550个，采用One-Hot编码生成550个数值特征，但每个样本的这550个特征，有且仅有一个是有效的（非零）。由此可见，数据稀疏性是实际问题中不可避免的挑战。&lt;/p&gt;
+
+&lt;p&gt;One-Hot编码的另一个特点就是导致特征空间大。例如，商品品类有550维特征，一个categorical特征转换为550维数值特征，特征空间剧增。&lt;/p&gt;
+
+&lt;p&gt;同时通过观察大量的样本数据可以发现，某些特征经过关联之后，与label之间的相关性就会提高。例如，“USA”与“Thanksgiving”、“China”与“Chinese New Year”这样的关联特征，对用户的点击有着正向的影响。换句话说，来自“China”的用户很可能会在“Chinese New Year”有大量的浏览、购买行为，而在“Thanksgiving”却不会有特别的消费行为。这种关联特征与label的正向相关性在实际问题中是普遍存在的，如“化妆品”类商品与“女”性，“球类运动配件”的商品与“男”性，“电影票”的商品与“电影”品类偏好等。因此，引入两个特征的组合是非常有意义的。&lt;/p&gt;
+
+&lt;p&gt;多项式模型是包含特征组合的最直观的模型。在多项式模型中，特征 xixi 和 xjxj 的组合采用 xixjxixj 表示，即 xixi 和 xjxj 都非零时，组合特征 xixjxixj 才有意义。从对比的角度，本文只讨论二阶多项式模型。模型的表达式如下&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;y(\mathbf{x}) = w_0+ \sum_{i=1}^n w_i x_i + \sum_{i=1}^n \sum_{j=i+1}^n w_{ij} x_i x_j \label{eq:poly}\tag{1}&lt;/script&gt;
+
+&lt;p&gt;其中，nn 代表样本的特征数量，xixi 是第 ii 个特征的值，w0w0、wiwi、wijwij 是模型参数。&lt;/p&gt;
+
+&lt;p&gt;从公式(1)(1)可以看出，组合特征的参数一共有 n(n−1)2n(n−1)2 个，任意两个参数都是独立的。然而，在数据稀疏性普遍存在的实际应用场景中，二次项参数的训练是很困难的。其原因是，每个参数 wijwij 的训练需要大量 xixi 和 xjxj 都非零的样本；由于样本数据本来就比较稀疏，满足“xixi 和 xjxj 都非零”的样本将会非常少。训练样本的不足，很容易导致参数 wijwij 不准确，最终将严重影响模型的性能。&lt;/p&gt;
+
+&lt;p&gt;那么，如何解决二次项参数的训练问题呢？矩阵分解提供了一种解决思路。在model-based的协同过滤中，一个rating矩阵可以分解为user矩阵和item矩阵，每个user和item都可以采用一个隐向量表示[8]。比如在下图中的例子中，我们把每个user表示成一个二维向量，同时把每个item表示成一个二维向量，两个向量的点积就是矩阵中user对item的打分&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/FM-3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;类似地，所有二次项参数 wijwij 可以组成一个对称阵 WW（为了方便说明FM的由来，对角元素可以设置为正实数），那么这个矩阵就可以分解为 W=VTVW=VTV，VV 的第 jj 列便是第 jj 维特征的隐向量。换句话说，每个参数 wij=⟨vi,vj⟩wij=⟨vi,vj⟩，这就是FM模型的核心思想。因此，FM的模型方程为（本文不讨论FM的高阶形式）&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;y(\mathbf{x}) = w_0+ \sum_{i=1}^n w_i x_i + \sum_{i=1}^n \sum_{j=i+1}^n \langle \mathbf{v}_i, \mathbf{v}_j \rangle x_i x_j \label{eq:fm}\tag{2}&lt;/script&gt;
+
+&lt;p&gt;其中，vivi 是第 ii 维特征的隐向量，⟨⋅,⋅⟩⟨⋅,⋅⟩ 代表向量点积。隐向量的长度为 kk（k«nk«n），包含 kk 个描述特征的因子。根据公式(2)(2)，二次项的参数数量减少为 knkn个，远少于多项式模型的参数数量。另外，参数因子化使得 xhxixhxi 的参数和 xixjxixj 的参数不再是相互独立的，因此我们可以在样本稀疏的情况下相对合理地估计FM的二次项参数。具体来说，xhxixhxi 和 xixjxixj 的系数分别为 ⟨vh,vi⟩⟨vh,vi⟩ 和 ⟨vi,vj⟩⟨vi,vj⟩，它们之间有共同项 vivi。也就是说，所有包含“xixi 的非零组合特征”（存在某个 j≠ij≠i，使得 xixj≠0xixj≠0）的样本都可以用来学习隐向量 vivi，这很大程度上避免了数据稀疏性造成的影响。而在多项式模型中，whiwhi 和 wijwij 是相互独立的。&lt;/p&gt;
+
+&lt;p&gt;显而易见，公式(2)(2)是一个通用的拟合方程，可以采用不同的损失函数用于解决回归、二元分类等问题，比如可以采用MSE（Mean Square Error）损失函数来求解回归问题，也可以采用Hinge/Cross-Entropy损失来求解分类问题。当然，在进行二元分类时，FM的输出需要经过sigmoid变换，这与Logistic回归是一样的。直观上看，FM的复杂度是 O(kn2)O(kn2)。但是，通过公式(3)(3)的等式，FM的二次项可以化简，其复杂度可以优化到 O(kn)O(kn)[7]。由此可见，FM可以在线性时间对新样本作出预测。&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\sum_{i=1}^n \sum_{j=i+1}^n \langle \mathbf{v}_i, \mathbf{v}_j \rangle x_i x_j = \frac{1}{2} \sum_{f=1}^k \left(\left( \sum_{i=1}^n v_{i, f} x_i \right)^2 - \sum_{i=1}^n v_{i, f}^2 x_i^2 \right) \label{eq:fm_conv}\tag{3}&lt;/script&gt;
+
+&lt;p&gt;我们再来看一下FM的训练复杂度，利用SGD（Stochastic Gradient Descent）训练模型。模型各个参数的梯度如下&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\frac{\partial}{\partial\theta} y (\mathbf{x}) = \left\{\begin{array}{ll} 1,            &amp; \text{if}\; \theta\; \text{is}\; w_0 \\ x_i,         &amp; \text{if}\; \theta\; \text{is}\; w_i \\ x_i \sum_{j=1}^n v_{j, f} x_j - v_{i, f} x_i^2,  &amp; \text{if}\; \theta\; \text{is}\; v_{i, f} \end{array}\right. %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;其中，vj,fvj,f 是隐向量 vjvj 的第 ff 个元素。由于 ∑nj=1vj,fxj∑j=1nvj,fxj 只与 ff 有关，而与 ii 无关，在每次迭代过程中，只需计算一次所有 ff 的 ∑nj=1vj,fxj∑j=1nvj,fxj，就能够方便地得到所有 vi,fvi,f 的梯度。显然，计算所有 ff 的 ∑nj=1vj,fxj∑j=1nvj,fxj 的复杂度是 O(kn)O(kn)；已知 ∑nj=1vj,fxj∑j=1nvj,fxj 时，计算每个参数梯度的复杂度是 O(1)O(1)；得到梯度后，更新每个参数的复杂度是 O(1)O(1)；模型参数一共有 nk+n+1nk+n+1 个。因此，FM参数训练的复杂度也是 O(kn)O(kn)。综上可知，FM可以在线性时间训练和预测，是一种非常高效的模型。&lt;/p&gt;
+
+&lt;h2 id=&quot;fm与其他模型的对比&quot;&gt;FM与其他模型的对比&lt;/h2&gt;
+
+&lt;p&gt;FM是一种比较灵活的模型，通过合适的特征变换方式，FM可以模拟二阶多项式核的SVM模型、MF模型、SVD++模型等[7]。&lt;/p&gt;
+
+&lt;p&gt;相比SVM的二阶多项式核而言，FM在样本稀疏的情况下是有优势的；而且，FM的训练/预测复杂度是线性的，而二项多项式核SVM需要计算核矩阵，核矩阵复杂度就是N平方。&lt;/p&gt;
+
+&lt;p&gt;相比MF而言，我们把MF中每一项的rating分改写为 rui∼βu+γi+xTuyirui∼βu+γi+xuTyi，从公式(2)(2)中可以看出，这相当于只有两类特征 uu 和 ii 的FM模型。对于FM而言，我们可以加任意多的特征，比如user的历史购买平均值，item的历史购买平均值等，但是MF只能局限在两类特征。SVD++与MF类似，在特征的扩展性上都不如FM，在此不再赘述。&lt;/p&gt;
+
+&lt;h2 id=&quot;ffm原理&quot;&gt;FFM原理&lt;/h2&gt;
+
+&lt;p&gt;FFM（Field-aware Factorization Machine）最初的概念来自Yu-Chin Juan（阮毓钦，毕业于中国台湾大学，现在美国Criteo工作）与其比赛队员，是他们借鉴了来自Michael Jahrer的论文[14]中的field概念提出了FM的升级版模型。通过引入field的概念，FFM把相同性质的特征归于同一个field。以上面的广告分类为例，“Day=26/11/15”、“Day=1/7/14”、“Day=19/2/15”这三个特征都是代表日期的，可以放到同一个field中。同理，商品的末级品类编码生成了550个特征，这550个特征都是说明商品所属的品类，因此它们也可以放到同一个field中。简单来说，同一个categorical特征经过One-Hot编码生成的数值特征都可以放到同一个field，包括用户性别、职业、品类偏好等。在FFM中，每一维特征 xixi，针对其它特征的每一种field fjfj，都会学习一个隐向量 vi,fjvi,fj。因此，隐向量不仅与特征相关，也与field相关。也就是说，“Day=26/11/15”这个特征与“Country”特征和“Ad_type”特征进行关联的时候使用不同的隐向量，这与“Country”和“Ad_type”的内在差异相符，也是FFM中“field-aware”的由来。&lt;/p&gt;
+
+&lt;p&gt;假设样本的 nn 个特征属于 ff 个field，那么FFM的二次项有 nfnf个隐向量。而在FM模型中，每一维特征的隐向量只有一个。FM可以看作FFM的特例，是把所有特征都归属到一个field时的FFM模型。根据FFM的field敏感特性，可以导出其模型方程。&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;y(\mathbf{x}) = w_0 + \sum_{i=1}^n w_i x_i + \sum_{i=1}^n \sum_{j=i+1}^n \langle \mathbf{v}_{i, f_j}, \mathbf{v}_{j, f_i} \rangle x_i x_j \label{eq:ffm}\tag{4}&lt;/script&gt;
+
+&lt;p&gt;其中，fjfj 是第 jj 个特征所属的field。如果隐向量的长度为 kk，那么FFM的二次参数有 nfknfk 个，远多于FM模型的 nknk 个。此外，由于隐向量与field相关，FFM二次项并不能够化简，其预测复杂度是 O(kn2)O(kn2)。&lt;/p&gt;
+
+&lt;p&gt;下面以一个例子简单说明FFM的特征组合方式[9]。输入记录如下&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/FM-4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;这条记录可以编码成5个特征，其中“Genre=Comedy”和“Genre=Drama”属于同一个field，“Price”是数值型，不用One-Hot编码转换。为了方便说明FFM的样本格式，我们将所有的特征和对应的field映射成整数编号。&lt;/p&gt;
+
+&lt;p&gt;![] (http://localhost:4000/assets/images/FM-5.png)&lt;/p&gt;
+
+&lt;p&gt;那么，FFM的组合特征有10项，如下图所示。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/FM-6.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;其中，红色是field编号，蓝色是特征编号，绿色是此样本的特征取值。二次项的系数是通过与特征field相关的隐向量点积得到的，二次项共有 n(n−1)2n(n−1)2 个。&lt;/p&gt;
+
+&lt;h2 id=&quot;ffm实现&quot;&gt;FFM实现&lt;/h2&gt;
+
+&lt;p&gt;Yu-Chin Juan实现了一个C++版的FFM模型，源码可从Github下载[10]。这个版本的FFM省略了常数项和一次项，模型方程如下。&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\phi(\mathbf{w}, \mathbf{x}) = \sum_{j_1, j_2 \in \mathcal{C}_2} \langle \mathbf{w}_{j_1, f_2}, \mathbf{w}_{j_2, f_1} \rangle x_{j_1} x_{j_2} \label{eq:phi}\tag{5}&lt;/script&gt;
+
+&lt;p&gt;其中，C2C2 是非零特征的二元组合，j1j1 是特征，属于field f1f1，wj1,f2wj1,f2 是特征 j1j1 对field f2f2 的隐向量。此FFM模型采用logistic loss作为损失函数，和L2惩罚项，因此只能用于二元分类问题。&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\min_{\mathbf{w}} \sum_{i=1}^L \log \big( 1 + \exp\{ -y_i \phi (\mathbf{w}, \mathbf{x}_i ) \} \big) + \frac{\lambda}{2} \| \mathbf{w} \|^2&lt;/script&gt;
+
+&lt;p&gt;其中，yi∈{−1,1}yi∈{−1,1} 是第 ii 个样本的label，LL 是训练样本数量，λλ 是惩罚项系数。模型采用SGD优化，优化流程如下。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/FM-7.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;参考 Algorithm1Algorithm1, 下面简单解释一下FFM的SGD优化过程。
+算法的输入 trtr、vava、papa 分别是训练样本集、验证样本集和训练参数设置。&lt;/p&gt;
+
+&lt;p&gt;根据样本特征数量（tr.ntr.n）、field的个数（tr.mtr.m）和训练参数（papa），生成初始化模型，即随机生成模型的参数；
+如果归一化参数 pa.normpa.norm 为真，计算训练和验证样本的归一化系数，样本 ii 的归一化系数为&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;R[i] = \frac{1}{\| \mathbf{X}[i] \|}&lt;/script&gt;
+
+&lt;p&gt;对每一轮迭代，如果随机更新参数 pa.randpa.rand 为真，随机打乱训练样本的顺序；
+对每一个训练样本，执行如下操作
+计算每一个样本的FFM项，即公式(5)(5)中的输出 ϕϕ；
+计算每一个样本的训练误差，如算法所示，这里采用的是交叉熵损失函数 log(1+eϕ)log⁡(1+eϕ)；
+利用单个样本的损失函数计算梯度 gΦgΦ，再根据梯度更新模型参数；
+对每一个验证样本，计算样本的FFM输出，计算验证误差；
+重复步骤3~5，直到迭代结束或验证误差达到最小。&lt;/p&gt;
+
+&lt;p&gt;在SGD寻优时，代码采用了一些小技巧，对于提升计算效率是非常有效的。&lt;/p&gt;
+
+&lt;p&gt;第一，梯度分步计算。采用SGD训练FFM模型时，只采用单个样本的损失函数来计算模型参数的梯度。&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\mathcal{L} = \mathcal{L}_{err} + \mathcal{L}_{reg} = \log \big( 1 + \exp\{ -y_i \phi(\mathbf{w}, \mathbf{x}_i )\} \big) + \frac{\lambda}{2} \| \mathbf{w} \|^2&lt;/script&gt;
+
+&lt;p&gt;上面的公式表明，∂Lerr∂ϕ∂Lerr∂ϕ 与具体的模型参数无关。因此，每次更新模型时，只需计算一次，之后直接调用 ∂Lerr∂ϕ∂Lerr∂ϕ 的值即可。对于更新 nfknfk 个模型参数，这种方式能够极大提升运算效率。&lt;/p&gt;
+
+&lt;p&gt;第二，自适应学习率。此版本的FFM实现没有采用常用的指数递减的学习率更新策略，而是利用 nfknfk 个浮点数的临时空间，自适应地更新学习率。学习率是参考AdaGrad算法计算的[11]，按如下方式更新&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;w^{'}_{j_1, f_2} = w_{j_1, f_2} - \frac{\eta}{\sqrt{1 + \sum_t (g^t_{w_{j_1, f_2}})^2 }}\cdot g_{w_{j_1, f_2}}&lt;/script&gt;
+
+&lt;p&gt;其中，wj1,f2wj1,f2 是特征 j1j1 对field f2f2 隐向量的一个元素，元素下标未标出；gwj1,f2gwj1,f2 是损失函数对参数 wj1,f2wj1,f2 的梯度；gtwj1,f2gwj1,f2t 是第 tt 次迭代的梯度；ηη 是初始学习率。可以看出，随着迭代的进行，每个参数的历史梯度会慢慢累加，导致每个参数的学习率逐渐减小。另外，每个参数的学习率更新速度是不同的，与其历史梯度有关，根据AdaGrad的特点，对于样本比较稀疏的特征，学习率高于样本比较密集的特征，因此每个参数既可以比较快速达到最优，也不会导致验证误差出现很大的震荡。&lt;/p&gt;
+
+&lt;p&gt;第三，OpenMP多核并行计算。OpenMP是用于共享内存并行系统的多处理器程序设计的编译方案，便于移植和多核扩展[12]。FFM的源码采用了OpenMP的API，对参数训练过程SGD进行了多线程扩展，支持多线程编译。因此，OpenMP技术极大地提高了FFM的训练效率和多核CPU的利用率。在训练模型时，输入的训练参数ns_threads指定了线程数量，一般设定为CPU的核心数，便于完全利用CPU资源。&lt;/p&gt;
+
+&lt;p&gt;第四，SSE3指令并行编程。SSE3全称为数据流单指令多数据扩展指令集3，是CPU对数据层并行的关键指令，主要用于多媒体和游戏的应用程序中[13]。SSE3指令采用128位的寄存器，同时操作4个单精度浮点数或整数。SSE3指令的功能非常类似于向量运算。例如，aa 和 bb 采用SSE3指令相加（aa 和 bb 分别包含4个数据），其功能是 aa 中的4个元素与 bb 中4个元素对应相加，得到4个相加后的值。采用SSE3指令后，向量运算的速度更加快捷，这对包含大量向量运算的FFM模型是非常有利的。&lt;/p&gt;
+
+&lt;p&gt;除了上面的技巧之外，FFM的实现中还有很多调优技巧需要探索。例如，代码是按field和特征的编号申请参数空间的，如果选取了非连续或过大的编号，就会造成大量的内存浪费；在每个样本中加入值为1的新特征，相当于引入了因子化的一次项，避免了缺少一次项带来的模型偏差等。&lt;/p&gt;
+
+&lt;h2 id=&quot;ffm应用&quot;&gt;FFM应用&lt;/h2&gt;
+
+&lt;p&gt;在DSP的场景中，FFM主要用来预估站内的CTR和CVR，即一个用户对一个商品的潜在点击率和点击后的转化率。&lt;/p&gt;
+
+&lt;p&gt;CTR和CVR预估模型都是在线下训练，然后用于线上预测。两个模型采用的特征大同小异，主要有三类：用户相关的特征、商品相关的特征、以及用户-商品匹配特征。用户相关的特征包括年龄、性别、职业、兴趣、品类偏好、浏览/购买品类等基本信息，以及用户近期点击量、购买量、消费额等统计信息。商品相关的特征包括所属品类、销量、价格、评分、历史CTR/CVR等信息。用户-商品匹配特征主要有浏览/购买品类匹配、浏览/购买商家匹配、兴趣偏好匹配等几个维度。&lt;/p&gt;
+
+&lt;p&gt;为了使用FFM方法，所有的特征必须转换成“field_id:feat_id:value”格式，field_id代表特征所属field的编号，feat_id是特征编号，value是特征的值。数值型的特征比较容易处理，只需分配单独的field编号，如用户评论得分、商品的历史CTR/CVR等。categorical特征需要经过One-Hot编码成数值型，编码产生的所有特征同属于一个field，而特征的值只能是0或1，如用户的性别、年龄段，商品的品类id等。除此之外，还有第三类特征，如用户浏览/购买品类，有多个品类id且用一个数值衡量用户浏览或购买每个品类商品的数量。这类特征按照categorical特征处理，不同的只是特征的值不是0或1，而是代表用户浏览或购买数量的数值。按前述方法得到field_id之后，再对转换后特征顺序编号，得到feat_id，特征的值也可以按照之前的方法获得。&lt;/p&gt;
+
+&lt;p&gt;CTR、CVR预估样本的类别是按不同方式获取的。CTR预估的正样本是站内点击的用户-商品记录，负样本是展现但未点击的记录；CVR预估的正样本是站内支付（发生转化）的用户-商品记录，负样本是点击但未支付的记录。构建出样本数据后，采用FFM训练预估模型，并测试模型的性能。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/FM-8.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;由于模型是按天训练的，每天的性能指标可能会有些波动，但变化幅度不是很大。这个表的结果说明，站内CTR/CVR预估模型是非常有效的。&lt;/p&gt;
+
+&lt;p&gt;在训练FFM的过程中，有许多小细节值得特别关注。&lt;/p&gt;
+
+&lt;p&gt;第一，样本归一化。FFM默认是进行样本数据的归一化，即 pa.normpa.norm 为真；若此参数设置为假，很容易造成数据inf溢出，进而引起梯度计算的nan错误。因此，样本层面的数据是推荐进行归一化的。&lt;/p&gt;
+
+&lt;p&gt;第二，特征归一化。CTR/CVR模型采用了多种类型的源特征，包括数值型和categorical类型等。但是，categorical类编码后的特征取值只有0或1，较大的数值型特征会造成样本归一化后categorical类生成特征的值非常小，没有区分性。例如，一条用户-商品记录，用户为“男”性，商品的销量是5000个（假设其它特征的值为零），那么归一化后特征“sex=male”（性别为男）的值略小于0.0002，而“volume”（销量）的值近似为1。特征“sex=male”在这个样本中的作用几乎可以忽略不计，这是相当不合理的。因此，将源数值型特征的值归一化到 [0,1][0,1] 是非常必要的。&lt;/p&gt;
+
+&lt;p&gt;第三，省略零值特征。从FFM模型的表达式(4)(4)可以看出，零值特征对模型完全没有贡献。包含零值特征的一次项和组合项均为零，对于训练模型参数或者目标值预估是没有作用的。因此，可以省去零值特征，提高FFM模型训练和预测的速度，这也是稀疏样本采用FFM的显著优势。&lt;/p&gt;
+
+&lt;h2 id=&quot;后记&quot;&gt;后记&lt;/h2&gt;
+
+&lt;p&gt;本文主要介绍了FFM的思路来源和理论原理，并结合源码说明FFM的实际应用和一些小细节。从理论上分析，FFM的参数因子化方式具有一些显著的优势，特别适合处理样本稀疏性问题，且确保了较好的性能；从应用结果来看，站内CTR/CVR预估采用FFM是非常合理的，各项指标都说明了FFM在点击率预估方面的卓越表现。当然，FFM不一定适用于所有场景且具有超越其他模型的性能，合适的应用场景才能成就FFM的“威名”。&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 15 May 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/%E7%A0%94%E7%A9%B6/2017/05/15/FM.html</link>
+        <guid isPermaLink="true">http://localhost:4000/%E7%A0%94%E7%A9%B6/2017/05/15/FM.html</guid>
+        
+        <category>FM</category>
+        
+        
+        <category>研究</category>
+        
+      </item>
+    
+      <item>
+        <title>Keras 实现自编码器</title>
+        <description>&lt;h2 id=&quot;一自编码器简介&quot;&gt;一、自编码器简介&lt;/h2&gt;
+&lt;p&gt;无监督特征学习 (Unsupervised Feature Learning）是一种仿人脑的对特征逐层抽象提取的过程，学习过程中有两点：一是无监督学习，即对训练数据不需要进行标签化标注，这种学习是对数据内容的组织形式的学习，提取的是频繁出现的特征；二是逐层抽象，特征是需要不断抽象的。&lt;/p&gt;
+
+&lt;p&gt;自编码器（AutoEncoder），即可以使用自身的高阶特征自我编码，自编码器其实也是一种神经网络，其输入和输出是一致的，借助了稀疏编码的思想，目标是使用稀疏的高阶特征重新组合来重构自己。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/autoencoder_schema.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;二完整代码&quot;&gt;二、完整代码&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;import numpy as np  
+np.random.seed(1337)  # for reproducibility  
+  
+from keras.datasets import mnist  
+from keras.models import Model #泛型模型  
+from keras.layers import Dense, Input  
+import matplotlib.pyplot as plt  
+  
+# X shape (60,000 28x28), y shape (10,000, )  
+(x_train, _), (x_test, y_test) = mnist.load_data()  
+  
+# 数据预处理  
+x_train = x_train.astype('float32') / 255. - 0.5       # minmax_normalized  
+x_test = x_test.astype('float32') / 255. - 0.5         # minmax_normalized  
+x_train = x_train.reshape((x_train.shape[0], -1))  
+x_test = x_test.reshape((x_test.shape[0], -1))  
+print(x_train.shape)  
+print(x_test.shape)  
+  
+# 压缩特征维度至2维  
+encoding_dim = 2  
+  
+# this is our input placeholder  
+input_img = Input(shape=(784,))  
+  
+# 编码层  
+encoded = Dense(128, activation='relu')(input_img)  
+encoded = Dense(64, activation='relu')(encoded)  
+encoded = Dense(10, activation='relu')(encoded)  
+encoder_output = Dense(encoding_dim)(encoded)  
+  
+# 解码层  
+decoded = Dense(10, activation='relu')(encoder_output)  
+decoded = Dense(64, activation='relu')(decoded)  
+decoded = Dense(128, activation='relu')(decoded)  
+decoded = Dense(784, activation='tanh')(decoded)  
+  
+# 构建自编码模型  
+autoencoder = Model(inputs=input_img, outputs=decoded)  
+  
+# 构建编码模型  
+encoder = Model(inputs=input_img, outputs=encoder_output)  
+  
+# compile autoencoder  
+autoencoder.compile(optimizer='adam', loss='mse')  
+  
+# training  
+autoencoder.fit(x_train, x_train, epochs=20, batch_size=256, shuffle=True)  
+  
+# plotting  
+encoded_imgs = encoder.predict(x_test)  
+plt.scatter(encoded_imgs[:, 0], encoded_imgs[:, 1], c=y_test, s=3)  
+plt.colorbar()  
+plt.show() 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;三程序解读&quot;&gt;三、程序解读&lt;/h2&gt;
+
+&lt;p&gt;自编码，简单来说就是把输入数据进行一个压缩和解压缩的过程。原来有很多特征，压缩成几个来代表原来的数据，解压之后恢复成原来的维度，再和原数据进行比较。它是一种非监督算法，只需要输入数据，解压缩之后的结果与原数据本身进行比较。程序的主要功能是把 datasets.mnist 数据的 28/28=784 维的数据，压缩成 2 维的数据，然后在一个二维空间中可视化出分类的效果。&lt;/p&gt;
+
+&lt;p&gt;首先，导入数据并进行数据预处理，本例使用Model模块的Keras的泛化模型来进行模型搭建，便于我们从模型中间导出数据并进行可视化。进行模型搭建的时候，注意要进行逐层特征提取，最终压缩至2维，解码的过程要跟编码过程一致相反。随后对Autoencoder和encoder分别建模，编译、训练。将编码模型的预测结果通过Matplotlib可视化出来，就可以看到原数据的二维编码结果在二维平面上的聚类效果，还是很明显的。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/autoencoder_figure.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;最后看到可视化的结果，自编码模型可以把这几个数字给区分开来，我们可以用自编码这个过程来作为一个特征压缩的方法，和PCA的功能一样，效果要比它好一些，因为它是非线性的结构。&lt;/p&gt;
+</description>
+        <pubDate>Fri, 12 May 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/%E7%A0%94%E7%A9%B6/2017/05/12/AutoEncoder.html</link>
+        <guid isPermaLink="true">http://localhost:4000/%E7%A0%94%E7%A9%B6/2017/05/12/AutoEncoder.html</guid>
+        
+        <category>Linux</category>
+        
+        
+        <category>研究</category>
+        
+      </item>
+    
+      <item>
+        <title>Introduction to Boosted Trees</title>
+        <description>&lt;h2 id=&quot;introduction-to-boosted-trees&quot;&gt;Introduction to Boosted Trees&lt;/h2&gt;
+
+&lt;p&gt;XGBoost is short for “Extreme Gradient Boosting”, where the term “Gradient Boosting” is proposed in the paper &lt;strong&gt;&lt;em&gt;Greedy Function Approximation: A Gradient Boosting Machine&lt;/em&gt;&lt;/strong&gt;, by Friedman. XGBoost is based on this original model. This is a tutorial on gradient boosted trees, and most of the content is based on these &lt;a href=&quot;http://homes.cs.washington.edu/~tqchen/pdf/BoostedTree.pdf&quot;&gt;slides&lt;/a&gt; by the author of xgboost.&lt;/p&gt;
+
+&lt;p&gt;The GBM (boosted trees) has been around for really a while, and there are a lot of materials on the topic. This tutorial tries to explain boosted trees in a self-contained and principled way using the elements of supervised learning. We think this explanation is cleaner, more formal, and motivates the variant used in xgboost&lt;/p&gt;
+
+&lt;h2 id=&quot;elements-of-supervised-learning&quot;&gt;Elements of Supervised Learning&lt;/h2&gt;
+
+&lt;p&gt;XGBoost is used for supervised learning problems, where we use the training data (with multiple features) &lt;strong&gt;xi&lt;/strong&gt; to predict a target variable &lt;strong&gt;yi&lt;/strong&gt;. Before we dive into trees, let us start by reviewing the basic elements in supervised learning&lt;/p&gt;
+
+&lt;h2 id=&quot;model-and-parameters&quot;&gt;Model and Parameters&lt;/h2&gt;
+
+&lt;p&gt;The &lt;strong&gt;&lt;em&gt;model&lt;/em&gt;&lt;/strong&gt; in supervised learning usually refers to the mathematical structure of how to make the prediction &lt;strong&gt;yi&lt;/strong&gt; given &lt;strong&gt;xi&lt;/strong&gt;. For example, a common model is a linear model, where the prediction is given by &lt;strong&gt;&lt;script type=&quot;math/tex&quot;&gt;\hat{y}_i = \sum_j \theta_j x_{ij}&lt;/script&gt;&lt;/strong&gt;, a linear combination of weighted input features. The prediction value can have different interpretations, depending on the task, i.e., regression or classification. For example, it can be logistic transformed to get the probability of positive class in logistic regression, and it can also be used as a ranking score when we want to rank the outputs.&lt;/p&gt;
+
+&lt;p&gt;The &lt;strong&gt;&lt;em&gt;parameters&lt;/em&gt;&lt;/strong&gt; are the undetermined part that we need to learn from data. In linear regression problems, the parameters are the coefficients &lt;script type=&quot;math/tex&quot;&gt;θ&lt;/script&gt;. Usually we will use &lt;script type=&quot;math/tex&quot;&gt;θ&lt;/script&gt;  to denote the parameters (there are many parameters in a model, our definition here is sloppy)&lt;/p&gt;
+
+&lt;h2 id=&quot;objective-function--training-loss--regularization&quot;&gt;Objective Function : Training Loss + Regularization&lt;/h2&gt;
+&lt;p&gt;Based on different understandings of &lt;strong&gt;&lt;em&gt;&lt;script type=&quot;math/tex&quot;&gt;y_i&lt;/script&gt;&lt;/em&gt;&lt;/strong&gt; we can have different problems, such as regression, classification, ordering, etc. We need to find a way to find the best parameters given the training data. In order to do so, we need to define a so-called objective function, to measure the performance of the model given a certain set of parameters.&lt;/p&gt;
+
+&lt;p&gt;A very important fact about objective functions is they must always contain two parts: training loss and regularization.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;Obj(\Theta) = L(\theta) + \Omega(\Theta)&lt;/script&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;where &lt;script type=&quot;math/tex&quot;&gt;L&lt;/script&gt; is the training loss function, and &lt;script type=&quot;math/tex&quot;&gt;Ω&lt;/script&gt;  is the regularization term. The training loss measures how predictive our model is on training data. For example, a commonly used training loss is mean squared error.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;L(\theta) = \sum_i (y_i-\hat{y}_i)^2&lt;/script&gt;
+
+&lt;p&gt;Another commonly used loss function is logistic loss for logistic regression&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;L(\theta) = \sum_i[ y_i\ln (1+e^{-\hat{y}_i}) + (1-y_i)\ln (1+e^{\hat{y}_i})]&lt;/script&gt;
+
+&lt;p&gt;The &lt;strong&gt;&lt;em&gt;regularization term&lt;/em&gt;&lt;/strong&gt; is what people usually forget to add. The regularization term controls the complexity of the model, which helps us to avoid overfitting. This sounds a bit abstract, so let us consider the following problem in the following picture. You are asked to fit visually a step function given the input data points on the upper left corner of the image. Which solution among the three do you think is the best fit?&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/xgboost_1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;he correct answer is marked in red. Please consider if this visually seems a reasonable fit to you. The general principle is we want both a &lt;strong&gt;&lt;em&gt;simple&lt;/em&gt;&lt;/strong&gt; and &lt;strong&gt;&lt;em&gt;predictive&lt;/em&gt;&lt;/strong&gt; model. The tradeoff between the two is also referred as bias-variance tradeoff in machine learning.&lt;/p&gt;
+
+&lt;h2 id=&quot;why-introduce-the-general-principle&quot;&gt;Why introduce the general principle?&lt;/h2&gt;
+
+&lt;p&gt;The elements introduced above form the basic elements of supervised learning, and they are naturally the building blocks of machine learning toolkits. For example, you should be able to describe the differences and commonalities between boosted trees and random forests. Understanding the process in a formalized way also helps us to understand the objective that we are learning and the reason behind the heuristics such as pruning and smoothing.&lt;/p&gt;
+
+&lt;h2 id=&quot;tree-ensemble&quot;&gt;Tree Ensemble&lt;/h2&gt;
+
+&lt;p&gt;Now that we have introduced the elements of supervised learning, let us get started with real trees. To begin with, let us first learn about the &lt;strong&gt;&lt;em&gt;model&lt;/em&gt;&lt;/strong&gt; of xgboost: tree ensembles. The tree ensemble model is a set of classification and regression trees (CART). Here’s a simple example of a CART that classifies whether someone will like computer games.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/xgboost_2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We classify the members of a family into different leaves, and assign them the score on the corresponding leaf. A CART is a bit different from decision trees, where the leaf only contains decision values. In CART, a real score is associated with each of the leaves, which gives us richer interpretations that go beyond classification. This also makes the unified optimization step easier, as we will see in a later part of this tutorial.&lt;/p&gt;
+
+&lt;p&gt;Usually, a single tree is not strong enough to be used in practice. What is actually used is the so-called tree ensemble model, which sums the prediction of multiple trees together.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/xgboost_3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Here is an example of a tree ensemble of two trees. The prediction scores of each individual tree are summed up to get the final score. If you look at the example, an important fact is that the two trees try to complement each other. Mathematically, we can write our model in the form&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\hat{y}_i = \sum_{k=1}^K f_k(x_i), f_k \in \mathcal{F}&lt;/script&gt;
+
+&lt;p&gt;where &lt;script type=&quot;math/tex&quot;&gt;K&lt;/script&gt; is the number of trees, &lt;script type=&quot;math/tex&quot;&gt;f&lt;/script&gt; is a function in the functional space &lt;script type=&quot;math/tex&quot;&gt;F&lt;/script&gt;, and &lt;script type=&quot;math/tex&quot;&gt;F&lt;/script&gt;  is the set of all possible CARTs. Therefore our objective to optimize can be written as&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;{obj}(\theta) = \sum_i^n l(y_i, \hat{y}_i) + \sum_{k=1}^K \Omega(f_k)&lt;/script&gt;
+
+&lt;p&gt;Now here comes the question, what is the model for random forests? It is exactly tree ensembles! So random forests and boosted trees are not different in terms of model, the difference is how we train them. This means if you write a predictive service of tree ensembles, you only need to write one of them and they should directly work for both random forests and boosted trees. One example of why elements of supervised learning rock.&lt;/p&gt;
+
+&lt;h2 id=&quot;tree-boosting&quot;&gt;Tree Boosting&lt;/h2&gt;
+
+&lt;p&gt;After introducing the model, let us begin with the real training part. How should we learn the trees? The answer is, as is always for all supervised learning models: define an objective function, and optimize it!&lt;/p&gt;
+
+&lt;p&gt;Assume we have the following objective function (remember it always needs to contain training loss and regularization)&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\begin{split}\text{obj} = \sum_{i=1}^n l(y_i, \hat{y}_i^{(t)}) + \sum_{i=1}^t\Omega(f_i) \end{split}&lt;/script&gt;
+
+&lt;h2 id=&quot;additive-training&quot;&gt;Additive Training&lt;/h2&gt;
+
+&lt;p&gt;First thing we want to ask is what are the &lt;strong&gt;&lt;em&gt;parameters&lt;/em&gt;&lt;/strong&gt; of trees? You can find that what we need to learn are those functions &lt;script type=&quot;math/tex&quot;&gt;f_i&lt;/script&gt;, with each containing the structure of the tree and the leaf scores. This is much harder than traditional optimization problem where you can take the gradient and go. It is not easy to train all the trees at once. Instead, we use an additive strategy: fix what we have learned, and add one new tree at a time. We write the prediction value at step &lt;script type=&quot;math/tex&quot;&gt;t&lt;/script&gt; as &lt;script type=&quot;math/tex&quot;&gt;\hat{y}_i^{(t)}&lt;/script&gt;, so we have&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{split}\hat{y}_i^{(0)} &amp;= 0\\
+\hat{y}_i^{(1)} &amp;= f_1(x_i) = \hat{y}_i^{(0)} + f_1(x_i)\\
+\hat{y}_i^{(2)} &amp;= f_1(x_i) + f_2(x_i)= \hat{y}_i^{(1)} + f_2(x_i)\\
+&amp;\dots\\
+\hat{y}_i^{(t)} &amp;= \sum_{k=1}^t f_k(x_i)= \hat{y}_i^{(t-1)} + f_t(x_i)
+\end{split} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;It remains to ask, which tree do we want at each step? A natural thing is to add the one that optimizes our objective.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{split}\text{obj}^{(t)} &amp; = \sum_{i=1}^n l(y_i, \hat{y}_i^{(t)}) + \sum_{i=1}^t\Omega(f_i) \\
+          &amp; = \sum_{i=1}^n l(y_i, \hat{y}_i^{(t-1)} + f_t(x_i)) + \Omega(f_t) + constant
+\end{split} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;If we consider using MSE as our loss function, it becomes the following form.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{split}\text{obj}^{(t)} &amp; = \sum_{i=1}^n (y_i - (\hat{y}_i^{(t-1)} + f_t(x_i)))^2 + \sum_{i=1}^t\Omega(f_i) \\
+          &amp; = \sum_{i=1}^n [2(\hat{y}_i^{(t-1)} - y_i)f_t(x_i) + f_t(x_i)^2] + \Omega(f_t) + constant
+\end{split} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;The form of MSE is friendly, with a first order term (usually called the residual) and a quadratic term. For other losses of interest (for example, logistic loss), it is not so easy to get such a nice form. So in the general case, we take the Taylor expansion of the loss function up to the second order&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\text{obj}^{(t)} = \sum_{i=1}^n [l(y_i, \hat{y}_i^{(t-1)}) + g_i f_t(x_i) + \frac{1}{2} h_i f_t^2(x_i)] + \Omega(f_t) + constant&lt;/script&gt;
+
+&lt;p&gt;where the &lt;script type=&quot;math/tex&quot;&gt;g_i&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;h_i&lt;/script&gt; are defined as:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{split}g_i &amp;= \partial_{\hat{y}_i^{(t-1)}} l(y_i, \hat{y}_i^{(t-1)})\\
+h_i &amp;= \partial_{\hat{y}_i^{(t-1)}}^2 l(y_i, \hat{y}_i^{(t-1)})
+\end{split} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;After we remove all the constants, the specific objective at step tt becomes&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\sum_{i=1}^n [g_i f_t(x_i) + \frac{1}{2} h_i f_t^2(x_i)] + \Omega(f_t)&lt;/script&gt;
+
+&lt;p&gt;This becomes our optimization goal for the new tree. One important advantage of this definition is that it only depends on &lt;script type=&quot;math/tex&quot;&gt;g_i&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;h_i&lt;/script&gt;. This is how xgboost can support custom loss functions. We can optimize every loss function, including logistic regression and weighted logistic regression, using exactly the same solver that takes gigi and hihi as input!&lt;/p&gt;
+
+&lt;h2 id=&quot;model-complexity&quot;&gt;Model Complexity&lt;/h2&gt;
+
+&lt;p&gt;We have introduced the training step, but wait, there is one important thing, the &lt;strong&gt;&lt;em&gt;regularization&lt;/em&gt;&lt;/strong&gt;! We need to define the complexity of the tree &lt;script type=&quot;math/tex&quot;&gt;\Omega(f)&lt;/script&gt;. In order to do so, let us first refine the definition of the tree &lt;script type=&quot;math/tex&quot;&gt;f(x)&lt;/script&gt; as&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;f_t(x) = w_{q(x)}, w \in R^T, q:R^d\rightarrow \{1,2,\cdots,T\} .&lt;/script&gt;
+
+&lt;p&gt;Here &lt;script type=&quot;math/tex&quot;&gt;w&lt;/script&gt; is the vector of scores on leaves, &lt;script type=&quot;math/tex&quot;&gt;q&lt;/script&gt; is a function assigning each data point to the corresponding leaf, and &lt;script type=&quot;math/tex&quot;&gt;T&lt;/script&gt; is the number of leaves. In XGBoost, we define the complexity as&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\Omega(f) = \gamma T + \frac{1}{2}\lambda \sum_{j=1}^T w_j^2&lt;/script&gt;
+
+&lt;p&gt;Of course there is more than one way to define the complexity, but this specific one works well in practice. The regularization is one part most tree packages treat less carefully, or simply ignore. This was because the traditional treatment of tree learning only emphasized improving impurity, while the complexity control was left to heuristics. By defining it formally, we can get a better idea of what we are learning, and yes it works well in practice.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-structure-score&quot;&gt;The Structure Score&lt;/h2&gt;
+&lt;p&gt;Here is the magical part of the derivation. After reformalizing the tree model, we can write the objective value with the &lt;script type=&quot;math/tex&quot;&gt;t&lt;/script&gt;-th tree as:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{split}Obj^{(t)} &amp;\approx \sum_{i=1}^n [g_i w_{q(x_i)} + \frac{1}{2} h_i w_{q(x_i)}^2] + \gamma T + \frac{1}{2}\lambda \sum_{j=1}^T w_j^2\\
+&amp;= \sum^T_{j=1} [(\sum_{i\in I_j} g_i) w_j + \frac{1}{2} (\sum_{i\in I_j} h_i + \lambda) w_j^2 ] + \gamma T
+\end{split} %]]&gt;&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;I_j=\{i|q(x_i)=j\}&lt;/script&gt;
+
+&lt;p&gt;where is the set of indices of data points assigned to the &lt;script type=&quot;math/tex&quot;&gt;j&lt;/script&gt;-th leaf. Notice that in the second line we have changed the index of the summation because all the data points on the same leaf get the same score. We could further compress the expression by defining &lt;script type=&quot;math/tex&quot;&gt;G_j = \sum_{i\in I_j} g_i&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;H_j = \sum_{i\in I_j} h_i&lt;/script&gt;&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\text{obj}^{(t)} = \sum^T_{j=1} [G_jw_j + \frac{1}{2} (H_j+\lambda) w_j^2] +\gamma T&lt;/script&gt;
+
+&lt;p&gt;In this equation &lt;script type=&quot;math/tex&quot;&gt;w_j&lt;/script&gt; are independent with respect to each other, the form &lt;script type=&quot;math/tex&quot;&gt;G_jw_j+\frac{1}{2}(H_j+\lambda)w_j^2&lt;/script&gt; is quadratic and the best &lt;script type=&quot;math/tex&quot;&gt;w_j&lt;/script&gt; for a given structure &lt;script type=&quot;math/tex&quot;&gt;q(x)&lt;/script&gt;and the best objective reduction we can get is:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\begin{split}w_j^\ast = -\frac{G_j}{H_j+\lambda}\\
+\text{obj}^\ast = -\frac{1}{2} \sum_{j=1}^T \frac{G_j^2}{H_j+\lambda} + \gamma T
+\end{split}&lt;/script&gt;
+
+&lt;p&gt;The last equation measures &lt;strong&gt;&lt;em&gt;how good&lt;/em&gt;&lt;/strong&gt; a tree structure &lt;script type=&quot;math/tex&quot;&gt;q(x)&lt;/script&gt; is.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/xgboost_4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;If all this sounds a bit complicated, let’s take a look at the picture, and see how the scores can be calculated. Basically, for a given tree structure, we push the statistics &lt;script type=&quot;math/tex&quot;&gt;g_i&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;h_i&lt;/script&gt; to the leaves they belong to, sum the statistics together, and use the formula to calculate how good the tree is. This score is like the impurity measure in a decision tree, except that it also takes the model complexity into account.&lt;/p&gt;
+
+&lt;p&gt;##Learn the tree structure&lt;/p&gt;
+
+&lt;p&gt;Now that we have a way to measure how good a tree is, ideally we would enumerate all possible trees and pick the best one. In practice this is intractable, so we will try to optimize one level of the tree at a time. Specifically we try to split a leaf into two leaves, and the score it gains is&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;Gain = \frac{1}{2} \left[\frac{G_L^2}{H_L+\lambda}+\frac{G_R^2}{H_R+\lambda}-\frac{(G_L+G_R)^2}{H_L+H_R+\lambda}\right] - \gamma&lt;/script&gt;
+
+&lt;p&gt;This formula can be decomposed as 1) the score on the new left leaf 2) the score on the new right leaf 3) The score on the original leaf 4) regularization on the additional leaf. We can see an important fact here: if the gain is smaller than &lt;script type=&quot;math/tex&quot;&gt;\gamma&lt;/script&gt;, we would do better not to add that branch. This is exactly the &lt;strong&gt;&lt;em&gt;pruning&lt;/em&gt;&lt;/strong&gt; techniques in tree based models! By using the principles of supervised learning, we can naturally come up with the reason these techniques work :)&lt;/p&gt;
+
+&lt;p&gt;For real valued data, we usually want to search for an optimal split. To efficiently do so, we place all the instances in sorted order, like the following picture.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/xgboost_5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;A left to right scan is sufficient to calculate the structure score of all possible split solutions, and we can find the best split efficiently.&lt;/p&gt;
+
+&lt;h2 id=&quot;final-words-on-xgboost&quot;&gt;Final words on XGBoost&lt;/h2&gt;
+&lt;p&gt;Now that you understand what boosted trees are, you may ask, where is the introduction on &lt;a href=&quot;https://github.com/dmlc/xgboost&quot;&gt;XGBoost&lt;/a&gt;? XGBoost is exactly a tool motivated by the formal principle introduced in this tutorial! More importantly, it is developed with both deep consideration in terms of &lt;strong&gt;&lt;em&gt;systems optimization&lt;/em&gt;&lt;/strong&gt; and &lt;strong&gt;&lt;em&gt;principles in machine learning&lt;/em&gt;&lt;/strong&gt;. The goal of this library is to push the extreme of the computation limits of machines to provide a &lt;strong&gt;&lt;em&gt;scalable&lt;/em&gt;&lt;/strong&gt;, &lt;strong&gt;&lt;em&gt;portable&lt;/em&gt;&lt;/strong&gt; and &lt;strong&gt;&lt;em&gt;accurate&lt;/em&gt;&lt;/strong&gt; library. Make sure you &lt;a href=&quot;https://github.com/dmlc/xgboost&quot;&gt;try it out&lt;/a&gt;, and most importantly, contribute your piece of wisdom (code, examples, tutorials) to the community!&lt;/p&gt;
+
+</description>
+        <pubDate>Wed, 10 May 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/%E7%A0%94%E7%A9%B6/2017/05/10/XGBoost.html</link>
+        <guid isPermaLink="true">http://localhost:4000/%E7%A0%94%E7%A9%B6/2017/05/10/XGBoost.html</guid>
+        
+        <category>Note</category>
+        
+        
+        <category>研究</category>
+        
+      </item>
+    
+      <item>
+        <title>CCF Paper</title>
+        <description>&lt;h2 id=&quot;中国计算机学会推荐国际学术刊物会议&quot;&gt;中国计算机学会推荐国际学术刊物/会议&lt;/h2&gt;
+
+&lt;h3 id=&quot;数据库数据挖掘内容检索&quot;&gt;(数据库/数据挖掘/内容检索)&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;ＣＣＦ&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;刊物名称&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;刊物全称&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;出版社&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;A&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;TODS&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ACM Transactions on Database Systems&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ACM&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;A&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;TOIS&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ACM Transactions on Information Systems&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ACM&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;A&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;TKDE&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;IEEE Transactions on Knowledge and Data Engineering&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;IEEE&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;A&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;VLDB&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;JVLDB Journal&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Springer&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;B&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;TKDD&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ACM Transactions on Knowledge  Discovery from Data&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ACM&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;B&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;AEI&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Advanced Engineering Informatics&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Elsevier&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;B&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;DKE&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Data and Knowledge Engineering&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Elsevier&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;B&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;DMKD&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Data Mining and Knowledge  Discovery&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Springer&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;B&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;EJIS&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;European Journal of Information Systems&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;The OR Society&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;B&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Geo&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Informatica&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Springer&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;B&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;IPM&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Information Processing and Management&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Elsevier&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;B&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Information Sciences&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Elsevier&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;B&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;IS&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Information Systems&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Elsevier&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;B&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;JASIST&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Journal of the American Society for Information Science and Technology&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;American Society for Information Science and Technology&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;B&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;JWS&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Journal of Web Semantics&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Elsevier&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;B&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;KIS&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Knowledge and Information Systems&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Springer&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;B&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;TWEB&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ACM Transactions on the Web&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ACM&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;C&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;DPD&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Distributed and Parallel Databases&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Springer&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;C&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;I&amp;amp;M&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Information and Management&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Elsevier&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;C&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;IPL&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Information Processing Letters&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Elsevier&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;C&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;IR&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Information Retrieval&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Springer&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;C&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;IJCIS&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;International Journal of Cooperative Information SystemsWorld&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Scientific&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;C&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;IJGIS&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;International Journal of Geographical Information Science&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Taylor &amp;amp; Francis&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;C&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;IJIS&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;International Journal of Intelligent Systems&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Wiley&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;C&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;IJKM&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;International Journal of Knowledge Management&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;IGI&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;C&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;IJSWIS&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;International Journal on Semantic Web and Information Systems&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;IGI&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;C&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;JCIS&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Journal of Computer Information Systems&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;IACI&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;C&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;JDM&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Journal of Database Management&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;IGI-Global&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;C&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;JGITM&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Journal of Global Information Technology ManagementIvy&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;League Publishing&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;C&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;JIIS&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Journal of Intelligent Information Systems&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Springer&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;C&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;JSIS&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Journal of Strategic Information Systems&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Elsevier&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;A&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;SIGMOD&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ACM Conference on Management of Data&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ACM&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;A&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;SIGKDD&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ACM Knowledge Discovery and Data Mining&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ACM&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;A&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;SIGIR&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;International Conference on Research on Development in Information Retrieval&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ACM&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;A&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;VLDB&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;International Conference on Very Large Data Bases&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Morgan Kaufmann&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;A&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ICDE&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;IEEE International Conference on Data Engineering&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;IEEE&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;B&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;CIKM&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ACM International Conference on Information and Knowledge Management&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ACM&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;B&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;PODS&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ACM SIGMOD Conference on Principles of DB Systems&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ACM&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;B&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;DASFAA&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Database Systems for Advanced Applications&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Springer&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;B&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ECML-PKDD&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;European Conference on Machine Learning and Principles and Practice of Knowledge Discovery in Databases&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Springer&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;B&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ISWC&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;IEEE International Semantic Web Conference&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;IEEE&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;B&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ICDM&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;International Conference on Data Mining&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;IEEE&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;B&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ICDT&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;International Conference on Database Theory&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Springer&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;B&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;EDBT&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;International Conference on Extending DB Technology&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Springer&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;B&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;CIDR&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;International Conference on Innovation  Database Research&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Online Proceeding&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;B&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;SDMSIAM&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;International Conference on Data Mining&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;SIAM&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;B&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;WSDMACM&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;International Conference on Web Search and Data Mining&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ACM&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;C&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;DEXA&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Database and Expert System Applications&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Springer&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;C&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ECIR&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;European Conference on IR Research&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Springer&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;C&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;WebDB&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;International ACM Workshop on Web and Databases&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ACM&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;C&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ER&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;International Conference on Conceptual Modeling&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Springer&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;C&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;MDM&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;International Conference on Mobile Data Management&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;IEEE&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;C&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;SSDBM&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;International Conference on Scientific and Statistical DB Management&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;IEEE&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;C&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;WAIM&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;International Conference on Web Age Information Management&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Springer&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;C&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;SSTD&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;International Symposium on Spatial and Temporal Databases&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Springer&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;C&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;PAKDD&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Pacific-Asia Conference on Knowledge Discovery and Data Mining&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Springer&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;C&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;APWeb&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;The Asia Pacific Web Conference&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Springer&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;C&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;WISE&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Web Information Systems Engineering&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Springer&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;C&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ESWC&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Extended Semantic Web Conference　&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Elsevier&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;人工智能&quot;&gt;人工智能&lt;/h2&gt;
+
+&lt;h3 id=&quot;自然预言处理深度学习计算机视觉&quot;&gt;自然预言处理/深度学习/计算机视觉&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;ＣＣＦ&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;刊物名称&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;刊物全称&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;出版社&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;A&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;AAAI&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;AAAI Conference on Artificial Intelligence&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;AAAI&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;A&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;CVPR&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;IEEE Conference on Computer Vision and Pattern Recognition&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;IEEE&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;A&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ICCV&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;International Conference on Computer Vision&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;IEEE&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;A&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ICML&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;International Conference on Machine Learning&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ACM&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;A&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;IJCAI&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;International Joint Conference on Artificial Intelligence&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Morgan Kaufmann&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;A&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;NIPS&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Annual Conference on Neural Information Processing Systems&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;MIT Press&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;A&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ACL&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Annual Meeting of the Association for Computational Linguistics&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ACL&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;B&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;COLT&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Annual Conference on Computational Learning Theory&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Springer&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;B&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;EMNLP&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Conference on Empirical Methods in Natural Language Processing&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ACL&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;B&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ECAI&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;European Conference on Artificial Intelligence&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;IOS Press&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;B&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ECCV&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;European Conference on Computer Vision&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Springer&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;B&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ICRA&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;IEEE International Conference on Robotics and Automation&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;IEEE&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;B&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ICAPS&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;International Conference on Automated Planning and Scheduling&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;AAAI&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;B&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ICCBR&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;International Conference on Case-Based Reasoning&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Springer&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;B&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;COLING&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;International Conference on Computational Linguistics&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ACM&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;B&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;KR&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;International Conference on Principles of Knowledge Representation and Reasoning&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Morgan Kaufmann&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;B&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;UAI&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;International Conference on Uncertaintyin Artificial Intelligence&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;AUAI&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;B&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;AAMAS&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;International Joint Conference on Autonomous Agents and Multi-agent Systems&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Springer&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;B&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;PPSN&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Parallel Problem Solving from Nature&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Springer&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;C&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ACCV&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Asian Conference on Computer Vision&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Springer&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;C&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;CoNLL&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Conference on Natural Language Learning&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;CoNLL&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;C&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;GECCO&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Genetic and Evolutionary Computation Conference&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ACM&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;C&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ICTAI&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;IEEE International Conference on Tools with Artificial Intelligence&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;IEEE&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;C&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ALT&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;International Conference on Algorithmic Learning Theory&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Springer&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;C&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ICANN&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;International Conference on Artificial Neural Networks&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Springer&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;C&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;FGR&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;International Conference on Automatic Face and Gesture Recognition&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;IEEE&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;C&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ICDAR&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;International Conference on Document Analysis and Recognition&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;IEEE&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;C&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ILP&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;International Conference on Inductive Logic Programming&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Springer&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;C&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;KSEM&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;International conference on Knowledge Science,Engineering and Management&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Springer&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;C&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ICONIP&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;International Conference on Neural Information Processing&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Springer&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;C&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ICPR&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;International Conference on Pattern Recognition&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;IEEE&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;C&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ICB&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;International Joint Conference on Biometrics&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;IEEE&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;C&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;IJCNN&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;International Joint Conference on Neural Networks&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;IEEE&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;C&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;PRICAI&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Pacific Rim International Conference on Artificial Intelligence&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Springer&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;C&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;NAACL&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;The Annual Conference of the North  American Chapter of the Association for Computational Linguistics&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;NAACL&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;C&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;BMVC&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;British Machine Vision Conference British Machine Vision Association&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;C&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;IROSIEEE\RSJ&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;International Conference on Intelligent Robots and Systems&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;IEEE&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;C&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;AISTATS&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Artificial Intelligence and Statistics&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;JMLR&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;C&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ACML&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Asian Conf. on Machine Learning&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;JMLR&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+        <pubDate>Tue, 25 Apr 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/%E7%A0%94%E7%A9%B6/2017/04/25/CCF.html</link>
+        <guid isPermaLink="true">http://localhost:4000/%E7%A0%94%E7%A9%B6/2017/04/25/CCF.html</guid>
+        
+        <category>Note</category>
+        
+        
+        <category>研究</category>
+        
+      </item>
+    
+      <item>
+        <title>Linux 让进程在后台运行的三种方法</title>
+        <description>&lt;p&gt;我们经常会碰到这样的问题，用 telnet/ssh 登录了远程的 Linux 服务器，运行了一些耗时较长的任务， 结果却由于网络的不稳定导致任务中途失败。如何让命令提交后不受本地关闭终端窗口/网络断开连接的干扰呢？下面举了一些例子， 您可以针对不同的场景选择不同的方式来处理这个问题。&lt;/p&gt;
+&lt;h2 id=&quot;nohupsetsid&quot;&gt;nohup/setsid/&amp;amp;&lt;/h2&gt;
+&lt;p&gt;场景：
+如果只是临时有一个命令需要长时间运行，什么方法能最简便的保证它在后台稳定运行呢？
+hangup 名称的来由
+在 Unix 的早期版本中，每个终端都会通过 modem 和系统通讯。当用户 logout 时，modem 就会挂断（hang up）电话。 同理，当 modem 断开连接时，就会给终端发送 hangup 信号来通知其关闭所有子进程。
+解决方法：
+我们知道，当用户注销（logout）或者网络断开时，终端会收到 HUP（hangup）信号从而关闭其所有子进程。因此，我们的解决办法就有两种途径：要么让进程忽略 HUP 信号，要么让进程运行在新的会话里从而成为不属于此终端的子进程。&lt;/p&gt;
+&lt;h2 id=&quot;1-nohup&quot;&gt;1. nohup&lt;/h2&gt;
+&lt;p&gt;nohup 无疑是我们首先想到的办法。顾名思义，nohup 的用途就是让提交的命令忽略 hangup 信号。让我们先来看一下 nohup 的帮助信息：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;NOHUP(1)                        User Commands                        NOHUP(1)
+
+NAME
+       nohup - run a command immune to hangups, with output to a non-tty
+
+SYNOPSIS
+       nohup COMMAND [ARG]...
+       nohup OPTION
+
+DESCRIPTION
+   	Run COMMAND, ignoring hangup signals.
+
+       --help display this help and exit
+
+       --version
+              output version information and exit
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;可见，nohup 的使用是十分方便的，只需在要处理的命令前加上 nohup 即可，标准输出和标准错误缺省会被重定向到 nohup.out 文件中。一般我们可在结尾加上”&amp;amp;”来将命令同时放入后台运行，也可用”&amp;gt;filename 2&amp;gt;&amp;amp;1”来更改缺省的重定向文件名。
+nohup 示例&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[root@pvcent107 ~]# nohup ping www.ibm.com &amp;amp;
+[1] 3059
+nohup: appending output to `nohup.out'
+[root@pvcent107 ~]# ps -ef |grep 3059
+root      3059   984  0 21:06 pts/3    00:00:00 ping www.ibm.com
+root      3067   984  0 21:06 pts/3    00:00:00 grep 3059
+[root@pvcent107 ~]#
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;2-setsid&quot;&gt;2 setsid&lt;/h2&gt;
+&lt;p&gt;nohup 无疑能通过忽略 HUP 信号来使我们的进程避免中途被中断，但如果我们换个角度思考，如果我们的进程不属于接受 HUP 信号的终端的子进程，那么自然也就不会受到 HUP 信号的影响了。setsid 就能帮助我们做到这一点。让我们先来看一下 setsid 的帮助信息：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;SETSID(8)                 Linux Programmer’s Manual                 SETSID(8)
+
+NAME
+       setsid - run a program in a new session
+
+SYNOPSIS
+       setsid program [ arg ... ]
+
+DESCRIPTION
+       setsid runs a program in a new session.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;可见 setsid 的使用也是非常方便的，也只需在要处理的命令前加上 setsid 即可。
+setsid 示例&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[root@pvcent107 ~]# setsid ping www.ibm.com
+[root@pvcent107 ~]# ps -ef |grep www.ibm.com
+root     31094     1  0 07:28 ?        00:00:00 ping www.ibm.com
+root     31102 29217  0 07:29 pts/4    00:00:00 grep www.ibm.com
+[root@pvcent107 ~]#
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;值得注意的是，上例中我们的进程 ID(PID)为31094，而它的父 ID（PPID）为1（即为 init 进程 ID），并不是当前终端的进程 ID。请将此例与nohup 例中的父 ID 做比较。&lt;/p&gt;
+&lt;h2 id=&quot;3-&quot;&gt;3 &amp;amp;&lt;/h2&gt;
+&lt;p&gt;这里还有一个关于 subshell 的小技巧。我们知道，将一个或多个命名包含在“()”中就能让这些命令在子 shell 中运行中，从而扩展出很多有趣的功能，我们现在要讨论的就是其中之一。
+当我们将”&amp;amp;”也放入“()”内之后，我们就会发现所提交的作业并不在作业列表中，也就是说，是无法通过jobs来查看的。让我们来看看为什么这样就能躲过 HUP 信号的影响吧。
+subshell 示例&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[root@pvcent107 ~]# (ping www.ibm.com &amp;amp;)
+[root@pvcent107 ~]# ps -ef |grep www.ibm.com
+root     16270     1  0 14:13 pts/4    00:00:00 ping www.ibm.com
+root     16278 15362  0 14:13 pts/4    00:00:00 grep www.ibm.com
+[root@pvcent107 ~]#
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;从上例中可以看出，新提交的进程的父 ID（PPID）为1（init 进程的 PID），并不是当前终端的进程 ID。因此并不属于当前终端的子进程，从而也就不会受到当前终端的 HUP 信号的影响了。&lt;/p&gt;
+
+&lt;h2 id=&quot;4-disown&quot;&gt;4 disown&lt;/h2&gt;
+&lt;p&gt;场景：
+我们已经知道，如果事先在命令前加上 nohup 或者 setsid 就可以避免 HUP 信号的影响。但是如果我们未加任何处理就已经提交了命令，该如何补救才能让它避免 HUP 信号的影响呢？
+解决方法：
+这时想加 nohup 或者 setsid 已经为时已晚，只能通过作业调度和 disown 来解决这个问题了。让我们来看一下 disown 的帮助信息：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;disown [-ar] [-h] [jobspec ...]
+Without options, each jobspec is  removed  from  the  table  of
+active  jobs.   If  the -h option is given, each jobspec is not
+removed from the table, but is marked so  that  SIGHUP  is  not
+sent  to the job if the shell receives a SIGHUP.  If no jobspec
+is present, and neither the -a nor the -r option  is  supplied,
+the  current  job  is  used.  If no jobspec is supplied, the -a
+option means to remove or mark all jobs; the -r option  without
+a  jobspec  argument  restricts operation to running jobs.  The
+return value is 0 unless a jobspec does  not  specify  a  valid
+job.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;可以看出，我们可以用如下方式来达成我们的目的。
+灵活运用 CTRL-z&lt;/p&gt;
+
+&lt;p&gt;在我们的日常工作中，我们可以用 CTRL-z 来将当前进程挂起到后台暂停运行，执行一些别的操作，然后再用 fg 来将挂起的进程重新放回前台（也可用 bg 来将挂起的进程放在后台）继续运行。这样我们就可以在一个终端内灵活切换运行多个任务，这一点在调试代码时尤为有用。因为将代码编辑器挂起到后台再重新放回时，光标定位仍然停留在上次挂起时的位置，避免了重新定位的麻烦。
+用disown -h jobspec来使某个作业忽略HUP信号。
+用disown -ah 来使所有的作业都忽略HUP信号。
+用disown -rh 来使正在运行的作业忽略HUP信号。
+需要注意的是，当使用过 disown 之后，会将把目标作业从作业列表中移除，我们将不能再使用jobs来查看它，但是依然能够用ps -ef查找到它。
+但是还有一个问题，这种方法的操作对象是作业，如果我们在运行命令时在结尾加了”&amp;amp;”来使它成为一个作业并在后台运行，那么就万事大吉了，我们可以通过jobs命令来得到所有作业的列表。但是如果并没有把当前命令作为作业来运行，如何才能得到它的作业号呢？答案就是用 CTRL-z（按住Ctrl键的同时按住z键）了！
+CTRL-z 的用途就是将当前进程挂起（Suspend），然后我们就可以用jobs命令来查询它的作业号，再用bg jobspec来将它放入后台并继续运行。需要注意的是，如果挂起会影响当前进程的运行结果，请慎用此方法。
+disown 示例1（如果提交命令时已经用“&amp;amp;”将命令放入后台运行，则可以直接使用“disown”）&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[root@pvcent107 build]# cp -r testLargeFile largeFile &amp;amp;
+[1] 4825
+[root@pvcent107 build]# jobs
+[1]+  Running                 cp -i -r testLargeFile largeFile &amp;amp;
+[root@pvcent107 build]# disown -h %1
+[root@pvcent107 build]# ps -ef |grep largeFile
+root      4825   968  1 09:46 pts/4    00:00:00 cp -i -r testLargeFile largeFile
+root      4853   968  0 09:46 pts/4    00:00:00 grep largeFile
+[root@pvcent107 build]# logout
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;disown 示例2（如果提交命令时未使用“&amp;amp;”将命令放入后台运行，可使用 CTRL-z 和“bg”将其放入后台，再使用“disown”）&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[root@pvcent107 build]# cp -r testLargeFile largeFile2
+
+[1]+  Stopped                 cp -i -r testLargeFile largeFile2
+[root@pvcent107 build]# bg %1
+[1]+ cp -i -r testLargeFile largeFile2 &amp;amp;
+[root@pvcent107 build]# jobs
+[1]+  Running                 cp -i -r testLargeFile largeFile2 &amp;amp;
+[root@pvcent107 build]# disown -h %1
+[root@pvcent107 build]# ps -ef |grep largeFile2
+root      5790  5577  1 10:04 pts/3    00:00:00 cp -i -r testLargeFile largeFile2
+root      5824  5577  0 10:05 pts/3    00:00:00 grep largeFile2
+[root@pvcent107 build]#
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;5-screen&quot;&gt;5 screen&lt;/h2&gt;
+&lt;p&gt;场景：
+我们已经知道了如何让进程免受 HUP 信号的影响，但是如果有大量这种命令需要在稳定的后台里运行，如何避免对每条命令都做这样的操作呢？
+解决方法：
+此时最方便的方法就是 screen 了。简单的说，screen 提供了 ANSI/VT100 的终端模拟器，使它能够在一个真实终端下运行多个全屏的伪终端。screen 的参数很多，具有很强大的功能，我们在此仅介绍其常用功能以及简要分析一下为什么使用 screen 能够避免 HUP 信号的影响。我们先看一下 screen 的帮助信息：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;SCREEN(1)                                                           SCREEN(1)
+
+NAME
+       screen - screen manager with VT100/ANSI terminal emulation
+
+SYNOPSIS
+       screen [ -options ] [ cmd [ args ] ]
+       screen -r [[pid.]tty[.host]]
+       screen -r sessionowner/[[pid.]tty[.host]]
+
+DESCRIPTION
+       Screen  is  a  full-screen  window manager that multiplexes a physical
+       terminal between several  processes  (typically  interactive  shells).
+       Each  virtual  terminal provides the functions of a DEC VT100 terminal
+       and, in addition, several control functions from the  ISO  6429  (ECMA
+       48,  ANSI  X3.64)  and ISO 2022 standards (e.g. insert/delete line and
+       support for multiple character sets).  There is a  scrollback  history
+       buffer  for  each virtual terminal and a copy-and-paste mechanism that
+       allows moving text regions between windows.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;使用 screen 很方便，有以下几个常用选项：
+用screen -dmS session name来建立一个处于断开模式下的会话（并指定其会话名）。
+用screen -list 来列出所有会话。
+用screen -r session name来重新连接指定会话。
+用快捷键CTRL-a d 来暂时断开当前会话。
+screen 示例&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[root@pvcent107 ~]# screen -dmS Urumchi
+[root@pvcent107 ~]# screen -list
+There is a screen on:
+    12842.Urumchi   (Detached)
+1 Socket in /tmp/screens/S-root.
+
+[root@pvcent107 ~]# screen -r Urumchi
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;当我们用“-r”连接到 screen 会话后，我们就可以在这个伪终端里面为所欲为，再也不用担心 HUP 信号会对我们的进程造成影响，也不用给每个命令前都加上“nohup”或者“setsid”了。这是为什么呢？让我来看一下下面两个例子吧。&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;未使用 screen 时新进程的进程树&lt;/p&gt;
+
+    &lt;pre&gt;&lt;code&gt; [root@pvcent107 ~]# ping www.google.com &amp;amp;
+ [1] 9499
+ [root@pvcent107 ~]# pstree -H 9499
+ init─┬─Xvnc
+      ├─acpid
+      ├─atd
+      ├─2*[sendmail]	
+      ├─sshd─┬─sshd───bash───pstree
+      │       └─sshd───bash───ping
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;我们可以看出，未使用 screen 时我们所处的 bash 是 sshd 的子进程，当 ssh 断开连接时，HUP 信号自然会影响到它下面的所有子进程（包括我们新建立的 ping 进程）。&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;使用了 screen 后新进程的进程树&lt;/p&gt;
+
+    &lt;pre&gt;&lt;code&gt; [root@pvcent107 ~]# screen -r Urumchi
+ [root@pvcent107 ~]# ping www.ibm.com &amp;amp;
+ [1] 9488
+ [root@pvcent107 ~]# pstree -H 9488
+ init─┬─Xvnc
+      ├─acpid
+      ├─atd
+      ├─screen───bash───ping
+      ├─2*[sendmail]
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;而使用了 screen 后就不同了，此时 bash 是 screen 的子进程，而 screen 是 init（PID为1）的子进程。那么当 ssh 断开连接时，HUP 信号自然不会影响到 screen 下面的子进程了。&lt;/p&gt;
+</description>
+        <pubDate>Thu, 06 Apr 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/%E7%A0%94%E7%A9%B6/2017/04/06/LinuxBackProcess.html</link>
+        <guid isPermaLink="true">http://localhost:4000/%E7%A0%94%E7%A9%B6/2017/04/06/LinuxBackProcess.html</guid>
+        
+        <category>Linux</category>
+        
+        
+        <category>研究</category>
+        
+      </item>
+    
+      <item>
+        <title>Learning Method</title>
+        <description>&lt;h2 id=&quot;这是第一尝试整体学习的思维我只粗略的看了40页尝试总结一下&quot;&gt;这是第一尝试“整体学习”的思维，我只粗略的看了40页，尝试总结一下。&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;如果只用一种方式了解某样事物，你就不会真正了解它。了解事物真正含义的秘密取决于如何将其与我们所了解的其他事物相联系。通过联系，你可将想法内化于心，从各种角度看问题，直至找到适合自己的方法。这才是思考的真谛！ –摘自马文·明斯基&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;整体性学习思维scott-young&quot;&gt;整体性学习思维——Scott Young&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;作者高中辍学，但是自学期间，成绩一直是A以上，后来又利用一年时间完成了MIT的33门课程，创造了当代学生自学的神话。更准确点说，只花了2000美金，却省去了150万元的学费。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;young认为整体性思维由如下5个步骤组成&quot;&gt;Young认为整体性思维由如下5个步骤组成&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;获取
+    &lt;ul&gt;
+      &lt;li&gt;简化（压缩信息的能力）&lt;/li&gt;
+      &lt;li&gt;容量（一年100本书的信息量肯定比一年2本积累的要多[但不一定深]）&lt;/li&gt;
+      &lt;li&gt;速度（半小时一本，一小时一本，差别在哪？能否快速获取信息的能力）&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;理解
+    &lt;ul&gt;
+      &lt;li&gt;化难为简（遇到复杂问题进行解剖，从而进行信息检索，最终理解问题的本质）&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;拓展
+    &lt;ul&gt;
+      &lt;li&gt;深度（从哪来，为什么？）&lt;/li&gt;
+      &lt;li&gt;横向（有哪些类似的，有哪些与之对应的，他们做的如何，还可以再做什么）&lt;/li&gt;
+      &lt;li&gt;纵向（这些东西做的像是什么？能够运用到哪个方面？可以与其他的做些连接么）&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;纠错
+    &lt;ul&gt;
+      &lt;li&gt;实践（在问题解决的过程中进行检测，哪些细节有问题，或者本来信息就有问题）&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;应用
+    &lt;ul&gt;
+      &lt;li&gt;解决问题（自己独立在实践过程中，运用已有的信息进行问题解决的能力）&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;这五个问题的具体缺陷体现&quot;&gt;这五个问题的具体缺陷体现&lt;/h2&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;步骤&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt; &lt;/th&gt;
+      &lt;th&gt;缺陷&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;获取&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+      &lt;td&gt;阅读和听写速度慢；需要反复阅读&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;理解&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+      &lt;td&gt;不知道作者在说什么；不知道作者说的是什么意思&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;拓展&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+      &lt;td&gt;缺乏灵活性&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;纠错&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+      &lt;td&gt;错误联系太多&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;应用&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+      &lt;td&gt;缺乏实践与尝试&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+</description>
+        <pubDate>Sun, 12 Mar 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/%E7%A0%94%E7%A9%B6/2017/03/12/LearningMethod.html</link>
+        <guid isPermaLink="true">http://localhost:4000/%E7%A0%94%E7%A9%B6/2017/03/12/LearningMethod.html</guid>
+        
+        <category>Method</category>
+        
+        
+        <category>研究</category>
+        
+      </item>
+    
+      <item>
+        <title>Linux Apt</title>
+        <description>&lt;ul&gt;
+  &lt;li&gt;the difference between apt-get update and apt-get upgrade
+&lt;a href=&quot;http://askubuntu.com/questions/94102/what-is-the-difference-between-apt-get-update-and-upgrade&quot;&gt;link&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;apt-get update&lt;/em&gt; updates the list of available packages and their versions, but it does not install or upgrade any packages.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;em&gt;apt-get upgrade&lt;/em&gt; actually installs newer versions of the packages you have. After updating the lists, the package manager knows about available updates for the software you have installed. This is why you first want to update.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Linux install java jdk &lt;a href=&quot;http://stackoverflow.com/questions/14788345/how-to-install-jdk-on-ubuntu-linux&quot;&gt;link&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;sudo apt-get install openjdk-7-jdk&lt;/li&gt;
+      &lt;li&gt;apt-cache search jdk&lt;/li&gt;
+      &lt;li&gt;export JAVA_HOME=/usr/lib/jvm/java-7-openjdk&lt;/li&gt;
+      &lt;li&gt;export PATH=$PATH:/usr/lib/jvm/java-7-openjdk/bin&lt;/li&gt;
+      &lt;li&gt;javac -version&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;what-is-apt-get&quot;&gt;What is apt-get?&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;The apt-get utility is a powerful and free package management command line program, that is used to work with Ubuntu’s APT (Advanced Packaging Tool) library to perform installation of new software packages, removing existing software packages, upgrading of existing software packages and even used to upgrading the entire operating system.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;what-is-apt-cache&quot;&gt;What is apt-cache&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;The apt-cache command line tool is used for searching apt software package cache. In simple words, this tool is used to search software packages, collects information of packages and also used to search for what available packages are ready for installation on Debian or Ubuntu based systems.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;how-do-i-list-all-available-packages&quot;&gt;How Do I List All Available Packages?&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;To list all the available packages, type the following command.&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;apt-cache pkgnames&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;how-do-i-find-out-package-name-and-description-of-software&quot;&gt;How Do I Find Out Package Name and Description of Software?&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;To find out the package name and with it description before installing, use the ‘search‘ flag. Using “search” with apt-cache will display a list of matched packages with short description. Let’s say you would like to find out description of package ‘vsftpd‘, then command would be&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;apt-cache search vsftpd&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;how-do-i-check-package-information&quot;&gt;How Do I Check Package Information?&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;For example, if you would like to check information of package along with it short description say (version number, check sums, size, installed size, category etc). Use ‘show‘ sub command as shown below.&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;apt-cache show netcat&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;how-do-i-check-dependencies-for-specific-packages&quot;&gt;How Do I Check Dependencies for Specific Packages?&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Use the ‘showpkg‘ sub command to check the dependencies for particular software packages. whether those dependencies packages are installed or not. For example, use the ‘showpkg‘ command along with package-name.&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;apt-cache showpkg vsftpd&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;how-do-i-check-statistics-of-cache&quot;&gt;How Do I Check statistics of Cache&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;The ‘stats‘ sub command will display overall statistics about the cache. For example, the following command will display Total package names is the number of packages have found in the cache.&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;apt-cache stats&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;how-do-i-remove-packages-without-configuration&quot;&gt;How Do I Remove Packages Without Configuration?&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;To un-install software packages without removing their configuration files (for later re-use the same configuration). Use the ‘remove‘ command as shown.&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;sudo apt-get remove vsftpd&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;how-do-i-completely-remove-packages&quot;&gt;How Do I Completely Remove Packages?&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;To remove software packages including their configuration files, use the ‘purge‘ sub command as shown below&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;sudo apt-get purge vsftpd
+Alternatively, you can combine both the commands together as shown below.&lt;/li&gt;
+    &lt;li&gt;sudo apt-get remove –purge vsftpd&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;how-i-can-clean-up-disk-space&quot;&gt;How I Can Clean Up Disk Space&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;The ‘clean‘ command is used to free up the disk space by cleaning retrieved (downloaded) .deb files (packages) from the local repository.&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;sudo apt-get clean&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;how-do-i-download-only-source-code-of-package&quot;&gt;How Do I Download Only Source Code of Package&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;To download only source code of particular package, use the option ‘–download-only source‘ with ‘package-name’ as shown.&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;sudo apt-get –download-only source vsftpd&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;how-can-i-download-and-unpack-a-package&quot;&gt;How Can I Download and Unpack a Package&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;To download and unpack source code of a package to a specific directory, type the following command.&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;sudo apt-get source vsftpd&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;how-can-i-download-unpack-and-compile-a-package&quot;&gt;How Can I Download, Unpack and Compile a Package&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;You can also download, unpack and compile the source code at the same time, using option ‘–compile‘ as shown below.&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;sudo apt-get –compile source goaccess&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;how-do-i-download-a-package-without-installing&quot;&gt;How Do I Download a Package Without Installing&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Using ‘download‘ option, you can download any given package without installing it. For example, the following command will only download ‘nethogs‘ package to current working directory&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;sudo apt-get download nethogs&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;how-do-i-check-change-log-of-package&quot;&gt;How Do I Check Change Log of Package?&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;The ‘changelog‘ flag downloads a package change-log and shows the package version that is installed.&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;sudo apt-get changelog vsftpd&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;how-do-i-check-broken-dependencies&quot;&gt;How Do I Check Broken Dependencies?&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;The ‘check‘ command is a diagnostic tool. It used to update package cache and checks for broken dependencies.&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;sudo apt-get check&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;how-do-i-search-and-build-dependencies&quot;&gt;How Do I Search and Build Dependencies?&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;This ‘build-dep‘ command searches the local repositories in the system and install the build dependencies for package. If the package does not exists in the local repository it will return an error code.&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;sudo apt-get build-dep netcat&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;how-i-can-auto-clean-apt-get-cache&quot;&gt;How I Can Auto clean Apt-Get Cache?&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;The ‘autoclean‘ command deletes all .deb files from /var/cache/apt/archives to free-up significant volume of disk space.&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;sudo apt-get autoclean&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;how-i-can-auto-remove-installed-packages&quot;&gt;How I Can Auto remove Installed Packages?&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;The ‘autoremove‘ sub command is used to auto remove packages that were certainly installed to satisfy dependencies for other packages and but they were now no longer required. For example, the following command will remove an installed package with its dependencies.&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;sudo apt-get autoremove vsftpd&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+</description>
+        <pubDate>Sat, 11 Mar 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/%E7%A0%94%E7%A9%B6/2017/03/11/LinuxApt.html</link>
+        <guid isPermaLink="true">http://localhost:4000/%E7%A0%94%E7%A9%B6/2017/03/11/LinuxApt.html</guid>
+        
+        <category>Linux</category>
+        
+        
+        <category>研究</category>
+        
+      </item>
+    
+  </channel>
+</rss>

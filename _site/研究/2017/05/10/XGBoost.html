@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon Icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="http://localhost:4000/assets/images/favicon.png">
+
+    <title>Introduction to Boosted Trees</title>
+    <meta name="description"
+          content="Introduction to Boosted Trees">
+
+    <link rel="canonical" href="http://localhost:4000/%E7%A0%94%E7%A9%B6/2017/05/10/XGBoost.html">
+    <link rel="alternate" type="application/rss+xml" title="Maybe not Good But Studious !" href="http://localhost:4000/feed.xml">
+
+    <script type="text/javascript" src="http://localhost:4000/bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- Third-Party CSS -->
+    <link rel="stylesheet" href="http://localhost:4000/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/bower_components/octicons/octicons/octicons.css">
+    <link rel="stylesheet" href="http://localhost:4000/bower_components/hover/css/hover-min.css">
+    <link rel="stylesheet" href="http://localhost:4000/bower_components/primer-markdown/dist/user-content.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/syntax.css">
+
+    <!-- My CSS -->
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/common.css">
+
+    <!-- CSS set in page -->
+    
+
+    <!-- CSS set in layout -->
+    
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sidebar-post-nav.css">
+    
+
+    <script type="text/javascript" src="http://localhost:4000/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108664852-1"></script>
+    <script>
+     window.dataLayer = window.dataLayer || [];
+     function gtag(){dataLayer.push(arguments);}
+     gtag('js', new Date());
+     gtag('config', 'UA-108664852-1');
+    </script>
+
+</head>
+
+
+    <body>
+
+    <header class="site-header">
+    <div class="container">
+        <a id="site-header-brand" href="/" title="Beili">
+            <span class="octicon octicon-mark-github"></span> Beili
+        </a>
+        <nav class="site-header-nav" role="navigation">
+            
+            <a href="/"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Home">
+                Home
+            </a>
+            
+            <a href="/open-source"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Open-Source">
+                Open-Source
+            </a>
+            
+            <a href="/blog"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Blog">
+                Blog
+            </a>
+            
+            <a href="/bookmark"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Bookmark">
+                Bookmark
+            </a>
+            
+            <a href="/about"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="About">
+                About
+            </a>
+            
+        </nav>
+    </div>
+</header>
+
+
+        <div class="content">
+            <link rel="stylesheet" href="http://localhost:4000/assets/css/sidebar-post-nav.css" />
+<section class="jumbotron geopattern" data-pattern-id="Introduction to Boosted Trees">
+    <div class="container">
+        <div id="jumbotron-meta-info">
+            <h1>Introduction to Boosted Trees</h1>
+            <span class="meta-info">
+                
+                
+                <span class="octicon octicon-calendar"></span> 2017/05/10
+                
+            </span>
+        </div>
+    </div>
+</section>
+<script>
+    $(document).ready(function(){
+
+        $('.geopattern').each(function(){
+            $(this).geopattern($(this).data('pattern-id'));
+        });
+
+    });
+</script>
+
+<article class="post container" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <div class="row">
+
+        
+        <div class="col-md-8 markdown-body">
+
+            <h2 id="introduction-to-boosted-trees">Introduction to Boosted Trees</h2>
+
+<p>XGBoost is short for “Extreme Gradient Boosting”, where the term “Gradient Boosting” is proposed in the paper <strong><em>Greedy Function Approximation: A Gradient Boosting Machine</em></strong>, by Friedman. XGBoost is based on this original model. This is a tutorial on gradient boosted trees, and most of the content is based on these <a href="http://homes.cs.washington.edu/~tqchen/pdf/BoostedTree.pdf">slides</a> by the author of xgboost.</p>
+
+<p>The GBM (boosted trees) has been around for really a while, and there are a lot of materials on the topic. This tutorial tries to explain boosted trees in a self-contained and principled way using the elements of supervised learning. We think this explanation is cleaner, more formal, and motivates the variant used in xgboost</p>
+
+<h2 id="elements-of-supervised-learning">Elements of Supervised Learning</h2>
+
+<p>XGBoost is used for supervised learning problems, where we use the training data (with multiple features) <strong>xi</strong> to predict a target variable <strong>yi</strong>. Before we dive into trees, let us start by reviewing the basic elements in supervised learning</p>
+
+<h2 id="model-and-parameters">Model and Parameters</h2>
+
+<p>The <strong><em>model</em></strong> in supervised learning usually refers to the mathematical structure of how to make the prediction <strong>yi</strong> given <strong>xi</strong>. For example, a common model is a linear model, where the prediction is given by <strong><script type="math/tex">\hat{y}_i = \sum_j \theta_j x_{ij}</script></strong>, a linear combination of weighted input features. The prediction value can have different interpretations, depending on the task, i.e., regression or classification. For example, it can be logistic transformed to get the probability of positive class in logistic regression, and it can also be used as a ranking score when we want to rank the outputs.</p>
+
+<p>The <strong><em>parameters</em></strong> are the undetermined part that we need to learn from data. In linear regression problems, the parameters are the coefficients <script type="math/tex">θ</script>. Usually we will use <script type="math/tex">θ</script>  to denote the parameters (there are many parameters in a model, our definition here is sloppy)</p>
+
+<h2 id="objective-function--training-loss--regularization">Objective Function : Training Loss + Regularization</h2>
+<p>Based on different understandings of <strong><em><script type="math/tex">y_i</script></em></strong> we can have different problems, such as regression, classification, ordering, etc. We need to find a way to find the best parameters given the training data. In order to do so, we need to define a so-called objective function, to measure the performance of the model given a certain set of parameters.</p>
+
+<p>A very important fact about objective functions is they must always contain two parts: training loss and regularization.</p>
+
+<script type="math/tex; mode=display">Obj(\Theta) = L(\theta) + \Omega(\Theta)</script>
+
+<blockquote>
+  <p>where <script type="math/tex">L</script> is the training loss function, and <script type="math/tex">Ω</script>  is the regularization term. The training loss measures how predictive our model is on training data. For example, a commonly used training loss is mean squared error.</p>
+</blockquote>
+
+<script type="math/tex; mode=display">L(\theta) = \sum_i (y_i-\hat{y}_i)^2</script>
+
+<p>Another commonly used loss function is logistic loss for logistic regression</p>
+
+<script type="math/tex; mode=display">L(\theta) = \sum_i[ y_i\ln (1+e^{-\hat{y}_i}) + (1-y_i)\ln (1+e^{\hat{y}_i})]</script>
+
+<p>The <strong><em>regularization term</em></strong> is what people usually forget to add. The regularization term controls the complexity of the model, which helps us to avoid overfitting. This sounds a bit abstract, so let us consider the following problem in the following picture. You are asked to fit visually a step function given the input data points on the upper left corner of the image. Which solution among the three do you think is the best fit?</p>
+
+<p><img src="http://localhost:4000/assets/images/xgboost_1.png" alt="" /></p>
+
+<p>he correct answer is marked in red. Please consider if this visually seems a reasonable fit to you. The general principle is we want both a <strong><em>simple</em></strong> and <strong><em>predictive</em></strong> model. The tradeoff between the two is also referred as bias-variance tradeoff in machine learning.</p>
+
+<h2 id="why-introduce-the-general-principle">Why introduce the general principle?</h2>
+
+<p>The elements introduced above form the basic elements of supervised learning, and they are naturally the building blocks of machine learning toolkits. For example, you should be able to describe the differences and commonalities between boosted trees and random forests. Understanding the process in a formalized way also helps us to understand the objective that we are learning and the reason behind the heuristics such as pruning and smoothing.</p>
+
+<h2 id="tree-ensemble">Tree Ensemble</h2>
+
+<p>Now that we have introduced the elements of supervised learning, let us get started with real trees. To begin with, let us first learn about the <strong><em>model</em></strong> of xgboost: tree ensembles. The tree ensemble model is a set of classification and regression trees (CART). Here’s a simple example of a CART that classifies whether someone will like computer games.</p>
+
+<p><img src="http://localhost:4000/assets/images/xgboost_2.png" alt="" /></p>
+
+<p>We classify the members of a family into different leaves, and assign them the score on the corresponding leaf. A CART is a bit different from decision trees, where the leaf only contains decision values. In CART, a real score is associated with each of the leaves, which gives us richer interpretations that go beyond classification. This also makes the unified optimization step easier, as we will see in a later part of this tutorial.</p>
+
+<p>Usually, a single tree is not strong enough to be used in practice. What is actually used is the so-called tree ensemble model, which sums the prediction of multiple trees together.</p>
+
+<p><img src="http://localhost:4000/assets/images/xgboost_3.png" alt="" /></p>
+
+<p>Here is an example of a tree ensemble of two trees. The prediction scores of each individual tree are summed up to get the final score. If you look at the example, an important fact is that the two trees try to complement each other. Mathematically, we can write our model in the form</p>
+
+<script type="math/tex; mode=display">\hat{y}_i = \sum_{k=1}^K f_k(x_i), f_k \in \mathcal{F}</script>
+
+<p>where <script type="math/tex">K</script> is the number of trees, <script type="math/tex">f</script> is a function in the functional space <script type="math/tex">F</script>, and <script type="math/tex">F</script>  is the set of all possible CARTs. Therefore our objective to optimize can be written as</p>
+
+<script type="math/tex; mode=display">{obj}(\theta) = \sum_i^n l(y_i, \hat{y}_i) + \sum_{k=1}^K \Omega(f_k)</script>
+
+<p>Now here comes the question, what is the model for random forests? It is exactly tree ensembles! So random forests and boosted trees are not different in terms of model, the difference is how we train them. This means if you write a predictive service of tree ensembles, you only need to write one of them and they should directly work for both random forests and boosted trees. One example of why elements of supervised learning rock.</p>
+
+<h2 id="tree-boosting">Tree Boosting</h2>
+
+<p>After introducing the model, let us begin with the real training part. How should we learn the trees? The answer is, as is always for all supervised learning models: define an objective function, and optimize it!</p>
+
+<p>Assume we have the following objective function (remember it always needs to contain training loss and regularization)</p>
+
+<script type="math/tex; mode=display">\begin{split}\text{obj} = \sum_{i=1}^n l(y_i, \hat{y}_i^{(t)}) + \sum_{i=1}^t\Omega(f_i) \end{split}</script>
+
+<h2 id="additive-training">Additive Training</h2>
+
+<p>First thing we want to ask is what are the <strong><em>parameters</em></strong> of trees? You can find that what we need to learn are those functions <script type="math/tex">f_i</script>, with each containing the structure of the tree and the leaf scores. This is much harder than traditional optimization problem where you can take the gradient and go. It is not easy to train all the trees at once. Instead, we use an additive strategy: fix what we have learned, and add one new tree at a time. We write the prediction value at step <script type="math/tex">t</script> as <script type="math/tex">\hat{y}_i^{(t)}</script>, so we have</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{split}\hat{y}_i^{(0)} &= 0\\
+\hat{y}_i^{(1)} &= f_1(x_i) = \hat{y}_i^{(0)} + f_1(x_i)\\
+\hat{y}_i^{(2)} &= f_1(x_i) + f_2(x_i)= \hat{y}_i^{(1)} + f_2(x_i)\\
+&\dots\\
+\hat{y}_i^{(t)} &= \sum_{k=1}^t f_k(x_i)= \hat{y}_i^{(t-1)} + f_t(x_i)
+\end{split} %]]></script>
+
+<p>It remains to ask, which tree do we want at each step? A natural thing is to add the one that optimizes our objective.</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{split}\text{obj}^{(t)} & = \sum_{i=1}^n l(y_i, \hat{y}_i^{(t)}) + \sum_{i=1}^t\Omega(f_i) \\
+          & = \sum_{i=1}^n l(y_i, \hat{y}_i^{(t-1)} + f_t(x_i)) + \Omega(f_t) + constant
+\end{split} %]]></script>
+
+<p>If we consider using MSE as our loss function, it becomes the following form.</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{split}\text{obj}^{(t)} & = \sum_{i=1}^n (y_i - (\hat{y}_i^{(t-1)} + f_t(x_i)))^2 + \sum_{i=1}^t\Omega(f_i) \\
+          & = \sum_{i=1}^n [2(\hat{y}_i^{(t-1)} - y_i)f_t(x_i) + f_t(x_i)^2] + \Omega(f_t) + constant
+\end{split} %]]></script>
+
+<p>The form of MSE is friendly, with a first order term (usually called the residual) and a quadratic term. For other losses of interest (for example, logistic loss), it is not so easy to get such a nice form. So in the general case, we take the Taylor expansion of the loss function up to the second order</p>
+
+<script type="math/tex; mode=display">\text{obj}^{(t)} = \sum_{i=1}^n [l(y_i, \hat{y}_i^{(t-1)}) + g_i f_t(x_i) + \frac{1}{2} h_i f_t^2(x_i)] + \Omega(f_t) + constant</script>
+
+<p>where the <script type="math/tex">g_i</script> and <script type="math/tex">h_i</script> are defined as:</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{split}g_i &= \partial_{\hat{y}_i^{(t-1)}} l(y_i, \hat{y}_i^{(t-1)})\\
+h_i &= \partial_{\hat{y}_i^{(t-1)}}^2 l(y_i, \hat{y}_i^{(t-1)})
+\end{split} %]]></script>
+
+<p>After we remove all the constants, the specific objective at step tt becomes</p>
+
+<script type="math/tex; mode=display">\sum_{i=1}^n [g_i f_t(x_i) + \frac{1}{2} h_i f_t^2(x_i)] + \Omega(f_t)</script>
+
+<p>This becomes our optimization goal for the new tree. One important advantage of this definition is that it only depends on <script type="math/tex">g_i</script> and <script type="math/tex">h_i</script>. This is how xgboost can support custom loss functions. We can optimize every loss function, including logistic regression and weighted logistic regression, using exactly the same solver that takes gigi and hihi as input!</p>
+
+<h2 id="model-complexity">Model Complexity</h2>
+
+<p>We have introduced the training step, but wait, there is one important thing, the <strong><em>regularization</em></strong>! We need to define the complexity of the tree <script type="math/tex">\Omega(f)</script>. In order to do so, let us first refine the definition of the tree <script type="math/tex">f(x)</script> as</p>
+
+<script type="math/tex; mode=display">f_t(x) = w_{q(x)}, w \in R^T, q:R^d\rightarrow \{1,2,\cdots,T\} .</script>
+
+<p>Here <script type="math/tex">w</script> is the vector of scores on leaves, <script type="math/tex">q</script> is a function assigning each data point to the corresponding leaf, and <script type="math/tex">T</script> is the number of leaves. In XGBoost, we define the complexity as</p>
+
+<script type="math/tex; mode=display">\Omega(f) = \gamma T + \frac{1}{2}\lambda \sum_{j=1}^T w_j^2</script>
+
+<p>Of course there is more than one way to define the complexity, but this specific one works well in practice. The regularization is one part most tree packages treat less carefully, or simply ignore. This was because the traditional treatment of tree learning only emphasized improving impurity, while the complexity control was left to heuristics. By defining it formally, we can get a better idea of what we are learning, and yes it works well in practice.</p>
+
+<h2 id="the-structure-score">The Structure Score</h2>
+<p>Here is the magical part of the derivation. After reformalizing the tree model, we can write the objective value with the <script type="math/tex">t</script>-th tree as:</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{split}Obj^{(t)} &\approx \sum_{i=1}^n [g_i w_{q(x_i)} + \frac{1}{2} h_i w_{q(x_i)}^2] + \gamma T + \frac{1}{2}\lambda \sum_{j=1}^T w_j^2\\
+&= \sum^T_{j=1} [(\sum_{i\in I_j} g_i) w_j + \frac{1}{2} (\sum_{i\in I_j} h_i + \lambda) w_j^2 ] + \gamma T
+\end{split} %]]></script>
+
+<script type="math/tex; mode=display">I_j=\{i|q(x_i)=j\}</script>
+
+<p>where is the set of indices of data points assigned to the <script type="math/tex">j</script>-th leaf. Notice that in the second line we have changed the index of the summation because all the data points on the same leaf get the same score. We could further compress the expression by defining <script type="math/tex">G_j = \sum_{i\in I_j} g_i</script> and <script type="math/tex">H_j = \sum_{i\in I_j} h_i</script></p>
+
+<script type="math/tex; mode=display">\text{obj}^{(t)} = \sum^T_{j=1} [G_jw_j + \frac{1}{2} (H_j+\lambda) w_j^2] +\gamma T</script>
+
+<p>In this equation <script type="math/tex">w_j</script> are independent with respect to each other, the form <script type="math/tex">G_jw_j+\frac{1}{2}(H_j+\lambda)w_j^2</script> is quadratic and the best <script type="math/tex">w_j</script> for a given structure <script type="math/tex">q(x)</script>and the best objective reduction we can get is:</p>
+
+<script type="math/tex; mode=display">\begin{split}w_j^\ast = -\frac{G_j}{H_j+\lambda}\\
+\text{obj}^\ast = -\frac{1}{2} \sum_{j=1}^T \frac{G_j^2}{H_j+\lambda} + \gamma T
+\end{split}</script>
+
+<p>The last equation measures <strong><em>how good</em></strong> a tree structure <script type="math/tex">q(x)</script> is.</p>
+
+<p><img src="http://localhost:4000/assets/images/xgboost_4.png" alt="" /></p>
+
+<p>If all this sounds a bit complicated, let’s take a look at the picture, and see how the scores can be calculated. Basically, for a given tree structure, we push the statistics <script type="math/tex">g_i</script> and <script type="math/tex">h_i</script> to the leaves they belong to, sum the statistics together, and use the formula to calculate how good the tree is. This score is like the impurity measure in a decision tree, except that it also takes the model complexity into account.</p>
+
+<p>##Learn the tree structure</p>
+
+<p>Now that we have a way to measure how good a tree is, ideally we would enumerate all possible trees and pick the best one. In practice this is intractable, so we will try to optimize one level of the tree at a time. Specifically we try to split a leaf into two leaves, and the score it gains is</p>
+
+<script type="math/tex; mode=display">Gain = \frac{1}{2} \left[\frac{G_L^2}{H_L+\lambda}+\frac{G_R^2}{H_R+\lambda}-\frac{(G_L+G_R)^2}{H_L+H_R+\lambda}\right] - \gamma</script>
+
+<p>This formula can be decomposed as 1) the score on the new left leaf 2) the score on the new right leaf 3) The score on the original leaf 4) regularization on the additional leaf. We can see an important fact here: if the gain is smaller than <script type="math/tex">\gamma</script>, we would do better not to add that branch. This is exactly the <strong><em>pruning</em></strong> techniques in tree based models! By using the principles of supervised learning, we can naturally come up with the reason these techniques work :)</p>
+
+<p>For real valued data, we usually want to search for an optimal split. To efficiently do so, we place all the instances in sorted order, like the following picture.</p>
+
+<p><img src="http://localhost:4000/assets/images/xgboost_5.png" alt="" /></p>
+
+<p>A left to right scan is sufficient to calculate the structure score of all possible split solutions, and we can find the best split efficiently.</p>
+
+<h2 id="final-words-on-xgboost">Final words on XGBoost</h2>
+<p>Now that you understand what boosted trees are, you may ask, where is the introduction on <a href="https://github.com/dmlc/xgboost">XGBoost</a>? XGBoost is exactly a tool motivated by the formal principle introduced in this tutorial! More importantly, it is developed with both deep consideration in terms of <strong><em>systems optimization</em></strong> and <strong><em>principles in machine learning</em></strong>. The goal of this library is to push the extreme of the computation limits of machines to provide a <strong><em>scalable</em></strong>, <strong><em>portable</em></strong> and <strong><em>accurate</em></strong> library. Make sure you <a href="https://github.com/dmlc/xgboost">try it out</a>, and most importantly, contribute your piece of wisdom (code, examples, tutorials) to the community!</p>
+
+
+
+            <!-- Comments -->
+            <!--<div class="comments">
+    <div id="disqus_thread"></div>-->
+<!--<div id="uyan_frame"></div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2133522"></script>
+<script>
+      (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+
+           s.src='http://v2.uyan.cc/code/uyan.js?uid=2133522'
+           // s.src = '///embed.js';
+
+           // s.setAttribute('data-timestamp', +new Date());
+           //  (d.head || d.body).appendChild(s); 
+        })();
+</script>-->
+<!--</div>-->
+
+        </div>
+
+        <div class="col-md-4">
+            <h3>Post Directory</h3>
+<div id="post-directory-module">
+<section class="post-directory">
+    <!-- Links that trigger the jumping -->
+    <!-- Added by javascript below -->
+    <dl></dl>
+</section>
+</div>
+
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        $( "article h2" ).each(function( index ) {
+            $(".post-directory dl").append("<dt><a class=\"jumper\" hre=#" +
+                    $(this).attr("id")
+                    + ">"
+                    + $(this).text()
+                    + "</a></dt>");
+
+            var children = $(this).nextUntil("h2", "h3")
+
+            children.each(function( index ) {
+                $(".post-directory dl").append("<dd><a class=\"jumper\" hre=#" +
+                        $(this).attr("id")
+                        + ">"
+                        + "&nbsp;&nbsp;- " + $(this).text()
+                        + "</a></dd>");
+            });
+        });
+
+        var fixmeTop = $('#post-directory-module').offset().top - 100;       // get initial position of the element
+
+        $(window).scroll(function() {                  // assign scroll event listener
+
+            var currentScroll = $(window).scrollTop(); // get current position
+
+            if (currentScroll >= fixmeTop) {           // apply position: fixed if you
+                $('#post-directory-module').css({      // scroll to that element or below it
+                    top: '100px',
+                    position: 'fixed',
+                    width: 'inherit'
+                });
+            } else {                                   // apply position: static
+                $('#post-directory-module').css({      // if you scroll above it
+                    position: 'inherit',
+                    width: 'inherit'
+                });
+            }
+
+        });
+
+        $("a.jumper").on("click", function( e ) {
+
+            e.preventDefault();
+
+            $("body, html").animate({
+                scrollTop: ($( $(this).attr('hre') ).offset().top - 100)
+            }, 600);
+
+        });
+    });
+
+</script>
+
+        </div>
+        
+
+    </div>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</article>
+
+        </div>
+
+    <footer class="container">
+
+    <div class="site-footer">
+
+        <div class="copyright pull-left">
+            <!-- 请不要更改这一行 方便其他人知道模板的来源 谢谢 -->
+            <!-- Please keep this line to let others know where this theme comes from. Thank you :D -->
+            Power by <a href="https://github.com/DONGChuan/Yummy-Jekyll">Yummy Jekyll</a>
+        </div>
+
+        <a href="https://github.com/daicoolb" target="_blank" aria-label="view source code">
+            <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+        </a>
+
+        <div class="pull-right">
+            <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+        </div>
+
+    </div>
+
+    <!-- Third-Party JS -->
+    <script type="text/javascript" src="http://localhost:4000/bower_components/geopattern/js/geopattern.min.js"></script>
+
+    <!-- My JS -->
+    <script type="text/javascript" src="http://localhost:4000/assets/js/script.js"></script>
+
+    
+
+    
+    <!-- Google Analytics -->
+    <div style="display:none">
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-72165600-1', 'auto');
+            ga('send', 'pageview');
+
+        </script>
+    </div>
+    
+
+</footer>
+
+
+    </body>
+
+</html>
