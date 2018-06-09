@@ -3,97 +3,11 @@
   <channel>
     <title>Maybe not Good But Studious !</title>
     <description>This is personnel website of Beili</description>
-    <link>http://localhost:4000/</link>
-    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 14 Jan 2018 16:56:04 +0800</pubDate>
-    <lastBuildDate>Sun, 14 Jan 2018 16:56:04 +0800</lastBuildDate>
+    <link>https://daicoolb.github.io/daicoolb//</link>
+    <atom:link href="https://daicoolb.github.io/daicoolb//feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sat, 09 Jun 2018 12:22:00 +0800</pubDate>
+    <lastBuildDate>Sat, 09 Jun 2018 12:22:00 +0800</lastBuildDate>
     <generator>Jekyll v3.4.3</generator>
-    
-      <item>
-        <title>2018 生活支出</title>
-        <description>&lt;ul&gt;
-  &lt;li&gt;上海交通大学软件学院: 01月01日&lt;/li&gt;
-  &lt;li&gt;中饭: 10元&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;晚饭: 15元&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;上海交通大学软件学院: 01月02日&lt;/li&gt;
-  &lt;li&gt;中饭: 10元&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;晚饭: 15元&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;上海交通大学软件学院: 01月03日&lt;/li&gt;
-  &lt;li&gt;中饭: 10元&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;晚饭: 15元&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;上海交通大学软件学院: 01月04日&lt;/li&gt;
-  &lt;li&gt;围巾: 149元&lt;/li&gt;
-  &lt;li&gt;话费: 100元&lt;/li&gt;
-  &lt;li&gt;吃的: 200元&lt;/li&gt;
-  &lt;li&gt;吃饭: 25元&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;礼品: 289元&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;上海交通大学软件学院: 01月05日&lt;/li&gt;
-  &lt;li&gt;高铁: 478元&lt;/li&gt;
-  &lt;li&gt;晚饭: 10元&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;卧铺: 275元&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;上海交通大学软件学院: 01月06日&lt;/li&gt;
-  &lt;li&gt;中饭: 20元&lt;/li&gt;
-  &lt;li&gt;打的: 94元+53元&lt;/li&gt;
-  &lt;li&gt;吃饭: 242元&lt;/li&gt;
-  &lt;li&gt;奶茶: 28元&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;夜宵: 52元&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;上海交通大学软件学院: 01月07日&lt;/li&gt;
-  &lt;li&gt;中饭: 28元&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;打的: 30元&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;上海交通大学软件学院：01月08日&lt;/li&gt;
-  &lt;li&gt;中饭: 19元&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;晚饭: 7元&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;上海交通大学软件学院: 01月09日&lt;/li&gt;
-  &lt;li&gt;中饭: 19元&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;晚饭: 10元&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;上海交通大学软件学院: 01月10日&lt;/li&gt;
-  &lt;li&gt;中饭: 10元&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;晚饭: 12元&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;上海交通大学软件学院: 01月11日&lt;/li&gt;
-  &lt;li&gt;中饭: 11元&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;晚饭：13元&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;上海交通大学软件学院: 01月12日&lt;/li&gt;
-  &lt;li&gt;中饭: 12元&lt;/li&gt;
-  &lt;li&gt;晚饭: 12元&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;电话卡: 9元&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;上海交通大学软件学院: 01月13日&lt;/li&gt;
-  &lt;li&gt;中饭: 13元&lt;/li&gt;
-  &lt;li&gt;晚饭: 10元&lt;/li&gt;
-  &lt;li&gt;书签: 8元&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        <pubDate>Mon, 01 Jan 2018 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/%E8%AE%B0%E5%BD%95/2018/01/01/Accountbook.html</link>
-        <guid isPermaLink="true">http://localhost:4000/%E8%AE%B0%E5%BD%95/2018/01/01/Accountbook.html</guid>
-        
-        
-        <category>记录</category>
-        
-      </item>
     
       <item>
         <title>2017半年总结</title>
@@ -137,8 +51,8 @@
 &lt;p&gt;说实话,这几个月的学习状态很差,效率很低.自己总是患得患失的,总不能坚持,这件事情结束了,下一件事情就会出现,我有的时候也不知道是怎么了.可能是真的不适合IT这个行业?谁知道呢?&lt;/p&gt;
 </description>
         <pubDate>Sun, 30 Jul 2017 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/%E8%AE%B0%E5%BD%95/2017/07/30/paperReview.html</link>
-        <guid isPermaLink="true">http://localhost:4000/%E8%AE%B0%E5%BD%95/2017/07/30/paperReview.html</guid>
+        <link>https://daicoolb.github.io/daicoolb//%E8%AE%B0%E5%BD%95/2017/07/30/paperReview.html</link>
+        <guid isPermaLink="true">https://daicoolb.github.io/daicoolb//%E8%AE%B0%E5%BD%95/2017/07/30/paperReview.html</guid>
         
         
         <category>记录</category>
@@ -155,7 +69,7 @@
 
 &lt;h2 id=&quot;一安装-spark&quot;&gt;一、安装 Spark&lt;/h2&gt;
 &lt;p&gt;访问&lt;a href=&quot;http://spark.apache.org/downloads.html&quot;&gt;Spark官方下载地址&lt;/a&gt;，按照如下图下载。
-&lt;img src=&quot;http://localhost:4000/assets/images/spark_1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;https://daicoolb.github.io/daicoolb//assets/images/spark_1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;该部分介绍了单机中 Spark 的安装。我们选择Spark 1.6.2版本教学。该教程的具体运行环境如下：&lt;/p&gt;
 
@@ -194,7 +108,7 @@ export SPARK_DIST_CLASSPATH=$(/usr/local/hadoop/bin/hadoop classpath)
 	bin/run-example SparkPi 2&amp;gt;&amp;amp;1 | grep “Pi is”
 这里涉及到Linux Shell中管道的知识，详情可以参考&lt;a href=&quot;http://dblab.xmu.edu.cn/blog/824-2/&quot;&gt;Linux Shell中的管道命令&lt;/a&gt;
 过滤后的运行结果如下图示，可以得到π 的 5 位小数近似值：
-&lt;img src=&quot;http://localhost:4000/assets/images/spark_6.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;https://daicoolb.github.io/daicoolb//assets/images/spark_6.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 &lt;h2 id=&quot;二使用-spark-shell-编写代码&quot;&gt;二、使用 Spark Shell 编写代码&lt;/h2&gt;
 &lt;p&gt;学习Spark程序开发，建议首先通过spark-shell交互式学习，加深Spark程序开发的理解。
 该部分介绍了 Spark Shell 的基本使用。Spark shell 提供了简单的方式来学习 API，也提供了交互的方式来分析数据。&lt;/p&gt;
@@ -207,7 +121,7 @@ export SPARK_DIST_CLASSPATH=$(/usr/local/hadoop/bin/hadoop classpath)
 
 &lt;p&gt;启动spark-shell后，会自动创建名为sc的spark context对象和名为sqlContext的sql context对象,如图：&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/spark_3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://daicoolb.github.io/daicoolb//assets/images/spark_3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 &lt;h2 id=&quot;加载text文件&quot;&gt;加载text文件&lt;/h2&gt;
 
 &lt;p&gt;spark创建sc，可以加载本地文件和HDFS文件创建RDD。这里用Spark自带的本地文件README.md文件测试。&lt;/p&gt;
@@ -274,7 +188,7 @@ java $SBT_OPTS -jar `dirname $0`/sbt-launch.jar &quot;$@&quot;
 
 &lt;p&gt;只要能得到如下图的版本信息就没问题：&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/spark_10.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://daicoolb.github.io/daicoolb//assets/images/spark_10.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Scala应用程序代码
 在终端中执行如下命令创建一个文件夹 sparkapp 作为应用程序根目录：&lt;/p&gt;
@@ -312,7 +226,7 @@ libraryDependencies += &quot;org.apache.spark&quot; %% &quot;spark-core&quot; % 
 
 &lt;p&gt;文件 simple.sbt 需要指明 Spark 和 Scala 的版本。在上面的配置信息中，scalaVersion用来指定scala的版本，sparkcore用来指定spark的版本，这两个版本信息都可以在之前的启动 Spark shell 的过程中，从屏幕的显示信息中找到。下面就是笔者在启动过程当中，看到的相关版本信息（备注：屏幕显示信息会很长，需要往回滚动屏幕仔细寻找信息）。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/spark_8.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://daicoolb.github.io/daicoolb//assets/images/spark_8.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;使用 sbt 打包 Scala 程序
 为保证 sbt 能正常运行，先执行如下命令检查整个应用程序的文件结构：&lt;/p&gt;
@@ -323,7 +237,7 @@ find .
 
 &lt;p&gt;文件结构应如下图所示：&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/spark_7.png}&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://daicoolb.github.io/daicoolb//assets/images/spark_7.png}&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;接着，我们就可以通过如下代码将整个应用程序打包成 JAR（首次运行同样需要下载依赖包 ）：&lt;/p&gt;
 
@@ -332,7 +246,7 @@ find .
 
 &lt;p&gt;打包成功的话，会输出如下图内容：&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/spark_5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://daicoolb.github.io/daicoolb//assets/images/spark_5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;生成的 jar 包的位置为 ~/sparkapp/target/scala-2.10/simple-project_2.10-1.0.jar。&lt;/p&gt;
 
@@ -418,7 +332,7 @@ public class SimpleApp {
 
 &lt;p&gt;关于Spark dependency的依赖关系，可以访问&lt;a href=&quot;http://search.maven.org/&quot;&gt;The Central Repository&lt;/a&gt;。搜索spark-core可以找到相关依赖关系信息。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/spark_4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://daicoolb.github.io/daicoolb//assets/images/spark_4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;使用maven打包java程序
 为了保证maven能够正常运行，先执行如下命令检查整个应用程序的文件结构:&lt;/p&gt;
@@ -429,7 +343,7 @@ find
 
 &lt;p&gt;文件结构如下图：&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/spark_9.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://daicoolb.github.io/daicoolb//assets/images/spark_9.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;接着，我们可以通过如下代码将这整个应用程序打包成Jar(注意：电脑需要保持连接网络的状态，而且首次运行同样下载依赖包，同样消耗几分钟的时间):&lt;/p&gt;
 
@@ -438,7 +352,7 @@ find
 
 &lt;p&gt;如出现下图，说明生成Jar包成功：&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/spark_2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://daicoolb.github.io/daicoolb//assets/images/spark_2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;通过spark-submit 运行程序
 最后，可以通过将生成的jar包通过spark-submit提交到Spark中运行，如下命令：&lt;/p&gt;
@@ -455,8 +369,8 @@ find
 
 </description>
         <pubDate>Wed, 21 Jun 2017 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/%E7%A0%94%E7%A9%B6/2017/06/21/Spark.html</link>
-        <guid isPermaLink="true">http://localhost:4000/%E7%A0%94%E7%A9%B6/2017/06/21/Spark.html</guid>
+        <link>https://daicoolb.github.io/daicoolb//%E7%A0%94%E7%A9%B6/2017/06/21/Spark.html</link>
+        <guid isPermaLink="true">https://daicoolb.github.io/daicoolb//%E7%A0%94%E7%A9%B6/2017/06/21/Spark.html</guid>
         
         <category>Note</category>
         
@@ -470,7 +384,7 @@ find
         <description>&lt;p&gt;排序有内部排序和外部排序，内部排序是数据记录在内存中进行排序，而外部排序是因排序的数据很大，一次不能容纳全部的排序记录，在排序过程中需要访问外存。
 我们这里说说八大排序就是内部排序。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/sort_1.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://daicoolb.github.io/daicoolb//assets/images/sort_1.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;当n较大，则应采用时间复杂度为O(nlog2n)的排序方法：快速排序、堆排序或归并排序序。&lt;/p&gt;
 
@@ -484,7 +398,7 @@ find
 
 &lt;p&gt;直接插入排序示例：&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/sort_2.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://daicoolb.github.io/daicoolb//assets/images/sort_2.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;如果碰见一个和插入元素相等的，那么插入元素把想插入的元素放在相等元素的后面。所以，相等元素的前后顺序没有改变，从原无序序列出去的顺序就是排好序后的顺序，所以插入排序是稳定的。&lt;/p&gt;
 
@@ -544,7 +458,7 @@ int main(){
 每趟排序，根据对应的增量ti，将待排序列分割成若干长度为m 的子序列，分别对各子表进行直接插入排序。仅增量因子为1 时，整个序列作为一个表来处理，表长度即为整个序列的长度。
 希尔排序的示例：&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/sort_3.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://daicoolb.github.io/daicoolb//assets/images/sort_3.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;算法实现：&lt;/p&gt;
 
@@ -610,7 +524,7 @@ int main(){
 &lt;p&gt;在要排序的一组数中，选出最小（或者最大）的一个数与第1个位置的数交换；然后在剩下的数当中再找最小（或者最大）的与第2个位置的数交换，依次类推，直到第n-1个元素（倒数第二个数）和第n个元素（最后一个数）比较为止。&lt;/p&gt;
 
 &lt;p&gt;简单选择排序的示例：
-&lt;img src=&quot;http://localhost:4000/assets/images/sort_4.jpg&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;https://daicoolb.github.io/daicoolb//assets/images/sort_4.jpg&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;
 操作方法：&lt;/p&gt;
 
 &lt;p&gt;第一趟，从n 个记录中找出关键码最小的记录与第一个记录交换；&lt;/p&gt;
@@ -704,7 +618,7 @@ int main(){
 
 &lt;p&gt;堆的定义如下：具有n个元素的序列（k1,k2,…,kn),当且仅当满足&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/sort_5.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://daicoolb.github.io/daicoolb//assets/images/sort_5.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;时称之为堆。由堆的定义可以看出，堆顶元素（即第一个元素）必为最小项（小顶堆）。
 若以一维数组存储一个堆，则堆对应一棵完全二叉树，且所有非叶结点的值均不大于(或不小于)其子女的值，根结点（堆顶元素）的值是最小(或最大)的。如：&lt;/p&gt;
@@ -713,7 +627,7 @@ int main(){
 
 &lt;p&gt;(b) 小顶堆序列：（12，36，24，85，47，30，53，91）&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/sort_6.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://daicoolb.github.io/daicoolb//assets/images/sort_6.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;初始时把要排序的n个数的序列看作是一棵顺序存储的二叉树（一维数组存储二叉树），调整它们的存储序，使之成为一个堆，将堆顶元素输出，得到n 个元素中最小(或最大)的元素，这时堆的根节点的数最小（或者最大）。然后对前面(n-1)个元素重新调整使之成为堆，输出堆顶元素，得到n 个元素中次小(或次大)的元素。依此类推，直到只有两个节点的堆，并对它们作交换，最后得到有n个节点的有序序列。称这个过程为堆排序。&lt;/p&gt;
 
@@ -738,7 +652,7 @@ int main(){
 
 &lt;p&gt;称这个自根结点到叶子结点的调整过程为筛选。如图：&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/sort_7.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://daicoolb.github.io/daicoolb//assets/images/sort_7.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;再讨论对n 个元素初始建堆的过程。
 建堆方法：对初始序列建堆的过程，就是一个反复进行筛选的过程。&lt;/p&gt;
@@ -751,7 +665,7 @@ int main(){
 
 &lt;p&gt;如图建堆初始过程：无序序列：（49，38，65，97，76，13，27，49）&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/sort_8.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://daicoolb.github.io/daicoolb//assets/images/sort_8.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;算法的实现：&lt;/p&gt;
 
@@ -839,7 +753,7 @@ int main(){
 
 &lt;p&gt;分析:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/sort_9.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://daicoolb.github.io/daicoolb//assets/images/sort_9.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;设树深度为k，。从根到叶的筛选，元素比较次数至多2(k-1)次，交换记录至多k 次。所以，在建好堆后，排序过程中的筛选次数不超过下式：&lt;/p&gt;
 
@@ -852,7 +766,7 @@ int main(){
 
 &lt;p&gt;冒泡排序的示例：&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/sort_10.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://daicoolb.github.io/daicoolb//assets/images/sort_10.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;算法的实现：&lt;/p&gt;
 
@@ -927,11 +841,11 @@ int main(){
 &lt;p&gt;快速排序的示例：
 （a）一趟排序的过程：&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/sort_11.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://daicoolb.github.io/daicoolb//assets/images/sort_11.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;（b）排序的全过程&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/sort_12.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://daicoolb.github.io/daicoolb//assets/images/sort_12.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;算法的实现：&lt;/p&gt;
 
@@ -1060,7 +974,7 @@ int main(){
 
 &lt;p&gt;归并排序示例：&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/sort_13.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://daicoolb.github.io/daicoolb//assets/images/sort_13.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;合并方法：&lt;/p&gt;
 
@@ -1221,7 +1135,7 @@ void MergeSort_recursive(ElemType *r, ElemType *rf, int n)
 
 &lt;p&gt;设n 个元素的待排序列包含d 个关键码{k1，k2，…，kd}，则称序列对关键码{k1，k2，…，kd}有序是指：对于序列中任两个记录r[i]和r&lt;a href=&quot;1≤i≤j≤n&quot;&gt;j&lt;/a&gt;都满足下列有序关系：&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/sort_14.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://daicoolb.github.io/daicoolb//assets/images/sort_14.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;其中k1 称为最主位关键码，kd 称为最次位关键码。&lt;/p&gt;
 
@@ -1281,15 +1195,15 @@ void MergeSort_recursive(ElemType *r, ElemType *rf, int n)
 &lt;p&gt;总结
 各种排序的稳定性，时间复杂度和空间复杂度总结：&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/sort_15.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://daicoolb.github.io/daicoolb//assets/images/sort_15.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;我们比较时间复杂度函数的情况：&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/sort_16.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://daicoolb.github.io/daicoolb//assets/images/sort_16.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;时间复杂度函数O(n)的增长情况&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/sort_17.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://daicoolb.github.io/daicoolb//assets/images/sort_17.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;所以对n较大的排序记录。一般的选择都是时间复杂度为O(nlog2n)的排序方法。&lt;/p&gt;
 
@@ -1361,8 +1275,8 @@ void MergeSort_recursive(ElemType *r, ElemType *rf, int n)
 
 </description>
         <pubDate>Sun, 28 May 2017 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/%E7%A0%94%E7%A9%B6/2017/05/28/Sort.html</link>
-        <guid isPermaLink="true">http://localhost:4000/%E7%A0%94%E7%A9%B6/2017/05/28/Sort.html</guid>
+        <link>https://daicoolb.github.io/daicoolb//%E7%A0%94%E7%A9%B6/2017/05/28/Sort.html</link>
+        <guid isPermaLink="true">https://daicoolb.github.io/daicoolb//%E7%A0%94%E7%A9%B6/2017/05/28/Sort.html</guid>
         
         <category>Note</category>
         
@@ -1391,11 +1305,11 @@ void MergeSort_recursive(ElemType *r, ElemType *rf, int n)
 
 &lt;p&gt;FM（Factorization Machine）是由Konstanz大学Steffen Rendle（现任职于Google）于2010年最早提出的，旨在解决稀疏数据下的特征组合问题&lt;a href=&quot;http://www.algo.uni-konstanz.de/members/rendle/pdf/Rendle2010FM.pdf&quot;&gt;7&lt;/a&gt;。下面以一个示例引入FM模型。假设一个广告分类的问题，根据用户和广告位相关的特征，预测用户是否点击了广告。源数据如下&lt;a href=&quot;http://www.cs.cmu.edu/~wcohen/10-605/2015-guest-lecture/FM.pdf&quot;&gt;8&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/FM-1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://daicoolb.github.io/daicoolb//assets/images/FM-1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;“Clicked?”是label，Country、Day、Ad_type是特征。由于三种特征都是categorical类型的，需要经过独热编码（One-Hot Encoding）转换成数值型特征。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/FM-2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://daicoolb.github.io/daicoolb//assets/images/FM-2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;由上表可以看出，经过One-Hot编码之后，大部分样本数据特征是比较稀疏的。上面的样例中，每个样本有7维特征，但平均仅有3维特征具有非零值。实际上，这种情况并不是此例独有的，在真实应用场景中这种情况普遍存在。例如，CTR/CVR预测时，用户的性别、职业、教育水平、品类偏好，商品的品类等，经过One-Hot编码转换后都会导致样本数据的稀疏性。特别是商品品类这种类型的特征，如商品的末级品类约有550个，采用One-Hot编码生成550个数值特征，但每个样本的这550个特征，有且仅有一个是有效的（非零）。由此可见，数据稀疏性是实际问题中不可避免的挑战。&lt;/p&gt;
 
@@ -1413,7 +1327,7 @@ void MergeSort_recursive(ElemType *r, ElemType *rf, int n)
 
 &lt;p&gt;那么，如何解决二次项参数的训练问题呢？矩阵分解提供了一种解决思路。在model-based的协同过滤中，一个rating矩阵可以分解为user矩阵和item矩阵，每个user和item都可以采用一个隐向量表示[8]。比如在下图中的例子中，我们把每个user表示成一个二维向量，同时把每个item表示成一个二维向量，两个向量的点积就是矩阵中user对item的打分&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/FM-3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://daicoolb.github.io/daicoolb//assets/images/FM-3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;类似地，所有二次项参数 wijwij 可以组成一个对称阵 WW（为了方便说明FM的由来，对角元素可以设置为正实数），那么这个矩阵就可以分解为 W=VTVW=VTV，VV 的第 jj 列便是第 jj 维特征的隐向量。换句话说，每个参数 wij=⟨vi,vj⟩wij=⟨vi,vj⟩，这就是FM模型的核心思想。因此，FM的模型方程为（本文不讨论FM的高阶形式）&lt;/p&gt;
 
@@ -1452,15 +1366,15 @@ void MergeSort_recursive(ElemType *r, ElemType *rf, int n)
 
 &lt;p&gt;下面以一个例子简单说明FFM的特征组合方式[9]。输入记录如下&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/FM-4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://daicoolb.github.io/daicoolb//assets/images/FM-4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;这条记录可以编码成5个特征，其中“Genre=Comedy”和“Genre=Drama”属于同一个field，“Price”是数值型，不用One-Hot编码转换。为了方便说明FFM的样本格式，我们将所有的特征和对应的field映射成整数编号。&lt;/p&gt;
 
-&lt;p&gt;![] (http://localhost:4000/assets/images/FM-5.png)&lt;/p&gt;
+&lt;p&gt;![] (https://daicoolb.github.io/daicoolb//assets/images/FM-5.png)&lt;/p&gt;
 
 &lt;p&gt;那么，FFM的组合特征有10项，如下图所示。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/FM-6.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://daicoolb.github.io/daicoolb//assets/images/FM-6.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;其中，红色是field编号，蓝色是特征编号，绿色是此样本的特征取值。二次项的系数是通过与特征field相关的隐向量点积得到的，二次项共有 n(n−1)2n(n−1)2 个。&lt;/p&gt;
 
@@ -1476,7 +1390,7 @@ void MergeSort_recursive(ElemType *r, ElemType *rf, int n)
 
 &lt;p&gt;其中，yi∈{−1,1}yi∈{−1,1} 是第 ii 个样本的label，LL 是训练样本数量，λλ 是惩罚项系数。模型采用SGD优化，优化流程如下。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/FM-7.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://daicoolb.github.io/daicoolb//assets/images/FM-7.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;参考 Algorithm1Algorithm1, 下面简单解释一下FFM的SGD优化过程。
 算法的输入 trtr、vava、papa 分别是训练样本集、验证样本集和训练参数设置。&lt;/p&gt;
@@ -1524,7 +1438,7 @@ void MergeSort_recursive(ElemType *r, ElemType *rf, int n)
 
 &lt;p&gt;CTR、CVR预估样本的类别是按不同方式获取的。CTR预估的正样本是站内点击的用户-商品记录，负样本是展现但未点击的记录；CVR预估的正样本是站内支付（发生转化）的用户-商品记录，负样本是点击但未支付的记录。构建出样本数据后，采用FFM训练预估模型，并测试模型的性能。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/FM-8.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://daicoolb.github.io/daicoolb//assets/images/FM-8.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;由于模型是按天训练的，每天的性能指标可能会有些波动，但变化幅度不是很大。这个表的结果说明，站内CTR/CVR预估模型是非常有效的。&lt;/p&gt;
 
@@ -1542,8 +1456,8 @@ void MergeSort_recursive(ElemType *r, ElemType *rf, int n)
 
 </description>
         <pubDate>Mon, 15 May 2017 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/%E7%A0%94%E7%A9%B6/2017/05/15/FM.html</link>
-        <guid isPermaLink="true">http://localhost:4000/%E7%A0%94%E7%A9%B6/2017/05/15/FM.html</guid>
+        <link>https://daicoolb.github.io/daicoolb//%E7%A0%94%E7%A9%B6/2017/05/15/FM.html</link>
+        <guid isPermaLink="true">https://daicoolb.github.io/daicoolb//%E7%A0%94%E7%A9%B6/2017/05/15/FM.html</guid>
         
         <category>FM</category>
         
@@ -1559,7 +1473,7 @@ void MergeSort_recursive(ElemType *r, ElemType *rf, int n)
 
 &lt;p&gt;自编码器（AutoEncoder），即可以使用自身的高阶特征自我编码，自编码器其实也是一种神经网络，其输入和输出是一致的，借助了稀疏编码的思想，目标是使用稀疏的高阶特征重新组合来重构自己。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/autoencoder_schema.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://daicoolb.github.io/daicoolb//assets/images/autoencoder_schema.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;二完整代码&quot;&gt;二、完整代码&lt;/h2&gt;
 
@@ -1625,13 +1539,13 @@ plt.show()
 
 &lt;p&gt;首先，导入数据并进行数据预处理，本例使用Model模块的Keras的泛化模型来进行模型搭建，便于我们从模型中间导出数据并进行可视化。进行模型搭建的时候，注意要进行逐层特征提取，最终压缩至2维，解码的过程要跟编码过程一致相反。随后对Autoencoder和encoder分别建模，编译、训练。将编码模型的预测结果通过Matplotlib可视化出来，就可以看到原数据的二维编码结果在二维平面上的聚类效果，还是很明显的。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/autoencoder_figure.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://daicoolb.github.io/daicoolb//assets/images/autoencoder_figure.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;最后看到可视化的结果，自编码模型可以把这几个数字给区分开来，我们可以用自编码这个过程来作为一个特征压缩的方法，和PCA的功能一样，效果要比它好一些，因为它是非线性的结构。&lt;/p&gt;
 </description>
         <pubDate>Fri, 12 May 2017 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/%E7%A0%94%E7%A9%B6/2017/05/12/AutoEncoder.html</link>
-        <guid isPermaLink="true">http://localhost:4000/%E7%A0%94%E7%A9%B6/2017/05/12/AutoEncoder.html</guid>
+        <link>https://daicoolb.github.io/daicoolb//%E7%A0%94%E7%A9%B6/2017/05/12/AutoEncoder.html</link>
+        <guid isPermaLink="true">https://daicoolb.github.io/daicoolb//%E7%A0%94%E7%A9%B6/2017/05/12/AutoEncoder.html</guid>
         
         <category>Linux</category>
         
@@ -1677,7 +1591,7 @@ plt.show()
 
 &lt;p&gt;The &lt;strong&gt;&lt;em&gt;regularization term&lt;/em&gt;&lt;/strong&gt; is what people usually forget to add. The regularization term controls the complexity of the model, which helps us to avoid overfitting. This sounds a bit abstract, so let us consider the following problem in the following picture. You are asked to fit visually a step function given the input data points on the upper left corner of the image. Which solution among the three do you think is the best fit?&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/xgboost_1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://daicoolb.github.io/daicoolb//assets/images/xgboost_1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;he correct answer is marked in red. Please consider if this visually seems a reasonable fit to you. The general principle is we want both a &lt;strong&gt;&lt;em&gt;simple&lt;/em&gt;&lt;/strong&gt; and &lt;strong&gt;&lt;em&gt;predictive&lt;/em&gt;&lt;/strong&gt; model. The tradeoff between the two is also referred as bias-variance tradeoff in machine learning.&lt;/p&gt;
 
@@ -1689,13 +1603,13 @@ plt.show()
 
 &lt;p&gt;Now that we have introduced the elements of supervised learning, let us get started with real trees. To begin with, let us first learn about the &lt;strong&gt;&lt;em&gt;model&lt;/em&gt;&lt;/strong&gt; of xgboost: tree ensembles. The tree ensemble model is a set of classification and regression trees (CART). Here’s a simple example of a CART that classifies whether someone will like computer games.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/xgboost_2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://daicoolb.github.io/daicoolb//assets/images/xgboost_2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;We classify the members of a family into different leaves, and assign them the score on the corresponding leaf. A CART is a bit different from decision trees, where the leaf only contains decision values. In CART, a real score is associated with each of the leaves, which gives us richer interpretations that go beyond classification. This also makes the unified optimization step easier, as we will see in a later part of this tutorial.&lt;/p&gt;
 
 &lt;p&gt;Usually, a single tree is not strong enough to be used in practice. What is actually used is the so-called tree ensemble model, which sums the prediction of multiple trees together.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/xgboost_3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://daicoolb.github.io/daicoolb//assets/images/xgboost_3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Here is an example of a tree ensemble of two trees. The prediction scores of each individual tree are summed up to get the final score. If you look at the example, an important fact is that the two trees try to complement each other. Mathematically, we can write our model in the form&lt;/p&gt;
 
@@ -1792,7 +1706,7 @@ h_i &amp;= \partial_{\hat{y}_i^{(t-1)}}^2 l(y_i, \hat{y}_i^{(t-1)})
 
 &lt;p&gt;The last equation measures &lt;strong&gt;&lt;em&gt;how good&lt;/em&gt;&lt;/strong&gt; a tree structure &lt;script type=&quot;math/tex&quot;&gt;q(x)&lt;/script&gt; is.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/xgboost_4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://daicoolb.github.io/daicoolb//assets/images/xgboost_4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;If all this sounds a bit complicated, let’s take a look at the picture, and see how the scores can be calculated. Basically, for a given tree structure, we push the statistics &lt;script type=&quot;math/tex&quot;&gt;g_i&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;h_i&lt;/script&gt; to the leaves they belong to, sum the statistics together, and use the formula to calculate how good the tree is. This score is like the impurity measure in a decision tree, except that it also takes the model complexity into account.&lt;/p&gt;
 
@@ -1806,7 +1720,7 @@ h_i &amp;= \partial_{\hat{y}_i^{(t-1)}}^2 l(y_i, \hat{y}_i^{(t-1)})
 
 &lt;p&gt;For real valued data, we usually want to search for an optimal split. To efficiently do so, we place all the instances in sorted order, like the following picture.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/xgboost_5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://daicoolb.github.io/daicoolb//assets/images/xgboost_5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;A left to right scan is sufficient to calculate the structure score of all possible split solutions, and we can find the best split efficiently.&lt;/p&gt;
 
@@ -1815,8 +1729,8 @@ h_i &amp;= \partial_{\hat{y}_i^{(t-1)}}^2 l(y_i, \hat{y}_i^{(t-1)})
 
 </description>
         <pubDate>Wed, 10 May 2017 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/%E7%A0%94%E7%A9%B6/2017/05/10/XGBoost.html</link>
-        <guid isPermaLink="true">http://localhost:4000/%E7%A0%94%E7%A9%B6/2017/05/10/XGBoost.html</guid>
+        <link>https://daicoolb.github.io/daicoolb//%E7%A0%94%E7%A9%B6/2017/05/10/XGBoost.html</link>
+        <guid isPermaLink="true">https://daicoolb.github.io/daicoolb//%E7%A0%94%E7%A9%B6/2017/05/10/XGBoost.html</guid>
         
         <category>Note</category>
         
@@ -2450,8 +2364,8 @@ h_i &amp;= \partial_{\hat{y}_i^{(t-1)}}^2 l(y_i, \hat{y}_i^{(t-1)})
 &lt;/table&gt;
 </description>
         <pubDate>Tue, 25 Apr 2017 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/%E7%A0%94%E7%A9%B6/2017/04/25/CCF.html</link>
-        <guid isPermaLink="true">http://localhost:4000/%E7%A0%94%E7%A9%B6/2017/04/25/CCF.html</guid>
+        <link>https://daicoolb.github.io/daicoolb//%E7%A0%94%E7%A9%B6/2017/04/25/CCF.html</link>
+        <guid isPermaLink="true">https://daicoolb.github.io/daicoolb//%E7%A0%94%E7%A9%B6/2017/04/25/CCF.html</guid>
         
         <category>Note</category>
         
@@ -2683,8 +2597,8 @@ There is a screen on:
 &lt;p&gt;而使用了 screen 后就不同了，此时 bash 是 screen 的子进程，而 screen 是 init（PID为1）的子进程。那么当 ssh 断开连接时，HUP 信号自然不会影响到 screen 下面的子进程了。&lt;/p&gt;
 </description>
         <pubDate>Thu, 06 Apr 2017 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/%E7%A0%94%E7%A9%B6/2017/04/06/LinuxBackProcess.html</link>
-        <guid isPermaLink="true">http://localhost:4000/%E7%A0%94%E7%A9%B6/2017/04/06/LinuxBackProcess.html</guid>
+        <link>https://daicoolb.github.io/daicoolb//%E7%A0%94%E7%A9%B6/2017/04/06/LinuxBackProcess.html</link>
+        <guid isPermaLink="true">https://daicoolb.github.io/daicoolb//%E7%A0%94%E7%A9%B6/2017/04/06/LinuxBackProcess.html</guid>
         
         <category>Linux</category>
         
@@ -2786,10 +2700,189 @@ There is a screen on:
 
 </description>
         <pubDate>Sun, 12 Mar 2017 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/%E7%A0%94%E7%A9%B6/2017/03/12/LearningMethod.html</link>
-        <guid isPermaLink="true">http://localhost:4000/%E7%A0%94%E7%A9%B6/2017/03/12/LearningMethod.html</guid>
+        <link>https://daicoolb.github.io/daicoolb//%E7%A0%94%E7%A9%B6/2017/03/12/LearningMethod.html</link>
+        <guid isPermaLink="true">https://daicoolb.github.io/daicoolb//%E7%A0%94%E7%A9%B6/2017/03/12/LearningMethod.html</guid>
         
         <category>Method</category>
+        
+        
+        <category>研究</category>
+        
+      </item>
+    
+      <item>
+        <title>Linux Apt</title>
+        <description>&lt;ul&gt;
+  &lt;li&gt;the difference between apt-get update and apt-get upgrade
+&lt;a href=&quot;http://askubuntu.com/questions/94102/what-is-the-difference-between-apt-get-update-and-upgrade&quot;&gt;link&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;apt-get update&lt;/em&gt; updates the list of available packages and their versions, but it does not install or upgrade any packages.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;em&gt;apt-get upgrade&lt;/em&gt; actually installs newer versions of the packages you have. After updating the lists, the package manager knows about available updates for the software you have installed. This is why you first want to update.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Linux install java jdk &lt;a href=&quot;http://stackoverflow.com/questions/14788345/how-to-install-jdk-on-ubuntu-linux&quot;&gt;link&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;sudo apt-get install openjdk-7-jdk&lt;/li&gt;
+      &lt;li&gt;apt-cache search jdk&lt;/li&gt;
+      &lt;li&gt;export JAVA_HOME=/usr/lib/jvm/java-7-openjdk&lt;/li&gt;
+      &lt;li&gt;export PATH=$PATH:/usr/lib/jvm/java-7-openjdk/bin&lt;/li&gt;
+      &lt;li&gt;javac -version&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;what-is-apt-get&quot;&gt;What is apt-get?&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;The apt-get utility is a powerful and free package management command line program, that is used to work with Ubuntu’s APT (Advanced Packaging Tool) library to perform installation of new software packages, removing existing software packages, upgrading of existing software packages and even used to upgrading the entire operating system.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;what-is-apt-cache&quot;&gt;What is apt-cache&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;The apt-cache command line tool is used for searching apt software package cache. In simple words, this tool is used to search software packages, collects information of packages and also used to search for what available packages are ready for installation on Debian or Ubuntu based systems.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;how-do-i-list-all-available-packages&quot;&gt;How Do I List All Available Packages?&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;To list all the available packages, type the following command.&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;apt-cache pkgnames&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;how-do-i-find-out-package-name-and-description-of-software&quot;&gt;How Do I Find Out Package Name and Description of Software?&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;To find out the package name and with it description before installing, use the ‘search‘ flag. Using “search” with apt-cache will display a list of matched packages with short description. Let’s say you would like to find out description of package ‘vsftpd‘, then command would be&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;apt-cache search vsftpd&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;how-do-i-check-package-information&quot;&gt;How Do I Check Package Information?&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;For example, if you would like to check information of package along with it short description say (version number, check sums, size, installed size, category etc). Use ‘show‘ sub command as shown below.&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;apt-cache show netcat&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;how-do-i-check-dependencies-for-specific-packages&quot;&gt;How Do I Check Dependencies for Specific Packages?&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Use the ‘showpkg‘ sub command to check the dependencies for particular software packages. whether those dependencies packages are installed or not. For example, use the ‘showpkg‘ command along with package-name.&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;apt-cache showpkg vsftpd&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;how-do-i-check-statistics-of-cache&quot;&gt;How Do I Check statistics of Cache&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;The ‘stats‘ sub command will display overall statistics about the cache. For example, the following command will display Total package names is the number of packages have found in the cache.&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;apt-cache stats&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;how-do-i-remove-packages-without-configuration&quot;&gt;How Do I Remove Packages Without Configuration?&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;To un-install software packages without removing their configuration files (for later re-use the same configuration). Use the ‘remove‘ command as shown.&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;sudo apt-get remove vsftpd&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;how-do-i-completely-remove-packages&quot;&gt;How Do I Completely Remove Packages?&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;To remove software packages including their configuration files, use the ‘purge‘ sub command as shown below&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;sudo apt-get purge vsftpd
+Alternatively, you can combine both the commands together as shown below.&lt;/li&gt;
+    &lt;li&gt;sudo apt-get remove –purge vsftpd&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;how-i-can-clean-up-disk-space&quot;&gt;How I Can Clean Up Disk Space&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;The ‘clean‘ command is used to free up the disk space by cleaning retrieved (downloaded) .deb files (packages) from the local repository.&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;sudo apt-get clean&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;how-do-i-download-only-source-code-of-package&quot;&gt;How Do I Download Only Source Code of Package&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;To download only source code of particular package, use the option ‘–download-only source‘ with ‘package-name’ as shown.&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;sudo apt-get –download-only source vsftpd&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;how-can-i-download-and-unpack-a-package&quot;&gt;How Can I Download and Unpack a Package&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;To download and unpack source code of a package to a specific directory, type the following command.&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;sudo apt-get source vsftpd&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;how-can-i-download-unpack-and-compile-a-package&quot;&gt;How Can I Download, Unpack and Compile a Package&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;You can also download, unpack and compile the source code at the same time, using option ‘–compile‘ as shown below.&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;sudo apt-get –compile source goaccess&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;how-do-i-download-a-package-without-installing&quot;&gt;How Do I Download a Package Without Installing&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Using ‘download‘ option, you can download any given package without installing it. For example, the following command will only download ‘nethogs‘ package to current working directory&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;sudo apt-get download nethogs&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;how-do-i-check-change-log-of-package&quot;&gt;How Do I Check Change Log of Package?&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;The ‘changelog‘ flag downloads a package change-log and shows the package version that is installed.&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;sudo apt-get changelog vsftpd&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;how-do-i-check-broken-dependencies&quot;&gt;How Do I Check Broken Dependencies?&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;The ‘check‘ command is a diagnostic tool. It used to update package cache and checks for broken dependencies.&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;sudo apt-get check&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;how-do-i-search-and-build-dependencies&quot;&gt;How Do I Search and Build Dependencies?&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;This ‘build-dep‘ command searches the local repositories in the system and install the build dependencies for package. If the package does not exists in the local repository it will return an error code.&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;sudo apt-get build-dep netcat&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;how-i-can-auto-clean-apt-get-cache&quot;&gt;How I Can Auto clean Apt-Get Cache?&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;The ‘autoclean‘ command deletes all .deb files from /var/cache/apt/archives to free-up significant volume of disk space.&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;sudo apt-get autoclean&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;how-i-can-auto-remove-installed-packages&quot;&gt;How I Can Auto remove Installed Packages?&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;The ‘autoremove‘ sub command is used to auto remove packages that were certainly installed to satisfy dependencies for other packages and but they were now no longer required. For example, the following command will remove an installed package with its dependencies.&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;sudo apt-get autoremove vsftpd&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+</description>
+        <pubDate>Sat, 11 Mar 2017 00:00:00 +0800</pubDate>
+        <link>https://daicoolb.github.io/daicoolb//%E7%A0%94%E7%A9%B6/2017/03/11/LinuxApt.html</link>
+        <guid isPermaLink="true">https://daicoolb.github.io/daicoolb//%E7%A0%94%E7%A9%B6/2017/03/11/LinuxApt.html</guid>
+        
+        <category>Linux</category>
         
         
         <category>研究</category>
